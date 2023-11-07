@@ -36,7 +36,8 @@ export default async function decorate(block) {
       const section = fragment.querySelector(':scope .section');
       if (section) {
         block.closest('.section').classList.add(...section.classList);
-        block.closest('.section').append(...section.childNodes);
+        const wrapper = block.closest('.enrichment-wrapper');
+        section.childNodes.forEach((child) => wrapper.parentNode.insertBefore(child, wrapper));
       }
     });
 
