@@ -109,8 +109,12 @@ export default async function decorate(block) {
 
   function handleProductChanges({ productContext }) {
     context.currentSku = productContext.sku;
-    context.userViewHistory = window.adobeDataLayer
-      .getState('productContext', [-10, 0], { flatten: false })
+
+    let productViews = window.adobeDataLayer.getState('productContext', [-10, 0], { flatten: false });
+    if (!Array.isArray(productViews) && productViews) {
+      productViews = [productViews];
+    }
+    context.userViewHistory = productViews
       .map(({ sku }) => ({ sku }))
       .reduce((acc, current) => {
         const x = acc.find((p) => p.sku === current.sku);
