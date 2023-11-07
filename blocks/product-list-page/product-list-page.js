@@ -162,10 +162,11 @@ class ProductListPage extends Component {
       this.paginationClick = false;
     }
     this.props.resolve();
-    /* getMagentoStorefrontEvents((mse) => {
-      mse.context.setCategory(loadPageDetails());
-      mse.publish.pageView();
-    }); */
+    window.adobeDataLayer.push({
+      categoryContext: {
+        name: this.state.category.name,
+      },
+    });
   };
 
   loadProducts = async () => {
@@ -271,6 +272,8 @@ export default async function decorate(block) {
 
   block.textContent = '';
   block.dataset.category = config.category;
+
+  window.adobeDataLayer.push({ pageContext: { pageType: 'Category' } });
 
   return new Promise((resolve) => {
     const app = html`<${ProductListPage} ...${config} block=${block} resolve=${resolve} />`;
