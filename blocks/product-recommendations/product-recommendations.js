@@ -97,6 +97,23 @@ async function loadRecommendation(block, context) {
   if (recommendationsPromise) {
     return;
   }
+
+  // Get user view history
+  let productViews = window.adobeDataLayer.getState('productContext', [-10, 0], { flatten: false });
+  if (!Array.isArray(productViews) && productViews) {
+    productViews = [productViews];
+  }
+  context.userViewHistory = productViews
+    .map(({ sku }) => ({ sku }))
+    .reduce((acc, current) => {
+      const x = acc.find((p) => p.sku === current.sku);
+      if (!x) {
+        return acc.concat([current]);
+      }
+      return acc;
+    }, []);
+
+  console.debug('Load recommendation with context', context);
   recommendationsPromise = performCatalogServiceQuery(recommendationsQuery, context);
   const { recommendations } = await recommendationsPromise;
   renderItems(block, recommendations);
@@ -109,21 +126,6 @@ export default async function decorate(block) {
 
   function handleProductChanges({ productContext }) {
     context.currentSku = productContext.sku;
-
-    let productViews = window.adobeDataLayer.getState('productContext', [-10, 0], { flatten: false });
-    if (!Array.isArray(productViews) && productViews) {
-      productViews = [productViews];
-    }
-    context.userViewHistory = productViews
-      .map(({ sku }) => ({ sku }))
-      .reduce((acc, current) => {
-        const x = acc.find((p) => p.sku === current.sku);
-        if (!x) {
-          return acc.concat([current]);
-        }
-        return acc;
-      }, []);
-
     loadRecommendation(block, context);
   }
 
@@ -132,11 +134,14 @@ export default async function decorate(block) {
     loadRecommendation(block, context);
   }
 
-  window.adobeDataLayer.push((dl) => {
-    context.pageType = dl.getState('pageContext')?.pageType;
+  function handlePageTypeChanges({ pageContext }) {
+    context.pageType = pageContext.pageType;
+    loadRecommendation(block, context);
+  }
 
+  window.adobeDataLayer.push((dl) => {
+    dl.addEventListener('adobeDataLayer:change', handlePageTypeChanges, { path: 'pageContext' });
     dl.addEventListener('adobeDataLayer:change', handleProductChanges, { path: 'productContext' });
     dl.addEventListener('adobeDataLayer:change', handleCategoryChanges, { path: 'categoryContext' });
-    loadRecommendation(block, context);
   });
 }
