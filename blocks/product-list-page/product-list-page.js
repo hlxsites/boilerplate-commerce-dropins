@@ -165,6 +165,9 @@ class ProductListPage extends Component {
     window.adobeDataLayer.push({
       categoryContext: {
         name: this.state.category.name,
+        // TODO: Update SaaS query to get these values
+        urlKey: this.state.category.id,
+        urlPath: this.state.category.id,
       },
     });
   };
@@ -272,8 +275,6 @@ export default async function decorate(block) {
 
   block.textContent = '';
   block.dataset.category = config.category;
-
-  window.adobeDataLayer.push({ pageContext: { pageType: 'Category' } });
 
   return new Promise((resolve) => {
     const app = html`<${ProductListPage} ...${config} block=${block} resolve=${resolve} />`;

@@ -94,7 +94,28 @@ async function loadEager(doc) {
     array.push(...args.filter((a) => typeof a !== 'function'));
     window.sessionStorage.setItem(`acdl:${window.acdlIndex}`, JSON.stringify(array));
   };
-  window.adobeDataLayer.push({ pageContext: { pageType: 'CMS' } });
+
+  let pageType = 'CMS';
+  if (document.body.querySelector('main .product-details')) {
+    pageType = 'Product';
+  } else if (document.body.querySelector('main .product-list-page')) {
+    pageType = 'Category';
+  } else if (document.body.querySelector('main .commerce-cart')) {
+    pageType = 'Cart';
+  } else if (document.body.querySelector('main .commerce-checkout')) {
+    pageType = 'Checkout';
+  }
+  window.adobeDataLayer.push({
+    pageContext: {
+      pageType,
+      pageName: document.title,
+      eventType: 'visibilityHidden',
+      maxXOffset: 0,
+      maxYOffset: 0,
+      minXOffset: 0,
+      minYOffset: 0,
+    },
+  });
 
   const main = doc.querySelector('main');
   if (main) {
@@ -131,7 +152,10 @@ async function loadLazy(doc) {
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
 
-  import('./acdl2.min.js');
+  await import('./acdl/acdl2.min.js');
+  if (sessionStorage.getItem('acdl:debug')) {
+    import('./acdl/validate.js');
+  }
 
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));

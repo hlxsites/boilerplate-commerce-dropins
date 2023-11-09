@@ -150,7 +150,8 @@ class ProductDetailPage extends Component {
     const { loading, product } = this.state;
     if (!loading && product) {
       setJsonLdProduct(product);
-      window.adobeDataLayer.push({ productContext: product });
+      // TODO: productId not exposed by catalog service as number
+      window.adobeDataLayer.push({ productContext: { productId: 0, ...product } });
       window.adobeDataLayer.push({ event: 'product-page-view' });
     }
   }
@@ -187,8 +188,6 @@ export default async function decorate($block) {
   if (!skuFromUrl) {
     errorGettingProduct();
   }
-
-  window.adobeDataLayer.push({ pageContext: { pageType: 'Product' } });
 
   const app = html`<${ProductDetailPage} sku=${skuFromUrl} />`;
 
