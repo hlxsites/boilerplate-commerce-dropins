@@ -99,7 +99,7 @@ async function loadRecommendation(block, context) {
   }
 
   // Get user view history
-  let productViews = window.adobeDataLayer.getState('productContext', [-10, 0], { flatten: false });
+  let productViews = window.adobeDataLayer.getState('productContext', [-10, 0], { flatten: false }) || [];
   if (!Array.isArray(productViews) && productViews) {
     productViews = [productViews];
   }
