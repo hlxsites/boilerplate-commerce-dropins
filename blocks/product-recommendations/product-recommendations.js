@@ -69,8 +69,8 @@ function renderItems(block, recommendations) {
   // Render only first recommendation
   const [recommendation] = recommendations.results;
   if (!recommendation) {
-    // Hide block if no recommendation available
-    block.parentElement.remove();
+    // Hide block content if no recommendations are available
+    block.textContent = '';
     return;
   }
 
@@ -113,7 +113,6 @@ async function loadRecommendation(block, context) {
       return acc;
     }, []);
 
-  console.debug('Load recommendation with context', context);
   recommendationsPromise = performCatalogServiceQuery(recommendationsQuery, context);
   const { recommendations } = await recommendationsPromise;
   renderItems(block, recommendations);
