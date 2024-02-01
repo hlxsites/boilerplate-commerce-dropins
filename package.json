@@ -38,7 +38,7 @@
     "@dropins/elsie": "latest",
     "@dropins/storefront-cart": "~0.1.0-alpha2",
     "@dropins/storefront-checkout": "~0.1.0-alpha11",
-    "@dropins/storefront-order-confirmation": "~0.1.0-alpha6",
+    "@dropins/storefront-order-confirmation": "~0.1.0-alpha7",
     "@dropins/storefront-pdp": "latest"
   }
 }
