@@ -50,10 +50,6 @@ export default async function decorate(block) {
             try {
               await addProductsToCart([{
                 ...ctx.values,
-
-                // TODO: PDP to rename values.optionUIDs to values.optionsUIDs
-                // for consistency. i.e. addProductsToCart([{ ...ctx.values }])
-                optionsUIDs: ctx.values.optionUIDs,
               }]);
 
               window.location.href = '/cart';
