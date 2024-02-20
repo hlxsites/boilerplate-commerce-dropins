@@ -19,7 +19,11 @@ export default async function initializeDropins() {
 
   // Cache cartId in session storage
   events.on('cart/data', (data) => {
-    sessionStorage.setItem('DROPINS_CART_ID', data.id);
+    if (data?.id) {
+      sessionStorage.setItem('DROPINS_CART_ID', data.id);
+    } else {
+      sessionStorage.removeItem('DROPINS_CART_ID');
+    }
   });
 
   // Mount all registered drop-ins
