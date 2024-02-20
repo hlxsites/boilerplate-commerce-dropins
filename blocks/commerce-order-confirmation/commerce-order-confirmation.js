@@ -22,7 +22,7 @@ export default async function decorate(block) {
 
   return provider.render(OrderConfirmation, {
     orderRef,
-    // eslint-disable-next-line no-console
-    onContinueShopping: () => console.log('continue shopping'),
+    routeHome: () => '/',
+    routeSupport: () => '/support',
   })(block);
 }
