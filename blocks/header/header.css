@@ -344,10 +344,9 @@ header .nav-search-panel input {
 }
 
 @media (width >= 1024px) {
-  header nav .nav-search-panel {
-    width: 398px;
-    left: unset;
-    right: 0;
+  header nav .minicart-wrapper,
+  header nav .search-wrapper {
+    position: relative;
   }
 
   header nav .minicart-panel {
@@ -356,7 +355,9 @@ header .nav-search-panel input {
     right: 0;
   }
 
-  header nav .minicart-wrapper {
-    position: relative;
+  header nav .nav-search-panel {
+    width: 398px;
+    left: unset;
+    right: 0;
   }
 }
