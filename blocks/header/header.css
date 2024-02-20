@@ -327,6 +327,8 @@ header .nav-search-panel input {
   box-sizing: border-box;
   font: var(--type-headline-2-default-font);
   letter-spacing: var(--type-headline-2-default-letter-spacing);
+  border: 1px solid currentcolor;
+  appearance: none;
 }
 
 /* Mini Cart  */
