@@ -1,8 +1,16 @@
 /* eslint-disable import/no-unresolved */
 
+// Drop-in Providers
+import { render as cartProvider } from '@dropins/storefront-cart/render.js';
+
+// Drop-in Containers
+import MiniCart from '@dropins/storefront-cart/containers/MiniCart.js';
+
+// Drop-in Tools
 import { events } from '@dropins/elsie/event-bus.js';
-import { getMetadata } from '../../scripts/aem.js';
+
 import { loadFragment } from '../fragment/fragment.js';
+import { getMetadata } from '../../scripts/aem.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -133,7 +141,7 @@ export default async function decorate(block) {
 
   const navTools = nav.querySelector('.nav-tools');
 
-  // Minicart
+  /** Mini Cart */
   const minicartButton = document.createRange().createContextualFragment(`<div class="minicart-wrapper">
     <button type="button" class="button nav-cart-button">&nbsp;&nbsp;</button>
     <div class="minicart-panel"></div>
@@ -141,18 +149,39 @@ export default async function decorate(block) {
 
   navTools.append(minicartButton);
 
-  // TODO: Toggle Mini Cart; Mini Cart Drop-in is not yet available, go to Cart page instead.
-  // const minicartPanel = navTools.querySelector('.minicart-panel');
-  // let cartVisible = false;
-  navTools.querySelector('.nav-cart-button').addEventListener('click', async () => {
-  //   cartVisible = !cartVisible;
-  //   minicartPanel.classList.toggle('minicart-panel-visible', cartVisible);
-    window.location.href = '/cart';
+  const minicartPanel = navTools.querySelector('.minicart-panel');
+
+  const cartButton = navTools.querySelector('.nav-cart-button');
+
+  async function toggleMiniCart(state) {
+    const show = state ?? !minicartPanel.classList.contains('minicart-panel--open');
+
+    if (show) {
+      await cartProvider.render(MiniCart, {
+        routeEmptyCartCTA: () => '/',
+        routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
+        routeCart: () => '/cart',
+        routeCheckout: () => '/checkout',
+      })(minicartPanel);
+    } else {
+      minicartPanel.innerHTML = '';
+    }
+
+    minicartPanel.classList.toggle('minicart-panel--open', show);
+  }
+
+  cartButton.addEventListener('click', () => toggleMiniCart());
+
+  // Close Mini Cart on click outside
+  document.addEventListener('click', (e) => {
+    if (!minicartPanel.contains(e.target) && !cartButton.contains(e.target)) {
+      toggleMiniCart(false);
+    }
   });
 
   // Cart Item Counter
   events.on('cart/data', (data) => {
-    navTools.querySelector('.nav-cart-button').textContent = data?.totalQuantity || '0';
+    cartButton.textContent = data?.totalQuantity || '0';
   }, { eager: true });
 
   // Search

@@ -280,8 +280,8 @@ button.button > u {
 }
 
 /* buttons */
-a.button:any-link,
-button.button {
+main a.button:any-link,
+main button.button {
   font: var(--type-button-2-font);
   letter-spacing: var(--type-button-2-letter-spacing);
   display: inline-block;
@@ -300,30 +300,30 @@ button.button {
   border-radius: 30px;
 }
 
-a.button:hover,
-a.button:focus,
-button.button:hover,
-button.button:focus {
+main a.button:hover,
+main a.button:focus,
+main button.button:hover,
+main button.button:focus {
   background-color: var(--color-brand-600);
   cursor: pointer;
 }
 
-a.button.disabled,
-button.button:disabled,
-button.button:disabled:hover {
+main a.button.disabled,
+main button.button:disabled,
+main button.button:disabled:hover {
   background-color: var(--color-neutral-300);
   cursor: unset;
 }
 
-a.button.secondary,
-button.button.secondary {
+main a.button.secondary,
+main button.button.secondary {
   background-color: unset;
   border: var(--shape-border-width-3) solid currentcolor;
   color: var(--color-brand-500);
 }
 
-a.button.secondary:hover,
-button.button.secondary:hover {
+main a.button.secondary:hover,
+main button.button.secondary:hover {
   color: var(--color-brand-600);
 }
 
@@ -377,7 +377,7 @@ main .section {
 }
 
 @media (width >=900px) {
-  .section > div {
+  main .section > div {
     max-width: 1200px;
     margin: auto;
   }

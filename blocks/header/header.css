@@ -53,10 +53,6 @@ header nav p {
   line-height: 1;
 }
 
-header nav a:any-link {
-  color: currentcolor;
-}
-
 /* hamburger */
 header nav .nav-hamburger {
   grid-area: hamburger;
@@ -276,13 +272,17 @@ header nav .nav-sections ul > li > ul > li {
 header nav .nav-tools {
   grid-area: tools;
   display: flex;
+  height: 100%;
   gap: 10px;
 }
 
-header nav .nav-tools > button, header nav .nav-tools .minicart-wrapper > button {
+header nav .nav-tools > button,
+header nav .nav-tools .minicart-wrapper > button {
   color: var(--color-brand-700);
   background: transparent;
   padding: 5px 10px;
+  height: 100%;
+  border: unset;
 }
 
 header nav .nav-tools button.nav-cart-button {
@@ -328,5 +328,45 @@ header .nav-search-input input {
 
   header .nav-search-input input {
     min-width: 400px;
+  }
+}
+
+/* Mini Cart  */
+
+.minicart-panel {
+  z-index: 100;
+  position: absolute;
+  box-shadow: var(--shape-shadow-2);
+  background: var(--background-color);
+  box-sizing: content-box;
+  left: 0;
+  width: 100%;
+}
+
+.minicart-panel:empty {
+  display: none;
+}
+
+.cart-mini-cart:not(:has(.cart-empty-cart)) {
+  max-height: 760px;
+  min-height: 360px;
+}
+
+/* If viewport height is below max, set max height to 90% of viewport */
+@media (height < 820px) {
+  .cart-mini-cart:not(:has(.cart-empty-cart)) {
+    max-height: calc(90vh - var(--nav-height));
+  }
+}
+
+@media (width >= 1024px) {
+  .minicart-wrapper {
+    position: relative;
+  }
+
+  .minicart-panel {
+    width: 398px;
+    left: unset;
+    right: 0;
   }
 }

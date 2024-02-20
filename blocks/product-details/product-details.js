@@ -37,6 +37,7 @@ export default async function decorate(block) {
   });
 
   // Render Containers
+
   return productRenderer.render(ProductDetails, {
     sku: getSkuFromUrl(),
     carousel: {
@@ -46,36 +47,33 @@ export default async function decorate(block) {
     slots: {
       Actions: (ctx) => {
         // Add to Cart Button
-        ctx.appendButton({
+        ctx.appendButton((next) => ({
           text: 'Add to Cart',
           icon: 'Cart',
           variant: 'primary',
           onClick: async () => {
             try {
-              if (!ctx.valid) {
+              if (!next.valid) {
                 // eslint-disable-next-line no-console
-                console.warn('Invalid product', ctx.values);
+                console.warn('Invalid product', next.values);
                 return;
               }
 
-              await addProductsToCart([{
-                ...ctx.values,
-              }]);
-
-              window.location.href = '/cart';
+              await addProductsToCart([{ ...next.values }]);
             } catch (error) {
               // eslint-disable-next-line no-console
               console.warn('Error adding product to cart', error);
             }
           },
-        });
+        }));
 
         // Add to Wishlist Button
-        // ctx.appendButton({
+        // ctx.appendButton(() => ({
         //   icon: 'Heart',
-        //   variant: 'primary',
+        //   variant: 'secondary',
+        //   text: 'Add to Wishlist',
         //   onClick: () => console.debug('Add to Wishlist', ctx.data),
-        // });
+        // }));
       },
     },
   })(block);
