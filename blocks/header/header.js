@@ -142,19 +142,21 @@ export default async function decorate(block) {
   const navTools = nav.querySelector('.nav-tools');
 
   /** Mini Cart */
-  const minicartButton = document.createRange().createContextualFragment(`<div class="minicart-wrapper">
-    <button type="button" class="button nav-cart-button">&nbsp;&nbsp;</button>
-    <div class="minicart-panel"></div>
-  </div>`);
+  const minicart = document.createRange().createContextualFragment(`
+    <div class="minicart-wrapper">
+      <button type="button" class="button nav-cart-button">&nbsp;&nbsp;</button>
+      <div class="minicart-panel nav-panel"></div>
+    </div>
+  `);
 
-  navTools.append(minicartButton);
+  navTools.append(minicart);
 
   const minicartPanel = navTools.querySelector('.minicart-panel');
 
   const cartButton = navTools.querySelector('.nav-cart-button');
 
   async function toggleMiniCart(state) {
-    const show = state ?? !minicartPanel.classList.contains('minicart-panel--open');
+    const show = state ?? !minicartPanel.classList.contains('nav-panel--show');
 
     if (show) {
       await cartProvider.render(MiniCart, {
@@ -167,31 +169,52 @@ export default async function decorate(block) {
       minicartPanel.innerHTML = '';
     }
 
-    minicartPanel.classList.toggle('minicart-panel--open', show);
+    minicartPanel.classList.toggle('nav-panel--show', show);
   }
 
   cartButton.addEventListener('click', () => toggleMiniCart());
-
-  // Close Mini Cart on click outside
-  document.addEventListener('click', (e) => {
-    if (!minicartPanel.contains(e.target) && !cartButton.contains(e.target)) {
-      toggleMiniCart(false);
-    }
-  });
 
   // Cart Item Counter
   events.on('cart/data', (data) => {
     cartButton.textContent = data?.totalQuantity || '0';
   }, { eager: true });
 
-  // Search
-  const searchInput = document.createRange().createContextualFragment('<div class="nav-search-input hidden"><form action="/search" method="GET"><input type="search" name="q" placeholder="Search" /></form></div>');
-  document.body.querySelector('header').append(searchInput);
+  /** Search */
 
-  const searchButton = document.createRange().createContextualFragment('<button type="button" class="button nav-search-button">Search</button>');
-  navTools.append(searchButton);
-  navTools.querySelector('.nav-search-button').addEventListener('click', () => {
-    document.querySelector('header .nav-search-input').classList.toggle('hidden');
+  const search = document.createRange().createContextualFragment(`
+  <div class="search-wrapper">
+    <button type="button" class="button nav-search-button">Search</button>
+    <div class="nav-search-input nav-search-panel nav-panel"><form action="/search" method="GET"><input type="search" name="q" placeholder="Search" /></form></div>
+  </div>
+  `);
+
+  navTools.append(search);
+
+  const searchPanel = navTools.querySelector('.nav-search-panel');
+
+  const searchButton = navTools.querySelector('.nav-search-button');
+
+  const searchInput = searchPanel.querySelector('input');
+
+  function toggleSearch(state) {
+    const show = state ?? !searchPanel.classList.contains('nav-panel--show');
+
+    searchPanel.classList.toggle('nav-panel--show', show);
+
+    if (show) searchInput.focus();
+  }
+
+  navTools.querySelector('.nav-search-button').addEventListener('click', () => toggleSearch());
+
+  // Close panels when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!minicartPanel.contains(e.target) && !cartButton.contains(e.target)) {
+      toggleMiniCart(false);
+    }
+
+    if (!searchPanel.contains(e.target) && !searchButton.contains(e.target)) {
+      toggleSearch(false);
+    }
   });
 
   // hamburger for mobile

@@ -269,6 +269,22 @@ header nav .nav-sections ul > li > ul > li {
 }
 
 /* tools */
+header nav .nav-panel {
+  z-index: 100;
+  position: absolute;
+  box-shadow: var(--shape-shadow-2);
+  background: var(--background-color);
+  box-sizing: content-box;
+  left: 0;
+  width: 100%;
+  display: none;
+  box-sizing: border-box;
+}
+
+header nav .nav-panel--show {
+  display: block;
+}
+
 header nav .nav-tools {
   grid-area: tools;
   display: flex;
@@ -276,13 +292,14 @@ header nav .nav-tools {
   gap: 10px;
 }
 
-header nav .nav-tools > button,
+header nav .nav-tools .search-wrapper > button,
 header nav .nav-tools .minicart-wrapper > button {
   color: var(--color-brand-700);
   background: transparent;
   padding: 5px 10px;
   height: 100%;
   border: unset;
+  cursor: pointer;
 }
 
 header nav .nav-tools button.nav-cart-button {
@@ -300,52 +317,19 @@ header nav .nav-tools button.nav-search-button {
   padding: 5px 15px;
 }
 
-header .nav-search-input {
-  position: absolute;
-  z-index: 99;
-  top: var(--nav-height);
-  box-shadow: var(--shape-shadow-2);
-  background: var(--color-neutral-50);
-  left: 0;
-  right: 0;
-  padding: 20px;
+header .nav-search-panel {
+  padding: var(--spacing-small);
 }
 
-header .nav-search-input.hidden {
-  display: none;
-}
-
-header .nav-search-input input {
+header .nav-search-panel input {
   width: 100%;
-  padding: 5px;
-}
-
-@media (width >= 1024px) {
-  header .nav-search-input {
-    left: unset;
-    right: 20px;
-  }
-
-  header .nav-search-input input {
-    min-width: 400px;
-  }
+  padding: 10px;
+  box-sizing: border-box;
+  font: var(--type-headline-2-default-font);
+  letter-spacing: var(--type-headline-2-default-letter-spacing);
 }
 
 /* Mini Cart  */
-
-.minicart-panel {
-  z-index: 100;
-  position: absolute;
-  box-shadow: var(--shape-shadow-2);
-  background: var(--background-color);
-  box-sizing: content-box;
-  left: 0;
-  width: 100%;
-}
-
-.minicart-panel:empty {
-  display: none;
-}
 
 .cart-mini-cart:not(:has(.cart-empty-cart)) {
   max-height: 760px;
@@ -355,18 +339,24 @@ header .nav-search-input input {
 /* If viewport height is below max, set max height to 90% of viewport */
 @media (height < 820px) {
   .cart-mini-cart:not(:has(.cart-empty-cart)) {
-    max-height: calc(90vh - var(--nav-height));
+    max-height: calc(100vh - var(--nav-height));
   }
 }
 
 @media (width >= 1024px) {
-  .minicart-wrapper {
-    position: relative;
-  }
-
-  .minicart-panel {
+  header nav .nav-search-panel {
     width: 398px;
     left: unset;
     right: 0;
+  }
+
+  header nav .minicart-panel {
+    width: 398px;
+    left: unset;
+    right: 0;
+  }
+
+  header nav .minicart-wrapper {
+    position: relative;
   }
 }
