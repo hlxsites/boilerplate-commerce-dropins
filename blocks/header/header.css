@@ -307,6 +307,23 @@ header nav .nav-tools button.nav-cart-button {
   background-repeat: no-repeat;
   background-position: left center;
   padding-left: 27px;
+  position: relative;
+}
+
+header nav .nav-tools button.nav-cart-button::after {
+  content: attr(data-count);
+  position: absolute;
+  top: 1.5em;
+  right: 0.2em;
+  background-color: var(--color-brand-700);
+  color: var(--color-neutral-100);
+  border-radius: 50%;
+  width: 1.75em;
+  height: 1.75em;
+  display: flex;
+  align-items: center;
+  font-size: 0.8em;
+  justify-content: center;
 }
 
 header nav .nav-tools button.nav-search-button {

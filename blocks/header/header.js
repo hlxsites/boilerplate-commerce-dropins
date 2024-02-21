@@ -144,7 +144,7 @@ export default async function decorate(block) {
   /** Mini Cart */
   const minicart = document.createRange().createContextualFragment(`
     <div class="minicart-wrapper">
-      <button type="button" class="button nav-cart-button">&nbsp;&nbsp;</button>
+      <button type="button" class="button nav-cart-button"></button>
       <div class="minicart-panel nav-panel"></div>
     </div>
   `);
@@ -154,6 +154,7 @@ export default async function decorate(block) {
   const minicartPanel = navTools.querySelector('.minicart-panel');
 
   const cartButton = navTools.querySelector('.nav-cart-button');
+  cartButton.setAttribute('aria-label', 'Cart');
 
   async function toggleMiniCart(state) {
     const show = state ?? !minicartPanel.classList.contains('nav-panel--show');
@@ -176,7 +177,7 @@ export default async function decorate(block) {
 
   // Cart Item Counter
   events.on('cart/data', (data) => {
-    cartButton.textContent = data?.totalQuantity || '0';
+    cartButton.dataset.count = data?.totalQuantity || '';
   }, { eager: true });
 
   /** Search */
