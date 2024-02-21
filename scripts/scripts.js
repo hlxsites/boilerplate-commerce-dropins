@@ -11,16 +11,16 @@ import {
   loadHeader,
   sampleRUM,
   waitForLCP,
-} from './aem.js';
-import initializeDropins from './dropins.js';
+} from "./aem.js";
+import initializeDropins from "./dropins.js";
 
 const LCP_BLOCKS = [
-  'product-list-page',
-  'product-details',
-  'commerce-cart',
-  'commerce-checkout',
-  'commerce-account',
-  'commerce-login',
+  "product-list-page",
+  "product-details",
+  "commerce-cart",
+  "commerce-checkout",
+  "commerce-account",
+  "commerce-login",
 ]; // add your LCP blocks to the list
 
 /**
@@ -28,12 +28,16 @@ const LCP_BLOCKS = [
  * @param {Element} main The container element
  */
 function buildHeroBlock(main) {
-  const h1 = main.querySelector('h1');
-  const picture = main.querySelector('picture');
+  const h1 = main.querySelector("h1");
+  const picture = main.querySelector("picture");
   // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
-    const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
+  if (
+    h1 &&
+    picture &&
+    h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING
+  ) {
+    const section = document.createElement("div");
+    section.append(buildBlock("hero", { elems: [picture, h1] }));
     main.prepend(section);
   }
 }
@@ -44,7 +48,8 @@ function buildHeroBlock(main) {
 async function loadFonts() {
   await loadCSS(`${window.hlx.codeBasePath}/styles/fonts.css`);
   try {
-    if (!window.location.hostname.includes('localhost')) sessionStorage.setItem('fonts-loaded', 'true');
+    if (!window.location.hostname.includes("localhost"))
+      sessionStorage.setItem("fonts-loaded", "true");
   } catch (e) {
     // do nothing
   }
@@ -59,7 +64,7 @@ function buildAutoBlocks(main) {
     buildHeroBlock(main);
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error('Auto Blocking failed', error);
+    console.error("Auto Blocking failed", error);
   }
 }
 
@@ -82,44 +87,74 @@ export function decorateMain(main) {
  * @param {Element} doc The container element
  */
 async function loadEager(doc) {
-  document.documentElement.lang = 'en';
+  document.documentElement.lang = "en";
   initializeDropins();
   decorateTemplateAndTheme();
 
   window.adobeDataLayer = window.adobeDataLayer || [];
 
-  let pageType = 'CMS';
-  if (document.body.querySelector('main .product-details')) {
-    pageType = 'Product';
-  } else if (document.body.querySelector('main .product-list-page')) {
-    pageType = 'Category';
-  } else if (document.body.querySelector('main .commerce-cart')) {
-    pageType = 'Cart';
-  } else if (document.body.querySelector('main .commerce-checkout')) {
-    pageType = 'Checkout';
+  let pageType = "CMS";
+  if (document.body.querySelector("main .product-details")) {
+    pageType = "Product";
+  } else if (document.body.querySelector("main .product-list-page")) {
+    pageType = "Category";
+  } else if (document.body.querySelector("main .commerce-cart")) {
+    pageType = "Cart";
+  } else if (document.body.querySelector("main .commerce-checkout")) {
+    pageType = "Checkout";
   }
-  window.adobeDataLayer.push({
-    pageContext: {
-      pageType,
-      pageName: document.title,
-      eventType: 'visibilityHidden',
-      maxXOffset: 0,
-      maxYOffset: 0,
-      minXOffset: 0,
-      minYOffset: 0,
-    },
-  });
 
-  const main = doc.querySelector('main');
+  const pageContext = {
+    pageType,
+    pageName: document.title,
+    eventType: "visibilityHidden",
+    maxXOffset: 0,
+    maxYOffset: 0,
+    minXOffset: 0,
+    minYOffset: 0,
+  };
+
+  // Dummy Storefront Instance Context
+  const storeContext = {
+    environmentId: "storefront-checkout-html-host",
+    environment: "storefront-checkout-test",
+    storeUrl: "https://magento.com/",
+    websiteId: 123456,
+    websiteCode: "website_code",
+    storeId: 123456,
+    storeCode: "store_code",
+    storeViewId: 123456,
+    storeViewCode: "store_view_code",
+    websiteName: "website_name",
+    storeName: "store_name",
+    storeViewName: "store_view_name",
+    baseCurrencyCode: "USD",
+    storeViewCurrencyCode: "USD",
+    catalogExtensionVersion: "1.0.0",
+    storefrontTemplate: "Franklin",
+  };
+
+  const eventForwardingContext = {
+    commerce: true,
+    aep: false, // for all clients using AEP Launch Tags
+  };
+
+  window.adobeDataLayer.push(
+    { pageContext: pageContext },
+    { storefrontInstanceContext: storeContext },
+    { eventForwardingContext: eventForwardingContext }
+  );
+
+  const main = doc.querySelector("main");
   if (main) {
     decorateMain(main);
-    document.body.classList.add('appear');
+    document.body.classList.add("appear");
     await waitForLCP(LCP_BLOCKS);
   }
 
   try {
     /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
-    if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
+    if (window.innerWidth >= 900 || sessionStorage.getItem("fonts-loaded")) {
       loadFonts();
     }
   } catch (e) {
@@ -132,22 +167,22 @@ async function loadEager(doc) {
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
-  const main = doc.querySelector('main');
+  const main = doc.querySelector("main");
   await loadBlocks(main);
 
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
-  loadHeader(doc.querySelector('header'));
-  loadFooter(doc.querySelector('footer'));
+  loadHeader(doc.querySelector("header"));
+  loadFooter(doc.querySelector("footer"));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
 
-  sampleRUM('lazy');
-  sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
-  sampleRUM.observe(main.querySelectorAll('picture > img'));
+  sampleRUM("lazy");
+  sampleRUM.observe(main.querySelectorAll("div[data-block-name]"));
+  sampleRUM.observe(main.querySelectorAll("picture > img"));
 }
 
 /**
@@ -156,17 +191,19 @@ async function loadLazy(doc) {
  */
 function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
-  window.setTimeout(() => import('./delayed.js'), 3000);
+  window.setTimeout(() => import("./delayed.js"), 3000);
   // load anything that can be postponed to the latest here
 }
 
 export async function fetchIndex(indexFile, pageSize = 500) {
   const handleIndex = async (offset) => {
-    const resp = await fetch(`/${indexFile}.json?limit=${pageSize}&offset=${offset}`);
+    const resp = await fetch(
+      `/${indexFile}.json?limit=${pageSize}&offset=${offset}`
+    );
     const json = await resp.json();
 
     const newIndex = {
-      complete: (json.limit + json.offset) === json.total,
+      complete: json.limit + json.offset === json.total,
       offset: json.offset + pageSize,
       promise: null,
       data: [...window.index[indexFile].data, ...json.data],
@@ -194,7 +231,7 @@ export async function fetchIndex(indexFile, pageSize = 500) {
   }
 
   window.index[indexFile].promise = handleIndex(window.index[indexFile].offset);
-  const newIndex = await (window.index[indexFile].promise);
+  const newIndex = await window.index[indexFile].promise;
   window.index[indexFile] = newIndex;
 
   return newIndex;
@@ -206,10 +243,10 @@ export async function fetchIndex(indexFile, pageSize = 500) {
  * @returns {HTMLElement} The root element of the fragment
  */
 export async function loadFragment(path) {
-  if (path && path.startsWith('/')) {
+  if (path && path.startsWith("/")) {
     const resp = await fetch(`${path}.plain.html`);
     if (resp.ok) {
-      const main = document.createElement('main');
+      const main = document.createElement("main");
       main.innerHTML = await resp.text();
       decorateMain(main);
       await loadBlocks(main);
