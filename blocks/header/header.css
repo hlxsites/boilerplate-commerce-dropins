@@ -310,7 +310,7 @@ header nav .nav-tools button.nav-cart-button {
   position: relative;
 }
 
-header nav .nav-tools button.nav-cart-button::after {
+header nav .nav-tools button.nav-cart-button[data-count]::after {
   content: attr(data-count);
   position: absolute;
   top: 1.5em;

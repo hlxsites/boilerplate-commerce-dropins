@@ -177,7 +177,11 @@ export default async function decorate(block) {
 
   // Cart Item Counter
   events.on('cart/data', (data) => {
-    cartButton.dataset.count = data?.totalQuantity || '';
+    if (data?.totalQuantity) {
+      cartButton.setAttribute('data-count', data.totalQuantity);
+    } else {
+      cartButton.removeAttribute('data-count');
+    }
   }, { eager: true });
 
   /** Search */
