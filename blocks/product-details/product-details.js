@@ -45,6 +45,25 @@ export default async function decorate(block) {
       mobile: true,
     },
     slots: {
+      Breadcrumbs: (ctx) => {
+        // override default separator
+        ctx.setSeparator(() => 'ChevronRight');
+        // Custom Home link (Breadcrumbs)
+        const homeLink = Object.assign(document.createElement('a'), {
+          href: '/',
+          innerHTML: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" data-name="placeholder_icon" xmlns="http://www.w3.org/2000/svg">
+          <circle vector-effect="non-scaling-stroke" cx="12" cy="12" r="8.25" stroke="currentColor"/>
+          </svg>`,
+        });
+        ctx.appendHTMLElement(() => homeLink);
+        ctx.appendLink(() => ({ text: 'Boilerplate', href: '/' }));
+        ctx.appendLink(() => ({ text: 'Catalog', href: '/category' }));
+        const custom = document.createElement('span');
+        ctx.appendHTMLElement((next) => {
+          custom.innerText = next.data?.name;
+          return custom;
+        });
+      },
       Actions: (ctx) => {
         // Add to Cart Button
         ctx.appendButton((next) => ({
@@ -68,12 +87,18 @@ export default async function decorate(block) {
         }));
 
         // Add to Wishlist Button
-        // ctx.appendButton(() => ({
-        //   icon: 'Heart',
-        //   variant: 'secondary',
-        //   text: 'Add to Wishlist',
-        //   onClick: () => console.debug('Add to Wishlist', ctx.data),
-        // }));
+        ctx.appendButton(() => ({
+          icon: 'Heart',
+          variant: 'secondary',
+          text: 'Add to Wishlist',
+          onClick: () => console.debug('Add to Wishlist', ctx.data),
+        }));
+      },
+      RegularPrice: (ctx) => {
+        const sale = document.createElement('span');
+        sale.classList.add('sale-price');
+        sale.innerText = '10% off applied at checkout';
+        ctx.appendChild(sale);
       },
     },
   })(block);
