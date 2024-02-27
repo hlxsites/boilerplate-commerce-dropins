@@ -157,14 +157,14 @@
   src: local('Arial');
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 html {
   font-size: 62.5%;
 }
-
 
 body {
   font: var(--type-body-1-default-font);
@@ -183,8 +183,6 @@ body:not(.appear) {
 header {
   height: var(--nav-height);
 }
-
-
 
 h1 {
   font: var(--type-display-1-font);
