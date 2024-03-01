@@ -7,7 +7,7 @@ import { render as cartProvider } from '@dropins/storefront-cart/render.js';
 import MiniCart from '@dropins/storefront-cart/containers/MiniCart.js';
 
 // Drop-in Tools
-import { events } from '@dropins/elsie/event-bus.js';
+import { events } from '@dropins/tools/event-bus.js';
 
 import { loadFragment } from '../fragment/fragment.js';
 import { getMetadata } from '../../scripts/aem.js';

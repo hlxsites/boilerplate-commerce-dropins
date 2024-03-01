@@ -2,7 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 // Drop-in Tools
-import { initializers } from '@dropins/elsie/initializer.js';
+import { initializers } from '@dropins/tools/initializer.js';
 
 // Drop-in APIs
 import * as orderConfirmation from '@dropins/storefront-order-confirmation/api.js';

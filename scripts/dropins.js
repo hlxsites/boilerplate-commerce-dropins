@@ -1,8 +1,8 @@
 /* eslint-disable import/no-unresolved */
 // Drop-in Tools
-import { events } from '@dropins/elsie/event-bus.js';
-import { setEndpoint } from '@dropins/elsie/fetch-graphql.js';
-import { initializers } from '@dropins/elsie/initializer.js';
+import { events } from '@dropins/tools/event-bus.js';
+import { setEndpoint } from '@dropins/tools/fetch-graphql.js';
+import { initializers } from '@dropins/tools/initializer.js';
 
 // Drop-ins
 import * as cart from '@dropins/storefront-cart/api.js';

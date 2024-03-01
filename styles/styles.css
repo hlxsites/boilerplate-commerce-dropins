@@ -13,8 +13,8 @@
  */
 
 :root,
-.elsie-base-design.elsie-base-design {
-  /* Elsie base design */
+.dropin-design.dropin-design {
+  /* Adobe Commerce Dropin design tokens */
   --color-brand-300: #6d6d6d;
   --color-brand-500: #454545;
   --color-brand-600: #383838;
@@ -396,6 +396,6 @@ main .section.highlight {
 }
 
 /* Base Design System Tokens */
-.elsie-base-design.elsie-base-design {
+.dropin-design.dropin-design {
   --background-none: none 0 0% no-repeat padding-box;
 }
