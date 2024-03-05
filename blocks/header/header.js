@@ -161,25 +161,20 @@ export default async function decorate(block) {
 
   const navTools = nav.querySelector('.nav-tools');
 
-   /** Mini Cart */
-   const excludeMiniCartFromPaths = ['/checkout', '/order-confirmation'];
+  /** Mini Cart */
+  const minicart = document.createRange().createContextualFragment(`
+    <div class="minicart-wrapper nav-tools-wrapper">
+      <button type="button" class="button nav-cart-button"></button>
+      <div class="minicart-panel nav-tools-panel"></div>
+    </div>
+  `);
 
-   const minicart = document.createRange().createContextualFragment(`
-     <div class="minicart-wrapper nav-tools-wrapper">
-       <button type="button" class="button nav-cart-button" aria-label="Cart"></button>
-       <div class="minicart-panel nav-tools-panel"></div>
-     </div>
-   `);
- 
-   navTools.append(minicart);
- 
-   const minicartPanel = navTools.querySelector('.minicart-panel');
- 
-   const cartButton = navTools.querySelector('.nav-cart-button');
- 
-   if (excludeMiniCartFromPaths.includes(window.location.pathname)) {
-     cartButton.style.display = 'none';
-   }
+  navTools.append(minicart);
+
+  const minicartPanel = navTools.querySelector('.minicart-panel');
+
+  const cartButton = navTools.querySelector('.nav-cart-button');
+  cartButton.setAttribute('aria-label', 'Cart');
 
   async function toggleMiniCart(state) {
     const show =
