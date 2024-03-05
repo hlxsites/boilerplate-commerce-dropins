@@ -1,1 +1,5 @@
 /* stylelint-disable no-empty-source */
+
+header .nav-tools .minicart-wrapper {
+  display: none !important;
+}
