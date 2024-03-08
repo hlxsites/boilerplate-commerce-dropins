@@ -47,25 +47,33 @@ export default async function decorate(block) {
     slots: {
       Actions: (ctx) => {
         // Add to Cart Button
-        ctx.appendButton((next) => ({
-          text: 'Add to Cart',
-          icon: 'Cart',
-          variant: 'primary',
-          onClick: async () => {
-            try {
-              if (!next.valid) {
-                // eslint-disable-next-line no-console
-                console.warn('Invalid product', next.values);
-                return;
-              }
+        ctx.appendButton((next, state) => {
+          const adding = state.get('adding');
+          return {
+            text: adding ? 'Adding to Cart' : 'Add to Cart',
+            icon: 'Cart',
+            variant: 'primary',
+            disabled: adding || !next.data.inStock,
+            onClick: async () => {
+              try {
+                state.set('adding', true);
 
-              await addProductsToCart([{ ...next.values }]);
-            } catch (error) {
-              // eslint-disable-next-line no-console
-              console.warn('Error adding product to cart', error);
-            }
-          },
-        }));
+                if (!next.valid) {
+                  // eslint-disable-next-line no-console
+                  console.warn('Invalid product', next.values);
+                  return;
+                }
+
+                await addProductsToCart([{ ...next.values }]);
+              } catch (error) {
+                // eslint-disable-next-line no-console
+                console.warn('Error adding product to cart', error);
+              } finally {
+                state.set('adding', false);
+              }
+            },
+          };
+        });
 
         // Add to Wishlist Button
         // ctx.appendButton(() => ({

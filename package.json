@@ -38,7 +38,7 @@
     "@dropins/storefront-cart": "0.1.0-alpha12",
     "@dropins/storefront-checkout": "0.1.0-alpha23",
     "@dropins/storefront-order-confirmation": "0.1.0-alpha14",
-    "@dropins/storefront-pdp": "^0.2.2-alpha12",
-    "@dropins/tools": "latest"
+    "@dropins/storefront-pdp": "0.2.2-alpha14",
+    "@dropins/tools": "0.18.0"
   }
 }
