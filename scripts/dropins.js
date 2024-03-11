@@ -14,7 +14,7 @@ export default async function initializeDropins() {
   // Set Fetch Endpoint (Global)
   // setEndpoint(await getConfigValue('commerce-core-endpoint'));
   // TODO: change environment for test
-  setEndpoint('https://mcstaging.aemshop.net/graphql');
+  setEndpoint('https://graph.adobe.io/api/4c021fa7-5e16-476e-9af8-882b1bd8dba6/graphql?api_key=d600834d8a6c4b9782d4147933f61298');
 
   // Initializers (Global)
   initializers.register(cart.initialize, {});
