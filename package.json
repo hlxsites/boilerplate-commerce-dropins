@@ -35,7 +35,7 @@
     "stylelint-config-standard": "36.0.0"
   },
   "dependencies": {
-    "@dropins/storefront-cart": "0.1.0-alpha12",
+    "@dropins/storefront-cart": "0.1.0-alpha13",
     "@dropins/storefront-checkout": "0.1.0-alpha23",
     "@dropins/storefront-order-confirmation": "0.1.0-alpha14",
     "@dropins/storefront-pdp": "0.2.2-alpha14",

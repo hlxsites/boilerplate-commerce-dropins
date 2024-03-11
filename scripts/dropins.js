@@ -8,11 +8,13 @@ import { initializers } from '@dropins/tools/initializer.js';
 import * as cart from '@dropins/storefront-cart/api.js';
 
 // Libs
-import { getConfigValue } from './configs.js';
+// import { getConfigValue } from './configs.js';
 
 export default async function initializeDropins() {
   // Set Fetch Endpoint (Global)
-  setEndpoint(await getConfigValue('commerce-core-endpoint'));
+  // setEndpoint(await getConfigValue('commerce-core-endpoint'));
+  // TODO: change environment for test
+  setEndpoint('https://mcstaging.aemshop.net/graphql');
 
   // Initializers (Global)
   initializers.register(cart.initialize, {});
