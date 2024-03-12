@@ -103,6 +103,15 @@ export default async function decorate(block) {
           };
         });
 
+        ctx.appendButton((next, state) => {
+          return {
+            text: 'Like',
+            icon: 'Heart',
+            variant: 'secondary',
+            disabled: true,
+          };
+        });
+
         // Promo Link
         const promoLink = document.createElement('a');
         promoLink.classList.add('quantity-banner');
