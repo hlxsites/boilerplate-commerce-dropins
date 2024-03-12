@@ -45,6 +45,34 @@ export default async function decorate(block) {
       mobile: true,
     },
     slots: {
+      Title: (ctx) => {
+        // Title Decoration
+        const decoration = document.createElement('div');
+        decoration.classList.add('title-decoration');
+        decoration.innerHTML = 'WKND Essentials';
+
+        ctx.prependSibling(decoration);
+
+        // Rating
+        const ratings = document.createElement('div');
+        ratings.classList.add('ratings');
+        ratings.innerHTML = '⭐️⭐️⭐️⭐️';
+
+        ctx.appendSibling(ratings);
+      },
+      Quantity: (ctx) => {
+        const label = document.createElement('div');
+        label.classList.add('quantity-label');
+        label.innerHTML = 'Quantity';
+
+        ctx.prependChild(label);
+
+        const promo = document.createElement('div');
+        promo.classList.add('quantity-promo');
+        promo.innerHTML = 'Buy 3 or more to get a free month of WKND+';
+
+        ctx.appendChild(promo);
+      },
       Actions: (ctx) => {
         // Add to Cart Button
         ctx.appendButton((next, state) => {
@@ -75,13 +103,23 @@ export default async function decorate(block) {
           };
         });
 
-        // Add to Wishlist Button
-        // ctx.appendButton(() => ({
-        //   icon: 'Heart',
-        //   variant: 'secondary',
-        //   text: 'Add to Wishlist',
-        //   onClick: () => console.debug('Add to Wishlist', ctx.data),
-        // }));
+        // Promo Link
+        const promoLink = document.createElement('a');
+        promoLink.classList.add('quantity-banner');
+        promoLink.innerHTML = 'Get Free Month Subscription';
+        promoLink.setAttribute('href', '#');
+
+        ctx.appendChild(promoLink);
+
+        ctx.onChange(next => {
+          const valid = next.values.quantity >= 3;
+
+          if (valid) {
+            promoLink.style.display = 'block';
+          } else {
+            promoLink.style.display = 'none';
+          }
+        });
       },
     },
   })(block);

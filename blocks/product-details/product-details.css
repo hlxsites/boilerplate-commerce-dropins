@@ -1,1 +1,54 @@
 /* stylelint-disable no-empty-source */
+
+.title-decoration {  
+    text-transform: uppercase;
+    padding: .5rem 0;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.title-decoration::after {
+    content: '';
+    display: block;
+    background-color: black;
+    width: 30%;
+    height: 7px;
+}
+
+.ratings {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.sizes-link {
+    font-size: .9em !important;
+    color: var(--color-brand-300) !important;
+}
+
+.quantity-label {
+    font: var(--type-details-caption-1-font);
+    margin-bottom: var(--spacing-xsmall);
+}
+
+.quantity-promo {
+    font: var(--type-details-caption-1-font);
+    margin-top: var(--spacing-xsmall);
+}
+
+.pdp-product__quantity {
+    grid-column: 1 / span 4 !important;
+}
+
+.pdp-product__quantity .dropin-incrementer { 
+    max-width: 160px;
+}
+
+.quantity-banner {
+    color: var(--color-positive-800) !important;
+}
+
+.quantity-banner:hover {
+    text-decoration-color: currentColor !important;
+}

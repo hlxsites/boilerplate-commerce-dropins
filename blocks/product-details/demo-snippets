@@ -1,0 +1,108 @@
+# Title
+
+```js
+Title: (ctx) => {
+  // Title Decoration
+  const decoration = document.createElement('div');
+  decoration.classList.add('title-decoration');
+  decoration.innerHTML = 'WKND Essentials';
+
+  ctx.prependSibling(decoration);
+
+  // Rating
+  const ratings = document.createElement('div');
+  ratings.classList.add('ratings');
+  ratings.innerHTML = '⭐️⭐️⭐️⭐️';
+
+  ctx.appendSibling(ratings);
+},
+```
+
+# Quantity
+
+```js
+Quantity: (ctx) => {
+  const label = document.createElement('div');
+  label.classList.add('quantity-label');
+  label.innerHTML = 'Quantity';
+
+  ctx.prependChild(label);
+
+  const promo = document.createElement('div');
+  promo.classList.add('quantity-promo');
+  promo.innerHTML = 'Buy 3 or more to get a free month of WKND+';
+
+  ctx.appendChild(promo);
+},
+```
+
+# Options
+
+```js
+Options: (ctx) => {
+  const size = ctx.getSlotElement('product-swatch--size');
+
+  if (size) {
+    const sizesLink = document.createElement('a');
+    sizesLink.classList.add('sizes-link');
+    sizesLink.innerHTML = 'Size Chart';
+    sizesLink.setAttribute('href', '#sizes');
+
+    size.appendChild(sizesLink);
+  }
+},
+
+```
+
+# Actions
+
+```js
+Actions: (ctx) => {
+  // Add to Cart Button
+  ctx.appendButton((next, state) => {
+    const adding = state.get('adding');
+    return {
+      text: adding ? 'Adding to Cart' : 'Add to Cart',
+      icon: 'Cart',
+      variant: 'primary',
+      disabled: adding || !next.data.inStock,
+      onClick: async () => {
+        try {
+          state.set('adding', true);
+
+          if (!next.valid) {
+            // eslint-disable-next-line no-console
+            console.warn('Invalid product', next.values);
+            return;
+          }
+
+          await addProductsToCart([{ ...next.values }]);
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.warn('Error adding product to cart', error);
+        } finally {
+          state.set('adding', false);
+        }
+      },
+    };
+  });
+
+  // Promo Link
+  const promoLink = document.createElement('a');
+  promoLink.classList.add('quantity-banner');
+  promoLink.innerHTML = 'Get Free Month Subscription';
+  promoLink.setAttribute('href', '#');
+
+  ctx.appendChild(promoLink);
+
+  ctx.onChange(next => {
+    const valid = next.values.quantity >= 3;
+
+    if (valid) {
+      promoLink.style.display = 'block';
+    } else {
+      promoLink.style.display = 'none';
+    }
+  });
+},
+```
