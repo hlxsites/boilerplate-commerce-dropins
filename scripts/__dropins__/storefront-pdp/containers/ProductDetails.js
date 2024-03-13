@@ -4389,7 +4389,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pdp-carousel{
   position:absolute;
   top:50%;
   transform:translateY(-50%);
-  padding:0;
+  padding:0 !important;
 }
 
 .pdp-carousel__button--prev{
