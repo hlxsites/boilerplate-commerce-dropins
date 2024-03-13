@@ -1427,6 +1427,8 @@ __webpack_require__.d(__webpack_exports__, {
   Y: () => (/* binding */ Price_Price_Price)
 });
 
+// EXTERNAL MODULE: external "@dropins/tools/preact-compat.js"
+var preact_compat_js_ = __webpack_require__(6528);
 // EXTERNAL MODULE: ../../ElsieSDK/packages/elsie/src/lib/classes.ts
 var classes = __webpack_require__(8884);
 // EXTERNAL MODULE: ../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
@@ -1506,6 +1508,7 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 
+
 var Price_Price_Price = function Price(_ref) {
   var _ref$amount = _ref.amount,
     amount = _ref$amount === void 0 ? 0 : _ref$amount,
@@ -1525,14 +1528,16 @@ var Price_Price_Price = function Price(_ref) {
     _ref$size = _ref.size,
     size = _ref$size === void 0 ? 'small' : _ref$size,
     props = _objectWithoutProperties(_ref, _excluded);
-  var formatter = new Intl.NumberFormat(locale, _objectSpread({
-    style: 'currency',
-    currency: currency || 'USD',
-    // These options are needed to round to whole numbers if that's what you want.
-    minimumFractionDigits: 2,
-    // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-    maximumFractionDigits: 2
-  }, formatOptions));
+  var formatter = (0,preact_compat_js_.useMemo)(function () {
+    return new Intl.NumberFormat(locale, _objectSpread({
+      style: 'currency',
+      currency: currency || 'USD',
+      // These options are needed to round to whole numbers if that's what you want.
+      minimumFractionDigits: 2,
+      // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+      maximumFractionDigits: 2
+    }, formatOptions));
+  }, [locale, currency, formatOptions]);
   return /*#__PURE__*/(0,jsx_runtime.jsx)("span", _objectSpread(_objectSpread({}, props), {}, {
     className: (0,classes/* classes */.i)(['dropin-price', "dropin-price--".concat(variant), "dropin-price--".concat(size), "dropin-price--".concat(weight), ['dropin-price--sale', sale], className]),
     children: formatter.format(amount)

@@ -3230,6 +3230,7 @@ function Price_objectWithoutPropertiesLoose(source, excluded) { if (source == nu
 
 
 
+
 var Price_Price_Price = function Price(_ref) {
   var _ref$amount = _ref.amount,
     amount = _ref$amount === void 0 ? 0 : _ref$amount,
@@ -3249,14 +3250,16 @@ var Price_Price_Price = function Price(_ref) {
     _ref$size = _ref.size,
     size = _ref$size === void 0 ? 'small' : _ref$size,
     props = Price_objectWithoutProperties(_ref, Price_excluded);
-  var formatter = new Intl.NumberFormat(locale, Price_objectSpread({
-    style: 'currency',
-    currency: currency || 'USD',
-    // These options are needed to round to whole numbers if that's what you want.
-    minimumFractionDigits: 2,
-    // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-    maximumFractionDigits: 2
-  }, formatOptions));
+  var formatter = (0,preact_compat_js_.useMemo)(function () {
+    return new Intl.NumberFormat(locale, Price_objectSpread({
+      style: 'currency',
+      currency: currency || 'USD',
+      // These options are needed to round to whole numbers if that's what you want.
+      minimumFractionDigits: 2,
+      // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+      maximumFractionDigits: 2
+    }, formatOptions));
+  }, [locale, currency, formatOptions]);
   return /*#__PURE__*/(0,jsx_runtime.jsx)("span", Price_objectSpread(Price_objectSpread({}, props), {}, {
     className: (0,classes/* classes */.S)(['dropin-price', "dropin-price--".concat(variant), "dropin-price--".concat(size), "dropin-price--".concat(weight), ['dropin-price--sale', sale], className]),
     children: formatter.format(amount)
