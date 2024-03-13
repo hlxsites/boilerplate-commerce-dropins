@@ -184,10 +184,13 @@ var classes = function classes(_classes) {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   F: () => (/* binding */ VComponent)
 /* harmony export */ });
-/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(850);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(567);
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(770);
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(850);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(567);
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-var _excluded = ["node"];
+var _excluded = ["node"],
+  _excluded2 = ["className"],
+  _excluded3 = ["ref", "key"];
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -212,28 +215,33 @@ from Adobe.
 
 
 
+
 function VComponent(_ref) {
   var node = _ref.node,
     props = _objectWithoutProperties(_ref, _excluded);
   if (!node) return null;
   if (Array.isArray(node)) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
       children: node.map(function (n, key) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(VComponent, _objectSpread({
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(VComponent, _objectSpread({
           node: n,
           className: props.className
         }, props), key);
       })
     });
   }
-
-  // @ts-ignore
-  props.className = (0,___WEBPACK_IMPORTED_MODULE_1__/* .classes */ .S)([node.props.className, props.className]);
-
-  // @ts-ignore
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(node.type, _objectSpread(_objectSpread({
-    ref: node.ref
-  }, node.props), props), node.key);
+  var propClassName = props.className,
+    rest = _objectWithoutProperties(props, _excluded2);
+  var mergedClassName = (0,___WEBPACK_IMPORTED_MODULE_2__/* .classes */ .S)([node.props.className, propClassName]);
+  var _node$props = node.props,
+    ref = _node$props.ref,
+    key = _node$props.key,
+    nodeProps = _objectWithoutProperties(_node$props, _excluded3);
+  return (0,preact__WEBPACK_IMPORTED_MODULE_0__.h)(node.type, _objectSpread(_objectSpread(_objectSpread({}, nodeProps), rest), {}, {
+    className: mergedClassName,
+    ref: node.ref,
+    key: node.key
+  }));
 }
 
 /***/ }),
