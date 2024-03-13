@@ -99,7 +99,7 @@ function VComponent(_ref) {
 
 /***/ }),
 
-/***/ 789:
+/***/ 906:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
@@ -107,6 +107,45 @@ function VComponent(_ref) {
 __webpack_require__.d(__webpack_exports__, {
   f: () => (/* reexport */ ProductDetails),
   Z: () => (/* reexport */ ProductDetails)
+});
+
+// NAMESPACE OBJECT: ../../ElsieSDK/packages/elsie/src/icons/index.ts
+var icons_namespaceObject = {};
+__webpack_require__.r(icons_namespaceObject);
+__webpack_require__.d(icons_namespaceObject, {
+  Add: () => (Add),
+  Bulk: () => (Bulk),
+  Burger: () => (Burger),
+  Card: () => (Card),
+  Cart: () => (Cart),
+  Check: () => (Check),
+  CheckWithCircle: () => (CheckWithCircle),
+  ChevronDown: () => (ChevronDown),
+  ChevronRight: () => (ChevronRight),
+  ChevronUp: () => (ChevronUp),
+  Close: () => (Close),
+  Delivery: () => (Delivery),
+  Heart: () => (Heart),
+  HeartFilled: () => (HeartFilled),
+  InfoFilled: () => (InfoFilled),
+  Locker: () => (Locker),
+  Minus: () => (Minus),
+  Order: () => (Order),
+  OrderError: () => (OrderError),
+  OrderSuccess: () => (OrderSuccess),
+  PaymentError: () => (PaymentError),
+  Placeholder: () => (Placeholder),
+  PlaceholderFilled: () => (PlaceholderFilled),
+  Search: () => (Search),
+  SearchFilled: () => (SearchFilled),
+  Sort: () => (Sort),
+  Star: () => (Star),
+  User: () => (User),
+  View: () => (View),
+  Wallet: () => (Wallet),
+  Warning: () => (Warning),
+  WarningFilled: () => (WarningFilled),
+  WarningWithCircle: () => (WarningWithCircle)
 });
 
 // EXTERNAL MODULE: external "@dropins/tools/preact-compat.js"
@@ -400,6 +439,101 @@ window.DROPINS.showSlots = /*#__PURE__*/function () {
 
 // @ts-ignore
 window.DROPINS.showSlots(window.sessionStorage.getItem('dropin-debugger--show-slots') === 'true');
+// EXTERNAL MODULE: ../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
+var injectStylesIntoStyleTag = __webpack_require__(892);
+var injectStylesIntoStyleTag_default = /*#__PURE__*/__webpack_require__.n(injectStylesIntoStyleTag);
+// EXTERNAL MODULE: ../node_modules/style-loader/dist/runtime/styleDomAPI.js
+var styleDomAPI = __webpack_require__(760);
+var styleDomAPI_default = /*#__PURE__*/__webpack_require__.n(styleDomAPI);
+// EXTERNAL MODULE: ../node_modules/style-loader/dist/runtime/setAttributesWithAttributesAndNonce.js
+var setAttributesWithAttributesAndNonce = __webpack_require__(615);
+var setAttributesWithAttributesAndNonce_default = /*#__PURE__*/__webpack_require__.n(setAttributesWithAttributesAndNonce);
+// EXTERNAL MODULE: ../node_modules/style-loader/dist/runtime/insertStyleElement.js
+var insertStyleElement = __webpack_require__(60);
+var insertStyleElement_default = /*#__PURE__*/__webpack_require__.n(insertStyleElement);
+// EXTERNAL MODULE: ../node_modules/style-loader/dist/runtime/styleTagTransform.js
+var styleTagTransform = __webpack_require__(865);
+var styleTagTransform_default = /*#__PURE__*/__webpack_require__.n(styleTagTransform);
+// EXTERNAL MODULE: ../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!../../ElsieSDK/packages/elsie/src/components/Icon/Icon.css
+var Icon = __webpack_require__(731);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/components/Icon/Icon.css
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {"attributes":{"data-dropin":"@dropins/storefront-pdp"}};
+
+options.styleTagTransform = (styleTagTransform_default());
+options.setAttributes = (setAttributesWithAttributesAndNonce_default());
+options.insert = function insertAtTop(element) {
+                  const parent = document.querySelector('head');
+
+                  const lastInsertedElement =
+                    window._lastElementInsertedByStyleLoader;
+
+                  if (!lastInsertedElement) {
+                    parent.insertBefore(element, parent.firstChild);
+                  } else if (lastInsertedElement.nextSibling) {
+                    parent.insertBefore(
+                      element,
+                      lastInsertedElement.nextSibling
+                    );
+                  } else {
+                    parent.appendChild(element);
+                  }
+
+                  window._lastElementInsertedByStyleLoader = element;
+                };
+options.domAPI = (styleDomAPI_default());
+options.insertStyleElement = (insertStyleElement_default());
+
+var update = injectStylesIntoStyleTag_default()(Icon/* default */.Z, options);
+
+
+
+
+       /* harmony default export */ const Icon_Icon = (Icon/* default */.Z && Icon/* default */.Z.locals ? Icon/* default */.Z.locals : undefined);
+
+// EXTERNAL MODULE: ../../ElsieSDK/packages/elsie/src/lib/classes.ts
+var classes = __webpack_require__(850);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/components/Icon/Icon.tsx
+function Icon_typeof(obj) { "@babel/helpers - typeof"; return Icon_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, Icon_typeof(obj); }
+var Icon_excluded = ["source", "size", "stroke", "viewBox", "className"];
+function Icon_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function Icon_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? Icon_ownKeys(Object(source), !0).forEach(function (key) { Icon_defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : Icon_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function Icon_defineProperty(obj, key, value) { key = Icon_toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function Icon_toPropertyKey(arg) { var key = Icon_toPrimitive(arg, "string"); return Icon_typeof(key) === "symbol" ? key : String(key); }
+function Icon_toPrimitive(input, hint) { if (Icon_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (Icon_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function Icon_objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = Icon_objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+function Icon_objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+
+function Icon_Icon_Icon(_ref) {
+  var source = _ref.source,
+    _ref$size = _ref.size,
+    size = _ref$size === void 0 ? '24' : _ref$size,
+    _ref$stroke = _ref.stroke,
+    stroke = _ref$stroke === void 0 ? '2' : _ref$stroke,
+    _ref$viewBox = _ref.viewBox,
+    viewBox = _ref$viewBox === void 0 ? '0 0 24 24' : _ref$viewBox,
+    className = _ref.className,
+    props = Icon_objectWithoutProperties(_ref, Icon_excluded);
+  var SourceComponent = source;
+  return /*#__PURE__*/(0,jsx_runtime.jsx)(SourceComponent, Icon_objectSpread(Icon_objectSpread({}, props), {}, {
+    className: (0,classes/* classes */.S)(['dropin-icon', "dropin-icon--shape-stroke-".concat(stroke), className]),
+    width: size,
+    height: size,
+    viewBox: viewBox
+  }));
+}
 ;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/lib/debounce.ts
 var debounce = function debounce(fn, ms) {
   var timeoutId;
@@ -414,8 +548,6 @@ var debounce = function debounce(fn, ms) {
     }, ms);
   };
 };
-// EXTERNAL MODULE: ../../ElsieSDK/packages/elsie/src/lib/classes.ts
-var classes = __webpack_require__(850);
 // EXTERNAL MODULE: external "@dropins/tools/preact.js"
 var preact_js_ = __webpack_require__(770);
 ;// CONCATENATED MODULE: ../../ElsieSDK/node_modules/preact/compat/dist/compat.module.js
@@ -467,99 +599,6 @@ var SvgAdd = function SvgAdd(props) {
   }))));
 };
 /* harmony default export */ const Add = (SvgAdd);
-// EXTERNAL MODULE: ../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
-var injectStylesIntoStyleTag = __webpack_require__(892);
-var injectStylesIntoStyleTag_default = /*#__PURE__*/__webpack_require__.n(injectStylesIntoStyleTag);
-// EXTERNAL MODULE: ../node_modules/style-loader/dist/runtime/styleDomAPI.js
-var styleDomAPI = __webpack_require__(760);
-var styleDomAPI_default = /*#__PURE__*/__webpack_require__.n(styleDomAPI);
-// EXTERNAL MODULE: ../node_modules/style-loader/dist/runtime/setAttributesWithAttributesAndNonce.js
-var setAttributesWithAttributesAndNonce = __webpack_require__(615);
-var setAttributesWithAttributesAndNonce_default = /*#__PURE__*/__webpack_require__.n(setAttributesWithAttributesAndNonce);
-// EXTERNAL MODULE: ../node_modules/style-loader/dist/runtime/insertStyleElement.js
-var insertStyleElement = __webpack_require__(60);
-var insertStyleElement_default = /*#__PURE__*/__webpack_require__.n(insertStyleElement);
-// EXTERNAL MODULE: ../node_modules/style-loader/dist/runtime/styleTagTransform.js
-var styleTagTransform = __webpack_require__(865);
-var styleTagTransform_default = /*#__PURE__*/__webpack_require__.n(styleTagTransform);
-// EXTERNAL MODULE: ../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!../../ElsieSDK/packages/elsie/src/components/Icon/Icon.css
-var Icon_Icon = __webpack_require__(731);
-;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/components/Icon/Icon.css
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var options = {"attributes":{"data-dropin":"@dropins/storefront-pdp"}};
-
-options.styleTagTransform = (styleTagTransform_default());
-options.setAttributes = (setAttributesWithAttributesAndNonce_default());
-options.insert = function insertAtTop(element) {
-                  const parent = document.querySelector('head');
-
-                  const lastInsertedElement =
-                    window._lastElementInsertedByStyleLoader;
-
-                  if (!lastInsertedElement) {
-                    parent.insertBefore(element, parent.firstChild);
-                  } else if (lastInsertedElement.nextSibling) {
-                    parent.insertBefore(
-                      element,
-                      lastInsertedElement.nextSibling
-                    );
-                  } else {
-                    parent.appendChild(element);
-                  }
-
-                  window._lastElementInsertedByStyleLoader = element;
-                };
-options.domAPI = (styleDomAPI_default());
-options.insertStyleElement = (insertStyleElement_default());
-
-var update = injectStylesIntoStyleTag_default()(Icon_Icon/* default */.Z, options);
-
-
-
-
-       /* harmony default export */ const components_Icon_Icon = (Icon_Icon/* default */.Z && Icon_Icon/* default */.Z.locals ? Icon_Icon/* default */.Z.locals : undefined);
-
-;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/components/Icon/Icon.tsx
-function Icon_typeof(obj) { "@babel/helpers - typeof"; return Icon_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, Icon_typeof(obj); }
-var Icon_excluded = ["source", "size", "stroke", "viewBox", "className"];
-function Icon_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function Icon_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? Icon_ownKeys(Object(source), !0).forEach(function (key) { Icon_defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : Icon_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-function Icon_defineProperty(obj, key, value) { key = Icon_toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function Icon_toPropertyKey(arg) { var key = Icon_toPrimitive(arg, "string"); return Icon_typeof(key) === "symbol" ? key : String(key); }
-function Icon_toPrimitive(input, hint) { if (Icon_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (Icon_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function Icon_objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = Icon_objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-function Icon_objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-
-
-function Icon_Icon_Icon(_ref) {
-  var source = _ref.source,
-    _ref$size = _ref.size,
-    size = _ref$size === void 0 ? '24' : _ref$size,
-    _ref$stroke = _ref.stroke,
-    stroke = _ref$stroke === void 0 ? '2' : _ref$stroke,
-    _ref$viewBox = _ref.viewBox,
-    viewBox = _ref$viewBox === void 0 ? '0 0 24 24' : _ref$viewBox,
-    className = _ref.className,
-    props = Icon_objectWithoutProperties(_ref, Icon_excluded);
-  var SourceComponent = source;
-  return /*#__PURE__*/(0,jsx_runtime.jsx)(SourceComponent, Icon_objectSpread(Icon_objectSpread({}, props), {}, {
-    className: (0,classes/* classes */.S)(['dropin-icon', "dropin-icon--shape-stroke-".concat(stroke), className]),
-    width: size,
-    height: size,
-    viewBox: viewBox
-  }));
-}
 // EXTERNAL MODULE: ../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!../../ElsieSDK/packages/elsie/src/components/Incrementer/Incrementer.css
 var Incrementer = __webpack_require__(606);
 ;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/components/Incrementer/Incrementer.css
@@ -764,6 +803,125 @@ var Incrementer_Incrementer_Incrementer = function Incrementer(_ref) {
       })]
     })
   });
+};
+// EXTERNAL MODULE: ../../ElsieSDK/packages/elsie/src/lib/vcomponent.tsx
+var vcomponent = __webpack_require__(650);
+// EXTERNAL MODULE: ../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!../../ElsieSDK/packages/elsie/src/components/Button/Button.css
+var Button = __webpack_require__(241);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/components/Button/Button.css
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var Button_options = {"attributes":{"data-dropin":"@dropins/storefront-pdp"}};
+
+Button_options.styleTagTransform = (styleTagTransform_default());
+Button_options.setAttributes = (setAttributesWithAttributesAndNonce_default());
+Button_options.insert = function insertAtTop(element) {
+                  const parent = document.querySelector('head');
+
+                  const lastInsertedElement =
+                    window._lastElementInsertedByStyleLoader;
+
+                  if (!lastInsertedElement) {
+                    parent.insertBefore(element, parent.firstChild);
+                  } else if (lastInsertedElement.nextSibling) {
+                    parent.insertBefore(
+                      element,
+                      lastInsertedElement.nextSibling
+                    );
+                  } else {
+                    parent.appendChild(element);
+                  }
+
+                  window._lastElementInsertedByStyleLoader = element;
+                };
+Button_options.domAPI = (styleDomAPI_default());
+Button_options.insertStyleElement = (insertStyleElement_default());
+
+var Button_update = injectStylesIntoStyleTag_default()(Button/* default */.Z, Button_options);
+
+
+
+
+       /* harmony default export */ const Button_Button = (Button/* default */.Z && Button/* default */.Z.locals ? Button/* default */.Z.locals : undefined);
+
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/components/Button/Button.tsx
+function Button_typeof(obj) { "@babel/helpers - typeof"; return Button_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, Button_typeof(obj); }
+var Button_excluded = ["value", "variant", "size", "icon", "className", "children", "disabled", "active", "activeChildren", "activeIcon", "href"];
+function Button_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function Button_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? Button_ownKeys(Object(source), !0).forEach(function (key) { Button_defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : Button_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function Button_defineProperty(obj, key, value) { key = Button_toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function Button_toPropertyKey(arg) { var key = Button_toPrimitive(arg, "string"); return Button_typeof(key) === "symbol" ? key : String(key); }
+function Button_toPrimitive(input, hint) { if (Button_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (Button_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function Button_objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = Button_objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+function Button_objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+
+
+var Button_Button_Button = function Button(_ref) {
+  var value = _ref.value,
+    _ref$variant = _ref.variant,
+    variant = _ref$variant === void 0 ? 'primary' : _ref$variant,
+    _ref$size = _ref.size,
+    size = _ref$size === void 0 ? 'medium' : _ref$size,
+    icon = _ref.icon,
+    className = _ref.className,
+    children = _ref.children,
+    _ref$disabled = _ref.disabled,
+    disabled = _ref$disabled === void 0 ? false : _ref$disabled,
+    _ref$active = _ref.active,
+    active = _ref$active === void 0 ? false : _ref$active,
+    activeChildren = _ref.activeChildren,
+    activeIcon = _ref.activeIcon,
+    href = _ref.href,
+    props = Button_objectWithoutProperties(_ref, Button_excluded);
+  var buttonType = 'dropin-button';
+  if (icon && !children || icon && active && !activeChildren || !icon && active && activeIcon) {
+    buttonType = 'dropin-iconButton';
+  }
+  if (active && activeChildren) {
+    buttonType = 'dropin-button';
+  }
+  className = (0,classes/* classes */.S)([buttonType, "".concat(buttonType, "--").concat(size), "".concat(buttonType, "--").concat(variant), ["".concat(buttonType, "--").concat(variant, "--disabled"), disabled], children && icon && "".concat(buttonType, "--with-icon"), !children && activeChildren && icon && "".concat(buttonType, "--with-icon"), active && activeIcon && "".concat(buttonType, "--with-icon"), className]);
+  var iconClassName = (0,classes/* classes */.S)(['dropin-button-icon', "dropin-button-icon--".concat(variant), ["dropin-button-icon--".concat(variant, "--disabled"), disabled], icon === null || icon === void 0 ? void 0 : icon.props.className]);
+  var attributes = href ? Button_objectSpread(Button_objectSpread({
+    node: /*#__PURE__*/(0,jsx_runtime.jsx)("a", {}),
+    role: 'link',
+    href: href
+  }, props), {}, {
+    disabled: disabled,
+    active: active
+  }) : Button_objectSpread(Button_objectSpread({
+    node: /*#__PURE__*/(0,jsx_runtime.jsx)("button", {}),
+    role: 'button'
+  }, props), {}, {
+    value: value,
+    disabled: disabled,
+    active: active
+  });
+  return /*#__PURE__*/(0,jsx_runtime.jsxs)(vcomponent/* VComponent */.F, Button_objectSpread(Button_objectSpread({}, attributes), {}, {
+    className: className,
+    children: [icon && !active && /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
+      node: icon,
+      className: iconClassName
+    }), activeIcon && active && /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
+      node: activeIcon,
+      className: iconClassName
+    }), children && !active && (typeof children === 'string' ? /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+      children: children
+    }) : children), active && activeChildren && (typeof activeChildren === 'string' ? /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+      children: activeChildren
+    }) : activeChildren)]
+  }));
 };
 // EXTERNAL MODULE: ../../ElsieSDK/packages/elsie/src/lib/image-params-keymap.ts
 var image_params_keymap = __webpack_require__(500);
@@ -1923,125 +2081,6 @@ var Swatches_Swatches_Swatches = function Swatches(_ref) {
     })
   }));
 };
-// EXTERNAL MODULE: ../../ElsieSDK/packages/elsie/src/lib/vcomponent.tsx
-var vcomponent = __webpack_require__(650);
-// EXTERNAL MODULE: ../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!../../ElsieSDK/packages/elsie/src/components/Button/Button.css
-var Button = __webpack_require__(241);
-;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/components/Button/Button.css
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var Button_options = {"attributes":{"data-dropin":"@dropins/storefront-pdp"}};
-
-Button_options.styleTagTransform = (styleTagTransform_default());
-Button_options.setAttributes = (setAttributesWithAttributesAndNonce_default());
-Button_options.insert = function insertAtTop(element) {
-                  const parent = document.querySelector('head');
-
-                  const lastInsertedElement =
-                    window._lastElementInsertedByStyleLoader;
-
-                  if (!lastInsertedElement) {
-                    parent.insertBefore(element, parent.firstChild);
-                  } else if (lastInsertedElement.nextSibling) {
-                    parent.insertBefore(
-                      element,
-                      lastInsertedElement.nextSibling
-                    );
-                  } else {
-                    parent.appendChild(element);
-                  }
-
-                  window._lastElementInsertedByStyleLoader = element;
-                };
-Button_options.domAPI = (styleDomAPI_default());
-Button_options.insertStyleElement = (insertStyleElement_default());
-
-var Button_update = injectStylesIntoStyleTag_default()(Button/* default */.Z, Button_options);
-
-
-
-
-       /* harmony default export */ const Button_Button = (Button/* default */.Z && Button/* default */.Z.locals ? Button/* default */.Z.locals : undefined);
-
-;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/components/Button/Button.tsx
-function Button_typeof(obj) { "@babel/helpers - typeof"; return Button_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, Button_typeof(obj); }
-var Button_excluded = ["value", "variant", "size", "icon", "className", "children", "disabled", "active", "activeChildren", "activeIcon", "href"];
-function Button_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function Button_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? Button_ownKeys(Object(source), !0).forEach(function (key) { Button_defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : Button_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-function Button_defineProperty(obj, key, value) { key = Button_toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function Button_toPropertyKey(arg) { var key = Button_toPrimitive(arg, "string"); return Button_typeof(key) === "symbol" ? key : String(key); }
-function Button_toPrimitive(input, hint) { if (Button_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (Button_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function Button_objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = Button_objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-function Button_objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-
-
-
-var Button_Button_Button = function Button(_ref) {
-  var value = _ref.value,
-    _ref$variant = _ref.variant,
-    variant = _ref$variant === void 0 ? 'primary' : _ref$variant,
-    _ref$size = _ref.size,
-    size = _ref$size === void 0 ? 'medium' : _ref$size,
-    icon = _ref.icon,
-    className = _ref.className,
-    children = _ref.children,
-    _ref$disabled = _ref.disabled,
-    disabled = _ref$disabled === void 0 ? false : _ref$disabled,
-    _ref$active = _ref.active,
-    active = _ref$active === void 0 ? false : _ref$active,
-    activeChildren = _ref.activeChildren,
-    activeIcon = _ref.activeIcon,
-    href = _ref.href,
-    props = Button_objectWithoutProperties(_ref, Button_excluded);
-  var buttonType = 'dropin-button';
-  if (icon && !children || icon && active && !activeChildren || !icon && active && activeIcon) {
-    buttonType = 'dropin-iconButton';
-  }
-  if (active && activeChildren) {
-    buttonType = 'dropin-button';
-  }
-  className = (0,classes/* classes */.S)([buttonType, "".concat(buttonType, "--").concat(size), "".concat(buttonType, "--").concat(variant), ["".concat(buttonType, "--").concat(variant, "--disabled"), disabled], children && icon && "".concat(buttonType, "--with-icon"), !children && activeChildren && icon && "".concat(buttonType, "--with-icon"), active && activeIcon && "".concat(buttonType, "--with-icon"), className]);
-  var iconClassName = (0,classes/* classes */.S)(['dropin-button-icon', "dropin-button-icon--".concat(variant), ["dropin-button-icon--".concat(variant, "--disabled"), disabled], icon === null || icon === void 0 ? void 0 : icon.props.className]);
-  var attributes = href ? Button_objectSpread(Button_objectSpread({
-    node: /*#__PURE__*/(0,jsx_runtime.jsx)("a", {}),
-    role: 'link',
-    href: href
-  }, props), {}, {
-    disabled: disabled,
-    active: active
-  }) : Button_objectSpread(Button_objectSpread({
-    node: /*#__PURE__*/(0,jsx_runtime.jsx)("button", {}),
-    role: 'button'
-  }, props), {}, {
-    value: value,
-    disabled: disabled,
-    active: active
-  });
-  return /*#__PURE__*/(0,jsx_runtime.jsxs)(vcomponent/* VComponent */.F, Button_objectSpread(Button_objectSpread({}, attributes), {}, {
-    className: className,
-    children: [icon && !active && /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
-      node: icon,
-      className: iconClassName
-    }), activeIcon && active && /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
-      node: activeIcon,
-      className: iconClassName
-    }), children && !active && (typeof children === 'string' ? /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
-      children: children
-    }) : children), active && activeChildren && (typeof activeChildren === 'string' ? /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
-      children: activeChildren
-    }) : activeChildren)]
-  }));
-};
 // EXTERNAL MODULE: ../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./components/Carousel/Carousel.css
 var Carousel = __webpack_require__(952);
 ;// CONCATENATED MODULE: ./components/Carousel/Carousel.css
@@ -2981,6 +3020,36 @@ var Product_Product_Product = function Product(_ref) {
     })]
   }));
 };
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/Cart.svg
+var Cart_g, _defs;
+function Cart_extends() { Cart_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return Cart_extends.apply(this, arguments); }
+
+var SvgCart = function SvgCart(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", Cart_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), Cart_g || (Cart_g = /*#__PURE__*/preact_js_.createElement("g", {
+    clipPath: "url(#Cart_svg__a)",
+    stroke: "currentColor",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M18.36 18.16H6.56L4.88 3H2.35m17.32 16.59a1.41 1.41 0 1 1-2.82 0 1.41 1.41 0 0 1 2.82 0Zm-12.24 0a1.41 1.41 0 1 1-2.82 0 1.41 1.41 0 0 1 2.82 0Z"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "m5.25 6.37 15.64 1.69-.75 6.74H6.19"
+  }))), _defs || (_defs = /*#__PURE__*/preact_js_.createElement("defs", null, /*#__PURE__*/preact_js_.createElement("clipPath", {
+    id: "Cart_svg__a"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    fill: "#fff",
+    transform: "translate(2.35 2.25)",
+    d: "M0 0h19.29v19.5H0z"
+  })))));
+};
+/* harmony default export */ const Cart = (SvgCart);
 // EXTERNAL MODULE: ./api/getProductData/getProductData.ts + 1 modules
 var getProductData = __webpack_require__(675);
 // EXTERNAL MODULE: ./api/getRefinedProduct/getRefinedProduct.ts + 1 modules
@@ -3062,12 +3131,820 @@ function getUrlParams() {
   });
   return params;
 }
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/Bulk.svg
+var Bulk_defs, Bulk_g;
+function Bulk_extends() { Bulk_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return Bulk_extends.apply(this, arguments); }
+
+var SvgBulk = function SvgBulk(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", Bulk_extends({
+    "data-name": "Icon \\u2013 Bulk \\u2013 Base",
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 24,
+    height: 24
+  }, props), Bulk_defs || (Bulk_defs = /*#__PURE__*/preact_js_.createElement("defs", null, /*#__PURE__*/preact_js_.createElement("clipPath", {
+    id: "Bulk_svg__a"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    "data-name": "Rectangle 215980",
+    fill: "none",
+    d: "M0 0h12v12H0z"
+  })))), Bulk_g || (Bulk_g = /*#__PURE__*/preact_js_.createElement("g", {
+    "data-name": "Bulk icon"
+  }, /*#__PURE__*/preact_js_.createElement("g", {
+    "data-name": "Rectangle 215979",
+    fill: "none",
+    stroke: "currentColor"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    stroke: "none",
+    d: "M3 3h12v12H3z"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M3.75 3.75h10.5v10.5H3.75z"
+  })), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Path 884140",
+    d: "M9 6v6",
+    fill: "none",
+    stroke: "currentColor"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Path 884141",
+    d: "M6 9.005h6",
+    fill: "none",
+    stroke: "currentColor"
+  }), /*#__PURE__*/preact_js_.createElement("g", {
+    "data-name": "Group 299364",
+    transform: "translate(6 6)",
+    clipPath: "url(#Bulk_svg__a)"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Path 884142",
+    d: "M11.25.75v10.5H.75",
+    fill: "none",
+    stroke: "currentColor"
+  })), /*#__PURE__*/preact_js_.createElement("g", {
+    "data-name": "Group 299364",
+    transform: "translate(9 9)",
+    clipPath: "url(#Bulk_svg__a)"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Path 884142",
+    d: "M11.25.75v10.5H.75",
+    fill: "none",
+    stroke: "currentColor"
+  })))));
+};
+/* harmony default export */ const Bulk = (SvgBulk);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/Burger.svg
+var Burger_path;
+function Burger_extends() { Burger_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return Burger_extends.apply(this, arguments); }
+
+var SvgBurger = function SvgBurger(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", Burger_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), Burger_path || (Burger_path = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M3 12h18M3 6h18M3 18h18",
+    stroke: "currentColor"
+  })));
+};
+/* harmony default export */ const Burger = (SvgBurger);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/Check.svg
+var Check_g;
+function Check_extends() { Check_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return Check_extends.apply(this, arguments); }
+
+var SvgCheck = function SvgCheck(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", Check_extends({
+    "data-name": "Icon \\u2013 Check \\u2013 Base",
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 24,
+    height: 24
+  }, props), Check_g || (Check_g = /*#__PURE__*/preact_js_.createElement("g", {
+    "data-name": "Check icon"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Path 884137",
+    d: "m5.609 12.017 4.248 4.244 8.538-8.522",
+    fill: "none",
+    stroke: "currentColor"
+  }))));
+};
+/* harmony default export */ const Check = (SvgCheck);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/ChevronUp.svg
+var ChevronUp_path;
+function ChevronUp_extends() { ChevronUp_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return ChevronUp_extends.apply(this, arguments); }
+
+var SvgChevronUp = function SvgChevronUp(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", ChevronUp_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), ChevronUp_path || (ChevronUp_path = /*#__PURE__*/preact_js_.createElement("path", {
+    d: "M7.745 14.132 12 9.877l4.255 4.255",
+    stroke: "#2B2B2B",
+    strokeWidth: 1.5,
+    strokeLinecap: "square",
+    strokeLinejoin: "round"
+  })));
+};
+/* harmony default export */ const ChevronUp = (SvgChevronUp);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/ChevronRight.svg
+var ChevronRight_path;
+function ChevronRight_extends() { ChevronRight_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return ChevronRight_extends.apply(this, arguments); }
+
+var SvgChevronRight = function SvgChevronRight(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", ChevronRight_extends({
+    "data-name": "Icon \\u2013 Chevron right \\u2013 Base",
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 24,
+    height: 24
+  }, props), ChevronRight_path || (ChevronRight_path = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "m10.5 16.5 4.255-4.255L10.5 7.99",
+    fill: "none",
+    stroke: "currentColor",
+    "data-name": "Chevron right icon"
+  })));
+};
+/* harmony default export */ const ChevronRight = (SvgChevronRight);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/Heart.svg
+var Heart_path;
+function Heart_extends() { Heart_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return Heart_extends.apply(this, arguments); }
+
+var SvgHeart = function SvgHeart(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", Heart_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), Heart_path || (Heart_path = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M19.734 5.418a4.815 4.815 0 0 0-6.824 0l-.929.93-.929-.93a4.815 4.815 0 0 0-6.823.07 4.833 4.833 0 0 0 0 6.76l.929.93 6.823 6.83 6.824-6.83.929-.93a4.826 4.826 0 0 0 0-6.83Z",
+    stroke: "currentColor"
+  })));
+};
+/* harmony default export */ const Heart = (SvgHeart);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/Placeholder.svg
+var _circle;
+function Placeholder_extends() { Placeholder_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return Placeholder_extends.apply(this, arguments); }
+
+var SvgPlaceholder = function SvgPlaceholder(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", Placeholder_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    "data-name": "placeholder_icon",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), _circle || (_circle = /*#__PURE__*/preact_js_.createElement("circle", {
+    vectorEffect: "non-scaling-stroke",
+    cx: 12,
+    cy: 12,
+    r: 8.25,
+    stroke: "currentColor"
+  })));
+};
+/* harmony default export */ const Placeholder = (SvgPlaceholder);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/PlaceholderFilled.svg
+var PlaceholderFilled_circle;
+function PlaceholderFilled_extends() { PlaceholderFilled_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return PlaceholderFilled_extends.apply(this, arguments); }
+
+var SvgPlaceholderFilled = function SvgPlaceholderFilled(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", PlaceholderFilled_extends({
+    width: 24,
+    height: 24,
+    fill: "currentColor",
+    "data-name": "placeholder_icon_filled",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), PlaceholderFilled_circle || (PlaceholderFilled_circle = /*#__PURE__*/preact_js_.createElement("circle", {
+    vectorEffect: "non-scaling-stroke",
+    cx: 12,
+    cy: 12,
+    r: 8.25,
+    stroke: "currentColor"
+  })));
+};
+/* harmony default export */ const PlaceholderFilled = (SvgPlaceholderFilled);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/Search.svg
+var Search_g;
+function Search_extends() { Search_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return Search_extends.apply(this, arguments); }
+
+var SvgSearch = function SvgSearch(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", Search_extends({
+    "data-name": "Icon \\u2013 Search \\u2013 Base",
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 24,
+    height: 24,
+    fill: "none"
+  }, props), Search_g || (Search_g = /*#__PURE__*/preact_js_.createElement("g", {
+    "data-name": "Search icon",
+    transform: "translate(3.75 3.75)",
+    stroke: "currentColor"
+  }, /*#__PURE__*/preact_js_.createElement("circle", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Ellipse 186",
+    cx: 6,
+    cy: 6,
+    r: 6
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Line 556",
+    d: "m10.5 10.5 6 6"
+  }))));
+};
+/* harmony default export */ const Search = (SvgSearch);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/SearchFilled.svg
+var SearchFilled_g;
+function SearchFilled_extends() { SearchFilled_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return SearchFilled_extends.apply(this, arguments); }
+
+var SvgSearchFilled = function SvgSearchFilled(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", SearchFilled_extends({
+    "data-name": "Icon \\u2013 Search \\u2013 Base",
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 24,
+    height: 24,
+    fill: "none"
+  }, props), SearchFilled_g || (SearchFilled_g = /*#__PURE__*/preact_js_.createElement("g", {
+    "data-name": "Search icon filled",
+    transform: "translate(3.75 3.75)",
+    stroke: "currentColor"
+  }, /*#__PURE__*/preact_js_.createElement("circle", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Ellipse 186",
+    cx: 6,
+    cy: 6,
+    r: 6,
+    fill: "#fff"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Line 556",
+    d: "m10.5 10.5 6 6"
+  }))));
+};
+/* harmony default export */ const SearchFilled = (SvgSearchFilled);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/Sort.svg
+var Sort_g;
+function Sort_extends() { Sort_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return Sort_extends.apply(this, arguments); }
+
+var SvgSort = function SvgSort(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", Sort_extends({
+    "data-name": "Icon \\u2013 Sort \\u2013 Base",
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 24,
+    height: 24
+  }, props), Sort_g || (Sort_g = /*#__PURE__*/preact_js_.createElement("g", {
+    "data-name": "Sort icon",
+    fill: "none",
+    stroke: "currentColor"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Path 38562",
+    d: "m19.048 15.003-1.5 1.5-1.5-1.5"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Line 510",
+    d: "M4.951 12h6.833"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Line 511",
+    d: "M4.951 8.136h8.121M17.544 7.491v9.017"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Line 512",
+    d: "M4.951 15.864h5.545"
+  }))));
+};
+/* harmony default export */ const Sort = (SvgSort);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/Star.svg
+var Star_g;
+function Star_extends() { Star_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return Star_extends.apply(this, arguments); }
+
+var SvgStar = function SvgStar(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", Star_extends({
+    "data-name": "Icon \\u2013 Star \\u2013 Base",
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 24,
+    height: 24,
+    fill: "none"
+  }, props), Star_g || (Star_g = /*#__PURE__*/preact_js_.createElement("g", {
+    "data-name": "Star icon"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Path 884138",
+    d: "m12.4 2.087 2.5 6.656a.285.285 0 0 0 .253.185l7.075.334a.431.431 0 0 1 .247.764l-5.518 4.453a.286.286 0 0 0-.1.3l1.867 6.865a.427.427 0 0 1-.646.472l-5.921-3.903a.285.285 0 0 0-.313 0l-5.921 3.906a.428.428 0 0 1-.646-.472l1.867-6.868a.286.286 0 0 0-.1-.3l-5.523-4.455a.431.431 0 0 1-.064-.6.427.427 0 0 1 .312-.159l7.075-.334a.285.285 0 0 0 .253-.185l2.5-6.653a.427.427 0 0 1 .8 0Z",
+    stroke: "currentColor"
+  }))));
+};
+/* harmony default export */ const Star = (SvgStar);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/View.svg
+var View_g;
+function View_extends() { View_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return View_extends.apply(this, arguments); }
+
+var SvgView = function SvgView(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", View_extends({
+    "data-name": "Icon \\u2013 View \\u2013 Base",
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 24,
+    height: 24
+  }, props), View_g || (View_g = /*#__PURE__*/preact_js_.createElement("g", {
+    "data-name": "View icon",
+    transform: "translate(3.75 3.75)",
+    fill: "none",
+    stroke: "currentColor"
+  }, /*#__PURE__*/preact_js_.createElement("circle", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Ellipse 186",
+    cx: 6,
+    cy: 6,
+    r: 6
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Line 556",
+    d: "m10.5 10.5 6 6"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Line 575",
+    d: "M9.396 6H2.604"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    "data-name": "Line 576",
+    d: "M6 9.396V2.604"
+  }))));
+};
+/* harmony default export */ const View = (SvgView);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/User.svg
+var User_path;
+function User_extends() { User_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return User_extends.apply(this, arguments); }
+
+var SvgUser = function SvgUser(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", User_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), User_path || (User_path = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M11.805 14.497c-.95 0-1.83-.47-2.36-1.26l-.03-.05-.03-.06c-1.25-1.9-1.85-4.16-1.7-6.44a4.21 4.21 0 0 1 4.18-4.08h.14a4.115 4.115 0 0 1 4.34 3.87v.23c.14 2.24-.44 4.47-1.66 6.35l-.08.12a2.99 2.99 0 0 1-2.44 1.3h-.16c-.07 0-.14.01-.21.01l.01.01ZM4.325 21.547c.03-1.13.15-2.26.35-3.37.22-1.01 1.8-2.15 4.23-3.02.33-.12.58-.37.69-.7l.21-.43M14.425 14.407l-.26-.25c.21.44.56.8.99 1.03 1.79.61 3.97 1.77 4.22 3.02.21 1.1.31 2.22.3 3.33",
+    stroke: "currentColor"
+  })));
+};
+/* harmony default export */ const User = (SvgUser);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/Warning.svg
+var Warning_g, Warning_defs;
+function Warning_extends() { Warning_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return Warning_extends.apply(this, arguments); }
+
+var SvgWarning = function SvgWarning(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", Warning_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), Warning_g || (Warning_g = /*#__PURE__*/preact_js_.createElement("g", {
+    clipPath: "url(#Warning_svg__a)",
+    stroke: "currentColor",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M11.995 2.302.803 21.698h22.395L11.995 2.302Z"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "m12.434 10.55-.097 3.927h-.674l-.096-3.927V9.513h.867v1.037Zm-.846 7.714v-.995h.835v.995h-.835Z"
+  }))), Warning_defs || (Warning_defs = /*#__PURE__*/preact_js_.createElement("defs", null, /*#__PURE__*/preact_js_.createElement("clipPath", {
+    id: "Warning_svg__a"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    fill: "#fff",
+    transform: "translate(0 1.5)",
+    d: "M0 0h24v21H0z"
+  })))));
+};
+/* harmony default export */ const Warning = (SvgWarning);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/Locker.svg
+var Locker_g, Locker_defs;
+function Locker_extends() { Locker_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return Locker_extends.apply(this, arguments); }
+
+var SvgLocker = function SvgLocker(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", Locker_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), Locker_g || (Locker_g = /*#__PURE__*/preact_js_.createElement("g", {
+    clipPath: "url(#Locker_svg__a)",
+    stroke: "currentColor",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M7.33 11h9.33c.74 0 1.33.81 1.33 1.82v6.36c0 1-.6 1.82-1.33 1.82H7.33C6.59 21 6 20.19 6 19.18v-6.36c0-1 .6-1.82 1.33-1.82ZM8.5 10.86V6.5C8.5 4.57 10.07 3 12 3s3.5 1.57 3.5 3.5v4.36"
+  }))), Locker_defs || (Locker_defs = /*#__PURE__*/preact_js_.createElement("defs", null, /*#__PURE__*/preact_js_.createElement("clipPath", {
+    id: "Locker_svg__a"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    fill: "#fff",
+    transform: "translate(5.25 2.25)",
+    d: "M0 0h13.5v19.5H0z"
+  })))));
+};
+/* harmony default export */ const Locker = (SvgLocker);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/Wallet.svg
+var Wallet_path, _path2;
+function Wallet_extends() { Wallet_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return Wallet_extends.apply(this, arguments); }
+
+var SvgWallet = function SvgWallet(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", Wallet_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), Wallet_path || (Wallet_path = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M17.93 14.8v3.95H5.97c-1.22 0-2.22-.78-2.22-1.75V6.5m0 0c0-.97.99-1.75 2.22-1.75h9.97v3.5H5.97c-1.22 0-2.22-.78-2.22-1.75Z",
+    stroke: "currentColor",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  })), _path2 || (_path2 = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M19.35 11.64h-5.31v3.17h5.31v-3.17ZM17.93 11.64V8.25h-2.78",
+    stroke: "currentColor",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  })));
+};
+/* harmony default export */ const Wallet = (SvgWallet);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/Card.svg
+var Card_path, Card_path2, _path3, _path4;
+function Card_extends() { Card_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return Card_extends.apply(this, arguments); }
+
+var SvgCard = function SvgCard(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", Card_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), Card_path || (Card_path = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M2.007 5h20.144a1.01 1.01 0 0 1 1.007 1.007v1.51S1.01 7.589 1 7.559v-1.55A1.01 1.01 0 0 1 2.007 5ZM23.158 9.784v8.561a1.01 1.01 0 0 1-1.007 1.007H2.007A1.01 1.01 0 0 1 1 18.345v-8.56h22.158Z",
+    stroke: "currentColor"
+  })), Card_path2 || (Card_path2 = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M3.015 15.968h5.388",
+    stroke: "currentColor",
+    strokeLinecap: "round"
+  })), _path3 || (_path3 = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M17.62 17.59a1.51 1.51 0 1 0 0-3.022 1.51 1.51 0 0 0 0 3.022Z",
+    stroke: "currentColor"
+  })), _path4 || (_path4 = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M19.885 17.59a1.51 1.51 0 1 0 0-3.022 1.51 1.51 0 0 0 0 3.022Z",
+    stroke: "currentColor"
+  })));
+};
+/* harmony default export */ const Card = (SvgCard);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/Order.svg
+var Order_path, Order_path2, Order_path3;
+function Order_extends() { Order_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return Order_extends.apply(this, arguments); }
+
+var SvgOrder = function SvgOrder(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", Order_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), Order_path || (Order_path = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M12 22.212 2 18.375V5.762l10 3.9v12.55ZM12 22.212l10-3.837V5.762l-10 3.9v12.55Z",
+    stroke: "currentColor",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  })), Order_path2 || (Order_path2 = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M2 5.762 12 1.8l10 3.962-10 3.9-10-3.9Z",
+    stroke: "currentColor",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  })), Order_path3 || (Order_path3 = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "m7.413 3.612 10 3.913v3.838",
+    stroke: "currentColor",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  })));
+};
+/* harmony default export */ const Order = (SvgOrder);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/Delivery.svg
+var Delivery_path, Delivery_path2;
+function Delivery_extends() { Delivery_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return Delivery_extends.apply(this, arguments); }
+
+var SvgDelivery = function SvgDelivery(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", Delivery_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), Delivery_path || (Delivery_path = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M2.473 4.9h12.712v6.064h6.065L23 12.715v4.897h-2.927",
+    stroke: "currentColor",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  })), Delivery_path2 || (Delivery_path2 = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M15.176 5.876h3.826l2.037 4.888M9.762 16.79a2.294 2.294 0 0 1-2.296 2.286A2.294 2.294 0 0 1 5.18 16.78a2.286 2.286 0 0 1 2.286-2.286 2.3 2.3 0 0 1 2.296 2.286v.01ZM19.873 16.79a2.29 2.29 0 0 1-2.296 2.296 2.29 2.29 0 0 1-2.296-2.296 2.29 2.29 0 0 1 2.296-2.296 2.29 2.29 0 0 1 2.296 2.296ZM8.088 7.636h-6.39M7.112 10.362H1M5.16 13.04H1.929M9.762 16.761h5.519M2.387 16.761H5.17",
+    stroke: "currentColor",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  })));
+};
+/* harmony default export */ const Delivery = (SvgDelivery);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/OrderError.svg
+var OrderError_g, OrderError_defs;
+function OrderError_extends() { OrderError_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return OrderError_extends.apply(this, arguments); }
+
+var SvgOrderError = function SvgOrderError(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", OrderError_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), OrderError_g || (OrderError_g = /*#__PURE__*/preact_js_.createElement("g", {
+    clipPath: "url(#OrderError_svg__a)",
+    stroke: "currentColor",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M10.25 20.91 1.5 17.55V6.52l8.75 3.41v10.98ZM6.24 4.64l8.75 3.42v3.36",
+    strokeLinecap: "round"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    className: "OrderError_svg__error-icon",
+    vectorEffect: "non-scaling-stroke",
+    d: "m19 13.31-3.5 6.06h7L19 13.31Z",
+    strokeLinecap: "round"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    className: "OrderError_svg__error-icon",
+    vectorEffect: "non-scaling-stroke",
+    d: "M19.02 17.11h-.04l-.03-1.55h.1l-.03 1.55Zm-.06 1.18v-.23h.09v.23h-.09Z",
+    strokeLinecap: "round"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M19 12.16V6.52l-8.75 3.41v10.98l4.02-1.54.13-.05"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "m1.5 6.52 8.75-3.47L19 6.52l-8.75 3.41L1.5 6.52Z",
+    strokeLinecap: "round"
+  }))), OrderError_defs || (OrderError_defs = /*#__PURE__*/preact_js_.createElement("defs", null, /*#__PURE__*/preact_js_.createElement("clipPath", {
+    id: "OrderError_svg__a"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    fill: "#fff",
+    transform: "translate(1 2.55)",
+    d: "M0 0h22v18.86H0z"
+  })))));
+};
+/* harmony default export */ const OrderError = (SvgOrderError);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/OrderSuccess.svg
+var OrderSuccess_g, OrderSuccess_defs;
+function OrderSuccess_extends() { OrderSuccess_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return OrderSuccess_extends.apply(this, arguments); }
+
+var SvgOrderSuccess = function SvgOrderSuccess(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", OrderSuccess_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), OrderSuccess_g || (OrderSuccess_g = /*#__PURE__*/preact_js_.createElement("g", {
+    clipPath: "url(#OrderSuccess_svg__a)",
+    stroke: "currentColor"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M10.15 20.85 1.5 17.53V6.63L10.15 10v10.85Z",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "m1.5 6.63 8.65-3.43 8.65 3.43L10.15 10 1.5 6.63Z",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "m6.18 4.77 8.65 3.38v3.32",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M18.79 12.64V6.63L10.14 10v10.85l4.69-1.8",
+    strokeLinejoin: "round"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    className: "OrderSuccess_svg__success-icon",
+    vectorEffect: "non-scaling-stroke",
+    d: "M15.71 17.26c0-1.88 1.52-3.4 3.4-3.4s3.4 1.52 3.4 3.4-1.52 3.4-3.4 3.4-3.4-1.52-3.4-3.4Z"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    className: "OrderSuccess_svg__success-icon",
+    vectorEffect: "non-scaling-stroke",
+    d: "m17.48 17.49 1.08.92 2.16-2.08",
+    strokeLinecap: "square",
+    strokeLinejoin: "round"
+  }))), OrderSuccess_defs || (OrderSuccess_defs = /*#__PURE__*/preact_js_.createElement("defs", null, /*#__PURE__*/preact_js_.createElement("clipPath", {
+    id: "OrderSuccess_svg__a"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    fill: "#fff",
+    transform: "translate(1 2.7)",
+    d: "M0 0h22v18.65H0z"
+  })))));
+};
+/* harmony default export */ const OrderSuccess = (SvgOrderSuccess);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/PaymentError.svg
+var PaymentError_g, PaymentError_defs;
+function PaymentError_extends() { PaymentError_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return PaymentError_extends.apply(this, arguments); }
+
+var SvgPaymentError = function SvgPaymentError(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", PaymentError_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), PaymentError_g || (PaymentError_g = /*#__PURE__*/preact_js_.createElement("g", {
+    clipPath: "url(#PaymentError_svg__a)",
+    stroke: "currentColor"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M2.3 4.77h15.94c.44 0 .8.36.8.8v1.2L1.5 6.8V5.57c0-.44.36-.8.8-.8Z"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M3.86 13.45h4.27",
+    strokeLinecap: "round"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M13.89 14.74c.66 0 1.2-.54 1.2-1.2 0-.66-.54-1.2-1.2-1.2-.66 0-1.2.54-1.2 1.2 0 .66.54 1.2 1.2 1.2Z"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M15.69 14.74c.66 0 1.2-.54 1.2-1.2 0-.66-.54-1.2-1.2-1.2-.66 0-1.2.54-1.2 1.2 0 .66.54 1.2 1.2 1.2Z"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M19.04 11.91V8.56H1.5v6.78c0 .44.36.8.8.8h13.64"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    className: "PaymentError_svg__error-icon",
+    vectorEffect: "non-scaling-stroke",
+    d: "m18.92 13.03-3.58 6.2h7.16l-3.58-6.2Z",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }), /*#__PURE__*/preact_js_.createElement("path", {
+    className: "PaymentError_svg__error-icon",
+    vectorEffect: "non-scaling-stroke",
+    d: "M18.94 16.92h-.04l-.03-1.59h.1l-.03 1.59Zm-.06 1.21v-.24h.09v.24h-.09Z",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }))), PaymentError_defs || (PaymentError_defs = /*#__PURE__*/preact_js_.createElement("defs", null, /*#__PURE__*/preact_js_.createElement("clipPath", {
+    id: "PaymentError_svg__a"
+  }, /*#__PURE__*/preact_js_.createElement("path", {
+    fill: "#fff",
+    transform: "translate(1 4.27)",
+    d: "M0 0h22v15.46H0z"
+  })))));
+};
+/* harmony default export */ const PaymentError = (SvgPaymentError);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/CheckWithCircle.svg
+var CheckWithCircle_path, CheckWithCircle_path2;
+function CheckWithCircle_extends() { CheckWithCircle_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return CheckWithCircle_extends.apply(this, arguments); }
+
+var SvgCheckWithCircle = function SvgCheckWithCircle(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", CheckWithCircle_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), CheckWithCircle_path || (CheckWithCircle_path = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M.75 12C.75 5.784 5.784.75 12 .75S23.25 5.784 23.25 12 18.216 23.25 12 23.25.75 18.216.75 12Z",
+    stroke: "currentColor"
+  })), CheckWithCircle_path2 || (CheckWithCircle_path2 = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "m6.75 12.762 3.489 2.988L17.25 9",
+    stroke: "currentColor"
+  })));
+};
+/* harmony default export */ const CheckWithCircle = (SvgCheckWithCircle);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/WarningWithCircle.svg
+var WarningWithCircle_path, WarningWithCircle_path2;
+function WarningWithCircle_extends() { WarningWithCircle_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return WarningWithCircle_extends.apply(this, arguments); }
+
+var SvgWarningWithCircle = function SvgWarningWithCircle(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", WarningWithCircle_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), WarningWithCircle_path || (WarningWithCircle_path = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M.75 12C.75 5.784 5.784.75 12 .75S23.25 5.784 23.25 12 18.216 23.25 12 23.25.75 18.216.75 12Z",
+    stroke: "currentColor"
+  })), WarningWithCircle_path2 || (WarningWithCircle_path2 = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M11.75 5.884V4.75h.5v1.134l-.201 7.187h-.098l-.201-7.187Zm.05 12.366v-1.263h.425v1.263H11.8Z",
+    stroke: "currentColor"
+  })));
+};
+/* harmony default export */ const WarningWithCircle = (SvgWarningWithCircle);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/WarningFilled.svg
+var WarningFilled_path;
+function WarningFilled_extends() { WarningFilled_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return WarningFilled_extends.apply(this, arguments); }
+
+var SvgWarningFilled = function SvgWarningFilled(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", WarningFilled_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), WarningFilled_path || (WarningFilled_path = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    fillRule: "evenodd",
+    clipRule: "evenodd",
+    d: "M1 20.895 12.192 1.5l11.203 19.395H1Zm12.028-6.931.222-3.926V9h-2v1.038l.222 3.926h1.556ZM11.299 16v1.75h1.926V16H11.3Z",
+    fill: "currentColor"
+  })));
+};
+/* harmony default export */ const WarningFilled = (SvgWarningFilled);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/InfoFilled.svg
+var InfoFilled_path;
+function InfoFilled_extends() { InfoFilled_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return InfoFilled_extends.apply(this, arguments); }
+
+var SvgInfoFilled = function SvgInfoFilled(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", InfoFilled_extends({
+    width: 24,
+    height: 24,
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), InfoFilled_path || (InfoFilled_path = /*#__PURE__*/preact_js_.createElement("path", {
+    fillRule: "evenodd",
+    clipRule: "evenodd",
+    d: "M0 12C0 5.38 5.38 0 12 0s12 5.38 12 12-5.38 12-12 12S0 18.62 0 12Zm11.889-6.939c-.748 0-1.353.605-1.353 1.353v.159a1.28 1.28 0 0 0 1.353 1.194h.19c.7-.064 1.21-.669 1.162-1.353 0-.748-.604-1.353-1.352-1.353Zm1.305 11.761h.907c.159 0 .302.143.302.303v.604a.302.302 0 0 1-.302.303H9.883a.302.302 0 0 1-.302-.303v-.604c0-.175.143-.303.302-.303h.907v-6.031h-.907a.302.302 0 0 1-.302-.303v-.605c0-.175.143-.302.302-.302h2.706c.334 0 .604.27.604.605v6.636Z",
+    fill: "currentColor"
+  })));
+};
+/* harmony default export */ const InfoFilled = (SvgInfoFilled);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/HeartFilled.svg
+var HeartFilled_path;
+function HeartFilled_extends() { HeartFilled_extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return HeartFilled_extends.apply(this, arguments); }
+
+var SvgHeartFilled = function SvgHeartFilled(props) {
+  return /*#__PURE__*/preact_js_.createElement("svg", HeartFilled_extends({
+    width: 24,
+    height: 24,
+    fill: "currentColor",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), HeartFilled_path || (HeartFilled_path = /*#__PURE__*/preact_js_.createElement("path", {
+    vectorEffect: "non-scaling-stroke",
+    d: "M12 20.75a.75.75 0 0 1-.53-.22l-7.76-7.76c-2.12-2.16-2.12-5.66 0-7.82a5.535 5.535 0 0 1 3.93-1.67h.06c1.47 0 2.85.57 3.9 1.6l.4.4.4-.4a5.537 5.537 0 0 1 3.94-1.63c1.49 0 2.89.58 3.94 1.63l.05.05c1.02 1.05 1.59 2.43 1.59 3.9s-.58 2.89-1.63 3.94l-7.76 7.76a.75.75 0 0 1-.53.22Z",
+    stroke: "currentColor"
+  })));
+};
+/* harmony default export */ const HeartFilled = (SvgHeartFilled);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/icons/index.ts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ;// CONCATENATED MODULE: ./containers/ProductDetails/ProductDetails.tsx
 function ProductDetails_typeof(obj) { "@babel/helpers - typeof"; return ProductDetails_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, ProductDetails_typeof(obj); }
-var ProductDetails_excluded = ["sku", "hideSku", "hideQuantity", "hideShortDescription", "hideDescription", "hideAttributes", "hideURLParams", "hideSelectedOptionValue", "slots", "children", "initialData", "carousel", "optionsConfig", "onAddToCart"];
+var ProductDetails_excluded = ["sku", "hideSku", "hideQuantity", "hideShortDescription", "hideDescription", "hideAttributes", "hideURLParams", "hideSelectedOptionValue", "slots", "children", "initialData", "carousel", "optionsConfig", "onAddToCart"],
+  _excluded2 = ["text", "icon"];
 function ProductDetails_regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ ProductDetails_regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == ProductDetails_typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator.return && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, catch: function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
 function ProductDetails_asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 function ProductDetails_asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { ProductDetails_asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { ProductDetails_asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+function ProductDetails_toConsumableArray(arr) { return ProductDetails_arrayWithoutHoles(arr) || ProductDetails_iterableToArray(arr) || ProductDetails_unsupportedIterableToArray(arr) || ProductDetails_nonIterableSpread(); }
+function ProductDetails_nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function ProductDetails_iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function ProductDetails_arrayWithoutHoles(arr) { if (Array.isArray(arr)) return ProductDetails_arrayLikeToArray(arr); }
 function ProductDetails_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function ProductDetails_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ProductDetails_ownKeys(Object(source), !0).forEach(function (key) { ProductDetails_defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ProductDetails_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function ProductDetails_defineProperty(obj, key, value) { key = ProductDetails_toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -3085,7 +3962,7 @@ function ProductDetails_objectWithoutPropertiesLoose(source, excluded) { if (sou
 
 
 
-// import { Cart } from '@adobe/elsie/icons';
+
 
 
 
@@ -3096,8 +3973,8 @@ function ProductDetails_objectWithoutPropertiesLoose(source, excluded) { if (sou
 
 
 function getIcon(icon) {
-  var source = icons[icon];
-  return source ? /*#__PURE__*/_jsx(Icon, {
+  var source = icons_namespaceObject[icon];
+  return source ? /*#__PURE__*/(0,jsx_runtime.jsx)(Icon_Icon_Icon, {
     source: source
   }) : undefined;
 }
@@ -3370,59 +4247,49 @@ var ProductDetails = function ProductDetails(_ref) {
       //   )
       // }
       ,
-      quantity: quantity
-      // actions={
-      //   <Slot
-      //     name="Actions"
-      //     slot={slots?.Actions}
-      //     context={{
-      //       ...defaultSlotContext,
-
-      //       appendButton(callback) {
-      //         this._registerMethod((...attrs) => {
-      //           const _button = callback(...attrs);
-
-      //           if (!_button) return;
-
-      //           const { text, icon, ...buttonProps } = _button;
-
-      //           const button = (
-      //             <Button
-      //               type="button"
-      //               {...buttonProps}
-      //               icon={icon && getIcon(icon)}
-      //             >
-      //               {text}
-      //             </Button>
-      //           );
-
-      //           this._setProps((prev: any) => ({
-      //             children: [...(prev.children || []), button],
-      //           }));
-      //         });
-      //       },
-      //     }}
-      //   >
-      //     {
-      //       // Default Add to Cart button if no slot is provided
-      //       !slots?.Actions && (
-      //         <Button
-      //           size="medium"
-      //           type="submit"
-      //           icon={<Icon source={Cart} />}
-      //           disabled={!data?.inStock || !valid}
-      //           aria-label={AddToCartLabel}
-      //           onClick={() => {
-      //             return onAddToCart?.(values);
-      //           }}
-      //         >
-      //           {AddToCartLabel}
-      //         </Button>
-      //       )
-      //     }
-      //   </Slot>
-      // }
-      ,
+      quantity: quantity,
+      actions: /*#__PURE__*/(0,jsx_runtime.jsx)(Slot, {
+        name: "Actions",
+        slot: slots === null || slots === void 0 ? void 0 : slots.Actions,
+        context: ProductDetails_objectSpread(ProductDetails_objectSpread({}, defaultSlotContext), {}, {
+          appendButton: function appendButton(callback) {
+            var _this = this;
+            this._registerMethod(function () {
+              var _button = callback.apply(void 0, arguments);
+              if (!_button) return;
+              var text = _button.text,
+                icon = _button.icon,
+                buttonProps = ProductDetails_objectWithoutProperties(_button, _excluded2);
+              var button = /*#__PURE__*/(0,jsx_runtime.jsx)(Button_Button_Button, ProductDetails_objectSpread(ProductDetails_objectSpread({
+                type: "button"
+              }, buttonProps), {}, {
+                icon: icon && getIcon(icon),
+                children: text
+              }));
+              _this._setProps(function (prev) {
+                return {
+                  children: [].concat(ProductDetails_toConsumableArray(prev.children || []), [button])
+                };
+              });
+            });
+          }
+        }),
+        children:
+        // Default Add to Cart button if no slot is provided
+        !(slots !== null && slots !== void 0 && slots.Actions) && /*#__PURE__*/(0,jsx_runtime.jsx)(Button_Button_Button, {
+          size: "medium",
+          type: "submit",
+          icon: /*#__PURE__*/(0,jsx_runtime.jsx)(Icon_Icon_Icon, {
+            source: Cart
+          }),
+          disabled: !(data !== null && data !== void 0 && data.inStock) || !valid,
+          "aria-label": AddToCartLabel,
+          onClick: function onClick() {
+            return onAddToCart === null || onAddToCart === void 0 ? void 0 : onAddToCart(values);
+          },
+          children: AddToCartLabel
+        })
+      }),
       shortDescription: /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
         dangerouslySetInnerHTML: {
           __html: (_data$shortDescriptio = data === null || data === void 0 ? void 0 : data.shortDescription) !== null && _data$shortDescriptio !== void 0 ? _data$shortDescriptio : ''
@@ -5384,7 +6251,7 @@ import * as __webpack_chunk_2__ from "../713.js";
 __webpack_require__.C(__webpack_chunk_2__);
 import * as __webpack_chunk_3__ from "./ProductDetails.js";
 __webpack_require__.C(__webpack_chunk_3__);
-var __webpack_exports__ = __webpack_exec__(789);
+var __webpack_exports__ = __webpack_exec__(906);
 var __webpack_exports__ProductDetails = __webpack_exports__.f;
 var __webpack_exports__default = __webpack_exports__.Z;
 export { __webpack_exports__ProductDetails as ProductDetails, __webpack_exports__default as default };
