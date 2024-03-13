@@ -3260,9 +3260,12 @@ var Price_Price_Price = function Price(_ref) {
       maximumFractionDigits: 2
     }, formatOptions));
   }, [locale, currency, formatOptions]);
+  var formattedAmount = (0,preact_compat_js_.useMemo)(function () {
+    return formatter.format(amount);
+  }, [amount, formatter]);
   return /*#__PURE__*/(0,jsx_runtime.jsx)("span", Price_objectSpread(Price_objectSpread({}, props), {}, {
     className: (0,classes/* classes */.S)(['dropin-price', "dropin-price--".concat(variant), "dropin-price--".concat(size), "dropin-price--".concat(weight), ['dropin-price--sale', sale], className]),
-    children: formatter.format(amount)
+    children: formattedAmount
   }));
 };
 ;// CONCATENATED MODULE: ./components/PriceRange/PriceRange.tsx
