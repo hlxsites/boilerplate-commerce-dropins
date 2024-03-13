@@ -282,58 +282,69 @@ var Render = /*#__PURE__*/function () {
   _createClass(Render, [{
     key: "renderComponent",
     value: function () {
-      var _renderComponent = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(Component, props, rootElement) {
-        var _yield$Component$getI, _Component$getInitial;
-        var initialData;
-        return _regeneratorRuntime().wrap(function _callee$(_context) {
-          while (1) switch (_context.prev = _context.next) {
+      var _renderComponent = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(Component, props, rootElement) {
+        var _this = this;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
             case 0:
               if (Component) {
-                _context.next = 2;
+                _context2.next = 2;
                 break;
               }
               throw new Error('Component is not defined');
             case 2:
               if (rootElement) {
-                _context.next = 4;
+                _context2.next = 4;
                 break;
               }
               throw new Error('Root element is not defined');
             case 4:
-              _context.next = 6;
-              return (_Component$getInitial = Component.getInitialData) === null || _Component$getInitial === void 0 ? void 0 : _Component$getInitial.call(Component, props);
-            case 6:
-              _context.t1 = _yield$Component$getI = _context.sent;
-              _context.t0 = _context.t1 !== null;
-              if (!_context.t0) {
-                _context.next = 10;
-                break;
-              }
-              _context.t0 = _yield$Component$getI !== void 0;
-            case 10:
-              if (!_context.t0) {
-                _context.next = 14;
-                break;
-              }
-              _context.t2 = _yield$Component$getI;
-              _context.next = 15;
-              break;
-            case 14:
-              _context.t2 = {};
-            case 15:
-              initialData = _context.t2;
-              (0,preact_js_.render)( /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, _objectSpread(_objectSpread({
-                node: this._provider
-              }, this._provider.props), {}, {
-                children: /*#__PURE__*/(0,jsx_runtime.jsx)(Component, _objectSpread(_objectSpread({}, props), {}, {
-                  initialData: initialData
-                }))
-              })), rootElement);
-            case 17:
+              setTimeout( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+                var _yield$Component$getI, _Component$getInitial;
+                var initialData;
+                return _regeneratorRuntime().wrap(function _callee$(_context) {
+                  while (1) switch (_context.prev = _context.next) {
+                    case 0:
+                      _context.next = 2;
+                      return (_Component$getInitial = Component.getInitialData) === null || _Component$getInitial === void 0 ? void 0 : _Component$getInitial.call(Component, props);
+                    case 2:
+                      _context.t1 = _yield$Component$getI = _context.sent;
+                      _context.t0 = _context.t1 !== null;
+                      if (!_context.t0) {
+                        _context.next = 6;
+                        break;
+                      }
+                      _context.t0 = _yield$Component$getI !== void 0;
+                    case 6:
+                      if (!_context.t0) {
+                        _context.next = 10;
+                        break;
+                      }
+                      _context.t2 = _yield$Component$getI;
+                      _context.next = 11;
+                      break;
+                    case 10:
+                      _context.t2 = {};
+                    case 11:
+                      initialData = _context.t2;
+                      (0,preact_js_.render)( /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, _objectSpread(_objectSpread({
+                        node: _this._provider
+                      }, _this._provider.props), {}, {
+                        children: /*#__PURE__*/(0,jsx_runtime.jsx)(Component, _objectSpread(_objectSpread({}, props), {}, {
+                          initialData: initialData
+                        }))
+                      })), rootElement);
+                    case 13:
+                    case "end":
+                      return _context.stop();
+                  }
+                }, _callee);
+              })), 0);
+            case 5:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
-        }, _callee, this);
+        }, _callee2);
       }));
       function renderComponent(_x, _x2, _x3) {
         return _renderComponent.apply(this, arguments);
@@ -343,56 +354,56 @@ var Render = /*#__PURE__*/function () {
   }, {
     key: "render",
     value: function render(Component, props) {
-      var _this = this;
+      var _this2 = this;
       return /*#__PURE__*/function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(rootElement) {
-          return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-            while (1) switch (_context2.prev = _context2.next) {
+        var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(rootElement) {
+          return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+            while (1) switch (_context3.prev = _context3.next) {
               case 0:
-                _context2.next = 2;
-                return _this.renderComponent(Component, props, rootElement);
+                _context3.next = 2;
+                return _this2.renderComponent(Component, props, rootElement);
               case 2:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
-          }, _callee2);
+          }, _callee3);
         }));
         return function (_x4) {
-          return _ref.apply(this, arguments);
+          return _ref2.apply(this, arguments);
         };
       }();
     }
   }, {
     key: "toString",
     value: function () {
-      var _toString = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(Component, props, options) {
+      var _toString = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(Component, props, options) {
         var _yield$Component$getI2, _Component$getInitial2;
         var initialData, renderedComponent;
-        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-          while (1) switch (_context3.prev = _context3.next) {
+        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+          while (1) switch (_context4.prev = _context4.next) {
             case 0:
-              _context3.next = 2;
+              _context4.next = 2;
               return (_Component$getInitial2 = Component.getInitialData) === null || _Component$getInitial2 === void 0 ? void 0 : _Component$getInitial2.call(Component, props);
             case 2:
-              _context3.t1 = _yield$Component$getI2 = _context3.sent;
-              _context3.t0 = _context3.t1 !== null;
-              if (!_context3.t0) {
-                _context3.next = 6;
+              _context4.t1 = _yield$Component$getI2 = _context4.sent;
+              _context4.t0 = _context4.t1 !== null;
+              if (!_context4.t0) {
+                _context4.next = 6;
                 break;
               }
-              _context3.t0 = _yield$Component$getI2 !== void 0;
+              _context4.t0 = _yield$Component$getI2 !== void 0;
             case 6:
-              if (!_context3.t0) {
-                _context3.next = 10;
+              if (!_context4.t0) {
+                _context4.next = 10;
                 break;
               }
-              _context3.t2 = _yield$Component$getI2;
-              _context3.next = 11;
+              _context4.t2 = _yield$Component$getI2;
+              _context4.next = 11;
               break;
             case 10:
-              _context3.t2 = {};
+              _context4.t2 = {};
             case 11:
-              initialData = _context3.t2;
+              initialData = _context4.t2;
               renderedComponent = /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, _objectSpread(_objectSpread({
                 node: this._provider
               }, this._provider.props), {}, {
@@ -400,12 +411,12 @@ var Render = /*#__PURE__*/function () {
                   initialData: initialData
                 }))
               }));
-              return _context3.abrupt("return", dist(renderedComponent, {}, _objectSpread({}, options)));
+              return _context4.abrupt("return", dist(renderedComponent, {}, _objectSpread({}, options)));
             case 14:
             case "end":
-              return _context3.stop();
+              return _context4.stop();
           }
-        }, _callee3, this);
+        }, _callee4, this);
       }));
       function toString(_x5, _x6, _x7) {
         return _toString.apply(this, arguments);
