@@ -3024,23 +3024,8 @@ var Product_Product_Product = function Product(_ref) {
               role: "text"
             })]
           })]
-        }), carouselConfig !== null && carouselConfig !== void 0 && carouselConfig.mobile ? /*#__PURE__*/(0,jsx_runtime.jsx)(Carousel_Carousel_Carousel, {
-          className: "pdp-product__images pdp-product__images--carousel pdp-product__images--carousel--thumbnails",
-          width: "100%",
-          height: "auto",
-          arrows: (images === null || images === void 0 ? void 0 : images.length) > 1,
-          controls: (images === null || images === void 0 ? void 0 : images.length) > 1 ? 'thumbnailsRow' : null,
-          loop: (carouselConfig === null || carouselConfig === void 0 ? void 0 : carouselConfig.loopable) && (images === null || images === void 0 ? void 0 : images.length) > 1,
-          thumbnails: localThumbnailsImages,
-          children: galleryImages
-        }) : /*#__PURE__*/(0,jsx_runtime.jsx)(Carousel_Carousel_Carousel, {
+        }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
           className: "pdp-product__images pdp-product__images--carousel",
-          peak: (images === null || images === void 0 ? void 0 : images.length) > 1,
-          width: "100%",
-          height: "auto",
-          arrows: (images === null || images === void 0 ? void 0 : images.length) > 1,
-          controls: (images === null || images === void 0 ? void 0 : images.length) > 1 ? 'dots' : null,
-          loop: (carouselConfig === null || carouselConfig === void 0 ? void 0 : carouselConfig.loopable) && (images === null || images === void 0 ? void 0 : images.length) > 1,
           children: galleryImages
         }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
           className: (0,classes/* classes */.S)(['pdp-product__actions', ["pdp-product__actions--out-of-stock", outOfStock]]),
@@ -4056,7 +4041,7 @@ function getIcon(icon) {
   }) : undefined;
 }
 var ProductDetails = function ProductDetails(_ref) {
-  var _data$attributes, _data$shortDescriptio, _data$description, _data$images$map, _data$images, _data$images$map2, _data$images2;
+  var _data$attributes, _data$shortDescriptio, _data$description, _data$images, _data$images$, _data$images2, _data$images2$, _data$images3, _data$images3$, _data$images$0$url, _data$images4, _data$images4$, _data$images$map, _data$images5;
   var sku = _ref.sku,
     hideSku = _ref.hideSku,
     hideQuantity = _ref.hideQuantity,
@@ -4371,23 +4356,34 @@ var ProductDetails = function ProductDetails(_ref) {
           __html: (_data$description = data === null || data === void 0 ? void 0 : data.description) !== null && _data$description !== void 0 ? _data$description : ''
         }
       }) : undefined,
-      images: (_data$images$map = data === null || data === void 0 ? void 0 : (_data$images = data.images) === null || _data$images === void 0 ? void 0 : _data$images.map(function (_ref4) {
-        var label = _ref4.label,
-          url = _ref4.url;
-        return /*#__PURE__*/(0,jsx_runtime.jsx)(Image_Image_Image, {
-          title: label,
-          alt: label,
-          src: url
-          // TODO: change width/height for image aspect ratio
-          // pending https://jira.corp.adobe.com/browse/DATA-5122
-          ,
-          width: 960,
-          height: 1191,
-          params: {
-            width: 960
-          }
-        }, url);
-      })) !== null && _data$images$map !== void 0 ? _data$images$map : []
+      images: [/*#__PURE__*/(0,jsx_runtime.jsx)(Image_Image_Image, {
+        title: data === null || data === void 0 ? void 0 : (_data$images2 = data.images) === null || _data$images2 === void 0 ? void 0 : (_data$images2$ = _data$images2[0]) === null || _data$images2$ === void 0 ? void 0 : _data$images2$.label,
+        alt: data === null || data === void 0 ? void 0 : (_data$images3 = data.images) === null || _data$images3 === void 0 ? void 0 : (_data$images3$ = _data$images3[0]) === null || _data$images3$ === void 0 ? void 0 : _data$images3$.label,
+        src: (_data$images$0$url = data === null || data === void 0 ? void 0 : (_data$images4 = data.images) === null || _data$images4 === void 0 ? void 0 : (_data$images4$ = _data$images4[0]) === null || _data$images4$ === void 0 ? void 0 : _data$images4$.url) !== null && _data$images$0$url !== void 0 ? _data$images$0$url : ''
+        // TODO: change width/height for image aspect ratio
+        // pending https://jira.corp.adobe.com/browse/DATA-5122
+        ,
+        width: 960,
+        height: 1191,
+        params: {
+          width: 960
+        }
+      }, data === null || data === void 0 ? void 0 : (_data$images = data.images) === null || _data$images === void 0 ? void 0 : (_data$images$ = _data$images[0]) === null || _data$images$ === void 0 ? void 0 : _data$images$.url)]
+      // images={
+      //   data?.images?.map(({ label, url }) => (
+      //     <Image
+      //       key={url}
+      //       title={label}
+      //       alt={label}
+      //       src={url}
+      //       // TODO: change width/height for image aspect ratio
+      //       // pending https://jira.corp.adobe.com/browse/DATA-5122
+      //       width={960}
+      //       height={1191}
+      //       params={{ width: 960 }}
+      //     />
+      //   )) ?? []
+      // }
       // price={
       //   data?.prices?.visible ?
       //     // <Slot
@@ -4417,9 +4413,9 @@ var ProductDetails = function ProductDetails(_ref) {
       // }
       ,
       carouselConfig: ProductDetails_objectSpread(ProductDetails_objectSpread({}, carousel), {}, {
-        thumbnails: carousel ? (_data$images$map2 = data === null || data === void 0 ? void 0 : (_data$images2 = data.images) === null || _data$images2 === void 0 ? void 0 : _data$images2.map(function (_ref5) {
-          var label = _ref5.label,
-            url = _ref5.url;
+        thumbnails: carousel ? (_data$images$map = data === null || data === void 0 ? void 0 : (_data$images5 = data.images) === null || _data$images5 === void 0 ? void 0 : _data$images5.map(function (_ref4) {
+          var label = _ref4.label,
+            url = _ref4.url;
           return /*#__PURE__*/(0,jsx_runtime.jsx)(Image_Image_Image, {
             title: label,
             alt: label,
@@ -4433,7 +4429,7 @@ var ProductDetails = function ProductDetails(_ref) {
               width: 200
             }
           }, url);
-        })) !== null && _data$images$map2 !== void 0 ? _data$images$map2 : [] : []
+        })) !== null && _data$images$map !== void 0 ? _data$images$map : [] : []
       }),
       outOfStock: !(data !== null && data !== void 0 && data.inStock),
       attributes: !hideAttributes ? /*#__PURE__*/(0,jsx_runtime.jsx)(Slot, {
@@ -4465,13 +4461,13 @@ var ProductDetails = function ProductDetails(_ref) {
   }));
 };
 ProductDetails.getInitialData = /*#__PURE__*/function () {
-  var _ref7 = ProductDetails_asyncToGenerator( /*#__PURE__*/ProductDetails_regeneratorRuntime().mark(function _callee(_ref6) {
+  var _ref6 = ProductDetails_asyncToGenerator( /*#__PURE__*/ProductDetails_regeneratorRuntime().mark(function _callee(_ref5) {
     var _getUrlParams$options, _config$getConfig, _config$getConfig$mod, _config$getConfig$mod2, _config$getConfig$mod3;
     var sku, optionsConfig, defaultSelections;
     return ProductDetails_regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
-          sku = _ref6.sku, optionsConfig = _ref6.optionsConfig;
+          sku = _ref5.sku, optionsConfig = _ref5.optionsConfig;
           // check if default selections are made
           defaultSelections = ((_getUrlParams$options = getUrlParams().optionsUIDs) === null || _getUrlParams$options === void 0 ? void 0 : _getUrlParams$options.split(',')) || (initialize/* config */.v === null || initialize/* config */.v === void 0 ? void 0 : (_config$getConfig = initialize/* config */.v.getConfig()) === null || _config$getConfig === void 0 ? void 0 : (_config$getConfig$mod = _config$getConfig.models) === null || _config$getConfig$mod === void 0 ? void 0 : (_config$getConfig$mod2 = _config$getConfig$mod.ProductDetails) === null || _config$getConfig$mod2 === void 0 ? void 0 : (_config$getConfig$mod3 = _config$getConfig$mod2.initialData) === null || _config$getConfig$mod3 === void 0 ? void 0 : _config$getConfig$mod3.optionsUIDs); // if it has selections, refine the product data
           if (!(defaultSelections !== null && defaultSelections !== void 0 && defaultSelections.length)) {
@@ -4488,7 +4484,7 @@ ProductDetails.getInitialData = /*#__PURE__*/function () {
     }, _callee);
   }));
   return function (_x2) {
-    return _ref7.apply(this, arguments);
+    return _ref6.apply(this, arguments);
   };
 }();
 ;// CONCATENATED MODULE: ./containers/ProductDetails/index.ts
