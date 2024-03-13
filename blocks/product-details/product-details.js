@@ -38,7 +38,7 @@ export default async function decorate(block) {
 
   // Render Containers
 
-  return productRenderer.render(ProductDetails, {
+  productRenderer.render(ProductDetails, {
     sku: getSkuFromUrl(),
     // carousel: {
     //   controls: 'dots', // 'thumbnailsColumn', 'thumbnailsRow', 'dots'
