@@ -17,13 +17,14 @@ export const modules = {
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
+  fH: () => (/* binding */ IntlContext),
   Pj: () => (/* binding */ IntlProvider),
   Cf: () => (/* binding */ Localizer),
   xv: () => (/* binding */ Text),
   XK: () => (/* binding */ useText)
 });
 
-// UNUSED EXPORTS: IntlContext, MarkupText, default, intl, translate, withText
+// UNUSED EXPORTS: MarkupText, default, intl, translate, withText
 
 // EXTERNAL MODULE: external "@dropins/tools/preact.js"
 var preact_js_ = __webpack_require__(770);

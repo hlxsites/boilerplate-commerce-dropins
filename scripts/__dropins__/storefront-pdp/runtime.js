@@ -52,28 +52,6 @@
 /******/ 	};
 /******/ })();
 /******/ 
-/******/ /* webpack/runtime/ensure chunk */
-/******/ (() => {
-/******/ 	__webpack_require__.f = {};
-/******/ 	// This file contains only the entry chunk.
-/******/ 	// The chunk loading function for additional chunks
-/******/ 	__webpack_require__.e = (chunkId) => {
-/******/ 		return Promise.all(Object.keys(__webpack_require__.f).reduce((promises, key) => {
-/******/ 			__webpack_require__.f[key](chunkId, promises);
-/******/ 			return promises;
-/******/ 		}, []));
-/******/ 	};
-/******/ })();
-/******/ 
-/******/ /* webpack/runtime/get javascript chunk filename */
-/******/ (() => {
-/******/ 	// This function allow to reference async chunks
-/******/ 	__webpack_require__.u = (chunkId) => {
-/******/ 		// return url for filenames based on template
-/******/ 		return "" + chunkId + ".js";
-/******/ 	};
-/******/ })();
-/******/ 
 /******/ /* webpack/runtime/hasOwnProperty shorthand */
 /******/ (() => {
 /******/ 	__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -125,27 +103,7 @@
 /******/ 	
 /******/ 	}
 /******/ 	
-/******/ 	__webpack_require__.f.j = (chunkId, promises) => {
-/******/ 			// import() chunk loading for javascript
-/******/ 			var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
-/******/ 			if(installedChunkData !== 0) { // 0 means "already installed".
-/******/ 	
-/******/ 				// a Promise means "currently loading".
-/******/ 				if(installedChunkData) {
-/******/ 					promises.push(installedChunkData[1]);
-/******/ 				} else {
-/******/ 					if(666 != chunkId) {
-/******/ 						// setup Promise in chunk cache
-/******/ 						var promise = import("./" + __webpack_require__.u(chunkId)).then(installChunk, (e) => {
-/******/ 							if(installedChunks[chunkId] !== 0) installedChunks[chunkId] = undefined;
-/******/ 							throw e;
-/******/ 						});
-/******/ 						var promise = Promise.race([promise, new Promise((resolve) => (installedChunkData = installedChunks[chunkId] = [resolve]))])
-/******/ 						promises.push(installedChunkData[1] = promise);
-/******/ 					} else installedChunks[chunkId] = 0;
-/******/ 				}
-/******/ 			}
-/******/ 	};
+/******/ 	// no chunk on demand loading
 /******/ 	
 /******/ 	__webpack_require__.C = installChunk;
 /******/ 	
