@@ -39,7 +39,67 @@ var classes = function classes(_classes) {
 
 /***/ }),
 
-/***/ 386:
+/***/ 650:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   F: () => (/* binding */ VComponent)
+/* harmony export */ });
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(850);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(567);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+var _excluded = ["node"];
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+/*
+ADOBE CONFIDENTIAL
+Copyright 2023 Adobe
+All Rights Reserved.
+NOTICE: All information contained herein is, and remains
+the property of Adobe and its suppliers, if any. The intellectual
+and technical concepts contained herein are proprietary to Adobe
+and its suppliers and are protected by all applicable intellectual
+property laws, including trade secret and copyright laws.
+Dissemination of this information or reproduction of this material
+is strictly forbidden unless prior written permission is obtained
+from Adobe.
+*/
+
+
+
+
+function VComponent(_ref) {
+  var node = _ref.node,
+    props = _objectWithoutProperties(_ref, _excluded);
+  if (!node) return null;
+  if (Array.isArray(node)) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+      children: node.map(function (n, key) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(VComponent, _objectSpread({
+          node: n,
+          className: props.className
+        }, props), key);
+      })
+    });
+  }
+
+  // @ts-ignore
+  props.className = (0,___WEBPACK_IMPORTED_MODULE_1__/* .classes */ .S)([node.props.className, props.className]);
+
+  // @ts-ignore
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(node.type, _objectSpread(_objectSpread({
+    ref: node.ref
+  }, node.props), props), node.key);
+}
+
+/***/ }),
+
+/***/ 219:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
@@ -1580,56 +1640,8 @@ var Swatches_Swatches_Swatches = function Swatches(_ref) {
     })
   }));
 };
-;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/lib/vcomponent.tsx
-function vcomponent_typeof(obj) { "@babel/helpers - typeof"; return vcomponent_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, vcomponent_typeof(obj); }
-var vcomponent_excluded = ["node"];
-function vcomponent_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function vcomponent_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? vcomponent_ownKeys(Object(source), !0).forEach(function (key) { vcomponent_defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : vcomponent_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-function vcomponent_defineProperty(obj, key, value) { key = vcomponent_toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function vcomponent_toPropertyKey(arg) { var key = vcomponent_toPrimitive(arg, "string"); return vcomponent_typeof(key) === "symbol" ? key : String(key); }
-function vcomponent_toPrimitive(input, hint) { if (vcomponent_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (vcomponent_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function vcomponent_objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = vcomponent_objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-function vcomponent_objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-/*
-ADOBE CONFIDENTIAL
-Copyright 2023 Adobe
-All Rights Reserved.
-NOTICE: All information contained herein is, and remains
-the property of Adobe and its suppliers, if any. The intellectual
-and technical concepts contained herein are proprietary to Adobe
-and its suppliers and are protected by all applicable intellectual
-property laws, including trade secret and copyright laws.
-Dissemination of this information or reproduction of this material
-is strictly forbidden unless prior written permission is obtained
-from Adobe.
-*/
-
-
-
-
-function VComponent(_ref) {
-  var node = _ref.node,
-    props = vcomponent_objectWithoutProperties(_ref, vcomponent_excluded);
-  if (!node) return null;
-  if (Array.isArray(node)) {
-    return /*#__PURE__*/(0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
-      children: node.map(function (n, key) {
-        return /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, vcomponent_objectSpread({
-          node: n,
-          className: props.className
-        }, props), key);
-      })
-    });
-  }
-
-  // @ts-ignore
-  props.className = (0,classes/* classes */.S)([node.props.className, props.className]);
-
-  // @ts-ignore
-  return /*#__PURE__*/(0,jsx_runtime.jsx)(node.type, vcomponent_objectSpread(vcomponent_objectSpread({
-    ref: node.ref
-  }, node.props), props), node.key);
-}
+// EXTERNAL MODULE: ../../ElsieSDK/packages/elsie/src/lib/vcomponent.tsx
+var vcomponent = __webpack_require__(650);
 // EXTERNAL MODULE: ../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!../../ElsieSDK/packages/elsie/src/components/Button/Button.css
 var Button = __webpack_require__(241);
 ;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/components/Button/Button.css
@@ -1732,12 +1744,12 @@ var Button_Button_Button = function Button(_ref) {
     disabled: disabled,
     active: active
   });
-  return /*#__PURE__*/(0,jsx_runtime.jsxs)(VComponent, Button_objectSpread(Button_objectSpread({}, attributes), {}, {
+  return /*#__PURE__*/(0,jsx_runtime.jsxs)(vcomponent/* VComponent */.F, Button_objectSpread(Button_objectSpread({}, attributes), {}, {
     className: className,
-    children: [icon && !active && /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+    children: [icon && !active && /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
       node: icon,
       className: iconClassName
-    }), activeIcon && active && /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+    }), activeIcon && active && /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
       node: activeIcon,
       className: iconClassName
     }), children && !active && (typeof children === 'string' ? /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
@@ -2291,7 +2303,7 @@ var GalleryGrid_GalleryGrid_GalleryGrid = function GalleryGrid(_ref) {
     children: preact_compat_js_.Children.map(children, function (child, key) {
       return /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
         className: "pdp-gallery-grid__item",
-        children: /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+        children: /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
           node: child,
           loading: key === 0 ? 'eager' : 'lazy'
         }, child.props.src)
@@ -2533,7 +2545,7 @@ var Product_Product_Product = function Product(_ref) {
     setZoom = _useState2[1];
   var galleryImages = images !== null && images !== void 0 && images.length ? images.map(function (image, key) {
     var _title$props;
-    return /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+    return /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
       node: image,
       loading: key === 0 ? 'eager' : 'lazy',
       alt: (title === null || title === void 0 ? void 0 : (_title$props = title.props) === null || _title$props === void 0 ? void 0 : _title$props.children) && (ImagesLabel === null || ImagesLabel === void 0 ? void 0 : ImagesLabel.replace('{product}', title.props.children.toString()).replace('{key}', String(key + 1)).replace('{total}', String(images.length))),
@@ -2548,7 +2560,7 @@ var Product_Product_Product = function Product(_ref) {
   });
   var localThumbnailsImages = carouselConfig !== null && carouselConfig !== void 0 && (_carouselConfig$thumb = carouselConfig.thumbnails) !== null && _carouselConfig$thumb !== void 0 && _carouselConfig$thumb.length ? carouselConfig.thumbnails.map(function (image, key) {
     var _title$props2;
-    return /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+    return /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
       node: image,
       loading: (carouselConfig === null || carouselConfig === void 0 ? void 0 : carouselConfig.thumbnailsLoadingMode) || 'lazy',
       alt: (title === null || title === void 0 ? void 0 : (_title$props2 = title.props) === null || _title$props2 === void 0 ? void 0 : _title$props2.children) && (ImagesLabel === null || ImagesLabel === void 0 ? void 0 : ImagesLabel.replace('{product}', title.props.children.toString()).replace('{key}', String(key + 1)).replace('{total}', String(images.length)))
@@ -2560,7 +2572,7 @@ var Product_Product_Product = function Product(_ref) {
   });
   return /*#__PURE__*/(0,jsx_runtime.jsxs)("div", Product_objectSpread(Product_objectSpread({}, props), {}, {
     className: (0,classes/* classes */.S)(['pdp-product', className]),
-    children: [breadcrumbs && /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+    children: [breadcrumbs && /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
       node: breadcrumbs,
       className: "pdp-product__breadcrumbs"
     }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
@@ -2582,7 +2594,7 @@ var Product_Product_Product = function Product(_ref) {
           gap: "small",
           children: galleryImages
         })
-      }), galleryContent && /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+      }), galleryContent && /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
         node: galleryContent,
         className: "pdp-product__gallery-content"
       })]
@@ -2592,22 +2604,22 @@ var Product_Product_Product = function Product(_ref) {
         className: "pdp-product__column-body",
         children: [/*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
           className: "pdp-product__header",
-          children: [/*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+          children: [/*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
             node: /*#__PURE__*/(0,jsx_runtime.jsx)("h1", {
               children: title
             }),
             className: "pdp-product__title"
-          }), !hideSku && sku && /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+          }), !hideSku && sku && /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
             node: sku,
             className: "pdp-product__sku"
           }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
             className: "pdp-product__prices",
-            children: [specialPrice && /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+            children: [specialPrice && /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
               node: specialPrice,
               className: (0,classes/* classes */.S)(['pdp-product__price-special', 'pdp-product__price--grey']),
               "aria-label": SpecialPriceLabel,
               role: "text"
-            }), price && /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+            }), price && /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
               node: price,
               className: (0,classes/* classes */.S)(['pdp-product__price']),
               "aria-label": RegularPriceLabel,
@@ -2637,33 +2649,33 @@ var Product_Product_Product = function Product(_ref) {
           children: [outOfStock && /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
             className: "pdp-product__out-of-stock__text",
             children: OutOfStockLabel
-          }), options && /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+          }), options && /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
             node: options,
             className: (0,classes/* classes */.S)(['pdp-product__options'])
           }), quantity && /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
             className: "pdp-product__quantity",
-            children: /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+            children: /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
               node: quantity
             })
-          }), actions && /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+          }), actions && /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
             node: actions,
             className: (0,classes/* classes */.S)(['pdp-product__buttons'])
           })]
-        }), shortDescription && /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+        }), shortDescription && /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
           node: shortDescription,
           className: (0,classes/* classes */.S)(['pdp-product__short_description'])
-        }), description && /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+        }), description && /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
           node: description,
           className: (0,classes/* classes */.S)(['pdp-product__description'])
         }), attributes ? /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
           className: "pdp-product__attributes",
           children: attributes
         }) : null]
-      }), /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+      }), /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
         node: productInfo,
         className: "pdp-product__product-info"
       })]
-    }), productContent && /*#__PURE__*/(0,jsx_runtime.jsx)(VComponent, {
+    }), productContent && /*#__PURE__*/(0,jsx_runtime.jsx)(vcomponent/* VComponent */.F, {
       node: productContent,
       className: "pdp-product__product-content"
     }), zoom === null ? null : /*#__PURE__*/(0,jsx_runtime.jsx)(Overlay_Overlay_Overlay, {
@@ -5116,7 +5128,7 @@ import * as __webpack_chunk_2__ from "../713.js";
 __webpack_require__.C(__webpack_chunk_2__);
 import * as __webpack_chunk_3__ from "./ProductDetails.js";
 __webpack_require__.C(__webpack_chunk_3__);
-var __webpack_exports__ = __webpack_exec__(386);
+var __webpack_exports__ = __webpack_exec__(219);
 var __webpack_exports__ProductDetails = __webpack_exports__.f;
 var __webpack_exports__default = __webpack_exports__.Z;
 export { __webpack_exports__ProductDetails as ProductDetails, __webpack_exports__default as default };
