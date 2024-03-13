@@ -99,7 +99,7 @@ function VComponent(_ref) {
 
 /***/ }),
 
-/***/ 785:
+/***/ 219:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
@@ -111,16 +111,6 @@ __webpack_require__.d(__webpack_exports__, {
 
 // EXTERNAL MODULE: external "@dropins/tools/preact-compat.js"
 var preact_compat_js_ = __webpack_require__(419);
-;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/lib/i18n.ts
-/**
- * Convert locale from Magento standard to react-intl BCP 47 language tag
- *
- * @param {string} locale - A locale (e.g. `fr_FR`).
- * @returns {string} A BCP 47 language tag (e.g. `fr-FR`).
- */
-var toLanguageTag = function toLanguageTag(locale) {
-  return locale.replace('_', '-');
-};
 // EXTERNAL MODULE: external "@dropins/tools/preact-hooks.js"
 var preact_hooks_js_ = __webpack_require__(454);
 ;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/lib/debounce.ts
@@ -2708,222 +2698,6 @@ var Product_Product_Product = function Product(_ref) {
     })]
   }));
 };
-// EXTERNAL MODULE: ../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./components/PriceRange/PriceRange.css
-var PriceRange = __webpack_require__(321);
-;// CONCATENATED MODULE: ./components/PriceRange/PriceRange.css
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var PriceRange_options = {"attributes":{"data-dropin":"@dropins/storefront-pdp"}};
-
-PriceRange_options.styleTagTransform = (styleTagTransform_default());
-PriceRange_options.setAttributes = (setAttributesWithAttributesAndNonce_default());
-PriceRange_options.insert = function insertAtTop(element) {
-                  const parent = document.querySelector('head');
-
-                  const lastInsertedElement =
-                    window._lastElementInsertedByStyleLoader;
-
-                  if (!lastInsertedElement) {
-                    parent.insertBefore(element, parent.firstChild);
-                  } else if (lastInsertedElement.nextSibling) {
-                    parent.insertBefore(
-                      element,
-                      lastInsertedElement.nextSibling
-                    );
-                  } else {
-                    parent.appendChild(element);
-                  }
-
-                  window._lastElementInsertedByStyleLoader = element;
-                };
-PriceRange_options.domAPI = (styleDomAPI_default());
-PriceRange_options.insertStyleElement = (insertStyleElement_default());
-
-var PriceRange_update = injectStylesIntoStyleTag_default()(PriceRange/* default */.Z, PriceRange_options);
-
-
-
-
-       /* harmony default export */ const PriceRange_PriceRange = (PriceRange/* default */.Z && PriceRange/* default */.Z.locals ? PriceRange/* default */.Z.locals : undefined);
-
-// EXTERNAL MODULE: ../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!../../ElsieSDK/packages/elsie/src/components/Price/Price.css
-var Price = __webpack_require__(192);
-;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/components/Price/Price.css
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var Price_options = {"attributes":{"data-dropin":"@dropins/storefront-pdp"}};
-
-Price_options.styleTagTransform = (styleTagTransform_default());
-Price_options.setAttributes = (setAttributesWithAttributesAndNonce_default());
-Price_options.insert = function insertAtTop(element) {
-                  const parent = document.querySelector('head');
-
-                  const lastInsertedElement =
-                    window._lastElementInsertedByStyleLoader;
-
-                  if (!lastInsertedElement) {
-                    parent.insertBefore(element, parent.firstChild);
-                  } else if (lastInsertedElement.nextSibling) {
-                    parent.insertBefore(
-                      element,
-                      lastInsertedElement.nextSibling
-                    );
-                  } else {
-                    parent.appendChild(element);
-                  }
-
-                  window._lastElementInsertedByStyleLoader = element;
-                };
-Price_options.domAPI = (styleDomAPI_default());
-Price_options.insertStyleElement = (insertStyleElement_default());
-
-var Price_update = injectStylesIntoStyleTag_default()(Price/* default */.Z, Price_options);
-
-
-
-
-       /* harmony default export */ const Price_Price = (Price/* default */.Z && Price/* default */.Z.locals ? Price/* default */.Z.locals : undefined);
-
-;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/components/Price/Price.tsx
-function Price_typeof(obj) { "@babel/helpers - typeof"; return Price_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, Price_typeof(obj); }
-var Price_excluded = ["amount", "currency", "locale", "variant", "weight", "className", "children", "sale", "formatOptions", "size"];
-function Price_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function Price_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? Price_ownKeys(Object(source), !0).forEach(function (key) { Price_defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : Price_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-function Price_defineProperty(obj, key, value) { key = Price_toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function Price_toPropertyKey(arg) { var key = Price_toPrimitive(arg, "string"); return Price_typeof(key) === "symbol" ? key : String(key); }
-function Price_toPrimitive(input, hint) { if (Price_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (Price_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function Price_objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = Price_objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-function Price_objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-
-
-
-var Price_Price_Price = function Price(_ref) {
-  var _ref$amount = _ref.amount,
-    amount = _ref$amount === void 0 ? 0 : _ref$amount,
-    currency = _ref.currency,
-    _ref$locale = _ref.locale,
-    locale = _ref$locale === void 0 ? undefined : _ref$locale,
-    _ref$variant = _ref.variant,
-    variant = _ref$variant === void 0 ? 'default' : _ref$variant,
-    _ref$weight = _ref.weight,
-    weight = _ref$weight === void 0 ? 'bold' : _ref$weight,
-    className = _ref.className,
-    children = _ref.children,
-    _ref$sale = _ref.sale,
-    sale = _ref$sale === void 0 ? false : _ref$sale,
-    _ref$formatOptions = _ref.formatOptions,
-    formatOptions = _ref$formatOptions === void 0 ? {} : _ref$formatOptions,
-    _ref$size = _ref.size,
-    size = _ref$size === void 0 ? 'small' : _ref$size,
-    props = Price_objectWithoutProperties(_ref, Price_excluded);
-  var formatter = (0,preact_compat_js_.useMemo)(function () {
-    return new Intl.NumberFormat(locale, Price_objectSpread({
-      style: 'currency',
-      currency: currency || 'USD',
-      // These options are needed to round to whole numbers if that's what you want.
-      minimumFractionDigits: 2,
-      // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-      maximumFractionDigits: 2
-    }, formatOptions));
-  }, [locale, currency, formatOptions]);
-  var formattedAmount = (0,preact_compat_js_.useMemo)(function () {
-    return formatter.format(amount);
-  }, [amount, formatter]);
-  return /*#__PURE__*/(0,jsx_runtime.jsx)("span", Price_objectSpread(Price_objectSpread({}, props), {}, {
-    className: (0,classes/* classes */.S)(['dropin-price', "dropin-price--".concat(variant), "dropin-price--".concat(size), "dropin-price--".concat(weight), ['dropin-price--sale', sale], className]),
-    children: formattedAmount
-  }));
-};
-;// CONCATENATED MODULE: ./components/PriceRange/PriceRange.tsx
-function PriceRange_typeof(obj) { "@babel/helpers - typeof"; return PriceRange_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, PriceRange_typeof(obj); }
-var PriceRange_excluded = ["amount", "currency", "locale", "variant", "sale", "minimumAmount", "maximumAmount", "className"];
-function PriceRange_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function PriceRange_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? PriceRange_ownKeys(Object(source), !0).forEach(function (key) { PriceRange_defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : PriceRange_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-function PriceRange_defineProperty(obj, key, value) { key = PriceRange_toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function PriceRange_toPropertyKey(arg) { var key = PriceRange_toPrimitive(arg, "string"); return PriceRange_typeof(key) === "symbol" ? key : String(key); }
-function PriceRange_toPrimitive(input, hint) { if (PriceRange_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (PriceRange_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function PriceRange_objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = PriceRange_objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-function PriceRange_objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-/*
-ADOBE CONFIDENTIAL
-Copyright 2023 Adobe
-All Rights Reserved.
-NOTICE: All information contained herein is, and remains
-the property of Adobe and its suppliers, if any. The intellectual
-and technical concepts contained herein are proprietary to Adobe
-and its suppliers and are protected by all applicable intellectual
-property laws, including trade secret and copyright laws.
-Dissemination of this information or reproduction of this material
-is strictly forbidden unless prior written permission is obtained
-from Adobe.
-*/
-
-
-
-
-
-
-var PriceRange_PriceRange_PriceRange = function PriceRange(_ref) {
-  var amount = _ref.amount,
-    currency = _ref.currency,
-    locale = _ref.locale,
-    variant = _ref.variant,
-    sale = _ref.sale,
-    minimumAmount = _ref.minimumAmount,
-    maximumAmount = _ref.maximumAmount,
-    className = _ref.className,
-    props = PriceRange_objectWithoutProperties(_ref, PriceRange_excluded);
-  return /*#__PURE__*/(0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
-    children: amount || minimumAmount === maximumAmount ? /*#__PURE__*/(0,jsx_runtime.jsx)("div", PriceRange_objectSpread(PriceRange_objectSpread({
-      className: 'pdp-price-range'
-    }, props), {}, {
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)(Price_Price_Price, {
-        amount: amount ? amount : minimumAmount,
-        currency: currency,
-        locale: locale,
-        variant: variant,
-        sale: sale,
-        className: className
-      })
-    })) : /*#__PURE__*/(0,jsx_runtime.jsxs)("div", PriceRange_objectSpread(PriceRange_objectSpread({
-      className: 'pdp-price-range'
-    }, props), {}, {
-      children: [/*#__PURE__*/(0,jsx_runtime.jsx)(Price_Price_Price, {
-        amount: minimumAmount,
-        currency: currency,
-        locale: locale,
-        className: className
-      }), /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
-        className: "pdp-price-range__label",
-        children: '-'
-      }), /*#__PURE__*/(0,jsx_runtime.jsx)(Price_Price_Price, {
-        amount: maximumAmount,
-        currency: currency,
-        locale: locale,
-        className: className
-      })]
-    }))
-  });
-};
 // EXTERNAL MODULE: ./api/getProductData/getProductData.ts + 1 modules
 var getProductData = __webpack_require__(675);
 // EXTERNAL MODULE: ./api/getRefinedProduct/getRefinedProduct.ts + 1 modules
@@ -2932,6 +2706,16 @@ var getRefinedProduct = __webpack_require__(52);
 var initialize = __webpack_require__(18);
 // EXTERNAL MODULE: external "@dropins/tools/event-bus.js"
 var event_bus_js_ = __webpack_require__(214);
+;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/lib/i18n.ts
+/**
+ * Convert locale from Magento standard to react-intl BCP 47 language tag
+ *
+ * @param {string} locale - A locale (e.g. `fr_FR`).
+ * @returns {string} A BCP 47 language tag (e.g. `fr-FR`).
+ */
+var toLanguageTag = function toLanguageTag(locale) {
+  return locale.replace('_', '-');
+};
 ;// CONCATENATED MODULE: ./lib/date.ts
 
 function toDateString(value) {
@@ -3017,7 +2801,7 @@ function ProductDetails_objectWithoutPropertiesLoose(source, excluded) { if (sou
 
 
 
-
+// import { Cart } from '@adobe/elsie/icons';
 
 
 
@@ -3034,7 +2818,7 @@ function getIcon(icon) {
   }) : undefined;
 }
 var ProductDetails = function ProductDetails(_ref) {
-  var _data$attributes, _data$shortDescriptio, _data$description, _data$images$map, _data$images, _data$prices, _data$prices2, _data$images$map2, _data$images2;
+  var _data$attributes, _data$shortDescriptio, _data$description, _data$images$map, _data$images, _data$images$map2, _data$images2;
   var sku = _ref.sku,
     hideSku = _ref.hideSku,
     hideQuantity = _ref.hideQuantity,
@@ -3387,31 +3171,35 @@ var ProductDetails = function ProductDetails(_ref) {
             width: 960
           }
         }, url);
-      })) !== null && _data$images$map !== void 0 ? _data$images$map : [],
-      price: data !== null && data !== void 0 && (_data$prices = data.prices) !== null && _data$prices !== void 0 && _data$prices.visible ?
-      /*#__PURE__*/
-      // <Slot
-      //   name="RegularPrice"
-      //   slot={slots?.RegularPrice}
-      //   context={{ ...defaultSlotContext }}
-      // >
-      (0,jsx_runtime.jsx)(PriceRange_PriceRange_PriceRange, ProductDetails_objectSpread(ProductDetails_objectSpread({}, data.prices.final), {}, {
-        locale: toLanguageTag(locale)
-      }))
-      // </Slot> 
-      : undefined,
-      specialPrice: data !== null && data !== void 0 && (_data$prices2 = data.prices) !== null && _data$prices2 !== void 0 && _data$prices2.visible && data.prices.regular && data.prices.final.amount !== (data === null || data === void 0 ? void 0 : data.prices.regular.amount) ?
-      /*#__PURE__*/
-      // <Slot
-      //   name="SpecialPrice"
-      //   slot={slots?.SpecialPrice}
-      //   context={{ ...defaultSlotContext }}
-      // >
-      (0,jsx_runtime.jsx)(PriceRange_PriceRange_PriceRange, ProductDetails_objectSpread(ProductDetails_objectSpread({}, data.prices.regular), {}, {
-        locale: toLanguageTag(locale)
-      }))
-      // </Slot>
-      : undefined,
+      })) !== null && _data$images$map !== void 0 ? _data$images$map : []
+      // price={
+      //   data?.prices?.visible ?
+      //     // <Slot
+      //     //   name="RegularPrice"
+      //     //   slot={slots?.RegularPrice}
+      //     //   context={{ ...defaultSlotContext }}
+      //     // >
+      //       <PriceRange {...data.prices.final} locale={toLanguageTag(locale)} />
+      //     // </Slot> 
+      //     : undefined
+      // }
+      // specialPrice={
+      //   data?.prices?.visible &&
+      //     data.prices.regular &&
+      //     data.prices.final.amount !== data?.prices.regular.amount ? (
+      //     // <Slot
+      //     //   name="SpecialPrice"
+      //     //   slot={slots?.SpecialPrice}
+      //     //   context={{ ...defaultSlotContext }}
+      //     // >
+      //       <PriceRange
+      //         {...data.prices.regular}
+      //         locale={toLanguageTag(locale)}
+      //       />
+      //     // </Slot>
+      //   ) : undefined
+      // }
+      ,
       carouselConfig: ProductDetails_objectSpread(ProductDetails_objectSpread({}, carousel), {}, {
         thumbnails: carousel ? (_data$images$map2 = data === null || data === void 0 ? void 0 : (_data$images2 = data.images) === null || _data$images2 === void 0 ? void 0 : _data$images2.map(function (_ref4) {
           var label = _ref4.label,
@@ -4428,62 +4216,6 @@ select::-ms-expand{
 
 /***/ }),
 
-/***/ 192:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _storefront_pdp_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(933);
-/* harmony import */ var _storefront_pdp_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_storefront_pdp_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _storefront_pdp_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(476);
-/* harmony import */ var _storefront_pdp_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_storefront_pdp_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _storefront_pdp_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_storefront_pdp_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, `.dropin-price{
-  color:inherit;
-}
-
-.dropin-price--small{
-  font:var(--type-body-2-strong-font);
-  letter-spacing:var(--type-body-2-strong-letter-spacing);
-}
-
-.dropin-price--medium{
-  font:var(--type-body-1-default-font);
-  letter-spacing:var(--type-body-1-default-letter-spacing);
-}
-
-.dropin-price--large{
-  font:var(--type-headline-2-strong-font);
-  letter-spacing:var(--type-headline-2-strong-letter-spacing);
-}
-
-.dropin-price--strikethrough{
-  text-decoration:line-through;
-}
-
-.dropin-price--sale{
-  color:var(--color-alert-800);
-}
-
-.dropin-price--bold{
-  font-weight:bold;
-}
-
-.dropin-price--normal{
-  font-weight:normal;
-}
-`, ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
 /***/ 643:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -5057,39 +4789,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pdp-overlay{
 
 /***/ }),
 
-/***/ 321:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(933);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(476);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, `.pdp-price-range .dropin-price{
-  letter-spacing:var(--type-headline-2-strong-letter-spacing);
-  font:var(--type-headline-2-strong-font);
-}
-
-.pdp-price-range__label{
-  font:var(--type-headline-2-strong-font);
-  letter-spacing:var(--type-body-1-strong-letter-spacing);
-  margin-left:5px;
-  margin-right:5px;
-}
-`, ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
 /***/ 994:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -5429,7 +5128,7 @@ import * as __webpack_chunk_2__ from "../713.js";
 __webpack_require__.C(__webpack_chunk_2__);
 import * as __webpack_chunk_3__ from "./ProductDetails.js";
 __webpack_require__.C(__webpack_chunk_3__);
-var __webpack_exports__ = __webpack_exec__(785);
+var __webpack_exports__ = __webpack_exec__(219);
 var __webpack_exports__ProductDetails = __webpack_exports__.f;
 var __webpack_exports__default = __webpack_exports__.Z;
 export { __webpack_exports__ProductDetails as ProductDetails, __webpack_exports__default as default };
