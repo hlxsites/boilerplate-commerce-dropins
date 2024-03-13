@@ -152,8 +152,6 @@ __webpack_require__.d(icons_namespaceObject, {
 var preact_compat_js_ = __webpack_require__(419);
 // EXTERNAL MODULE: external "@dropins/tools/preact-hooks.js"
 var preact_hooks_js_ = __webpack_require__(454);
-// EXTERNAL MODULE: ../../ElsieSDK/node_modules/preact-i18n/dist/preact-i18n.esm.js + 1 modules
-var preact_i18n_esm = __webpack_require__(921);
 // EXTERNAL MODULE: ../../ElsieSDK/node_modules/preact/compat/jsx-runtime.mjs
 var jsx_runtime = __webpack_require__(567);
 ;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/lib/slot.tsx
@@ -190,14 +188,14 @@ function useSlot() {
   var callback = arguments.length > 1 ? arguments[1] : undefined;
   var render = arguments.length > 2 ? arguments[2] : undefined;
   // HTML Element
-  var elementRef = (0,preact_hooks_js_.useRef)(null);
-  var loadedRef = (0,preact_hooks_js_.useRef)(false);
+  var elementRef = useRef(null);
+  var loadedRef = useRef(false);
 
   // Methods
-  var methodsRef = (0,preact_hooks_js_.useRef)([]);
+  var methodsRef = useRef([]);
 
   // Children VNodes
-  var _useState = (0,preact_hooks_js_.useState)({
+  var _useState = useState({
       children: [render === null || render === void 0 ? void 0 : render({})]
     }),
     _useState2 = _slicedToArray(_useState, 2),
@@ -205,7 +203,7 @@ function useSlot() {
     _setProps = _useState2[1];
 
   // Attributes
-  var _useState3 = (0,preact_hooks_js_.useState)({}),
+  var _useState3 = useState({}),
     _useState4 = _slicedToArray(_useState3, 2),
     _state = _useState4[0],
     setState = _useState4[1];
@@ -219,7 +217,7 @@ function useSlot() {
   };
 
   /** Internationalization */
-  var _useContext = (0,preact_hooks_js_.useContext)(preact_i18n_esm/* IntlContext */.fH),
+  var _useContext = useContext(IntlContext),
     intl = _useContext.intl;
   // @ts-ignore
   context.dictionary = intl.dictionary;
@@ -239,7 +237,7 @@ function useSlot() {
 
   // @ts-ignore
   context._htmlElementToVNode = function (htmlElement) {
-    return /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+    return /*#__PURE__*/_jsx("div", {
       "data-slot-html-element": htmlElement.tagName.toLowerCase(),
       ref: function ref(elem) {
         elem === null || elem === void 0 ? void 0 : elem.appendChild(htmlElement);
@@ -339,7 +337,7 @@ function useSlot() {
   };
 
   // Initialization
-  (0,preact_hooks_js_.useEffect)(function () {
+  useEffect(function () {
     var element = elementRef.current;
     if (!callback || !element) return;
 
@@ -354,7 +352,7 @@ function useSlot() {
   }, []);
 
   // Lifecycles
-  (0,preact_hooks_js_.useEffect)(function () {
+  useEffect(function () {
     // Reset
     _setProps({
       children: [render === null || render === void 0 ? void 0 : render(props)]
@@ -383,20 +381,22 @@ function Slot(_ref) {
     children = _ref.children,
     render = _ref.render,
     props = _objectWithoutProperties(_ref, _excluded);
-  var _useSlot = useSlot(context, slot, render !== null && render !== void 0 ? render : function () {
-      return children;
-    }),
-    _useSlot2 = _slicedToArray(_useSlot, 2),
-    elementRef = _useSlot2[0],
-    slotProps = _useSlot2[1];
-  (0,preact_hooks_js_.useEffect)(function () {
-    if (!name) console.warn('Slot "name" is required');
-  }, [name]);
-  return /*#__PURE__*/(0,jsx_runtime.jsx)("div", _objectSpread(_objectSpread({}, props), {}, {
-    ref: elementRef,
-    "data-slot": name,
-    children: slotProps.children
-  }));
+  return children;
+  // const [elementRef, slotProps] = useSlot<T, HTMLDivElement>(
+  //   context,
+  //   slot,
+  //   render ?? (() => children)
+  // );
+
+  // useEffect(() => {
+  //   if (!name) console.warn('Slot "name" is required');
+  // }, [name]);
+
+  // return (
+  //   <div {...props} ref={elementRef} data-slot={name}>
+  //     {slotProps.children}
+  //   </div>
+  // );
 }
 
 // Debugger
@@ -599,6 +599,8 @@ var SvgAdd = function SvgAdd(props) {
   }))));
 };
 /* harmony default export */ const Add = (SvgAdd);
+// EXTERNAL MODULE: ../../ElsieSDK/node_modules/preact-i18n/dist/preact-i18n.esm.js + 1 modules
+var preact_i18n_esm = __webpack_require__(921);
 // EXTERNAL MODULE: ../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!../../ElsieSDK/packages/elsie/src/components/Incrementer/Incrementer.css
 var Incrementer = __webpack_require__(606);
 ;// CONCATENATED MODULE: ../../ElsieSDK/packages/elsie/src/components/Incrementer/Incrementer.css
