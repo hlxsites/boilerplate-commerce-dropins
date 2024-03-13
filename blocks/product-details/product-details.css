@@ -23,8 +23,8 @@
 }
 
 .sizes-link {
-    font-size: .9em !important;
-    color: var(--color-brand-300) !important;
+    font-size: .9em;
+    color: var(--color-brand-300);
 }
 
 .quantity-label {
@@ -38,7 +38,7 @@
 }
 
 .pdp-product__quantity {
-    grid-column: 1 / span 4 !important;
+    grid-column: 1 / span 4;
 }
 
 .pdp-product__quantity .dropin-incrementer { 
@@ -46,9 +46,9 @@
 }
 
 .quantity-banner {
-    color: var(--color-positive-800) !important;
+    color: var(--color-positive-800);
 }
 
 .quantity-banner:hover {
-    text-decoration-color: currentColor !important;
+    text-decoration-color: currentColor;
 }

@@ -13,7 +13,7 @@
  */
 
 :root,
-.dropin-design.dropin-design {
+.dropin-design {
   /* Adobe Commerce Dropin design tokens */
   --color-brand-300: #6d6d6d;
   --color-brand-500: #454545;
@@ -147,6 +147,7 @@
   --type-fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono',
     monospace;
   --background-color: var(--color-neutral-50);
+  --background-none: none 0 0% no-repeat padding-box;
   --nav-height: 6.4rem;
 }
 
@@ -393,9 +394,4 @@ main .section {
 main .section.light,
 main .section.highlight {
   background-color: var(--color-neutral-500);
-}
-
-/* Base Design System Tokens */
-.dropin-design.dropin-design {
-  --background-none: none 0 0% no-repeat padding-box;
 }
