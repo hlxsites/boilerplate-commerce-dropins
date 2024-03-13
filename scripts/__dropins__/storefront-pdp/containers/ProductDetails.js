@@ -4629,14 +4629,9 @@ var ProductDetails = function ProductDetails(_ref) {
           }
         }, url);
       })) !== null && _data$images$map !== void 0 ? _data$images$map : [],
-      price: data !== null && data !== void 0 && (_data$prices = data.prices) !== null && _data$prices !== void 0 && _data$prices.visible ? /*#__PURE__*/(0,jsx_runtime.jsx)(Slot, {
-        name: "RegularPrice",
-        slot: slots === null || slots === void 0 ? void 0 : slots.RegularPrice,
-        context: ProductDetails_objectSpread({}, defaultSlotContext),
-        children: /*#__PURE__*/(0,jsx_runtime.jsx)(PriceRange_PriceRange_PriceRange, ProductDetails_objectSpread(ProductDetails_objectSpread({}, data.prices.final), {}, {
-          locale: toLanguageTag(locale)
-        }))
-      }) : undefined,
+      price: data !== null && data !== void 0 && (_data$prices = data.prices) !== null && _data$prices !== void 0 && _data$prices.visible ? /*#__PURE__*/(0,jsx_runtime.jsx)(PriceRange_PriceRange_PriceRange, ProductDetails_objectSpread(ProductDetails_objectSpread({}, data.prices.final), {}, {
+        locale: toLanguageTag(locale)
+      })) : undefined,
       specialPrice: data !== null && data !== void 0 && (_data$prices2 = data.prices) !== null && _data$prices2 !== void 0 && _data$prices2.visible && data.prices.regular && data.prices.final.amount !== (data === null || data === void 0 ? void 0 : data.prices.regular.amount) ? /*#__PURE__*/(0,jsx_runtime.jsx)(Slot, {
         name: "SpecialPrice",
         slot: slots === null || slots === void 0 ? void 0 : slots.SpecialPrice,
