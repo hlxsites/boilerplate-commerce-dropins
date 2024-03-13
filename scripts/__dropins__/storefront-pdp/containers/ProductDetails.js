@@ -3304,15 +3304,12 @@ var ProductDetails = function ProductDetails(_ref) {
         context: ProductDetails_objectSpread({}, defaultSlotContext),
         children: data === null || data === void 0 ? void 0 : data.name
       }),
-      sku: hideSku ? undefined :
-      /*#__PURE__*/
-      // <Slot name="SKU" slot={slots?.SKU} context={{ ...defaultSlotContext }}>
-      (0,jsx_runtime.jsx)("div", {
+      sku: hideSku ? undefined : /*#__PURE__*/(0,jsx_runtime.jsx)(Slot, {
+        name: "SKU",
+        slot: slots === null || slots === void 0 ? void 0 : slots.SKU,
+        context: ProductDetails_objectSpread({}, defaultSlotContext),
         children: data === null || data === void 0 ? void 0 : data.sku
-      })
-      // </Slot>
-      ,
-
+      }),
       options: renderOptions()
       // breadcrumbs={
       //   slots?.Breadcrumbs && (
@@ -3501,50 +3498,34 @@ var ProductDetails = function ProductDetails(_ref) {
         })) !== null && _data$images$map2 !== void 0 ? _data$images$map2 : [] : []
       }),
       outOfStock: !(data !== null && data !== void 0 && data.inStock),
-      attributes: !hideAttributes ?
-      /*#__PURE__*/
-      // <Slot name="Attributes" slot={slots?.Attributes} context={{ ...defaultSlotContext }}>
-      (0,jsx_runtime.jsx)("div", {
+      attributes: !hideAttributes ? /*#__PURE__*/(0,jsx_runtime.jsx)(Slot, {
+        name: "Attributes",
+        slot: slots === null || slots === void 0 ? void 0 : slots.Attributes,
+        context: ProductDetails_objectSpread({}, defaultSlotContext),
         children: attributes !== null && attributes !== void 0 && attributes.length ? /*#__PURE__*/(0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
           children: [DetailsLabel, /*#__PURE__*/(0,jsx_runtime.jsx)("ul", {
             children: attributes
           })]
         }) : null
+      }) : undefined,
+      galleryContent: (slots === null || slots === void 0 ? void 0 : slots.GalleryContent) && /*#__PURE__*/(0,jsx_runtime.jsx)(Slot, {
+        name: "GalleryContent",
+        slot: slots.GalleryContent,
+        context: ProductDetails_objectSpread({}, defaultSlotContext)
+      }),
+      productContent: (slots === null || slots === void 0 ? void 0 : slots.ProductContent) && /*#__PURE__*/(0,jsx_runtime.jsx)(Slot, {
+        name: "ProductContent",
+        slot: slots.ProductContent,
+        context: ProductDetails_objectSpread({}, defaultSlotContext)
+      }),
+      productInfo: (slots === null || slots === void 0 ? void 0 : slots.ProductInfoContent) && /*#__PURE__*/(0,jsx_runtime.jsx)(Slot, {
+        name: "ProductInfoContent",
+        slot: slots.ProductInfoContent,
+        context: ProductDetails_objectSpread({}, defaultSlotContext)
       })
-
-      // </Slot> 
-      : undefined
-      // galleryContent={
-      //   slots?.GalleryContent && (
-      //     <Slot
-      //       name="GalleryContent"
-      //       slot={slots.GalleryContent}
-      //       context={{ ...defaultSlotContext }}
-      //     />
-      //   )
-      // }
-      // productContent={
-      //   slots?.ProductContent && (
-      //     <Slot
-      //       name="ProductContent"
-      //       slot={slots.ProductContent}
-      //       context={{ ...defaultSlotContext }}
-      //     />
-      //   )
-      // }
-      // productInfo={
-      //   slots?.ProductInfoContent && (
-      //     <Slot
-      //       name="ProductInfoContent"
-      //       slot={slots.ProductInfoContent}
-      //       context={{ ...defaultSlotContext }}
-      //     />
-      //   )
-      // }
     })
   }));
 };
-
 ProductDetails.getInitialData = /*#__PURE__*/function () {
   var _ref6 = ProductDetails_asyncToGenerator( /*#__PURE__*/ProductDetails_regeneratorRuntime().mark(function _callee(_ref5) {
     var _getUrlParams$options, _config$getConfig, _config$getConfig$mod, _config$getConfig$mod2, _config$getConfig$mod3;
