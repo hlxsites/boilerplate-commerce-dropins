@@ -3361,32 +3361,16 @@ var ProductDetails = function ProductDetails(_ref) {
       //   </Slot>
       // }
       ,
-      shortDescription: !hideShortDescription ?
-      // <Slot
-      //   name="ShortDescription"
-      //   slot={slots?.ShortDescription}
-      //   context={{ ...defaultSlotContext }}
-      // >
-      {/* eslint-disable-next-line react/no-danger */}( /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+      shortDescription: /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
         dangerouslySetInnerHTML: {
           __html: (_data$shortDescriptio = data === null || data === void 0 ? void 0 : data.shortDescription) !== null && _data$shortDescriptio !== void 0 ? _data$shortDescriptio : ''
         }
-      }))
-      // </Slot> 
-      : undefined,
-      description: !hideDescription ?
-      // <Slot
-      //   name="Description"
-      //   slot={slots?.Description}
-      //   context={{ ...defaultSlotContext }}
-      // >
-      {/* eslint-disable-next-line react/no-danger */}( /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+      }),
+      description: !hideDescription ? /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
         dangerouslySetInnerHTML: {
           __html: (_data$description = data === null || data === void 0 ? void 0 : data.description) !== null && _data$description !== void 0 ? _data$description : ''
         }
-      }))
-      // </Slot> 
-      : undefined,
+      }) : undefined,
       images: (_data$images$map = data === null || data === void 0 ? void 0 : (_data$images = data.images) === null || _data$images === void 0 ? void 0 : _data$images.map(function (_ref3) {
         var label = _ref3.label,
           url = _ref3.url;
