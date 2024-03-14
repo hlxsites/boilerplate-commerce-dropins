@@ -37,7 +37,6 @@ export default async function decorate(block) {
   });
 
   // Render Containers
-
   return productRenderer.render(ProductDetails, {
     sku: getSkuFromUrl(),
     // carousel: {
@@ -103,14 +102,12 @@ export default async function decorate(block) {
           };
         });
 
-        ctx.appendButton((next, state) => {
-          return {
-            text: 'Like',
-            icon: 'Heart',
-            variant: 'secondary',
-            disabled: true,
-          };
-        });
+        ctx.appendButton(() => ({
+          text: 'Like',
+          icon: 'Heart',
+          variant: 'secondary',
+          disabled: true,
+        }));
 
         // Promo Link
         const promoLink = document.createElement('a');
@@ -120,7 +117,7 @@ export default async function decorate(block) {
 
         ctx.appendChild(promoLink);
 
-        ctx.onChange(next => {
+        ctx.onChange((next) => {
           const valid = next.values.quantity >= 3;
 
           if (valid) {
