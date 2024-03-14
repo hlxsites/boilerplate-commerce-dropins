@@ -35,5 +35,5 @@ export default async function initializeDropins() {
     window.addEventListener('load', initializers.mount);
   }
 
-  events.enableLogger(true);
+  // events.enableLogger(true);
 }
