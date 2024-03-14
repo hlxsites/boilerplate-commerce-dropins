@@ -14,8 +14,6 @@ import {
 } from './aem.js';
 import initializeDropins from './dropins.js';
 
-window.scriptLoadedAt = performance.now();
-
 const LCP_BLOCKS = [
   'product-list-page',
   'product-details',
