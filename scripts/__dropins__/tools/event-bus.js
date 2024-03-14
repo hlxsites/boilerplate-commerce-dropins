@@ -1,1 +1,99 @@
-export const id=248;export const ids=[248];export const modules={846:(e,n,t)=>{function o(e){return o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},o(e)}function r(e,n){for(var t=0;t<n.length;t++){var o=n[t];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,a(o.key),o)}}function i(e,n,t){return(n=a(n))in e?Object.defineProperty(e,n,{value:t,enumerable:!0,configurable:!0,writable:!0}):e[n]=t,e}function a(e){var n=function(e,n){if("object"!=o(e)||!e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var r=t.call(e,"string");if("object"!=o(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==o(n)?n:String(n)}t.d(n,{A:()=>s});var l=Date.now().toString(36).substring(2),s=function(){function e(){!function(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}(this,e)}var n,t;return n=e,t=[{key:"on",value:function(e,n,t){var o=this;if("undefined"!=typeof BroadcastChannel){var r=new BroadcastChannel("ElsieSDK/EventBus");if(null!=t&&t.eager){var i=this._lastEvent[e];i&&n(i.payload)}return r.addEventListener("message",(function(t){var r=t.data;o._identifier&&o._identifier!==r.identifier||r.event===e&&n(r.payload)})),{off:function(){r.close()}}}}},{key:"emit",value:function(e,n){if("undefined"!=typeof BroadcastChannel){var t=new BroadcastChannel("ElsieSDK/EventBus");t.postMessage({event:e,identifier:this._identifier,payload:n}),this._lastEvent[e]={payload:n},t.close()}}},{key:"enableLogger",value:function(e){var n,t=this;"undefined"!=typeof BroadcastChannel&&(null===(n=this._logger)||void 0===n||n.close(),this._logger=null,!1!==e&&(this._logger=new BroadcastChannel("ElsieSDK/EventBus"),this._logger.addEventListener("message",(function(e){var n=e.data;t._identifier&&t._identifier!==n.identifier||(console.group("📡 Event (".concat(n.identifier,") ➡ ").concat(n.event)),console.log(n.payload),console.groupEnd())}))))}}],null&&r(n.prototype,null),t&&r(n,t),Object.defineProperty(n,"prototype",{writable:!1}),e}();i(s,"_identifier",l),i(s,"_logger",null),i(s,"_lastEvent",{})}};import e from"./runtime.js";import*as n from"./event-bus.js";e.C(n);var t=(846,e(e.s=846)).A;export{t as events};
+export const id = 248;
+export const ids = [248];
+export const modules = {
+
+/***/ 846:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (/* binding */ events)
+/* harmony export */ });
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+var hash = Date.now().toString(36).substring(2);
+class events {
+  static on(event, handler, options) {
+    if (typeof BroadcastChannel === 'undefined') {
+      return;
+    }
+    var subscriber = new BroadcastChannel('ElsieSDK/EventBus');
+    if (options !== null && options !== void 0 && options.eager) {
+      var lastEvent = this._lastEvent[event];
+      if (lastEvent) {
+        handler(lastEvent.payload);
+      }
+    }
+    subscriber.addEventListener('message', _ref => {
+      var {
+        data
+      } = _ref;
+      // ignore events from other instances (only if identifier is set)
+      if (this._identifier && this._identifier !== data.identifier) return;
+      if (data.event === event) {
+        handler(data.payload);
+      }
+    });
+    return {
+      off() {
+        subscriber.close();
+      }
+    };
+  }
+  static emit(event, payload) {
+    if (typeof BroadcastChannel === 'undefined') {
+      return;
+    }
+    var publisher = new BroadcastChannel('ElsieSDK/EventBus');
+    publisher.postMessage({
+      event,
+      identifier: this._identifier,
+      payload
+    });
+    this._lastEvent[event] = {
+      payload
+    };
+    publisher.close();
+  }
+  static enableLogger(enabled) {
+    var _this$_logger;
+    if (typeof BroadcastChannel === 'undefined') {
+      return;
+    }
+
+    // reset logger
+    (_this$_logger = this._logger) === null || _this$_logger === void 0 || _this$_logger.close();
+    this._logger = null;
+    if (enabled === false) return;
+
+    // create new logger
+    this._logger = new BroadcastChannel('ElsieSDK/EventBus');
+    this._logger.addEventListener('message', _ref2 => {
+      var {
+        data
+      } = _ref2;
+      if (this._identifier && this._identifier !== data.identifier) return;
+      console.group("\uD83D\uDCE1 Event (".concat(data.identifier, ") \u27A1 ").concat(data.event));
+      console.log(data.payload);
+      console.groupEnd();
+    });
+  }
+}
+_defineProperty(events, "_identifier", hash);
+_defineProperty(events, "_logger", null);
+_defineProperty(events, "_lastEvent", {});
+
+/***/ })
+
+};
+;
+
+// load runtime
+import __webpack_require__ from "./runtime.js";
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+import * as __webpack_chunk_0__ from "./event-bus.js";
+__webpack_require__.C(__webpack_chunk_0__);
+var __webpack_exports__ = __webpack_exec__(846);
+var __webpack_exports__events = __webpack_exports__.A;
+export { __webpack_exports__events as events };

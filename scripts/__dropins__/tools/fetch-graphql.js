@@ -1,2 +1,137 @@
-/*! For license information please see fetch-graphql.js.LICENSE.txt */
-export const id=85;export const ids=[85];export const modules={597:(t,e,r)=>{function n(t,e,r){return e=i(e),function(t,e){if(e&&("object"===c(e)||"function"==typeof e))return e;if(void 0!==e)throw new TypeError("Derived constructors may only return object or undefined");return function(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}(t)}(t,o()?Reflect.construct(e,r||[],i(t).constructor):e.apply(t,r))}function o(){try{var t=!Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],(function(){})))}catch(t){}return(o=function(){return!!t})()}function i(t){return i=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)},i(t)}function a(t,e){return a=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t},a(t,e)}function c(t){return c="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},c(t)}function u(){u=function(){return e};var t,e={},r=Object.prototype,n=r.hasOwnProperty,o=Object.defineProperty||function(t,e,r){t[e]=r.value},i="function"==typeof Symbol?Symbol:{},a=i.iterator||"@@iterator",s=i.asyncIterator||"@@asyncIterator",h=i.toStringTag||"@@toStringTag";function f(t,e,r){return Object.defineProperty(t,e,{value:r,enumerable:!0,configurable:!0,writable:!0}),t[e]}try{f({},"")}catch(t){f=function(t,e,r){return t[e]=r}}function l(t,e,r,n){var i=e&&e.prototype instanceof m?e:m,a=Object.create(i.prototype),c=new F(n||[]);return o(a,"_invoke",{value:P(t,r,c)}),a}function p(t,e,r){try{return{type:"normal",arg:t.call(e,r)}}catch(t){return{type:"throw",arg:t}}}e.wrap=l;var y="suspendedStart",d="suspendedYield",v="executing",g="completed",b={};function m(){}function w(){}function O(){}var j={};f(j,a,(function(){return this}));var G=Object.getPrototypeOf,E=G&&G(G(S([])));E&&E!==r&&n.call(E,a)&&(j=E);var x=O.prototype=m.prototype=Object.create(j);function Q(t){["next","throw","return"].forEach((function(e){f(t,e,(function(t){return this._invoke(e,t)}))}))}function _(t,e){function r(o,i,a,u){var s=p(t[o],t,i);if("throw"!==s.type){var h=s.arg,f=h.value;return f&&"object"==c(f)&&n.call(f,"__await")?e.resolve(f.__await).then((function(t){r("next",t,a,u)}),(function(t){r("throw",t,a,u)})):e.resolve(f).then((function(t){h.value=t,a(h)}),(function(t){return r("throw",t,a,u)}))}u(s.arg)}var i;o(this,"_invoke",{value:function(t,n){function o(){return new e((function(e,o){r(t,n,e,o)}))}return i=i?i.then(o,o):o()}})}function P(e,r,n){var o=y;return function(i,a){if(o===v)throw new Error("Generator is already running");if(o===g){if("throw"===i)throw a;return{value:t,done:!0}}for(n.method=i,n.arg=a;;){var c=n.delegate;if(c){var u=L(c,n);if(u){if(u===b)continue;return u}}if("next"===n.method)n.sent=n._sent=n.arg;else if("throw"===n.method){if(o===y)throw o=g,n.arg;n.dispatchException(n.arg)}else"return"===n.method&&n.abrupt("return",n.arg);o=v;var s=p(e,r,n);if("normal"===s.type){if(o=n.done?g:d,s.arg===b)continue;return{value:s.arg,done:n.done}}"throw"===s.type&&(o=g,n.method="throw",n.arg=s.arg)}}}function L(e,r){var n=r.method,o=e.iterator[n];if(o===t)return r.delegate=null,"throw"===n&&e.iterator.return&&(r.method="return",r.arg=t,L(e,r),"throw"===r.method)||"return"!==n&&(r.method="throw",r.arg=new TypeError("The iterator does not provide a '"+n+"' method")),b;var i=p(o,e.iterator,r.arg);if("throw"===i.type)return r.method="throw",r.arg=i.arg,r.delegate=null,b;var a=i.arg;return a?a.done?(r[e.resultName]=a.value,r.next=e.nextLoc,"return"!==r.method&&(r.method="next",r.arg=t),r.delegate=null,b):a:(r.method="throw",r.arg=new TypeError("iterator result is not an object"),r.delegate=null,b)}function H(t){var e={tryLoc:t[0]};1 in t&&(e.catchLoc=t[1]),2 in t&&(e.finallyLoc=t[2],e.afterLoc=t[3]),this.tryEntries.push(e)}function k(t){var e=t.completion||{};e.type="normal",delete e.arg,t.completion=e}function F(t){this.tryEntries=[{tryLoc:"root"}],t.forEach(H,this),this.reset(!0)}function S(e){if(e||""===e){var r=e[a];if(r)return r.call(e);if("function"==typeof e.next)return e;if(!isNaN(e.length)){var o=-1,i=function r(){for(;++o<e.length;)if(n.call(e,o))return r.value=e[o],r.done=!1,r;return r.value=t,r.done=!0,r};return i.next=i}}throw new TypeError(c(e)+" is not iterable")}return w.prototype=O,o(x,"constructor",{value:O,configurable:!0}),o(O,"constructor",{value:w,configurable:!0}),w.displayName=f(O,h,"GeneratorFunction"),e.isGeneratorFunction=function(t){var e="function"==typeof t&&t.constructor;return!!e&&(e===w||"GeneratorFunction"===(e.displayName||e.name))},e.mark=function(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,O):(t.__proto__=O,f(t,h,"GeneratorFunction")),t.prototype=Object.create(x),t},e.awrap=function(t){return{__await:t}},Q(_.prototype),f(_.prototype,s,(function(){return this})),e.AsyncIterator=_,e.async=function(t,r,n,o,i){void 0===i&&(i=Promise);var a=new _(l(t,r,n,o),i);return e.isGeneratorFunction(r)?a:a.next().then((function(t){return t.done?t.value:a.next()}))},Q(x),f(x,h,"Generator"),f(x,a,(function(){return this})),f(x,"toString",(function(){return"[object Generator]"})),e.keys=function(t){var e=Object(t),r=[];for(var n in e)r.push(n);return r.reverse(),function t(){for(;r.length;){var n=r.pop();if(n in e)return t.value=n,t.done=!1,t}return t.done=!0,t}},e.values=S,F.prototype={constructor:F,reset:function(e){if(this.prev=0,this.next=0,this.sent=this._sent=t,this.done=!1,this.delegate=null,this.method="next",this.arg=t,this.tryEntries.forEach(k),!e)for(var r in this)"t"===r.charAt(0)&&n.call(this,r)&&!isNaN(+r.slice(1))&&(this[r]=t)},stop:function(){this.done=!0;var t=this.tryEntries[0].completion;if("throw"===t.type)throw t.arg;return this.rval},dispatchException:function(e){if(this.done)throw e;var r=this;function o(n,o){return c.type="throw",c.arg=e,r.next=n,o&&(r.method="next",r.arg=t),!!o}for(var i=this.tryEntries.length-1;i>=0;--i){var a=this.tryEntries[i],c=a.completion;if("root"===a.tryLoc)return o("end");if(a.tryLoc<=this.prev){var u=n.call(a,"catchLoc"),s=n.call(a,"finallyLoc");if(u&&s){if(this.prev<a.catchLoc)return o(a.catchLoc,!0);if(this.prev<a.finallyLoc)return o(a.finallyLoc)}else if(u){if(this.prev<a.catchLoc)return o(a.catchLoc,!0)}else{if(!s)throw new Error("try statement without catch or finally");if(this.prev<a.finallyLoc)return o(a.finallyLoc)}}}},abrupt:function(t,e){for(var r=this.tryEntries.length-1;r>=0;--r){var o=this.tryEntries[r];if(o.tryLoc<=this.prev&&n.call(o,"finallyLoc")&&this.prev<o.finallyLoc){var i=o;break}}i&&("break"===t||"continue"===t)&&i.tryLoc<=e&&e<=i.finallyLoc&&(i=null);var a=i?i.completion:{};return a.type=t,a.arg=e,i?(this.method="next",this.next=i.finallyLoc,b):this.complete(a)},complete:function(t,e){if("throw"===t.type)throw t.arg;return"break"===t.type||"continue"===t.type?this.next=t.arg:"return"===t.type?(this.rval=this.arg=t.arg,this.method="return",this.next="end"):"normal"===t.type&&e&&(this.next=e),b},finish:function(t){for(var e=this.tryEntries.length-1;e>=0;--e){var r=this.tryEntries[e];if(r.finallyLoc===t)return this.complete(r.completion,r.afterLoc),k(r),b}},catch:function(t){for(var e=this.tryEntries.length-1;e>=0;--e){var r=this.tryEntries[e];if(r.tryLoc===t){var n=r.completion;if("throw"===n.type){var o=n.arg;k(r)}return o}}throw new Error("illegal catch attempt")},delegateYield:function(e,r,n){return this.delegate={iterator:S(e),resultName:r,nextLoc:n},"next"===this.method&&(this.arg=t),b}},e}function s(t,e,r,n,o,i,a){try{var c=t[i](a),u=c.value}catch(t){return void r(t)}c.done?e(u):Promise.resolve(u).then(n,o)}function h(t,e){var r=Object.keys(t);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(t);e&&(n=n.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),r.push.apply(r,n)}return r}function f(t){for(var e=1;e<arguments.length;e++){var r=null!=arguments[e]?arguments[e]:{};e%2?h(Object(r),!0).forEach((function(e){l(t,e,r[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(r)):h(Object(r)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(r,e))}))}return t}function l(t,e,r){return(e=v(e))in t?Object.defineProperty(t,e,{value:r,enumerable:!0,configurable:!0,writable:!0}):t[e]=r,t}function p(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function y(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,v(n.key),n)}}function d(t,e,r){return e&&y(t.prototype,e),r&&y(t,r),Object.defineProperty(t,"prototype",{writable:!1}),t}function v(t){var e=function(t,e){if("object"!=c(t)||!t)return t;var r=t[Symbol.toPrimitive];if(void 0!==r){var n=r.call(t,"string");if("object"!=c(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(t)}(t);return"symbol"==c(e)?e:String(e)}r.d(e,{AZ:()=>Q,Cz:()=>j,MR:()=>G,Np:()=>E,WI:()=>w,Xx:()=>x,zj:()=>_});var g={"Content-Type":"application/json",Accept:"application/json"},b=function(){function t(){p(this,t)}var e,r;return d(t,[{key:"endpoint",get:function(){return this._endpoint}},{key:"fetchGraphQlHeaders",get:function(){return this._fetchGraphQlHeaders}},{key:"setEndpoint",value:function(t){this._endpoint=t}},{key:"setFetchGraphQlHeader",value:function(t,e){this._fetchGraphQlHeaders=f(f({},this.fetchGraphQlHeaders),{},l({},t,e))}},{key:"removeFetchGraphQlHeader",value:function(t){var e;null===(e=this._fetchGraphQlHeaders)||void 0===e||delete e[t]}},{key:"setFetchGraphQlHeaders",value:function(t){this._fetchGraphQlHeaders=f({},t)}},{key:"fetchGraphQl",value:(e=u().mark((function t(e,r){var n,o,i,a,c,s,h,l;return u().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(n=this.endpoint,o=this.fetchGraphQlHeaders,n){t.next=4;break}throw Error('Missing "url"');case 4:return i=(null==r?void 0:r.method)||"POST",a=null==r?void 0:r.cache,c=null==r?void 0:r.signal,h=new URL(n),l=f(f({},g),o),"POST"===i&&(s=JSON.stringify({query:e,variables:null==r?void 0:r.variables})),"GET"===i&&(h.searchParams.append("query",e.trim()),null!=r&&r.variables&&h.searchParams.append("variables",JSON.stringify(r.variables))),t.next=13,fetch(h,{method:i,headers:l,body:s,cache:a,signal:c}).then((function(t){return t.json()}));case 13:return t.abrupt("return",t.sent);case 14:case"end":return t.stop()}}),t,this)})),r=function(){var t=this,r=arguments;return new Promise((function(n,o){var i=e.apply(t,r);function a(t){s(i,n,o,a,c,"next",t)}function c(t){s(i,n,o,a,c,"throw",t)}a(void 0)}))},function(t,e){return r.apply(this,arguments)})},{key:"getConfig",value:function(){return{endpoint:this.endpoint,fetchGraphQlHeaders:this.fetchGraphQlHeaders}}},{key:"getMethods",value:function(){return{setEndpoint:this.setEndpoint.bind(this),setFetchGraphQlHeader:this.setFetchGraphQlHeader.bind(this),removeFetchGraphQlHeader:this.removeFetchGraphQlHeader.bind(this),setFetchGraphQlHeaders:this.setFetchGraphQlHeaders.bind(this),fetchGraphQl:this.fetchGraphQl.bind(this),getConfig:this.getConfig.bind(this)}}}]),t}(),m=new b,w=function(t){function e(){return p(this,e),n(this,e,arguments)}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&a(t,e)}(e,t),d(e,[{key:"endpoint",get:function(){var t;return null!==(t=this._endpoint)&&void 0!==t?t:m.endpoint}},{key:"fetchGraphQlHeaders",get:function(){return(this._endpoint?this._fetchGraphQlHeaders:f(f({},this._fetchGraphQlHeaders),m.fetchGraphQlHeaders))||{}}}]),e}(b),O=m.getMethods(),j=O.setEndpoint,G=O.setFetchGraphQlHeaders,E=O.setFetchGraphQlHeader,x=O.removeFetchGraphQlHeader,Q=O.fetchGraphQl,_=O.getConfig}};import t from"./runtime.js";import*as e from"./fetch-graphql.js";t.C(e);var r=(597,t(t.s=597)),n=r.WI,o=r.AZ,i=r.zj,a=r.Xx,c=r.Cz,u=r.Np,s=r.MR;export{n as FetchGraphQL,o as fetchGraphQl,i as getConfig,a as removeFetchGraphQlHeader,c as setEndpoint,u as setFetchGraphQlHeader,s as setFetchGraphQlHeaders};
+export const id = 85;
+export const ids = [85];
+export const modules = {
+
+/***/ 597:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AZ: () => (/* binding */ fetchGraphQl),
+/* harmony export */   Cz: () => (/* binding */ setEndpoint),
+/* harmony export */   MR: () => (/* binding */ setFetchGraphQlHeaders),
+/* harmony export */   Np: () => (/* binding */ setFetchGraphQlHeader),
+/* harmony export */   WI: () => (/* binding */ FetchGraphQL),
+/* harmony export */   Xx: () => (/* binding */ removeFetchGraphQlHeader),
+/* harmony export */   zj: () => (/* binding */ getConfig)
+/* harmony export */ });
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var defaultHeaders = {
+  'Content-Type': 'application/json',
+  Accept: 'application/json'
+};
+class FetchGraphQLMesh {
+  get endpoint() {
+    return this._endpoint;
+  }
+  get fetchGraphQlHeaders() {
+    return this._fetchGraphQlHeaders;
+  }
+  setEndpoint(endpoint) {
+    this._endpoint = endpoint;
+  }
+  setFetchGraphQlHeader(key, value) {
+    this._fetchGraphQlHeaders = _objectSpread(_objectSpread({}, this.fetchGraphQlHeaders), {}, {
+      [key]: value
+    });
+  }
+  removeFetchGraphQlHeader(key) {
+    var _this$_fetchGraphQlHe;
+    (_this$_fetchGraphQlHe = this._fetchGraphQlHeaders) === null || _this$_fetchGraphQlHe === void 0 || delete _this$_fetchGraphQlHe[key];
+  }
+  setFetchGraphQlHeaders(header) {
+    this._fetchGraphQlHeaders = _objectSpread({}, header);
+  }
+  fetchGraphQl(query, options) {
+    var _this = this;
+    return _asyncToGenerator(function* () {
+      var endpoint = _this.endpoint;
+      var fetchGraphQlHeaders = _this.fetchGraphQlHeaders;
+      if (!endpoint) throw Error('Missing "url"');
+      var method = (options === null || options === void 0 ? void 0 : options.method) || 'POST';
+      var cache = options === null || options === void 0 ? void 0 : options.cache;
+      var signal = options === null || options === void 0 ? void 0 : options.signal;
+      var body;
+      var url = new URL(endpoint);
+      var headers = _objectSpread(_objectSpread({}, defaultHeaders), fetchGraphQlHeaders);
+      if (method === 'POST') {
+        body = JSON.stringify({
+          query,
+          variables: options === null || options === void 0 ? void 0 : options.variables
+        });
+      }
+      if (method === 'GET') {
+        url.searchParams.append('query', query.trim());
+        if (options !== null && options !== void 0 && options.variables) url.searchParams.append('variables', JSON.stringify(options.variables));
+      }
+      return yield fetch(url, {
+        method,
+        headers,
+        body,
+        cache,
+        signal
+      }).then(r => r.json());
+    })();
+  }
+  getConfig() {
+    return {
+      endpoint: this.endpoint,
+      fetchGraphQlHeaders: this.fetchGraphQlHeaders
+    };
+  }
+  getMethods() {
+    return {
+      setEndpoint: this.setEndpoint.bind(this),
+      setFetchGraphQlHeader: this.setFetchGraphQlHeader.bind(this),
+      removeFetchGraphQlHeader: this.removeFetchGraphQlHeader.bind(this),
+      setFetchGraphQlHeaders: this.setFetchGraphQlHeaders.bind(this),
+      fetchGraphQl: this.fetchGraphQl.bind(this),
+      getConfig: this.getConfig.bind(this)
+    };
+  }
+}
+var mesh = new FetchGraphQLMesh();
+class FetchGraphQL extends FetchGraphQLMesh {
+  get endpoint() {
+    var _this$_endpoint;
+    return (_this$_endpoint = this._endpoint) !== null && _this$_endpoint !== void 0 ? _this$_endpoint : mesh.endpoint;
+  }
+  get fetchGraphQlHeaders() {
+    return (this._endpoint ? this._fetchGraphQlHeaders : _objectSpread(_objectSpread({}, this._fetchGraphQlHeaders), mesh.fetchGraphQlHeaders)) || {};
+  }
+}
+
+// Global Mesh instance
+var {
+  setEndpoint,
+  setFetchGraphQlHeaders,
+  setFetchGraphQlHeader,
+  removeFetchGraphQlHeader,
+  fetchGraphQl,
+  getConfig
+} = mesh.getMethods();
+
+/***/ })
+
+};
+;
+
+// load runtime
+import __webpack_require__ from "./runtime.js";
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+import * as __webpack_chunk_0__ from "./fetch-graphql.js";
+__webpack_require__.C(__webpack_chunk_0__);
+var __webpack_exports__ = __webpack_exec__(597);
+var __webpack_exports__FetchGraphQL = __webpack_exports__.WI;
+var __webpack_exports__fetchGraphQl = __webpack_exports__.AZ;
+var __webpack_exports__getConfig = __webpack_exports__.zj;
+var __webpack_exports__removeFetchGraphQlHeader = __webpack_exports__.Xx;
+var __webpack_exports__setEndpoint = __webpack_exports__.Cz;
+var __webpack_exports__setFetchGraphQlHeader = __webpack_exports__.Np;
+var __webpack_exports__setFetchGraphQlHeaders = __webpack_exports__.MR;
+export { __webpack_exports__FetchGraphQL as FetchGraphQL, __webpack_exports__fetchGraphQl as fetchGraphQl, __webpack_exports__getConfig as getConfig, __webpack_exports__removeFetchGraphQlHeader as removeFetchGraphQlHeader, __webpack_exports__setEndpoint as setEndpoint, __webpack_exports__setFetchGraphQlHeader as setFetchGraphQlHeader, __webpack_exports__setFetchGraphQlHeaders as setFetchGraphQlHeaders };

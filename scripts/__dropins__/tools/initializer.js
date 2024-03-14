@@ -1,1 +1,135 @@
-export const id=865;export const ids=[865];export const modules={173:(t,r,e)=>{function n(t){return n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},n(t)}function o(t,r){for(var e=0;e<r.length;e++){var n=r[e];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,i(n.key),n)}}function i(t){var r=function(t,r){if("object"!=n(t)||!t)return t;var e=t[Symbol.toPrimitive];if(void 0!==e){var o=e.call(t,"string");if("object"!=n(o))return o;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(t)}(t);return"symbol"==n(r)?r:String(r)}e.d(r,{H:()=>S,W:()=>P});var a=function(){function t(r){!function(t,r){if(!(t instanceof r))throw new TypeError("Cannot call a class as a function")}(this,t),this.config=r}var r,e;return r=t,(e=[{key:"getConfig",value:function(){return this.config}},{key:"setConfig",value:function(t){this.config=t}}])&&o(r.prototype,e),Object.defineProperty(r,"prototype",{writable:!1}),t}();function u(t){return u="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},u(t)}function l(t,r){for(var e=0;e<r.length;e++){var n=r[e];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,f(n.key),n)}}function f(t){var r=function(t,r){if("object"!=u(t)||!t)return t;var e=t[Symbol.toPrimitive];if(void 0!==e){var n=e.call(t,"string");if("object"!=u(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(t)}(t);return"symbol"==u(r)?r:String(r)}var c=(new(function(){function t(){!function(t,r){if(!(t instanceof r))throw new TypeError("Cannot call a class as a function")}(this,t)}var r,e;return r=t,(e=[{key:"map",get:function(){return this._map},set:function(t){this._map=t}},{key:"getMethods",value:function(){var t=this;return{setMap:function(r){t.map=r},getMap:function(){return t.map}}}}])&&l(r.prototype,e),Object.defineProperty(r,"prototype",{writable:!1}),t}())).getMethods(),s=c.setMap,y=(c.getMap,["imageParamsKeyMap"]);function p(t){return p="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},p(t)}function m(t,r){return function(t){if(Array.isArray(t))return t}(t)||function(t,r){var e=null==t?null:"undefined"!=typeof Symbol&&t[Symbol.iterator]||t["@@iterator"];if(null!=e){var n,o,i,a,u=[],l=!0,f=!1;try{if(i=(e=e.call(t)).next,0===r){if(Object(e)!==e)return;l=!1}else for(;!(l=(n=i.call(e)).done)&&(u.push(n.value),u.length!==r);l=!0);}catch(t){f=!0,o=t}finally{try{if(!l&&null!=e.return&&(a=e.return(),Object(a)!==a))return}finally{if(f)throw o}}return u}}(t,r)||function(t,r){if(t){if("string"==typeof t)return b(t,r);var e=Object.prototype.toString.call(t).slice(8,-1);return"Object"===e&&t.constructor&&(e=t.constructor.name),"Map"===e||"Set"===e?Array.from(t):"Arguments"===e||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e)?b(t,r):void 0}}(t,r)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function b(t,r){(null==r||r>t.length)&&(r=t.length);for(var e=0,n=new Array(r);e<r;e++)n[e]=t[e];return n}function v(t,r){var e=Object.keys(t);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(t);r&&(n=n.filter((function(r){return Object.getOwnPropertyDescriptor(t,r).enumerable}))),e.push.apply(e,n)}return e}function g(t){for(var r=1;r<arguments.length;r++){var e=null!=arguments[r]?arguments[r]:{};r%2?v(Object(e),!0).forEach((function(r){j(t,r,e[r])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(e)):v(Object(e)).forEach((function(r){Object.defineProperty(t,r,Object.getOwnPropertyDescriptor(e,r))}))}return t}function h(t,r){for(var e=0;e<r.length;e++){var n=r[e];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,w(n.key),n)}}function d(t,r,e){return r&&h(t.prototype,r),e&&h(t,e),Object.defineProperty(t,"prototype",{writable:!1}),t}function O(t,r){if(!(t instanceof r))throw new TypeError("Cannot call a class as a function")}function j(t,r,e){return(r=w(r))in t?Object.defineProperty(t,r,{value:e,enumerable:!0,configurable:!0,writable:!0}):t[r]=e,t}function w(t){var r=function(t,r){if("object"!=p(t)||!t)return t;var e=t[Symbol.toPrimitive];if(void 0!==e){var n=e.call(t,"string");if("object"!=p(n))return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(t)}(t);return"symbol"==p(r)?r:String(r)}var S=d((function t(r){var e=this,n=r.init,o=r.listeners;O(this,t),j(this,"_listeners",[]),j(this,"config",new a({})),this.listeners=function(t){return e._listeners.forEach((function(t){return t.off()})),e._listeners=o(t)},this.init=function(t){var r=t,o=r.imageParamsKeyMap,i=function(t,r){if(null==t)return{};var e,n,o=function(t,r){if(null==t)return{};var e,n,o={},i=Object.keys(t);for(n=0;n<i.length;n++)e=i[n],r.indexOf(e)>=0||(o[e]=t[e]);return o}(t,r);if(Object.getOwnPropertySymbols){var i=Object.getOwnPropertySymbols(t);for(n=0;n<i.length;n++)e=i[n],r.indexOf(e)>=0||Object.prototype.propertyIsEnumerable.call(t,e)&&(o[e]=t[e])}return o}(r,y);return e.config.setConfig(g(g({},e.config.getConfig()),i)),s(o),n(t)}})),P=function(){function t(){O(this,t)}return d(t,null,[{key:"register",value:function(r,e){var n,o;t._mounted&&(null===(n=r.listeners)||void 0===n||n.call(r,e),null===(o=r.init)||void 0===o||o.call(r,e)),t._initializers.push([r,e])}},{key:"mount",value:function(){var r,e;t._mounted=!0,null===(r=t._initializers)||void 0===r||r.forEach((function(t){var r,e=m(t,2),n=e[0],o=e[1];null===(r=n.listeners)||void 0===r||r.call(n,o)})),null===(e=t._initializers)||void 0===e||e.forEach((function(r){var e,n=m(r,2),o=n[0],i=n[1];null===(e=o.init)||void 0===e||e.call(o,g({imageParamsKeyMap:t._imageParamsKeyMap},i))}))}},{key:"setImageParamKeys",value:function(r){t._imageParamsKeyMap=r}}]),t}();j(P,"_initializers",[]),j(P,"_mounted",!1),j(P,"_imageParamsKeyMap",void 0)}};import t from"./runtime.js";import*as r from"./initializer.js";t.C(r);var e=(173,t(t.s=173)),n=e.H,o=e.W;export{n as Initializer,o as initializers};
+export const id = 865;
+export const ids = [865];
+export const modules = {
+
+/***/ 173:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  H: () => (/* binding */ Initializer),
+  W: () => (/* binding */ initializers)
+});
+
+;// CONCATENATED MODULE: ./lib/config.ts
+class Config {
+  constructor(initialConfig) {
+    this.config = initialConfig;
+  }
+  getConfig() {
+    return this.config;
+  }
+  setConfig(newConfig) {
+    this.config = newConfig;
+  }
+}
+;// CONCATENATED MODULE: ./lib/image-params-keymap.ts
+class ImageParamsKeyMap {
+  get map() {
+    return this._map;
+  }
+  set map(value) {
+    this._map = value;
+  }
+  getMethods() {
+    return {
+      setMap: value => {
+        this.map = value;
+      },
+      getMap: () => this.map
+    };
+  }
+}
+var keyMap = new ImageParamsKeyMap();
+var {
+  setMap: setImageParamsKeyMap,
+  getMap: getImageParamsKeyMap
+} = keyMap.getMethods();
+;// CONCATENATED MODULE: ./lib/initializer.ts
+var _excluded = ["imageParamsKeyMap"];
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+class Initializer {
+  constructor(_ref) {
+    var {
+      init,
+      listeners
+    } = _ref;
+    _defineProperty(this, "_listeners", []);
+    _defineProperty(this, "config", new Config({}));
+    this.listeners = config => {
+      // Unbind existing listeners
+      this._listeners.forEach(listener => listener.off());
+      // Bind new listeners
+      return this._listeners = listeners(config);
+    };
+    this.init = options => {
+      var _ref2 = options,
+        {
+          imageParamsKeyMap
+        } = _ref2,
+        rest = _objectWithoutProperties(_ref2, _excluded);
+      this.config.setConfig(_objectSpread(_objectSpread({}, this.config.getConfig()), rest));
+      setImageParamsKeyMap(imageParamsKeyMap);
+      return init(options);
+    };
+  }
+}
+class initializers {
+  static register(initializer, options) {
+    if (initializers._mounted) {
+      var _initializer$listener, _initializer$init;
+      (_initializer$listener = initializer.listeners) === null || _initializer$listener === void 0 || _initializer$listener.call(initializer, options);
+      (_initializer$init = initializer.init) === null || _initializer$init === void 0 || _initializer$init.call(initializer, options);
+    }
+    initializers._initializers.push([initializer, options]);
+  }
+  static mount() {
+    var _initializers$_initia, _initializers$_initia2;
+    initializers._mounted = true;
+    // In this specific order
+    // 1. Bind events
+    (_initializers$_initia = initializers._initializers) === null || _initializers$_initia === void 0 || _initializers$_initia.forEach(_ref3 => {
+      var _initializer$listener2;
+      var [initializer, options] = _ref3;
+      (_initializer$listener2 = initializer.listeners) === null || _initializer$listener2 === void 0 || _initializer$listener2.call(initializer, options);
+    });
+
+    // 2. Initialize APIs
+    (_initializers$_initia2 = initializers._initializers) === null || _initializers$_initia2 === void 0 || _initializers$_initia2.forEach(_ref4 => {
+      var _initializer$init2;
+      var [initializer, options] = _ref4;
+      (_initializer$init2 = initializer.init) === null || _initializer$init2 === void 0 || _initializer$init2.call(initializer, _objectSpread({
+        imageParamsKeyMap: initializers._imageParamsKeyMap
+      }, options));
+    });
+  }
+  static setImageParamKeys(params) {
+    initializers._imageParamsKeyMap = params;
+  }
+}
+_defineProperty(initializers, "_initializers", []);
+_defineProperty(initializers, "_mounted", false);
+_defineProperty(initializers, "_imageParamsKeyMap", undefined);
+
+/***/ })
+
+};
+;
+
+// load runtime
+import __webpack_require__ from "./runtime.js";
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+import * as __webpack_chunk_0__ from "./initializer.js";
+__webpack_require__.C(__webpack_chunk_0__);
+var __webpack_exports__ = __webpack_exec__(173);
+var __webpack_exports__Initializer = __webpack_exports__.H;
+var __webpack_exports__initializers = __webpack_exports__.W;
+export { __webpack_exports__Initializer as Initializer, __webpack_exports__initializers as initializers };

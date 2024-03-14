@@ -182,8 +182,7 @@ export default async function decorate(block) {
    }
 
   async function toggleMiniCart(state) {
-    const show =
-      state ?? !minicartPanel.classList.contains('nav-tools-panel--show');
+    const show = state ?? !minicartPanel.classList.contains('nav-tools-panel--show');
 
     if (show) {
       await cartProvider.render(MiniCart, {
