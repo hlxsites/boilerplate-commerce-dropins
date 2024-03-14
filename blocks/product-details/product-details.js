@@ -37,9 +37,6 @@ export default async function decorate(block) {
   });
 
   // Render Containers
-  const blockedAt = performance.now();
-  console.log(`⏱️ Took ${Math.ceil(blockedAt - window.scriptLoadedAt)}ms. for "product-details.js" Block to load.`);
-
   return productRenderer.render(ProductDetails, {
     sku: getSkuFromUrl(),
     // carousel: {
@@ -131,7 +128,5 @@ export default async function decorate(block) {
         });
       },
     },
-  })(block).finaly(() => {
-    console.log(`⏱️ Took ${Math.ceil(performance.now() - blockedAt)}ms. for DropIn to render in "product-details.js".`);
-  });
+  })(block);
 }
