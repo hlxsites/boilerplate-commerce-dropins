@@ -6,20 +6,20 @@ import { initializers } from '@dropins/tools/initializer.js';
 
 // Drop-in APIs
 import * as product from '@dropins/storefront-pdp/api.js';
-import { addProductsToCart } from '@dropins/storefront-cart/api.js';
+// import { addProductsToCart } from '@dropins/storefront-cart/api.js';
 
 // Drop-in Providers
-import { render as productRenderer } from '@dropins/storefront-pdp/render.js';
+// import { render as productRenderer } from '@dropins/storefront-pdp/render.js';
 
 // Drop-in Containers
-import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js';
+// import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js';
 
 // Libs
 import { getConfigValue } from '../../scripts/configs.js';
-import { getSkuFromUrl } from '../../scripts/commerce.js';
+// import { getSkuFromUrl } from '../../scripts/commerce.js';
 
 export default async function decorate(block) {
-  const sku = getSkuFromUrl();
+  // const sku = getSkuFromUrl();
 
   const title = document.createElement('h1');
   title.innerHTML = "I'm here";
