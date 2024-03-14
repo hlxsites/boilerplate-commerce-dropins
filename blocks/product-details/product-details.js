@@ -9,7 +9,7 @@ import * as product from '@dropins/storefront-pdp/api.js';
 // import { addProductsToCart } from '@dropins/storefront-cart/api.js';
 
 // Drop-in Providers
-import { render as productRenderer } from '@dropins/storefront-pdp/render.js';
+import { render as provider } from '@dropins/storefront-pdp/render.js';
 
 // Drop-in Containers
 // import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js';
@@ -41,6 +41,8 @@ export default async function decorate(block) {
     'Magento-Customer-Group': await getConfigValue('commerce-customer-group'),
     'x-api-key': await getConfigValue('commerce-x-api-key'),
   });
+
+  return provider.render(null)();
 
   // Render Containers
   // return productRenderer.render(ProductDetails, {
