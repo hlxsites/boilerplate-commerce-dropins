@@ -19,6 +19,10 @@ import { getConfigValue } from '../../scripts/configs.js';
 import { getSkuFromUrl } from '../../scripts/commerce.js';
 
 export default async function decorate(block) {
+  const title = document.createElement('h1');
+  title.innerHTML = "I'm here";
+  block.appendChild(title);
+
   // Initialize Drop-ins
   initializers.register(product.initialize, {});
 
@@ -37,8 +41,6 @@ export default async function decorate(block) {
   });
 
   // Render Containers
-  const blockedAt = performance.now();
-
   return productRenderer.render(ProductDetails, {
     sku: getSkuFromUrl(),
     // carousel: {
@@ -130,7 +132,5 @@ export default async function decorate(block) {
         });
       },
     },
-  })(block).finally(() => {
-    console.log(`⏱️ Took ${Math.ceil(performance.now() - blockedAt)}ms. for DropIn to render in "product-details.js".`);
-  });
+  })(document.createElement('div'));
 }
