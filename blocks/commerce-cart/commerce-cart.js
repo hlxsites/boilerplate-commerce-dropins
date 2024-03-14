@@ -11,7 +11,7 @@ export default async function decorate(block) {
   // Initialize Drop-ins – already initialized in scripts/dropins.js
 
   // Render Containers
-  return provider.render(Cart, {
+  provider.render(Cart, {
     routeEmptyCartCTA: () => '/',
     routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
     routeCheckout: () => '/checkout',
