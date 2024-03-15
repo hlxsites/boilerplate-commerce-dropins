@@ -9,7 +9,7 @@ import * as product from '@dropins/storefront-pdp/api.js';
 // import { addProductsToCart } from '@dropins/storefront-cart/api.js';
 
 // Drop-in Providers
-// import { render as provider } from '@dropins/storefront-pdp/render.js';
+import { render as provider } from '@dropins/storefront-pdp/render.js';
 
 // Drop-in Containers
 // import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js';
