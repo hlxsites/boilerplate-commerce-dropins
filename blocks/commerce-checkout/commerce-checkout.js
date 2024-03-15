@@ -24,7 +24,8 @@ export default async function decorate(block) {
 
   // Listen for order confirmation and redirect to order confirmation page
   events.on('checkout/order', (data) => {
-    window.location.replace(`/order-confirmation?orderRef=${data.masked_order_id}`);
+    const orderRef = encodeURIComponent(data.token);
+    window.location.replace(`/order-confirmation?orderRef=${orderRef}`);
   });
 
   return provider.render(Checkout, {
