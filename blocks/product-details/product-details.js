@@ -42,7 +42,7 @@ export default async function decorate(block) {
     'x-api-key': await getConfigValue('commerce-x-api-key'),
   });
 
-  return ProductDetails.getInitialData({ sku }).finally(console.log);
+  return ProductDetails.getInitialData({ sku }).then(console.log);
 
   // Render Containers
   // return provider.render(ProductDetails, {
