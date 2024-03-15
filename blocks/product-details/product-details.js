@@ -12,7 +12,7 @@ import * as product from '@dropins/storefront-pdp/api.js';
 import { render as provider } from '@dropins/storefront-pdp/render.js';
 
 // Drop-in Containers
-// import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js';
+import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js';
 
 // Libs
 import { getConfigValue } from '../../scripts/configs.js';
