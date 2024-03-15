@@ -6,7 +6,7 @@ import { initializers } from '@dropins/tools/initializer.js';
 
 // Drop-in APIs
 import * as product from '@dropins/storefront-pdp/api.js';
-// import { addProductsToCart } from '@dropins/storefront-cart/api.js';
+import { addProductsToCart } from '@dropins/storefront-cart/api.js';
 
 // Drop-in Providers
 import { render as provider } from '@dropins/storefront-pdp/render.js';
