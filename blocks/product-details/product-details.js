@@ -21,10 +21,6 @@ import { getSkuFromUrl } from '../../scripts/commerce.js';
 export default async function decorate(block) {
   const sku = getSkuFromUrl();
 
-  const title = document.createElement('h1');
-  title.innerHTML = `I'm here ${sku}`;
-  block.appendChild(title);
-
   // Initialize Drop-ins
   initializers.register(product.initialize, {});
 
