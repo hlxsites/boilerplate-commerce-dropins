@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@dropins/storefront-cart": "0.1.0-alpha12",
-    "@dropins/storefront-checkout": "0.1.0-alpha24",
+    "@dropins/storefront-checkout": "0.1.0-alpha26",
     "@dropins/storefront-order-confirmation": "0.1.0-alpha15",
     "@dropins/storefront-pdp": "0.2.2-alpha14",
     "@dropins/tools": "0.18.0"
