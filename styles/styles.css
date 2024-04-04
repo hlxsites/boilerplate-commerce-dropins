@@ -157,8 +157,7 @@
   src: local('Arial');
 }
 
-html,
-body {
+html, body {
   height: 100%;
 }
 
@@ -174,6 +173,7 @@ body {
   background-color: var(--background-color);
   display: grid;
   grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
 }
 
 body:not(.appear) {

@@ -2,7 +2,7 @@ import { loadScript, readBlockConfig } from '../../scripts/aem.js';
 import { getConfigValue } from '../../scripts/configs.js';
 
 export default async function decorate(block) {
-  const { urlpath, category, type } = readBlockConfig(block);
+  const { category, type } = readBlockConfig(block);
   block.textContent = '';
 
   const widgetProd = '/scripts/widgets/search.js';
@@ -19,7 +19,7 @@ export default async function decorate(block) {
       pageSize: 8,
       perPageConfig: {
         pageSizeOptions: '12,24,36',
-        defaultPageSizeOption: '24',
+        defaultPageSizeOption: '12',
       },
       minQueryLength: '2',
       currencySymbol: '$',
@@ -44,7 +44,7 @@ export default async function decorate(block) {
 
   if (type !== 'search') {
     storeDetails.config.categoryName = document.querySelector('.default-content-wrapper > h1')?.innerText;
-    storeDetails.config.currentCategoryUrlPath = urlpath;
+    storeDetails.config.currentCategoryId = category;
 
     // Enable enrichment
     block.dataset.category = category;
@@ -59,5 +59,5 @@ export default async function decorate(block) {
     }, 200);
   });
 
-  window.LiveSearchPLP({ storeDetails, root: block });
+  return window.LiveSearchPLP({ storeDetails, root: block });
 }

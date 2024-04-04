@@ -5,8 +5,8 @@
 import { initializers } from '@dropins/tools/initializer.js';
 
 // Drop-in APIs
-import * as product from '@dropins/storefront-pdp/api.js';
 import { addProductsToCart } from '@dropins/storefront-cart/api.js';
+import * as product from '@dropins/storefront-pdp/api.js';
 
 // Drop-in Providers
 import { render as productRenderer } from '@dropins/storefront-pdp/render.js';
@@ -15,8 +15,8 @@ import { render as productRenderer } from '@dropins/storefront-pdp/render.js';
 import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js';
 
 // Libs
-import { getConfigValue } from '../../scripts/configs.js';
 import { getSkuFromUrl } from '../../scripts/commerce.js';
+import { getConfigValue } from '../../scripts/configs.js';
 
 export default async function decorate(block) {
   // Initialize Drop-ins
