@@ -84,7 +84,7 @@ export function decorateMain(main) {
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
-  initializeDropins();
+  await initializeDropins();
   decorateTemplateAndTheme();
 
   window.adobeDataLayer = window.adobeDataLayer || [];
