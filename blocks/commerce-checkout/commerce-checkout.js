@@ -14,8 +14,6 @@ import { render as provider } from '@dropins/storefront-checkout/render.js';
 // Drop-in Containers
 import Checkout from '@dropins/storefront-checkout/containers/Checkout.js';
 
-import { getConfigValue } from '../../scripts/configs.js';
-
 export default async function decorate(block) {
   // If cartId is cached in session storage, use
   // otherwise, checkout drop-in will look for one in the event-bus
@@ -23,12 +21,6 @@ export default async function decorate(block) {
 
   // Initialize Drop-ins
   initializers.register(checkout.initialize, {});
-
-  // Set Fetch Endpoint (Service) if not yet set
-  const gqlConfig = checkout.getConfig();
-  if (!gqlConfig.endpoint) {
-    checkout.setEndpoint(await getConfigValue('commerce-core-endpoint'));
-  }
 
   // Listen for order confirmation and redirect to order confirmation page
   events.on('checkout/order', (data) => {
