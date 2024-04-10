@@ -53,3 +53,11 @@ export const getConfigValue = async (configParam, environment) => {
   const configElements = JSON.parse(configJSON).data;
   return configElements.find((c) => c.key === configParam)?.value;
 };
+
+export const getCookie = (expectedCookieName) => {
+  const matches = document.cookie.match(
+    /* eslint-disable-next-line */
+    new RegExp(`(?:^|; )${expectedCookieName.replace(/([.$?*|{}()\[\]\\\/+^])/g, '\\$1')}=([^;]*)`),
+  );
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+};

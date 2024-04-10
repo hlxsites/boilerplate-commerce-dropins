@@ -24,6 +24,20 @@ fs.readdirSync('node_modules/@dropins', { withFileTypes: true }).forEach((file) 
   });
 });
 
+// TODO - block added temporally, to integrate auth dropin
+const authDropinSource = './scripts/@dropins/storefront-auth';
+const authDestDir = './scripts/__dropins__/storefront-auth';
+
+// Ensure the destination directory exists
+if (!fs.existsSync(authDestDir)) {
+  fs.mkdirSync(authDestDir, { recursive: true });
+}
+
+fs.cpSync(authDropinSource, authDestDir, {
+  recursive: true,
+  filter: (src) => !src.endsWith('package.json'),
+});
+
 // Copy eventing specific files
 fs.copyFileSync(path.resolve(__dirname, './node_modules/@adobe/magento-storefront-event-collector/dist/index.js'), path.resolve(__dirname, './scripts/commerce-events-collector.js'));
 fs.copyFileSync(path.resolve(__dirname, './node_modules/@adobe/magento-storefront-events-sdk/dist/index.js'), path.resolve(__dirname, './scripts/commerce-events-sdk.js'));
