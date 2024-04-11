@@ -161,40 +161,38 @@ export default async function decorate(block) {
 
   const navTools = nav.querySelector('.nav-tools');
 
-   /** Mini Cart */
-   const excludeMiniCartFromPaths = ['/checkout', '/order-confirmation'];
+  /** Mini Cart */
+  const excludeMiniCartFromPaths = ['/checkout', '/order-confirmation'];
 
-   const minicart = document.createRange().createContextualFragment(`
-     <div class="minicart-wrapper nav-tools-wrapper">
-       <button type="button" class="button nav-cart-button" aria-label="Cart"></button>
-       <div class="minicart-panel nav-tools-panel"></div>
-     </div>
-   `);
- 
-   navTools.append(minicart);
- 
-   const minicartPanel = navTools.querySelector('.minicart-panel');
- 
-   const cartButton = navTools.querySelector('.nav-cart-button');
- 
-   if (excludeMiniCartFromPaths.includes(window.location.pathname)) {
-     cartButton.style.display = 'none';
-   }
+  const minicart = document.createRange().createContextualFragment(`
+    <div class="minicart-wrapper nav-tools-wrapper">
+      <button type="button" class="button nav-cart-button" aria-label="Cart"></button>
+      <div class="minicart-panel nav-tools-panel"></div>
+    </div>
+  `);
+
+  navTools.append(minicart);
+
+  const minicartPanel = navTools.querySelector('.minicart-panel');
+
+  const cartButton = navTools.querySelector('.nav-cart-button');
+
+  if (excludeMiniCartFromPaths.includes(window.location.pathname)) {
+    cartButton.style.display = 'none';
+  }
 
   async function toggleMiniCart(state) {
-    const show =
-      state ?? !minicartPanel.classList.contains('nav-tools-panel--show');
+    const show = state ?? !minicartPanel.classList.contains('nav-tools-panel--show');
 
     if (show) {
       await cartProvider.render(MiniCart, {
         routeEmptyCartCTA: () => '/',
-        routeProduct: (product) =>
-          `/products/${product.url.urlKey}/${product.sku}`,
+        routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
         routeCart: () => '/cart',
         routeCheckout: () => '/checkout',
       })(minicartPanel);
     } else {
-      minicartPanel.innerHTML = '';
+      cartProvider.unmount(MiniCart);
     }
 
     minicartPanel.classList.toggle('nav-tools-panel--show', show);
@@ -203,17 +201,13 @@ export default async function decorate(block) {
   cartButton.addEventListener('click', () => toggleMiniCart());
 
   // Cart Item Counter
-  events.on(
-    'cart/data',
-    (data) => {
-      if (data?.totalQuantity) {
-        cartButton.setAttribute('data-count', data.totalQuantity);
-      } else {
-        cartButton.removeAttribute('data-count');
-      }
-    },
-    { eager: true }
-  );
+  events.on('cart/data', (data) => {
+    if (data?.totalQuantity) {
+      cartButton.setAttribute('data-count', data.totalQuantity);
+    } else {
+      cartButton.removeAttribute('data-count');
+    }
+  }, { eager: true });
 
   /** Search */
 
