@@ -1,4 +1,20 @@
 /* eslint-disable */
+// TODO - Initial block template, left as a reference
+// import { readBlockConfig } from '../../scripts/aem.js';
+//
+// export default function decorate(block) {
+//   const config = readBlockConfig(block);
+//
+//   const content = document.createRange().createContextualFragment(`<div>
+//     Commerce Account drop-in
+//     <pre>${JSON.stringify(config, null, 2)}</pre>
+//   </div>`);
+//
+//   block.textContent = '';
+//   block.append(content);
+// }
+
+// TODO - Temporally component commerce-account implemented for testing and demo purposes
 import { getCookie } from '../../scripts/configs.js';
 import getCustomer from './api/customer/getCustomer.js';
 import { authLogoutService } from '@dropins/storefront-auth/service/authLogoutService.js';
