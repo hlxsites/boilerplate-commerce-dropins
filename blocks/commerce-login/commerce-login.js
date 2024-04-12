@@ -15,8 +15,7 @@ export default function decorate(block) {
   } else {
     authRenderer.render(SignIn, {
       formSize: 'default',
-      forgotPasswordPageRedirectUrl: '/customer/login',
-      renderSignUpLink: false,
+      forgotPasswordPageRedirectUrl: '/customer/forgotpassword',
       successNotificationForm: (userName) => h(SuccessNotification, {
         formSize: 'default',
         className: 'initClass',
