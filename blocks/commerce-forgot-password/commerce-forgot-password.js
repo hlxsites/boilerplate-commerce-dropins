@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
 import { ResetPassword } from '@dropins/storefront-auth/containers/ResetPassword.js';
-import { render as authRenderer } from '../../scripts/__dropins__/storefront-auth/render.js';
+import { render as authRenderer } from '@dropins/storefront-auth/render.js';
 import { getCookie } from '../../scripts/configs.js';
 
 export default function decorate(block) {

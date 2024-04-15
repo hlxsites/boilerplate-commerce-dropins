@@ -3,7 +3,7 @@
 import { SignIn } from '@dropins/storefront-auth/containers/SignIn.js';
 import { SuccessNotification } from '@dropins/storefront-auth/containers/SuccessNotification.js';
 import { authLogoutService } from '@dropins/storefront-auth/service/authLogoutService.js';
-import { render as authRenderer } from '../../scripts/__dropins__/storefront-auth/render.js';
+import { render as authRenderer } from '@dropins/storefront-auth/render.js';
 import { getCookie } from '../../scripts/configs.js';
 import { h } from '../../scripts/preact.js';
 
