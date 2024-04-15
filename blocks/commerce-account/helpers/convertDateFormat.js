@@ -1,29 +1,12 @@
-/* eslint-disable consistent-return */
-function convertDateFormat(inputDate, stringDate = false) {
-  if (!inputDate) return;
-
+function convertDateFormat(inputDate) {
   const dateObj = new Date(inputDate);
 
-  const monthsList = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-
-  const day = String(dateObj.getDate()).padStart(2, '0');
-  const month = String(dateObj.getMonth() + 1).padStart(2, '0');
-  const year = dateObj.getFullYear();
-
-  return stringDate ? `${monthsList[+month - 1]} ${day}, ${year}` : `${day}.${month}.${year}`;
+  // Format as "DD.MM.YYYY" (e.g., 31.01.2020)
+  return dateObj.toLocaleString('en-US', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  }).replace(/\//g, '.');
 }
 
 export default convertDateFormat;

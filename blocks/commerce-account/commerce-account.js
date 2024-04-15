@@ -16,7 +16,7 @@
 
 // TODO - Temporally component commerce-account implemented for testing and demo purposes
 import { getCookie } from '../../scripts/configs.js';
-import getCustomer from './api/customer/getCustomer.js';
+import getCustomer from './api/getCustomer.js';
 import { authLogoutService } from '@dropins/storefront-auth/service/authLogoutService.js';
 
 import convertDateFormat from './helpers/convertDateFormat.js';
