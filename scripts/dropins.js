@@ -3,7 +3,7 @@
 
 // Drop-in Tools
 import { events } from '@dropins/tools/event-bus.js';
-import { setEndpoint } from '@dropins/tools/fetch-graphql.js';
+import { setEndpoint, setFetchGraphQlHeader } from '@dropins/tools/fetch-graphql.js';
 import { initializers } from '@dropins/tools/initializer.js';
 
 // Drop-ins
@@ -13,11 +13,11 @@ import * as authApi from '@dropins/storefront-auth/api.js';
 // Libs
 import { getConfigValue, getCookie } from './configs.js';
 
-const setAuthHeader = (apis, token) => {
-  apis.forEach((typeApi) => {
-    typeApi.setFetchGraphQlHeader('Authorization', `Bearer ${token}`);
-  });
-};
+// const setAuthHeader = (apis, token) => {
+//   apis.forEach((typeApi) => {
+//     typeApi.setFetchGraphQlHeader('Authorization', `Bearer ${token}`);
+//   });
+// };
 
 const getUserTokenCookie = () => getCookie('auth_dropin_user_token');
 
@@ -31,21 +31,24 @@ export default async function initializeDropins() {
   initializers.register(authApi.initialize, {});
   initializers.register(cartApi.initialize, {});
 
-  const apis = [cartApi, authApi];
+  // const apis = [cartApi, authApi];
 
   // After load or reload page we check token
   const token = getUserTokenCookie();
 
-  setAuthHeader(apis, token);
+  setFetchGraphQlHeader('Authorization', `Bearer ${token}`);
+  // setAuthHeader(apis, token);
 
   // Set auth headers
   events.on('authenticated', (isAuthenticated) => {
     if (isAuthenticated) {
       const updatedToken = getUserTokenCookie();
 
-      setAuthHeader(apis, updatedToken);
+      setFetchGraphQlHeader('Authorization', `Bearer ${updatedToken}`);
+      // setAuthHeader(apis, updatedToken);
     } else {
-      setAuthHeader(apis, '');
+      setFetchGraphQlHeader('Authorization', '');
+      // setAuthHeader(apis, '');
     }
   });
 
