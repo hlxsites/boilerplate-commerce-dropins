@@ -1,1 +1,3 @@
-/* stylelint-disable no-empty-source */
+.pdp-product__overlay__carousel img {
+    background: transparent;
+}

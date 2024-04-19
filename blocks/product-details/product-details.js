@@ -1,17 +1,17 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
 
-// Drop-in Tools
+// Dropin Tools
 import { initializers } from '@dropins/tools/initializer.js';
 
-// Drop-in APIs
+// Dropin APIs
 import { addProductsToCart } from '@dropins/storefront-cart/api.js';
 import * as product from '@dropins/storefront-pdp/api.js';
 
-// Drop-in Providers
+// Dropin Providers
 import { render as productRenderer } from '@dropins/storefront-pdp/render.js';
 
-// Drop-in Containers
+// Dropin Containers
 import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js';
 
 // Libs
@@ -19,7 +19,7 @@ import { getSkuFromUrl } from '../../scripts/commerce.js';
 import { getConfigValue } from '../../scripts/configs.js';
 
 export default async function decorate(block) {
-  // Initialize Drop-ins
+  // Initialize Dropins
   initializers.register(product.initialize, {});
 
   // Set Fetch Endpoint (Service)
