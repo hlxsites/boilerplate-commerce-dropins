@@ -12,8 +12,7 @@ import { getConfigValue } from './configs.js';
 
 export default async function initializeDropins() {
   // Set Fetch Endpoint (Global)
-  // setEndpoint(await getConfigValue('commerce-core-endpoint'));
-  setEndpoint('https://mcstaging.aemshop.net/graphql');
+  setEndpoint(await getConfigValue('commerce-core-endpoint'));
 
   // Initializers (Global)
   initializers.register(cart.initialize, {});
