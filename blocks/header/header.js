@@ -182,19 +182,17 @@ export default async function decorate(block) {
    }
 
   async function toggleMiniCart(state) {
-    const show =
-      state ?? !minicartPanel.classList.contains('nav-tools-panel--show');
+    const show = state ?? !minicartPanel.classList.contains('nav-tools-panel--show');
 
     if (show) {
       await cartProvider.render(MiniCart, {
         routeEmptyCartCTA: () => '/',
-        routeProduct: (product) =>
-          `/products/${product.url.urlKey}/${product.sku}`,
+        routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
         routeCart: () => '/cart',
         routeCheckout: () => '/checkout',
       })(minicartPanel);
     } else {
-      minicartPanel.innerHTML = '';
+      cartProvider.unmount(minicartPanel);
     }
 
     minicartPanel.classList.toggle('nav-tools-panel--show', show);
