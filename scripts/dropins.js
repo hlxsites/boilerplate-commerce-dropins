@@ -15,10 +15,11 @@ async function appendDropinCSS(href) {
   link.rel = 'stylesheet';
   link.href = href;
 
-  const base = document.head.querySelector('style#dropins-css');
+  const base = document.head.querySelector('[data-dropin-css]');
 
   if (base) {
     base.after(link);
+    console.log('injecting after')
   } else {
     document.head.appendChild(link);
   }
