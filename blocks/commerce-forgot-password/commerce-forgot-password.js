@@ -11,11 +11,7 @@ export default function decorate(block) {
     window.location.href = '/customer/account';
   } else {
     authRenderer.render(ResetPassword, {
-      signInPageRedirectUrl: '/customer/login',
-      formSize: 'default',
-      onErrorCallback: (error) => {
-        console.log('error :>> ', error);
-      },
+      routeSignIn: () => '/customer/login',
     })(block);
   }
 }

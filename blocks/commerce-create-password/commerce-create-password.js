@@ -2,7 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { UpdatePassword } from '@dropins/storefront-auth/containers/UpdatePassword.js';
 import { SuccessNotification } from '@dropins/storefront-auth/containers/SuccessNotification.js';
-import { authLogoutService } from '@dropins/storefront-auth/service/authLogoutService.js';
+import * as authApi from '@dropins/storefront-auth/api.js';
 import { render as authRenderer } from '@dropins/storefront-auth/render.js';
 import { getCookie } from '../../scripts/configs.js';
 import { h } from '../../scripts/preact.js';
@@ -14,8 +14,7 @@ export default function decorate(block) {
     window.location.href = '/customer/account';
   } else {
     authRenderer.render(UpdatePassword, {
-      formSize: 'default',
-      wrongUrlParamsRedirectUrl: '/customer/login',
+      routeWrongUrlRedirect: () => '/customer/login',
       successNotificationForm: (userName) => h(SuccessNotification, {
         formSize: 'default',
         headingText: `Welcome ${userName}!`,
@@ -26,7 +25,7 @@ export default function decorate(block) {
           window.location.href = '/customer/login';
         },
         onSecondaryButtonClick: async () => {
-          await authLogoutService();
+          await authApi.revokeCustomerToken();
           window.location.href = '/';
         },
       }),
