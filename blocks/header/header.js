@@ -9,6 +9,9 @@ import MiniCart from '@dropins/storefront-cart/containers/MiniCart.js';
 // Drop-in Tools
 import { events } from '@dropins/tools/event-bus.js';
 
+// TODO
+import renderAuthCombine from './renderAuthCombine.js';
+
 import { loadFragment } from '../fragment/fragment.js';
 import { getMetadata } from '../../scripts/aem.js';
 
@@ -139,6 +142,8 @@ export default async function decorate(block) {
   }
 
   const navSections = nav.querySelector('.nav-sections');
+  // TODO - Render authCombine container for demo purposes
+  renderAuthCombine(navSections);
   if (navSections) {
     navSections
       .querySelectorAll(':scope .default-content-wrapper > ul > li')
