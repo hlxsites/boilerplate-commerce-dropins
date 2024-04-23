@@ -17,7 +17,7 @@
 // TODO - Temporally component commerce-account implemented for testing and demo purposes
 import { getCookie } from '../../scripts/configs.js';
 import getCustomer from './api/getCustomer.js';
-import { authLogoutService } from '@dropins/storefront-auth/service/authLogoutService.js';
+import * as authApi from '@dropins/storefront-auth/api.js';
 
 import convertDateFormat from './helpers/convertDateFormat.js';
 import validateOrdersStatus from './helpers/validateOrdersStatus.js';
@@ -146,7 +146,7 @@ export default async function decorate(block) {
     const logoutDashboard = document.querySelector('.logoutDashboard');
 
     logoutDashboard.addEventListener('click', async () => {
-      await authLogoutService();
+      await authApi.revokeCustomerToken();
       window.location.href = '/customer/login';
     });
   });
