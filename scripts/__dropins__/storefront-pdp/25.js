@@ -1,0 +1,1 @@
+export const id=25;export const ids=[25];export const modules={5025:(o,t,s)=>{s.r(t)}};

@@ -1,0 +1,177 @@
+/* https://cssguidelin.es/#bem-like-naming */
+
+.dropin-skeleton {
+  --row-gap-spacing: var(--spacing-medium);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--row-gap-spacing);
+}
+
+.dropin-skeleton .dropin-skeleton--row__content {
+  background: var(--color-neutral-300)
+    linear-gradient(
+      to right,
+      var(--color-neutral-300) 0%,
+      var(--color-neutral-100) 20%,
+      var(--color-neutral-300) 40%,
+      var(--color-neutral-300) 100%
+    )
+    no-repeat;
+  animation: skeletonShimmer infinite 1.2s linear;
+  border-radius: var(--shape-border-radius-2);
+}
+
+/* Empty */
+.dropin-skeleton__empty {
+  background: none;
+}
+
+.dropin-skeleton-row--multiline {
+  --multiline-gap-spacing: var(--spacing-medium);
+  display: grid;
+  grid-auto-rows: max-content;
+  gap: var(--multiline-gap-spacing);
+}
+
+.dropin-skeleton-row--full {
+  grid-column: 1 / -1;
+}
+
+/* SVG */
+.dropin-skeleton-row svg {
+  fill: var(--color-neutral-400);
+  fill-opacity: 0.5;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeholderShimmer;
+  animation-timing-function: linear;
+}
+
+/* Row variants */
+
+.dropin-skeleton-row__row-xsmall {
+  height: 32px;
+}
+
+.dropin-skeleton-row__row-small {
+  height: 40px;
+}
+
+.dropin-skeleton-row__row-medium {
+  height: 48px;
+}
+
+.dropin-skeleton-row__row-large {
+  height: 56px;
+}
+
+.dropin-skeleton-row__row-xlarge {
+  height: 72px;
+}
+
+/* Heading variants */
+
+.dropin-skeleton-row__heading-xsmall {
+  height: 20px;
+}
+
+.dropin-skeleton-row__heading-small {
+  height: 24px;
+}
+
+.dropin-skeleton-row__heading-medium {
+  height: 32px;
+}
+
+.dropin-skeleton-row__heading-large {
+  height: 40px;
+}
+
+.dropin-skeleton-row__heading-xlarge {
+  height: 48px;
+}
+
+@keyframes skeletonShimmer {
+  0% {
+    background-position: -600px 0;
+  }
+
+  100% {
+    background-position: 600px 0;
+  }
+}
+
+@keyframes placeholderShimmer {
+  0% {
+    fill-opacity: 0.5;
+  }
+
+  50% {
+    fill-opacity: 1;
+  }
+
+  100% {
+    fill-opacity: 0.5;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .dropin-skeleton {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Medium (portrait tablets and large phones, 768px and up) */
+/* @media only screen and (min-width: 768px) { } */
+
+/* Large (landscape tablets, 1024px and up) */
+/* @media only screen and (min-width: 1024px) { } */
+
+/* XLarge (laptops/desktops, 1366px and up) */
+/* @media only screen and (min-width: 1366px) { } */
+
+/* XXlarge (large laptops and desktops, 1920px and up) */
+/* @media only screen and (min-width: 1920px) { } */
+
+/* https://cssguidelin.es/#bem-like-naming */
+
+.dropin-icon {
+}
+
+.dropin-icon--shape-stroke-1 {
+  stroke-width: var(--shape-icon-stroke-1);
+}
+
+.dropin-icon--shape-stroke-2 {
+  stroke-width: var(--shape-icon-stroke-2);
+}
+
+.dropin-icon--shape-stroke-3 {
+  stroke-width: var(--shape-icon-stroke-3);
+}
+
+.dropin-icon--shape-stroke-4 {
+  stroke-width: var(--shape-icon-stroke-4);
+}
+
+/* https://cssguidelin.es/#bem-like-naming */
+
+/* .dropin-heading { } */
+
+/* Extra small devices (phones, 600px and down) */
+/* @media only screen and (max-width: 600px) { } */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (min-width: 600px) { } */
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) { } */
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) { } */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) { } */
+
