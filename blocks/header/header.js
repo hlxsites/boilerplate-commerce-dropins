@@ -11,6 +11,7 @@ import { events } from '@dropins/tools/event-bus.js';
 
 import { loadFragment } from '../fragment/fragment.js';
 import { getMetadata } from '../../scripts/aem.js';
+import { loadDropinCSS } from '../../scripts/dropins.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -161,25 +162,27 @@ export default async function decorate(block) {
 
   const navTools = nav.querySelector('.nav-tools');
 
-   /** Mini Cart */
-   const excludeMiniCartFromPaths = ['/checkout', '/order-confirmation'];
+  /** Mini Cart */
+  loadDropinCSS('MiniCart');
 
-   const minicart = document.createRange().createContextualFragment(`
-     <div class="minicart-wrapper nav-tools-wrapper">
-       <button type="button" class="button nav-cart-button" aria-label="Cart"></button>
-       <div class="minicart-panel nav-tools-panel"></div>
-     </div>
-   `);
- 
-   navTools.append(minicart);
- 
-   const minicartPanel = navTools.querySelector('.minicart-panel');
- 
-   const cartButton = navTools.querySelector('.nav-cart-button');
- 
-   if (excludeMiniCartFromPaths.includes(window.location.pathname)) {
-     cartButton.style.display = 'none';
-   }
+  const excludeMiniCartFromPaths = ['/checkout', '/order-confirmation'];
+
+  const minicart = document.createRange().createContextualFragment(`
+    <div class="minicart-wrapper nav-tools-wrapper">
+      <button type="button" class="button nav-cart-button" aria-label="Cart"></button>
+      <div class="minicart-panel nav-tools-panel"></div>
+    </div>
+  `);
+
+  navTools.append(minicart);
+
+  const minicartPanel = navTools.querySelector('.minicart-panel');
+
+  const cartButton = navTools.querySelector('.nav-cart-button');
+
+  if (excludeMiniCartFromPaths.includes(window.location.pathname)) {
+    cartButton.style.display = 'none';
+  }
 
   async function toggleMiniCart(state) {
     const show = state ?? !minicartPanel.classList.contains('nav-tools-panel--show');

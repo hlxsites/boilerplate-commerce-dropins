@@ -10,16 +10,31 @@ import * as cart from '@dropins/storefront-cart/api.js';
 // Libs
 import { getConfigValue } from './configs.js';
 
-async function appendDropinCSS(href) {
+/**
+ *
+ * @param {"Product" | "Cart" | "Checkout" | "OrderConfirmation"} key
+ * @returns
+ */
+export async function loadDropinCSS(key) {
+  const href = {
+    Product: '/scripts/__dropins__/storefront-pdp/containers/ProductDetails.css',
+    MiniCart: '/scripts/__dropins__/storefront-cart/containers/MiniCart.css',
+    Cart: '/scripts/__dropins__/storefront-cart/containers/Cart.css',
+    Checkout: '/scripts/__dropins__/storefront-checkout/containers/Checkout.css',
+    OrderConfirmation: '/scripts/__dropins__/storefront-order-confirmation/containers/OrderConfirmation.css',
+  }[key];
+
+  if (!href || document.head.querySelector(`[data-dropin="${key}"]`)) return;
+
   const link = document.createElement('link');
   link.rel = 'stylesheet';
   link.href = href;
+  link.setAttribute('data-dropin', key);
 
   const base = document.head.querySelector('[data-dropin-css]');
 
   if (base) {
     base.after(link);
-    console.log('injecting after')
   } else {
     document.head.appendChild(link);
   }
@@ -27,14 +42,7 @@ async function appendDropinCSS(href) {
 
 export default async function initializeDropins({ current }) {
   // Load CSS
-  const css = {
-    Product: '/scripts/__dropins__/storefront-pdp/containers/ProductDetails.css',
-    Cart: '/scripts/__dropins__/storefront-cart/containers/Cart.css',
-    Checkout: '/scripts/__dropins__/storefront-checkout/containers/Checkout.css',
-    OrderConfirmation: '/scripts/__dropins__/storefront-order-confirmation/containers/OrderConfirmation.css',
-  }[current];
-
-  if (css) appendDropinCSS(css);
+  loadDropinCSS(current);
 
   // Set Fetch Endpoint (Global)
   setEndpoint(await getConfigValue('commerce-core-endpoint'));

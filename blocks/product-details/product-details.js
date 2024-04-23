@@ -40,10 +40,10 @@ export default async function decorate(block) {
 
   return productRenderer.render(ProductDetails, {
     sku: getSkuFromUrl(),
-    // carousel: {
-    //   controls: 'dots', // 'thumbnailsColumn', 'thumbnailsRow', 'dots'
-    //   mobile: true,
-    // },
+    carousel: {
+      controls: 'dots', // 'thumbnailsColumn', 'thumbnailsRow', 'dots'
+      mobile: true,
+    },
     slots: {
       Actions: (ctx) => {
         // Add to Cart Button
