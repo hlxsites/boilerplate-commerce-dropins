@@ -26,16 +26,14 @@ async function appendDropinCSS(href) {
 
 export default async function initializeDropins({ current }) {
   // Load CSS
-  const styles = {
+  const css = {
     Product: '/scripts/__dropins__/storefront-pdp/containers/ProductDetails.css',
     Cart: '/scripts/__dropins__/storefront-cart/containers/Cart.css',
     Checkout: '/scripts/__dropins__/storefront-checkout/containers/Checkout.css',
     OrderConfirmation: '/scripts/__dropins__/storefront-order-confirmation/containers/OrderConfirmation.css',
-  };
+  }[current];
 
-  if (styles[current]) {
-    appendDropinCSS(`/${styles[current]}`);
-  }
+  if (css) appendDropinCSS(css);
 
   // Set Fetch Endpoint (Global)
   setEndpoint(await getConfigValue('commerce-core-endpoint'));
