@@ -1,0 +1,2 @@
+.dropin-design a{--textColor:var(--color-brand-500);color:var(--textColor);text-decoration:none}.dropin-design a:hover{--textColor:var(--color-brand-700);text-decoration:solid underline var(--textColor);text-underline-offset:6px}.dropin-design a:focus-visible{outline:solid var(--shape-border-width-4) var(--color-neutral-400);border:var(--shape-border-width-1) solid var(--color-neutral-800);border-radius:var(--shape-border-radius-1)}
+
