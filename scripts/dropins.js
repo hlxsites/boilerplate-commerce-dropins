@@ -9,8 +9,29 @@ import * as cart from '@dropins/storefront-cart/api.js';
 
 // Libs
 import { getConfigValue } from './configs.js';
+import { loadCSS } from './aem.js';
 
-export default async function initializeDropins() {
+export default async function initializeDropins({ current }) {
+  // Load CSS
+  if (current) {
+    switch (current) {
+      case 'Product':
+        loadCSS(`${window.hlx.codeBasePath}/scripts/__dropins__/storefront-pdp/containers/ProductDetails.css`);
+        break;
+      case 'Cart':
+        loadCSS(`${window.hlx.codeBasePath}/scripts/__dropins__/storefront-cart/containers/Cart.css`);
+        break;
+      case 'Checkout':
+        loadCSS(`${window.hlx.codeBasePath}/scripts/__dropins__/storefront-checkout/containers/Checkout.css`);
+        break;
+      case 'OrderConfirmation':
+        loadCSS(`${window.hlx.codeBasePath}/scripts/__dropins__/storefront-order-confirmation/containers/OrderConfirmation.css`);
+        break;
+      default:
+        break;
+    }
+  }
+
   // Set Fetch Endpoint (Global)
   setEndpoint(await getConfigValue('commerce-core-endpoint'));
 

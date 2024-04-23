@@ -84,10 +84,6 @@ export function decorateMain(main) {
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
-  await initializeDropins();
-  decorateTemplateAndTheme();
-
-  window.adobeDataLayer = window.adobeDataLayer || [];
 
   let pageType = 'CMS';
   if (document.body.querySelector('main .product-details')) {
@@ -98,7 +94,16 @@ async function loadEager(doc) {
     pageType = 'Cart';
   } else if (document.body.querySelector('main .commerce-checkout')) {
     pageType = 'Checkout';
+  } else if (document.body.querySelector('main .commerce-order-confirmation')) {
+    pageType = 'OrderConfirmation';
   }
+
+  await initializeDropins({ current: pageType });
+
+  decorateTemplateAndTheme();
+
+  window.adobeDataLayer = window.adobeDataLayer || [];
+
   window.adobeDataLayer.push({
     pageContext: {
       pageType,
