@@ -15,7 +15,7 @@ async function appendDropinCSS(href) {
   link.rel = 'stylesheet';
   link.href = href;
 
-  const base = document.head.querySelector('style#dropins-styles');
+  const base = document.head.querySelector('style#dropins-css');
 
   if (base) {
     base.after(link);
