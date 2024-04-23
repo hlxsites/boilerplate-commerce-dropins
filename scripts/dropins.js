@@ -13,23 +13,15 @@ import { loadCSS } from './aem.js';
 
 export default async function initializeDropins({ current }) {
   // Load CSS
-  if (current) {
-    switch (current) {
-      case 'Product':
-        loadCSS(`${window.hlx.codeBasePath}/scripts/__dropins__/storefront-pdp/containers/ProductDetails.css`);
-        break;
-      case 'Cart':
-        loadCSS(`${window.hlx.codeBasePath}/scripts/__dropins__/storefront-cart/containers/Cart.css`);
-        break;
-      case 'Checkout':
-        loadCSS(`${window.hlx.codeBasePath}/scripts/__dropins__/storefront-checkout/containers/Checkout.css`);
-        break;
-      case 'OrderConfirmation':
-        loadCSS(`${window.hlx.codeBasePath}/scripts/__dropins__/storefront-order-confirmation/containers/OrderConfirmation.css`);
-        break;
-      default:
-        break;
-    }
+  const styles = {
+    Product: '/scripts/__dropins__/storefront-pdp/containers/ProductDetails.css',
+    Cart: '/scripts/__dropins__/storefront-cart/containers/Cart.css',
+    Checkout: '/scripts/__dropins__/storefront-checkout/containers/Checkout.css',
+    OrderConfirmation: '/scripts/__dropins__/storefront-order-confirmation/containers/OrderConfirmation.css',
+  };
+
+  if (styles[current]) {
+    loadCSS(`${window.hlx.codeBasePath}${styles[current]}`);
   }
 
   // Set Fetch Endpoint (Global)
