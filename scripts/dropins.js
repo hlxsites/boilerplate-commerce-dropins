@@ -9,7 +9,20 @@ import * as cart from '@dropins/storefront-cart/api.js';
 
 // Libs
 import { getConfigValue } from './configs.js';
-import { loadCSS } from './aem.js';
+
+async function appendStyle(href) {
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = href;
+
+  const base = document.head.querySelector('#dropins-styles');
+
+  if (base) {
+    base.after(link);
+  } else {
+    document.head.appendChild(link);
+  }
+}
 
 export default async function initializeDropins({ current }) {
   // Load CSS
@@ -21,7 +34,7 @@ export default async function initializeDropins({ current }) {
   };
 
   if (styles[current]) {
-    loadCSS(`${window.hlx.codeBasePath}${styles[current]}`);
+    appendStyle(`${window.hlx.codeBasePath}${styles[current]}`);
   }
 
   // Set Fetch Endpoint (Global)
