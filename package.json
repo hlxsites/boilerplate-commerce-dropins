@@ -37,7 +37,7 @@
   "dependencies": {
     "@adobe/magento-storefront-event-collector": "^1.7.1",
     "@adobe/magento-storefront-events-sdk": "^1.7.1",
-    "@dropins/storefront-cart": "0.1.1-beta3",
+    "@dropins/storefront-cart": "0.1.1",
     "@dropins/storefront-checkout": "0.1.0-alpha30",
     "@dropins/storefront-order-confirmation": "0.1.0-alpha19",
     "@dropins/storefront-pdp": "0.2.2-alpha24",
