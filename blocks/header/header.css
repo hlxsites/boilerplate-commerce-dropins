@@ -405,4 +405,5 @@ header .nav-search-input .search_autocomplete .popover-container {
 /* TODO - CSS for authCombine demo */
 #auth-combine-wrapper {
   width: 800px;
+  min-height: 400px;
 }
