@@ -28,4 +28,42 @@ fs.readdirSync('node_modules/@dropins', { withFileTypes: true }).forEach((file) 
 fs.copyFileSync(path.resolve(__dirname, './node_modules/@adobe/magento-storefront-event-collector/dist/index.js'), path.resolve(__dirname, './scripts/commerce-events-collector.js'));
 fs.copyFileSync(path.resolve(__dirname, './node_modules/@adobe/magento-storefront-events-sdk/dist/index.js'), path.resolve(__dirname, './scripts/commerce-events-sdk.js'));
 
-console.log('🫡 Drop-ins installed successfully!');
+function checkPackageLockForArtifactory() {
+  return new Promise((resolve, reject) => {
+    fs.readFile('package-lock.json', 'utf8', (err, data) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      try {
+        const packageLock = JSON.parse(data);
+        let found = false;
+        Object.keys(packageLock.packages).forEach((packageName) => {
+          const packageInfo = packageLock.packages[packageName];
+          if (packageInfo.resolved && packageInfo.resolved.includes('artifactory')) {
+            console.warn(`Warning: artifactory found in resolved property for package ${packageName}`);
+            found = true;
+          }
+        });
+        resolve(found);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  });
+}
+
+checkPackageLockForArtifactory()
+  .then((found) => {
+    if (!found) {
+      console.log('🫡 Drop-ins installed successfully!');
+      process.exit(0);
+    } else {
+      console.error('🚨 Fix artifactory references before committing! 🚨');
+      process.exit(1);
+    }
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+    process.exit(1);
+  });
