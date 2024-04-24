@@ -12,7 +12,7 @@ const signInFormConfig = {
   routeForgotPassword: () => '/customer/forgotpassword',
   successNotificationForm: (userName) => h(SuccessNotification, {
     headingText: `Welcome ${userName}`,
-    messageText: 'Your account has been successfully created.',
+    messageText: 'You have successfully logged in.',
     primaryButtonText: 'My Account',
     secondaryButtonText: 'Logout',
     onPrimaryButtonClick: () => {
