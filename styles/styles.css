@@ -311,7 +311,6 @@ main a.button:focus,
 main button.button:hover,
 main button.button:focus {
   background-color: var(--color-brand-600);
-  color: var(--color-neutral-50);
   cursor: pointer;
 }
 
@@ -319,7 +318,6 @@ main a.button.disabled,
 main button.button:disabled,
 main button.button:disabled:hover {
   background-color: var(--color-neutral-300);
-  color: var(--color-neutral-50);
   cursor: unset;
 }
 
