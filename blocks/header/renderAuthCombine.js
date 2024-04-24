@@ -8,6 +8,7 @@ import * as authApi from '@dropins/storefront-auth/api.js';
 import { h } from "../../scripts/preact.js";
 
 const signInFormConfig = {
+  renderSignUpLink: true,
   routeForgotPassword: () => '/customer/forgotpassword',
   successNotificationForm: (userName) => h(SuccessNotification, {
     headingText: `Welcome ${userName}`,
