@@ -38,7 +38,7 @@ export default async function decorate(block) {
 
   // Render Containers
 
-  return productRenderer.render(ProductDetails, {
+  const render = await productRenderer.render(ProductDetails, {
     sku: getSkuFromUrl(),
     carousel: {
       controls: 'dots', // 'thumbnailsColumn', 'thumbnailsRow', 'dots'
@@ -85,4 +85,10 @@ export default async function decorate(block) {
       },
     },
   })(block);
+  // TODO: should this be here or somewhere else?
+  window.adobeDataLayer = window.adobeDataLayer || [];
+  window.adobeDataLayer.push((dl) => {
+    dl.push({ event: 'page-view', eventInfo: { ...dl.getState() } });
+  });
+  return render;
 }
