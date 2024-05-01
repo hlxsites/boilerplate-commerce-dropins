@@ -13,9 +13,9 @@ import * as authApi from '@dropins/storefront-auth/api.js';
 // Libs
 import { getConfigValue, getCookie } from './configs.js';
 
-const setAuthHeader = (apis, token) => {
-  apis.forEach((typeApi) => {
-    typeApi.setFetchGraphQlHeader('Authorization', `Bearer ${token}`);
+const setAuthHeader = (apiConfigs, token) => {
+  apiConfigs.forEach(({ api, header, tokenPrefix }) => {
+    api.setFetchGraphQlHeader(header, tokenPrefix ? `${tokenPrefix} ${token}` : token);
   });
 };
 
@@ -31,21 +31,24 @@ export default async function initializeDropins() {
   initializers.register(authApi.initialize, {});
   initializers.register(cartApi.initialize, {});
 
-  const apis = [cartApi, authApi];
+  const apiConfigs = [
+    { api: cartApi, header: 'Authorization', tokenPrefix: 'Bearer' },
+    { api: authApi, header: 'Authorization', tokenPrefix: 'Bearer' },
+  ];
 
   // After load or reload page we check token
   const token = getUserTokenCookie();
 
-  setAuthHeader(apis, token);
+  setAuthHeader(apiConfigs, token);
 
   // Set auth headers
   events.on('authenticated', (isAuthenticated) => {
     if (isAuthenticated) {
       const updatedToken = getUserTokenCookie();
 
-      setAuthHeader(apis, updatedToken);
+      setAuthHeader(apiConfigs, updatedToken);
     } else {
-      setAuthHeader(apis, '');
+      setAuthHeader(apiConfigs, '');
     }
   });
 
