@@ -1,3 +1,4 @@
+import { addProductsToCart } from '@dropins/storefront-cart/api.js';
 import { loadScript, readBlockConfig } from '../../scripts/aem.js';
 import { getConfigValue } from '../../scripts/configs.js';
 
@@ -32,8 +33,11 @@ export default async function decorate(block) {
       listview: true,
       displayMode: '', // "" for plp || "PAGE" for category/catalog
       addToCart: async (...args) => {
-        const { cartApi } = await import('../../scripts/minicart/api.js');
-        return cartApi.addToCart(...args);
+        await addProductsToCart([{
+          sku: args[0],
+          // options: args[1], // TODO: confirm that args[1] is indeed an array of option UIDs.
+          quantity: args[2],
+        }]);
       },
     },
     context: {
