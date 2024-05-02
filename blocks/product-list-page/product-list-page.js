@@ -35,7 +35,7 @@ export default async function decorate(block) {
       addToCart: async (...args) => {
         await addProductsToCart([{
           sku: args[0],
-          // options: args[1], // TODO: confirm that args[1] is indeed an array of option UIDs.
+          options: args[1],
           quantity: args[2],
         }]);
       },
