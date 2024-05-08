@@ -19,9 +19,7 @@ function closeOnEscape(e) {
   if (e.code === 'Escape') {
     const nav = document.getElementById('nav');
     const navSections = nav.querySelector('.nav-sections');
-    const navSectionExpanded = navSections.querySelector(
-      '[aria-expanded="true"]'
-    );
+    const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
     if (navSectionExpanded && isDesktop.matches) {
       // eslint-disable-next-line no-use-before-define
       toggleAllNavSections(navSections);
@@ -69,20 +67,16 @@ function toggleAllNavSections(sections, expanded = false) {
  * @param {*} forceExpanded Optional param to force nav expand behavior when not null
  */
 function toggleMenu(nav, navSections, forceExpanded = null) {
-  const expanded =
-    forceExpanded !== null
-      ? !forceExpanded
-      : nav.getAttribute('aria-expanded') === 'true';
+  const expanded = forceExpanded !== null
+    ? !forceExpanded
+    : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
   document.body.style.overflowY = expanded || isDesktop.matches ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-  toggleAllNavSections(
-    navSections,
-    expanded || isDesktop.matches ? 'false' : 'true'
-  );
+  toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
   button.setAttribute(
     'aria-label',
-    expanded ? 'Open navigation' : 'Close navigation'
+    expanded ? 'Open navigation' : 'Close navigation',
   );
   // enable nav dropdown keyboard accessibility
   const navDrops = navSections.querySelectorAll('.nav-drop');
@@ -143,16 +137,14 @@ export default async function decorate(block) {
     navSections
       .querySelectorAll(':scope .default-content-wrapper > ul > li')
       .forEach((navSection) => {
-        if (navSection.querySelector('ul'))
-          navSection.classList.add('nav-drop');
+        if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
         navSection.addEventListener('click', () => {
           if (isDesktop.matches) {
-            const expanded =
-              navSection.getAttribute('aria-expanded') === 'true';
+            const expanded = navSection.getAttribute('aria-expanded') === 'true';
             toggleAllNavSections(navSections);
             navSection.setAttribute(
               'aria-expanded',
-              expanded ? 'false' : 'true'
+              expanded ? 'false' : 'true',
             );
           }
         });
@@ -161,25 +153,25 @@ export default async function decorate(block) {
 
   const navTools = nav.querySelector('.nav-tools');
 
-   /** Mini Cart */
-   const excludeMiniCartFromPaths = ['/checkout', '/order-confirmation'];
+  /** Mini Cart */
+  const excludeMiniCartFromPaths = ['/checkout', '/order-confirmation'];
 
-   const minicart = document.createRange().createContextualFragment(`
+  const minicart = document.createRange().createContextualFragment(`
      <div class="minicart-wrapper nav-tools-wrapper">
        <button type="button" class="button nav-cart-button" aria-label="Cart"></button>
        <div class="minicart-panel nav-tools-panel"></div>
      </div>
    `);
- 
-   navTools.append(minicart);
- 
-   const minicartPanel = navTools.querySelector('.minicart-panel');
- 
-   const cartButton = navTools.querySelector('.nav-cart-button');
- 
-   if (excludeMiniCartFromPaths.includes(window.location.pathname)) {
-     cartButton.style.display = 'none';
-   }
+
+  navTools.append(minicart);
+
+  const minicartPanel = navTools.querySelector('.minicart-panel');
+
+  const cartButton = navTools.querySelector('.nav-cart-button');
+
+  if (excludeMiniCartFromPaths.includes(window.location.pathname)) {
+    cartButton.style.display = 'none';
+  }
 
   async function toggleMiniCart(state) {
     const show = state ?? !minicartPanel.classList.contains('nav-tools-panel--show');
@@ -210,7 +202,7 @@ export default async function decorate(block) {
         cartButton.removeAttribute('data-count');
       }
     },
-    { eager: true }
+    { eager: true },
   );
 
   /** Search */
@@ -237,8 +229,7 @@ export default async function decorate(block) {
   const searchInput = searchPanel.querySelector('input');
 
   async function toggleSearch(state) {
-    const show =
-      state ?? !searchPanel.classList.contains('nav-tools-panel--show');
+    const show = state ?? !searchPanel.classList.contains('nav-tools-panel--show');
 
     searchPanel.classList.toggle('nav-tools-panel--show', show);
 
