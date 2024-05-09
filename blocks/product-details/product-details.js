@@ -170,7 +170,7 @@ export default async function decorate(block) {
         await productRenderer.render(ProductDetails, {
           sku: getSkuFromUrl(),
           carousel: {
-            controls: 'thumbnailsColumn',
+            controls: 'thumbnailsRow',
             arrowsOnMainImage: true,
             mobile: true,
             peak: {
@@ -178,6 +178,12 @@ export default async function decorate(block) {
               desktop: false,
             },
             gap: 'small',
+          },
+          hideAttributes: true,
+          hideDescription: true,
+          onAddToCart: (params) => {
+            console.log("Add to Cart parameters: ", params);
+            addProductsToCart([params]);
           },
           slots: {
           },
