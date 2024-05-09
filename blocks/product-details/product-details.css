@@ -1,1 +1,78 @@
 /* stylelint-disable no-empty-source */
+
+.dropin-design .pdp-product__title,
+.dropin-design .dropin-price.pdp-product__price {
+  font-family: "Source Serif Pro", serif;
+}
+
+.dropin-design .pdp-product__sku {
+  font-size: 10px;
+}
+
+.dropin-design .pdp-swatches__field__label {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.dropin-design .pdp-product__attributes {
+  border-top: 3px solid var(--color-brand-500);
+  padding-top: 5px;
+}
+
+.dropin-design .dropin-text-swatch__label,
+.dropin-design .dropin-incrementer__increase-button,
+.dropin-design .dropin-incrementer__decrease-button {
+  transition: background-color 0.25s ease-out, color 0.25s ease-out,
+    box-shadow 0.25s ease-out;
+}
+
+.dropin-design .dropin-text-swatch__label:hover,
+.dropin-design .dropin-incrementer__increase-button:hover:enabled,
+.dropin-design .dropin-incrementer__decrease-button:hover:enabled {
+  background-color: var(--color-brand-500);
+  box-shadow: 0 0 0 var(--shape-border-width-1) var(--color-neutral-900);
+}
+
+.dropin-design .dropin-iconButton--primary {
+  border-radius: 0;
+}
+
+.dropin-design .dropin-iconButton--primary:not(:disabled) {
+  background-color: var(--color-neutral-800);
+  color: var(--color-brand-500);
+}
+
+.dropin-design .dropin-iconButton--primary:not(:disabled) > svg {
+  fill: var(--color-neutral-800);
+  transition: fill 0.25s ease-out;
+}
+
+.dropin-design .dropin-iconButton--primary:not(:disabled):hover > svg {
+  fill: var(--color-brand-500);
+}
+
+.dropin-design .pdp-product__buttons {
+  grid-template-columns: 1fr auto;
+}
+
+.custom-content-section {
+  color: var(--color-neutral-800);
+  margin: 35px 0;
+}
+
+.pdp-tagline {
+  border-bottom: 5px solid var(--color-brand-500);
+  display: inline-block;
+  padding-bottom: var(--spacing-xxsmall);
+  margin-bottom: var(--spacing-small);
+  font: var(--type-body-1-emphasized-font);
+  text-transform: uppercase;
+}
+
+.pdp-quantity-label {
+  display: block;
+  margin-bottom: var(--spacing-xsmall);
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: underline;
+}
