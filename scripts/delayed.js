@@ -26,10 +26,21 @@ const config = {
   storefrontTemplate: 'Franklin',
 };
 
-window.adobeDataLayer.push(
+// TODO: use from config, not hardcode.
+const imsOrgId = 'DEDB2A52641B1D460A495F8E@AdobeOrg'; // await getConfigValue('commerce-ims-org');
+const datastreamId = 'fedf2de7-16d7-482b-92e0-f56fba88c532'; // await getConfigValue('commerce-datastream-id'); //
+const shouldEnableAEP = imsOrgId && datastreamId;
+
+const payload = [
   { storefrontInstanceContext: config },
-  { eventForwardingContext: { commerce: true, aep: false } },
-);
+  { eventForwardingContext: { commerce: true, aep: shouldEnableAEP } },
+];
+
+if (shouldEnableAEP) {
+  payload.push({ aepContext: { imsOrgId, datastreamId, webSdkName: '' } });
+}
+
+window.adobeDataLayer.push(...payload);
 
 // Load events SDK and collector
 import('./commerce-events-sdk.js');
