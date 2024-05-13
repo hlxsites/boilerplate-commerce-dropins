@@ -181,11 +181,23 @@ export default async function decorate(block) {
           },
           hideAttributes: true,
           hideDescription: true,
-          onAddToCart: (params) => {
-            console.log("Add to Cart parameters: ", params);
-            addProductsToCart([params]);
-          },
           slots: {
+            Actions: (ctx) => {
+              ctx.appendButton((next) => ({
+                text: "ADD TO CART",
+                icon: "Cart",
+                variant: "primary",
+                disabled: !next.data?.inStock || !next.valid,
+                onClick: async () => {
+                  await addProductsToCart([
+                    {
+                      ...next.values,
+                    },
+                  ]);
+                  console.log('finished adding to cart')
+                },
+              }));
+            },
           },
         })(block);
       } catch (e) {
