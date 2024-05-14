@@ -257,20 +257,20 @@ main pre {
 }
 
 /* links */
-a:any-link {
+a:not(.dropin-design a) {
   color: var(--color-brand-500);
   font: var(--type-body-1-strong-font);
   letter-spacing: var(--type-body-1-strong-letter-spacing);
   text-decoration: none;
 }
 
-a:hover {
+a:not(.dropin-design a):hover {
   text-decoration: solid underline var(--color-brand-700);
   text-underline-offset: 6px;
   color: var(--color-brand-700);
 }
 
-a:focus-visible {
+a:not(.dropin-design a):focus-visible {
   outline: solid var(--shape-border-width-4) var(--color-neutral-400);
   border: var(--shape-border-width-1) solid var(--color-neutral-800);
   border-radius: var(--shape-border-radius-1);
@@ -299,11 +299,11 @@ main button.button {
   cursor: pointer;
   color: var(--color-neutral-50);
   background-color: var(--color-brand-500);
-  margin: 16px 0;
+  margin: var(--spacing-small) 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-radius: 30px;
+  border-radius: var(--shape-border-radius-3);
 }
 
 main a.button:hover,
@@ -373,12 +373,12 @@ main img {
 
 /* sections */
 main .section {
-  padding: 64px 16px;
+  padding: var(--spacing-large) var(--spacing-small);
 }
 
 @media (width >=600px) {
   main .section {
-    padding: 64px 32px;
+    padding: var(--spacing-large) var(--spacing-big);
   }
 }
 

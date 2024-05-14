@@ -276,7 +276,6 @@ header nav .nav-tools-panel {
   position: absolute;
   box-shadow: var(--shape-shadow-2);
   background: var(--background-color);
-  box-sizing: content-box;
   top: var(--nav-height);
   right: 0;
   width: 100%;
@@ -317,7 +316,6 @@ header nav .nav-tools button.nav-cart-button[data-count]::after {
   content: attr(data-count);
   position: absolute;
   top: 0;
-
   right: -2px;
   background-color: var(--color-brand-700);
   color: var(--color-neutral-100);
