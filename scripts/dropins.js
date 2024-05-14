@@ -9,6 +9,8 @@ import { initializers } from '@dropins/tools/initializer.js';
 // Drop-ins
 import * as cartApi from '@dropins/storefront-cart/api.js';
 import * as authApi from '@dropins/storefront-auth/api.js';
+import * as checkoutApi from '@dropins/storefront-checkout/api.js';
+import * as storefrontOrderConfirmation from '@dropins/storefront-order-confirmation/api.js';
 
 // Libs
 import { getConfigValue, getCookie } from './configs.js';
@@ -34,6 +36,8 @@ export default async function initializeDropins() {
   const apiConfigs = [
     { api: cartApi, header: 'Authorization', tokenPrefix: 'Bearer' },
     { api: authApi, header: 'Authorization', tokenPrefix: 'Bearer' },
+    { api: checkoutApi, header: 'Authorization', tokenPrefix: 'Bearer' },
+    { api: storefrontOrderConfirmation, header: 'Authorization', tokenPrefix: 'Bearer' },
   ];
 
   // After load or reload page we check token
