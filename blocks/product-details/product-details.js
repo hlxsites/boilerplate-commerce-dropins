@@ -42,7 +42,7 @@ export default async function decorate(block) {
     sku: getSkuFromUrl(),
     carousel: {
       controls: 'dots', // 'thumbnailsColumn', 'thumbnailsRow', 'dots'
-      mobile: true,
+      mobile: false,
     },
     slots: {
       Actions: (ctx) => {
