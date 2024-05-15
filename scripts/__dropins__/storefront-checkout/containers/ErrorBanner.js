@@ -1,2 +1,10 @@
-import{E as s,E as d}from"../chunks/ErrorBanner__BKKCpXVYQT.js";import"@dropins/tools/preact-compat.js";import"@dropins/tools/event-bus.js";import"@dropins/tools/preact-jsx-runtime.js";import"../chunks/preact-i18n.esm__AesnfYdPmV.js";import"@dropins/tools/preact.js";import"@dropins/tools/preact-hooks.js";import"../chunks/vcomponent__B-EAiH6JFM.js";import"../chunks/Button__Dyj88ihZKB.js";import"@dropins/tools/components/Icon.js";export{s as ErrorBanner,d as default};
-//# sourceMappingURL=ErrorBanner.js.map
+import { E, E as E2 } from "../chunks/ErrorBanner__p6HuHxntBf.js";
+import "@dropins/tools/preact-compat.js";
+import "@dropins/tools/event-bus.js";
+import "@dropins/tools/components/index.js";
+import "@dropins/tools/preact-jsx-runtime.js";
+import "@dropins/tools/i18n.js";
+export {
+  E as ErrorBanner,
+  E2 as default
+};

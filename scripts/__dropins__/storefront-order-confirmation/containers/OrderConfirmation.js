@@ -1,3 +1,1153 @@
-import{c as ce,d as se}from"../chunks/guestOrderByToken__BiIPO-pQFP.js";import{useState as ee,useEffect as re,useCallback as ne}from"@dropins/tools/preact-hooks.js";import{jsx as e,jsxs as d,Fragment as x}from"@dropins/tools/preact-jsx-runtime.js";import{c as s,L as J,T as g,V as E,u as W,a as de}from"../chunks/UIProvider__KplsarDn2b.js";import*as h from"@dropins/tools/preact-compat.js";import{useState as le,useMemo as A,useContext as me,useReducer as ue,useCallback as j,useEffect as pe}from"@dropins/tools/preact-compat.js";import{Icon as T}from"@dropins/tools/components/Icon.js";import{createElement as _e}from"@dropins/tools/preact.js";import{g as he}from"../chunks/image-params-keymap__Bk3U4q-hHX.js";import"@dropins/tools/fetch-graphql.js";const fe=n=>{const r=new FormData(n);return Object.fromEntries(r)},te=(n,r)=>{let t;return function(...i){clearTimeout(t),t=setTimeout(()=>n.apply(this,i),r)}},X={medium:768,large:1024,xlarge:1366,xxlarge:1920},ye=(n,r)=>{const[t,i]=n.split("?"),c=new URLSearchParams(i),a=he();let l={};return a&&Object.keys(a).length>0&&r?l=Object.entries(r).reduce((o,[m,p])=>{const u=a[m];return u&&(o[u]=p),o},{}):l={auto:"webp",quality:80,crop:!1,fit:"cover",...r},Object.entries(l).forEach(([o,m])=>{m!=null&&c.set(o,String(m))}),`${t}?${c.toString()}`},ge=(n,r)=>{if(!n||!(r!=null&&r.width))return;const t=i=>ye(n,{...i});return Object.entries(X).map(([,i])=>{const c=r.width*i/X.xxlarge;return`${t({...r,width:c})} ${i}w`}).join(`,
-`)},Y=1,y=({className:n,fullWidth:r=!1,lines:t=Y,size:i="small",variant:c="row",children:a=null,multilineGap:l="medium",...o})=>{const m=[[`dropin-skeleton-row__${c}`,c],[`dropin-skeleton-row__${c}-${i}`,c&&i]];if(!a&&c==="empty")return e("div",{className:s(["dropin-skeleton-row dropin-skeleton-row__empty",n])});if(a){const u=a.trim();return e("div",{...o,class:s(["dropin-skeleton-row",["dropin-skeleton-row--full",r],n]),dangerouslySetInnerHTML:{__html:u}})}return t>Y===!1?e("div",{...o,class:s(["dropin-skeleton-row",["dropin-skeleton-row--full",r],"dropin-skeleton--row__content",...m,n])}):e("div",{...o,style:{"--multiline-gap-spacing":`var(--spacing-${l})`},class:s(["dropin-skeleton-row--multiline",["dropin-skeleton-row--full",r],n]),children:Array.from({length:t}).map((u,f)=>e("div",{class:s(["dropin-skeleton-row",["dropin-skeleton-row--full",r],"dropin-skeleton--row__content",...m])},f))})},$=({className:n,children:r,rowGap:t="medium",...i})=>e("div",{style:{"--row-gap-spacing":`var(--spacing-${t})`},...i,className:s(["dropin-skeleton",n]),role:"status","aria-label":"Loading...",children:r}),ve=n=>h.createElement("svg",{id:"Icon_Add_Base","data-name":"Icon \\u2013 Add \\u2013 Base",xmlns:"http://www.w3.org/2000/svg",width:24,height:24,viewBox:"0 0 24 24",...n},h.createElement("g",{id:"Large"},h.createElement("rect",{id:"Placement_area","data-name":"Placement area",width:24,height:24,fill:"#fff",opacity:0}),h.createElement("g",{id:"Add_icon","data-name":"Add icon",transform:"translate(9.734 9.737)"},h.createElement("line",{vectorEffect:"non-scaling-stroke",id:"Line_579","data-name":"Line 579",y2:12.7,transform:"translate(2.216 -4.087)",fill:"none",stroke:"currentColor"}),h.createElement("line",{vectorEffect:"non-scaling-stroke",id:"Line_580","data-name":"Line 580",x2:12.7,transform:"translate(-4.079 2.263)",fill:"none",stroke:"currentColor"})))),Ne=n=>h.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...n},h.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M18.3599 5.64001L5.62988 18.37",stroke:"currentColor"}),h.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M18.3599 18.37L5.62988 5.64001",stroke:"currentColor"})),ke=n=>h.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...n},h.createElement("path",{d:"M17.3332 11.75H6.6665",strokeWidth:1.5,strokeLinecap:"square",strokeLinejoin:"round",vectorEffect:"non-scaling-stroke",fill:"none",stroke:"currentColor"})),we=n=>h.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...n},h.createElement("g",{clipPath:"url(#clip0_4797_15077)"},h.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M10.15 20.85L1.5 17.53V6.63L10.15 10V20.85Z",stroke:"currentColor",strokeLinecap:"round",strokeLinejoin:"round"}),h.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M1.5 6.63001L10.15 3.20001L18.8 6.63001L10.15 10L1.5 6.63001Z",stroke:"currentColor",strokeLinecap:"round",strokeLinejoin:"round"}),h.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M6.17969 4.77002L14.8297 8.15002V11.47",stroke:"currentColor",strokeLinecap:"round",strokeLinejoin:"round"}),h.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M18.7896 12.64V6.63L10.1396 10V20.85L14.8296 19.05",stroke:"currentColor",strokeLinejoin:"round"}),h.createElement("path",{className:"success-icon",vectorEffect:"non-scaling-stroke",d:"M15.71 17.26C15.71 15.38 17.23 13.86 19.11 13.86C20.99 13.86 22.51 15.38 22.51 17.26C22.51 19.14 20.99 20.66 19.11 20.66C17.23 20.66 15.71 19.14 15.71 17.26Z",stroke:"currentColor"}),h.createElement("path",{className:"success-icon",vectorEffect:"non-scaling-stroke",d:"M17.4805 17.49L18.5605 18.41L20.7205 16.33",stroke:"currentColor",strokeLinecap:"square",strokeLinejoin:"round"})),h.createElement("defs",null,h.createElement("clipPath",{id:"clip0_4797_15077"},h.createElement("rect",{width:22,height:18.65,fill:"white",transform:"translate(1 2.70001)"})))),ie=n=>h.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...n},h.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M0.75 12C0.75 5.78421 5.78421 0.75 12 0.75C18.2158 0.75 23.25 5.78421 23.25 12C23.25 18.2158 18.2158 23.25 12 23.25C5.78421 23.25 0.75 18.2158 0.75 12Z",stroke:"currentColor"}),h.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M6.75 12.762L10.2385 15.75L17.25 9",stroke:"currentColor"})),Ce=n=>h.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...n},h.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M0.75 12C0.75 5.78421 5.78421 0.75 12 0.75C18.2158 0.75 23.25 5.78421 23.25 12C23.25 18.2158 18.2158 23.25 12 23.25C5.78421 23.25 0.75 18.2158 0.75 12Z",stroke:"currentColor"}),h.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M11.75 5.88423V4.75H12.25V5.88423L12.0485 13.0713H11.9515L11.75 5.88423ZM11.7994 18.25V16.9868H12.2253V18.25H11.7994Z",stroke:"currentColor"})),Q=n=>h.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...n},h.createElement("path",{vectorEffect:"non-scaling-stroke",fillRule:"evenodd",clipRule:"evenodd",d:"M1 20.8953L12.1922 1.5L23.395 20.8953H1ZM13.0278 13.9638L13.25 10.0377V9H11.25V10.0377L11.4722 13.9638H13.0278ZM11.2994 16V17.7509H13.2253V16H11.2994Z",fill:"currentColor"})),be=n=>h.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",width:24,height:24,viewBox:"0 0 24 24",fill:"none",...n},h.createElement("path",{d:"M1 5H23",stroke:"black",strokeWidth:1.5,strokeMiterlimit:10}),h.createElement("path",{d:"M17.3674 22H6.63446C5.67952 22 4.88992 21.2688 4.8379 20.3338L4 5H20L19.1621 20.3338C19.1119 21.2688 18.3223 22 17.3655 22H17.3674Z",stroke:"black",strokeWidth:1.5,strokeMiterlimit:10}),h.createElement("path",{d:"M9.87189 2H14.1281C14.6085 2 15 2.39766 15 2.88889V5H9V2.88889C9 2.39912 9.39006 2 9.87189 2Z",stroke:"black",strokeWidth:1.5,strokeMiterlimit:10}),h.createElement("path",{d:"M8.87402 8.58057L9.39348 17.682",stroke:"black",strokeWidth:1.5,strokeMiterlimit:10}),h.createElement("path",{d:"M14.6673 8.58057L14.146 17.682",stroke:"black",strokeWidth:1.5,strokeMiterlimit:10})),Ee=({name:n,value:r="1",className:t,disabled:i,error:c,success:a,min:l,max:o,onValue:m,onUpdateError:p,size:u="medium",...f})=>{const[_,N]=ee(Number(r)),w=Number(l),O=Number(o);re(()=>{N(Number(r))},[r]);const I=ne(te(async v=>{if(m)try{await m(v)}catch(k){p&&p(k)}},200),[m,p]),C=v=>{let k=v;v<w&&(k=w),v>O&&(k=O),I(k),N(k)};return e("div",{className:s(["dropin-incrementer",`dropin-incrementer--${u}`,t]),children:d("div",{className:s(["dropin-incrementer__content",`dropin-incrementer__content--${u}`,["dropin-incrementer__content--error",c],["dropin-incrementer__content--success",a],["dropin-incrementer__content--disabled",i]]),children:[e("div",{className:s(["dropin-incrementer__button-container",["dropin-incrementer__button-container--disabled",i]]),children:e(J,{children:e("button",{type:"button",className:s(["dropin-incrementer__decrease-button",["dropin-incrementer__decrease-button--disabled",i]]),onClick:()=>C(_-1),disabled:i||_<w+1,"aria-label":e(g,{id:"Dropin.Incrementer.decreaseLabel"}),children:e(T,{source:ke,size:"16",stroke:"1",viewBox:"4 2 20 20",className:"dropin-incrementer__down"})})})}),e("input",{className:"dropin-incrementer__input",max:o,min:l,step:1,type:"number",name:n,value:_,disabled:i,onChange:v=>{const k=v.currentTarget.value;k!==""&&C(Number(k))},...f}),e("div",{className:s(["dropin-incrementer__button-container",["dropin-incrementer__button-container--disabled",i]]),children:e(J,{children:e("button",{type:"button",className:s(["dropin-incrementer__increase-button",["dropin-incrementer__increase-button--disabled",i]]),onClick:()=>C(_+1),disabled:i||_>O-1,"aria-label":e(g,{id:"Dropin.Incrementer.increaseLabel"}),children:e(T,{source:ve,size:"16",stroke:"1",viewBox:"4 2 20 20",className:"dropin-incrementer__add"})})})})]})})},G=({name:n,value:r,variant:t="primary",className:i,disabled:c,error:a,floatingLabel:l,onValue:o,onUpdateError:m,size:p="medium",icon:u,maxLength:f,success:_,...N})=>{const w=(N==null?void 0:N.id)||n||`dropin-input-${Math.random().toString(36)}`,O=ne(te(async C=>{if(o)try{await o(C)}catch(v){m&&m(v)}},200),[o,m]),I=C=>{const v=C.target;O(v.value.trim())};return d("div",{className:s(["dropin-input-container",`dropin-input-container--${t}`,["dropin-input-container--floating",!!l],["dropin-input-container--disabled",c]]),children:[u&&e(E,{node:u,className:s(["dropin-input__field-icon--left",u.props.className])}),d("div",{className:"dropin-input-label-container",children:[e("input",{id:w,onChange:I,type:"text",maxLength:f,name:n,value:r,...N,className:s(["dropin-input",`dropin-input--${p}`,`dropin-input--${t}`,["dropin-input--error",!!a],["dropin-input--success",!!_],["dropin-input--disabled",c],["dropin-input--floating",!!l],["dropin-input--icon-left",!!u],i]),disabled:c}),l&&e("label",{htmlFor:w,className:s([["dropin-input__label--floating",!!l],["dropin-input__label--floating--icon-left",!!u],["dropin-input__label--floating--error",!!a]]),children:l})]}),a&&e("div",{className:s(["dropin-input__field-icon--right","dropin-input__field-icon--error"]),children:e(T,{source:Ce,size:"16",stroke:"2",className:"dropin-input--warning-icon",viewBox:"-1 -1 26 26"})}),_&&e("div",{className:s(["dropin-input__field-icon--right","dropin-input__field-icon--success"]),children:e(T,{source:ie,size:"16",stroke:"2",className:"dropin-input--success-icon",viewBox:"-1 -1 26 26"})})]})},Oe=({className:n,src:r,params:t,loading:i="lazy",srcSet:c,onLoad:a,...l})=>{const[o,m]=le(!1),p=A(()=>{if(c)return c;if(!(!r||!t))return ge(r,{...t})},[t,r,c]),u=f=>{m(!0),a==null||a(f)};return e("img",{...l,className:s(["dropin-image",["dropin-image--loaded",o],n]),loading:i,onLoad:u,src:r,srcSet:p})},P=({variant:n="primary",className:r})=>e("hr",{role:"separator",className:s(["dropin-divider",`dropin-divider--${n}`,r])}),S=({amount:n=0,currency:r,locale:t=void 0,variant:i="default",weight:c="bold",className:a,children:l,sale:o=!1,formatOptions:m={},size:p="small",...u})=>{const f=A(()=>new Intl.NumberFormat(t,{style:"currency",currency:r||"USD",minimumFractionDigits:2,maximumFractionDigits:2,...m}),[t,r,m]),_=A(()=>f.format(n),[n,f]);return e("span",{...u,className:s(["dropin-price",`dropin-price--${i}`,`dropin-price--${p}`,`dropin-price--${c}`,["dropin-price--sale",o],a]),children:_})},V=({value:n,variant:r="primary",size:t="medium",icon:i,className:c,children:a,disabled:l=!1,active:o=!1,activeChildren:m,activeIcon:p,href:u,...f})=>{let _="dropin-button";(i&&!a||i&&o&&!m||!i&&o&&p)&&(_="dropin-iconButton"),o&&m&&(_="dropin-button"),c=s([_,`${_}--${t}`,`${_}--${r}`,[`${_}--${r}--disabled`,l],a&&i&&`${_}--with-icon`,!a&&m&&i&&`${_}--with-icon`,o&&p&&`${_}--with-icon`,c]);const N=s(["dropin-button-icon",`dropin-button-icon--${r}`,[`dropin-button-icon--${r}--disabled`,l],i==null?void 0:i.props.className]),w=u?{node:e("a",{}),role:"link",href:u,...f,disabled:l,active:o}:{node:e("button",{}),role:"button",...f,value:n,disabled:l,active:o};return d(E,{...w,className:c,children:[i&&!o&&e(E,{node:i,className:N}),p&&o&&e(E,{node:p,className:N}),a&&!o&&(typeof a=="string"?e("span",{children:a}):a),o&&m&&(typeof m=="string"?e("span",{children:m}):m)]})},Z=({className:n,label:r,error:t,hint:i,success:c,size:a="medium",disabled:l=!1,children:o,...m})=>{var f;const p=((f=o==null?void 0:o.props)==null?void 0:f.id)??`dropin-field-${Math.random().toString(36)}`,u=o&&typeof o.type!="string"?o.type:null;return d("div",{...m,className:s(["dropin-field",n]),children:[r&&e("label",{className:s(["dropin-field__label",["dropin-field__label--disabled",l],`dropin-field__label--${a}`]),htmlFor:p,children:r}),e("div",{className:s(["dropin-field__content"]),children:u&&o&&_e(u,{...o.props,id:p,key:o.key,disabled:l,size:a,error:!!t,success:!!c&&!t})}),e("div",{className:s(["dropin-field__hint",[`dropin-field__hint--${a}`,a],["dropin-field__hint--error",!!t],["dropin-field__hint--success",!!c&&!t],["dropin-field__hint--disabled",!!l]]),children:t||c||i})]})},F=({variant:n="primary",className:r,children:t,...i})=>e("div",{...i,className:s(["dropin-card",`dropin-card--${n}`,r]),children:e("div",{class:"dropin-card__content",children:t})}),Se=({ariaLabel:n,size:r="small",stroke:t="4",children:i,className:c,style:a,...l})=>{const o=["dropin-progress-spinner",`dropin-progress-spinner--shape-size-${r}`,`dropin-progress-spinner--shape-stroke-${t}`],m=W({updating:"Dropin.ProgressSpinner.updating.label",updatingChildren:"Dropin.ProgressSpinner.updatingChildren.label"}),p=()=>n||(i?m.updatingChildren:m.updating);return i?d("div",{...l,className:s(["dropin-progress-spinner-provider"]),"aria-live":"polite",role:"status",children:[e("div",{"aria-hidden":!0,children:i}),e("div",{"aria-label":p(),role:"status",className:s(["dropin-progress-spinner-background",c]),style:a}),e("div",{className:s(["dropin-progress-spinner-with-provider",...o]),"aria-hidden":!0})]}):e("div",{...l,className:s([c,...o]),"aria-live":"polite",role:"status","aria-label":p()})},xe=({className:n,children:r,ariaLabel:t,image:i,title:c,price:a,taxIncluded:l=!1,taxExcluded:o=!1,total:m,totalExcludingTax:p,sku:u,configurations:f,warning:_,alert:N,quantity:w=1,description:O,loading:I=!1,updating:C=!1,onQuantity:v,onRemove:k,...B})=>{var R,U;const{locale:q}=me(de),b=W({each:"Dropin.CartItem.each.label",quantity:"Dropin.CartItem.quantity.label",remove:"Dropin.CartItem.remove.label",removeDefault:"Dropin.CartItem.removeDefault.label",taxIncluded:"Dropin.CartItem.taxIncluded.label",taxExcluded:"Dropin.CartItem.taxExcluded.label",updating:"Dropin.CartItem.updating.label",updatingDefault:"Dropin.ProgressSpinner.updating.label"});return I?e(z,{}):d("div",{...B,className:s(["dropin-cart-item",["dropin-cart-item--updating",C],n]),children:[C&&e(Se,{className:s(["dropin-cart-item__spinner"]),ariaLabel:t?(R=b.updating)==null?void 0:R.replace("{product}",t):b.updatingDefault}),d("div",{className:"dropin-cart-item__wrapper",children:[e(E,{node:i,className:s(["dropin-cart-item__image"])}),e(E,{node:c,className:s(["dropin-cart-item__title",["dropin-cart-item__title--edit",!!v||!!k]])}),O&&e(E,{node:O,className:s(["dropin-cart-item__description"])}),e(E,{node:u,className:s(["dropin-cart-item__sku"])}),f&&e("ul",{className:s(["dropin-cart-item__configurations"]),children:Object.entries(f).map(([H,oe])=>d("li",{className:s(["dropin-cart-item__configurations__item"]),children:[H,":"," ",e("strong",{className:s(["dropin-cart-item__configurations__item__value"]),children:oe})]},H))}),d("span",{className:s(["dropin-cart-item__price"]),children:[!v&&d("span",{className:"dropin-cart-item__price__quantity",children:[w.toLocaleString(q)," x"," "]}),e(E,{node:a,role:"text"}),w>1&&d(x,{children:[" ",b.each]}),l&&d("span",{"data-testid":"tax-message",className:"dropin-cart-item__price-tax-message",children:[" ",b.taxIncluded]}),o&&d("span",{"data-testid":"tax-message",className:"dropin-cart-item__price-tax-message",children:[" ",b.taxExcluded]})]}),d("div",{className:s(["dropin-cart-item__quantity",["dropin-cart-item__quantity--edit",!!v]]),children:[v?e(Ee,{className:s(["dropin-cart-item__quantity__incrementer"]),value:w,min:1,onValue:H=>v==null?void 0:v(Number(H)),name:"quantity","aria-label":b.quantity,disabled:C}):d("span",{className:s(["dropin-cart-item__quantity__value"]),children:[b.quantity,":"," ",e("strong",{className:"dropin-cart-item__quantity__number",children:Number(w).toLocaleString(q)})]}),_&&e(E,{node:_,className:s(["dropin-cart-item__warning","dropin-cart-item__warning--quantity"])}),N&&e(E,{node:N,className:s(["dropin-cart-item__alert","dropin-cart-item__alert--quantity"])})]}),_&&e(E,{node:_,className:s(["dropin-cart-item__warning"])}),N&&e(E,{node:N,className:s(["dropin-cart-item__alert"])}),d("div",{className:s(["dropin-cart-item__total",["dropin-cart-item__total--edit",!!k]]),children:[e("div",{className:"dropin-cart-item__row-total",children:e(E,{node:m,role:"text"})}),l&&d("span",{"data-testid":"tax-message",className:s(["dropin-cart-item__total-tax-message"]),children:[" ",b.taxIncluded]}),o&&e("div",{className:"dropin-cart-item__total-tax-excluded",children:d("span",{"data-testid":"tax-message",className:s(["dropin-cart-item__total-tax-excluded-message"]),children:[p&&e(E,{node:p,role:"text"})," ",b.taxExcluded]})})]})]}),k&&e(V,{className:s(["dropin-cart-item__remove"]),variant:"tertiary",onClick:()=>k==null?void 0:k(),icon:e(T,{source:be,size:"24",stroke:"2",viewBox:"0 0 24 24","aria-label":t?(U=b.remove)==null?void 0:U.replace("{product}",t):b.removeDefault}),disabled:C})]})},z=()=>e("div",{className:"dropin-cart-item dropin-cart-item-skeleton",children:d($,{className:"dropin-cart-item__skeleton dropin-cart-item__wrapper",children:[e("div",{className:"dropin-cart-item__image",children:e(y,{className:"dropin-cart-item__skeleton__item"})}),e("div",{className:"dropin-cart-item__title",children:e(y,{className:"dropin-cart-item__skeleton__item"})}),e("div",{className:"dropin-cart-item__sku",children:e(y,{className:"dropin-cart-item__skeleton__item"})}),e("div",{className:"dropin-cart-item__price",children:e(y,{className:"dropin-cart-item__skeleton__item"})}),e("div",{className:"dropin-cart-item__quantity",children:e(y,{className:"dropin-cart-item__skeleton__item"})}),e("div",{className:"dropin-cart-item__total",children:e(y,{className:"dropin-cart-item__skeleton__item"})})]})});var M=(n=>(n.ADD_ORDER_REFERENCE="ADD_ORDER_REFERENCE",n.LOADING="LOADING",n.SET_DETAILS="SET_DETAILS",n.ALERT="ALERT",n.DISMISS_ALERT="DISMISS_ALERT",n))(M||{}),K=(n=>(n.ERROR="error",n.WARNING="warning",n.SUCCESS="success",n))(K||{}),D=(n=>(n.INVALID_ORDER="invalid_order",n.INVALID_SEARCH="invalid_search",n.UNKNOWN="unknown_error",n))(D||{});function Ie(n,r){switch(r.type){case"LOADING":return{...n,isLoading:!0};case"SET_DETAILS":return{...n,isLoading:!1,details:r.details,alert:r.alert};case"ALERT":return{...n,isLoading:!1,alert:r.alert};case"DISMISS_ALERT":return{...n,alert:void 0};default:return n}}const Le=()=>{const n=()=>window.innerWidth>=1920?"xxlarge":window.innerWidth>=1366?"xlarge":window.innerWidth>=1024?"large":window.innerWidth>=768?"medium":"small",[r,t]=ee(n());return re(()=>{let i;const c=()=>{i&&clearTimeout(i),i=setTimeout(()=>t(n()),50)};return window.addEventListener("resize",c),()=>{window.removeEventListener("resize",c),i&&clearTimeout(i)}},[]),r},ae=({children:n,className:r})=>Le()!=="small"?e("div",{className:r,children:n}):e(x,{children:n});function Te(n){const r=n==null?void 0:n.total;if(!r)return;const t=r==null?void 0:r.grand_total,i=r==null?void 0:r.subtotal,c=r==null?void 0:r.total_shipping,a=r==null?void 0:r.total_tax;return{total:{inclTax:{amount:(t==null?void 0:t.value)||0,currency:(t==null?void 0:t.currency)||""}},subtotal:{amount:(i==null?void 0:i.value)||0,currency:(i==null?void 0:i.currency)||"",isTaxIncl:!1},shipping:{amount:(c==null?void 0:c.value)||0,currency:(c==null?void 0:c.currency)||""},tax:{amount:(a==null?void 0:a.value)||0,currency:(a==null?void 0:a.currency)||""}}}const Me=({state:n})=>{const{isLoading:r,details:t}=n,i=Te(t);return d(x,{children:[e(Ze,{isLoading:r,summary:i}),e(Xe,{isLoading:r,details:t})]})},$e=({state:n})=>e(ae,{className:"order-confirmation__aside",children:e(Me,{state:n})}),Re=({state:n,routeHome:r,routeSupport:t})=>{const{details:i,isLoading:c}=n,a=i==null?void 0:i.billing_address,l=(a==null?void 0:a.firstname)||"",o=(i==null?void 0:i.number)||"",m=(i==null?void 0:i.status)||"";return d(x,{children:[(c||!c&&(!!l&&!!o))&&e(qe,{isLoading:c,customerName:l,orderNumber:o,orderStatus:m}),e(He,{isLoading:c,orderDetails:i}),e(je,{isLoading:c,routeHome:r,routeSupport:t})]})},ze=({state:n,routeHome:r,routeSupport:t,dismissAlert:i,onOrderSearch:c})=>e(ae,{className:"order-confirmation__main",children:e(Re,{state:n,routeHome:r,routeSupport:t,dismissAlert:i,onOrderSearch:c})}),Ve=({className:n,state:r,dismissAlert:t,routeHome:i,routeSupport:c,onOrderSearch:a})=>{const{details:l,alert:o,isLoading:m}=r,p=!!(l!=null&&l.number),u=o&&o.code===D.INVALID_ORDER,f=o&&o.code===D.INVALID_SEARCH;return!m&&!p?e("div",{className:s(["order-confirmation",n]),children:e(Be,{alert:u||f?{heading:o.message,description:"",type:o.type,onDismiss:t}:void 0,onOrderSearch:a})}):d("div",{className:s(["order-confirmation",n]),children:[e(ze,{state:r,dismissAlert:t,routeHome:i,routeSupport:c,onOrderSearch:a}),e($e,{state:r})]})},qe=({isLoading:n,customerName:r,orderNumber:t,orderStatus:i})=>n?e(De,{}):d("div",{className:"order-confirmation-header order-confirmation__card",children:[e(T,{source:we,size:"64",className:"order-confirmation-header__icon"}),e("h1",{className:"order-confirmation-header__title",children:r?e(g,{id:"OrderConfirmation.Header.title",fields:{name:r}}):e(g,{id:"OrderConfirmation.Header.defaultTitle"})}),t&&d("p",{children:[e(g,{id:"OrderConfirmation.Header.order",fields:{order:t}}),i!==void 0&&i!==""&&d("span",{className:"order-confirmation-header__status",children:[" ","(",i,")"]})]})]}),De=()=>d($,{"data-testid":"order-confirmation-header-skeleton",className:"order-confirmation-header",children:[e(y,{variant:"empty",size:"xlarge",fullWidth:!0}),e(y,{variant:"empty",size:"medium"}),e(y,{variant:"empty",size:"medium"}),e(y,{variant:"empty",size:"medium"}),e(y,{variant:"empty",size:"medium"}),e(y,{variant:"empty",size:"medium"}),e(y,{size:"small",fullWidth:!0}),e(y,{variant:"heading",size:"xsmall",fullWidth:!0})]}),We={error:Q,success:ie,warning:Q},Fe=({className:n,type:r="warning",additionalActions:t,onDismiss:i,heading:c,description:a,...l})=>{var p,u,f;const o=We[r],m={dismiss:"OrderConfirmation.InlineAlert.Dismiss"};return d("div",{...l,className:s(["dropin-in-line-alert",`dropin-in-line-alert--${r}`,n]),children:[d("div",{className:"dropin-in-line-alert__heading",children:[d("div",{className:"dropin-in-line-alert__title-container",children:[o&&e(T,{source:o,className:"dropin-in-line-alert__icon"}),e("span",{className:"dropin-in-line-alert__title",children:c})]}),d("div",{className:"dropin-in-line-alert__actions-container",children:[(t==null?void 0:t.length)==1&&e(V,{variant:"tertiary",className:"dropin-in-line-alert__additional-action",onClick:(p=t[0])==null?void 0:p.onClick,"aria-label":(u=t[0])==null?void 0:u.label,children:(f=t[0])==null?void 0:f.label}),i&&e(V,{icon:e(T,{source:Ne,size:"24",stroke:"2"}),className:"dropin-in-line-alert__dismiss-button",variant:"tertiary",onClick:i,"aria-label":m.dismiss})]})]}),a&&e("p",{className:"dropin-in-line-alert__description",children:a}),t&&(t==null?void 0:t.length)>1&&e("div",{className:"dropin-in-line-alert__additional-actions-container",children:t.map(_=>e(V,{variant:"tertiary",className:"dropin-in-line-alert__additional-action",onClick:_.onClick,children:_.label},_.label))})]})},Be=({alert:n,onOrderSearch:r})=>{const t=W({email:"OrderConfirmation.OrderSearchForm.email",postcode:"OrderConfirmation.OrderSearchForm.postcode",number:"OrderConfirmation.OrderSearchForm.orderNumber"}),i=c=>{c.preventDefault();const a=fe(c.target);r==null||r(a)};return d(F,{variant:"secondary",className:"order-confirmation-order-search-form order-confirmation__card",children:[e("h2",{className:"order-confirmation-order-search-form__title",children:e(g,{id:"OrderConfirmation.OrderSearchForm.title"})}),e("p",{children:e(g,{id:"OrderConfirmation.OrderSearchForm.description"})}),n&&e(Fe,{className:"order-confirmation-order-search-form__alert","data-testid":"order-confirmation-alert",...n}),d("form",{className:"order-confirmation-order-search-form__fields",onSubmit:i,children:[d("div",{className:"order-confirmation-order-search-form__fields-columns",children:[e(Z,{children:e(G,{id:"order-email",name:"email",type:"email",autocomplete:"email",placeholder:t.email,floatingLabel:t.email,required:!0,"aria-label":t.email,"aria-required":!0})}),e(Z,{children:e(G,{id:"postcode",name:"postcode",type:"text",autocomplete:"postal-code",placeholder:t.postcode,floatingLabel:t.postcode,required:!1,"aria-label":t.postcode,"aria-required":!0})})]}),e(Z,{children:e(G,{id:"order-number",name:"number",type:"text",placeholder:t.number,floatingLabel:t.number,required:!0,"aria-label":t.number,"aria-required":!0})}),e(V,{className:"order-confirmation-order-search-form__button",size:"medium",variant:"primary",type:"submit",children:e(g,{id:"OrderConfirmation.OrderSearchForm.button"})},"logIn")]})]})},He=({isLoading:n,orderDetails:r})=>{var C,v,k,B,q;if(n)return e(Pe,{});const t=r&&(r==null?void 0:r.number),i=(r==null?void 0:r.email)||"",c=r&&i!=="",a=r==null?void 0:r.shipping_address,l=r&&a!==null,o=r==null?void 0:r.billing_address,m=r&&o!==null,p=r==null?void 0:r.shipping_method,u=(v=(C=r==null?void 0:r.total)==null?void 0:C.total_shipping)==null?void 0:v.value,f=(B=(k=r==null?void 0:r.total)==null?void 0:k.total_shipping)==null?void 0:B.currency,_=r&&p&&f&&u!=null,N=r==null?void 0:r.payment_methods,w=N&&N.length>0,O=w?(q=N[0])==null?void 0:q.name:"",I=r&&w&&O!=="";return d(F,{variant:"secondary",className:"order-confirmation-details order-confirmation__card",children:[e("div",{className:"order-confirmation-details__header",children:e("h2",{className:"order-confirmation-details__title",children:e(g,{id:"OrderConfirmation.Details.title"})})}),d("div",{className:"order-confirmation-details__contact",children:[(!r||c)&&e("h3",{children:e(g,{id:"OrderConfirmation.Details.contact"})}),c&&e("p",{children:i}),!t&&e(L,{rows:1,"data-testid":"order-confirmation-details-contact-skeleton"})]}),d("div",{className:"order-confirmation-details__information",children:[d("div",{className:"order-confirmation-details__shipping_address",children:[(!t||l)&&e("h3",{children:e(g,{id:"OrderConfirmation.Details.shippingAddress"})}),l&&d(x,{children:[d("p",{children:[a==null?void 0:a.firstname," ",a==null?void 0:a.lastname]}),a==null?void 0:a.street.map((b,R)=>e("p",{children:b},R)),d("p",{children:[a==null?void 0:a.city," ",a==null?void 0:a.region," ",a==null?void 0:a.postcode,", ",a==null?void 0:a.country_code]})]}),!t&&e(L,{rows:3,"data-testid":"order-confirmation-shipping-address-skeleton"})]}),d("div",{className:"order-confirmation-details__billing_address",children:[(!t||m)&&e("h3",{children:e(g,{id:"OrderConfirmation.Details.billingAddress"})}),m&&d(x,{children:[d("p",{children:[o==null?void 0:o.firstname," ",o==null?void 0:o.lastname]}),o==null?void 0:o.street.map((b,R)=>e("p",{children:b},R)),d("p",{children:[o==null?void 0:o.city," ",o==null?void 0:o.region," ",o==null?void 0:o.postcode,", ",o==null?void 0:o.country_code]})]}),!t&&e(L,{rows:3,"data-testid":"order-confirmation-billing-address-skeleton"})]}),d("div",{className:"order-confirmation-details__shipping-method",children:[(!t||_)&&e("h3",{children:e(g,{id:"OrderConfirmation.Details.shippingMethod"})}),_&&e(x,{children:u===0?e("p",{className:"order-confirmation-order-summary__price",children:e(g,{id:"OrderConfirmation.Details.freeShipping"})}):d("p",{children:[e(S,{amount:u,currency:f})," ",p]})}),!t&&e(L,{rows:1,"data-testid":"order-confirmation-details-shipping-method-skeleton"})]}),d("div",{className:"order-confirmation-details__payment-method",children:[(!t||I)&&e("h3",{children:e(g,{id:"OrderConfirmation.Details.paymentMethod"})}),I&&e("p",{children:O}),!t&&e(L,{rows:1,"data-testid":"order-confirmation-details-payment-method-skeleton"})]})]})]})},Pe=()=>e(F,{variant:"secondary",className:"order-confirmation-details",children:d($,{"data-testid":"order-confirmation-details-skeleton",children:[e(y,{variant:"heading",size:"medium",fullWidth:!0}),e(y,{size:"medium"}),e(y,{variant:"empty",size:"medium"}),e(y,{size:"xlarge"}),e(y,{size:"xlarge"}),e(y,{size:"xlarge"}),e(y,{size:"xlarge"})]})}),je=({isLoading:n,className:r,routeHome:t,routeSupport:i,...c})=>n?e(Ge,{}):d("div",{className:s(["order-confirmation-footer",r]),...c,children:[(t==null?void 0:t())&&e(V,{"data-testid":"order-confirmation-footer__continue-button",className:"order-confirmation-footer__continue-button",size:"medium",variant:"primary",type:"submit",href:t==null?void 0:t(),children:e(g,{id:"OrderConfirmation.Footer.continueShopping"})},"continueShopping"),d("p",{className:"order-confirmation-footer__contact-support",children:[e(g,{id:"OrderConfirmation.Footer.help"})," ",(i==null?void 0:i())&&e("a",{href:i==null?void 0:i(),rel:"noreferrer",className:"order-confirmation-footer__contact-support-link","data-testid":"order-confirmation-footer__contact-support-link",children:e(g,{id:"OrderConfirmation.Footer.contactSupport"})})]})]}),Ge=()=>d($,{className:"order-confirmation-footer",children:[e(y,{size:"small",fullWidth:!0}),e(y,{variant:"heading",size:"xsmall",fullWidth:!0})]}),L=({rows:n,size:r="xsmall",...t})=>e($,{className:"static-skeleton",...t,children:Array.from(Array(n).keys()).map(i=>e(y,{variant:"heading",size:r,fullWidth:!0},i))}),Ze=({className:n,isLoading:r,summary:t,variant:i="secondary"})=>{if(r)return e(Ae,{});const{total:c,subtotal:a,shipping:l,tax:o}=t??{};return d(F,{className:s(["order-confirmation-order-summary",n]),variant:i,children:[e("h2",{className:"order-confirmation-order-summary__title",children:e(g,{id:"OrderConfirmation.OrderSummary.title"})}),e(P,{variant:"primary"}),a!=null?d("div",{"data-testid":"order-summary-subtotal",className:"order-confirmation-order-summary__row",children:[e("p",{children:e(g,{id:"OrderConfirmation.OrderSummary.subtotal"})}),e(S,{amount:a==null?void 0:a.amount,currency:a==null?void 0:a.currency,className:s(["order-confirmation-order-summary__price",n])})]}):e(L,{rows:1,"data-testid":"order-confirmation-order-summary-subtotal-skeleton"}),(a==null?void 0:a.isTaxIncl)&&e("div",{"data-testid":"order-summary-subtotal-incl-tax",className:"order-confirmation-order-summary__row order-confirmation-order-summary__row--muted",children:e("p",{children:e(g,{id:"OrderConfirmation.OrderSummary.includingTaxes"})})}),l!=null?d("div",{"data-testid":"order-summary-shipping",className:"order-confirmation-order-summary__row",children:[e("p",{children:e(g,{id:"OrderConfirmation.OrderSummary.shipping"})}),l.amount===0?e("p",{className:"order-confirmation-order-summary__price",children:e(g,{id:"OrderConfirmation.OrderSummary.freeShipping"})}):e(S,{amount:l.amount,currency:l.currency,className:s(["order-confirmation-order-summary__price",n])})]}):e(L,{rows:1,"data-testid":"order-confirmation-order-summary-shipping-skeleton"}),o!=null&&!o.breakdown&&d("div",{"data-testid":"order-summary-tax",className:"order-confirmation-order-summary__row",children:[e("p",{children:e(g,{id:"OrderConfirmation.OrderSummary.tax"})}),e(S,{amount:o.amount,currency:o.currency,className:s(["order-confirmation-order-summary__price",n])})]}),o!=null&&o.breakdown&&d(x,{children:[e(P,{variant:"secondary"}),e("div",{className:"order-confirmation-order-summary__row order-confirmation-order-summary__row--margin-bottom",children:e("p",{children:e(g,{id:"OrderConfirmation.OrderSummary.taxBreakdown"})})}),o.breakdown.map(m=>d("div",{"data-testid":"order-summary-tax-breakdown",className:"order-confirmation-order-summary__row order-confirmation-order-summary__row--muted",children:[e("p",{children:m.label}),e(S,{amount:m.amount.value,currency:m.amount.currency,className:s(["order-confirmation-order-summary__price",n])})]},m.label)),d("div",{"data-testid":"order-summary-tax-breakdown-total",className:"order-confirmation-order-summary__row order-confirmation-order-summary__row--strong order-confirmation-order-summary__row--margin-top",children:[e("p",{children:e(g,{id:"OrderConfirmation.OrderSummary.taxTotal"})}),e(S,{amount:o.amount,currency:o.currency,className:s(["order-confirmation-order-summary__price",n])})]}),e(P,{variant:"secondary"})]}),c!=null?d("div",{"data-testid":"order-summary-total-incl-tax",className:"order-confirmation-order-summary__row order-confirmation-order-summary__row--emphasized",children:[e("p",{children:e(g,{id:"OrderConfirmation.OrderSummary.total"})}),e(S,{amount:c==null?void 0:c.inclTax.amount,currency:c==null?void 0:c.inclTax.currency,className:s(["order-confirmation-order-summary__price",n])})]}):e(L,{rows:1,"data-testid":"order-confirmation-order-summary-total-skeleton"}),(c==null?void 0:c.exclTax)!=null&&d("div",{"data-testid":"order-summary-total-excl-tax",className:"order-confirmation-order-summary__row order-confirmation-order-summary__row--muted",children:[e("p",{children:e(g,{id:"OrderConfirmation.OrderSummary.totalExclTax"})}),e(S,{amount:c.exclTax.amount,currency:c.exclTax.currency,className:s(["order-confirmation-order-summary__price",n])})]})]})},Ae=()=>d($,{"data-testid":"order-confirmation-order-summary-skeleton",className:"order-confirmation-order-summary",children:[e(y,{variant:"heading",size:"small"}),e(y,{variant:"empty",size:"small"}),e(y,{variant:"empty",size:"small"}),e(y,{variant:"empty",size:"small"}),e(y,{variant:"heading",size:"small",fullWidth:!0,lines:3})]}),Ke=({className:n,item:r,taxIncluded:t=!1})=>{const i=W({Sender:"OrderConfirmation.CartSummary.GiftCard.sender",Recipient:"OrderConfirmation.CartSummary.GiftCard.recipient"});let c=r.regularPrice,a=r.total;t&&(c=r.priceInclTax,a=r.totalInclTax);const l={..."configurableOptions"in r?r.configurableOptions:{},..."senderName"in r&&r.senderName?{[i.Sender]:r.senderName}:{},..."senderEmail"in r&&r.senderEmail?{[i.Sender]:r.senderEmail}:{},..."recipientName"in r&&r.recipientName?{[i.Recipient]:r.recipientName}:{},..."recipientEmail"in r&&r.recipientEmail?{[i.Recipient]:r.recipientEmail}:{}};return e("div",{className:s(["order-confirmation-cart-summary-item",n]),children:e(xe,{"data-testid":"cart-summary-item",taxIncluded:t,title:e("div",{"data-testid":"product-name",children:r.name}),sku:e("div",{children:r.sku}),quantity:r.quantity,image:e(Oe,{src:r.image.src,alt:r.image.alt,loading:"lazy",width:"80",height:"80",params:{width:80}}),configurations:l,price:e(S,{amount:r.regularPrice.value,currency:c.currency,weight:"normal"}),total:d(x,{children:[e(S,{amount:r.regularPrice.value*r.quantity,currency:c.currency,variant:r.discounted?"strikethrough":"default"}),r.discounted&&e(S,{amount:a.value,currency:a.currency,sale:!0})]})},r.uid)})};function Ue(n){return{uid:n.id,quantity:n.quantity_ordered,sku:n.product.sku,name:n.product.name,image:{src:n.product.thumbnail.url,alt:n.product.thumbnail.label},price:{value:n.product_sale_price.value,currency:n.product_sale_price.currency},priceInclTax:{value:n.product_sale_price.value,currency:n.product_sale_price.currency},total:{value:n.product_sale_price.value*n.quantity_ordered,currency:n.product_sale_price.currency},totalInclTax:{value:n.product_sale_price.value*n.quantity_ordered,currency:n.product_sale_price.currency},discount:{value:0,currency:n.product_sale_price.currency},regularPrice:{value:n.product.price_range.maximum_price.regular_price.value,currency:n.product.price_range.maximum_price.regular_price.currency},discounted:n.product.price_range.maximum_price.regular_price.value*n.quantity_ordered!==n.product_sale_price.value*n.quantity_ordered,configurableOptions:Je(n),senderName:n.__typename==="GiftCardOrderItem"?n.gift_card.sender_name:void 0,senderEmail:n.__typename==="GiftCardOrderItem"?n.gift_card.sender_email:void 0,recipientEmail:n.__typename==="GiftCardOrderItem"?n.gift_card.recipient_email:void 0,recipientName:n.__typename==="GiftCardOrderItem"?n.gift_card.recipient_name:void 0}}function Je(n){if(!("selected_options"in n))return;const r={};for(const t of n.selected_options)r[t.label]=t.value;return r}const Xe=({isLoading:n,details:r})=>{if(n)return e(Ye,{});const t=!1,i=r.items,c=i.length;return e("div",{className:"order-confirmation-cart-summary",children:d(F,{variant:"secondary",children:[e("div",{className:"order-confirmation-cart-summary__heading",children:d("h2",{className:"order-confirmation-cart-summary__title",children:[e(g,{id:"OrderConfirmation.CartSummary.title"})," (",c,")"]})}),e(P,{className:"order-confirmation-cart-summary__divider-top",variant:"primary"}),e("div",{className:"order-confirmation-cart-summary__items",children:i==null?void 0:i.map(a=>{const l=Ue(a);return e(Ke,{item:l,taxIncluded:t},l==null?void 0:l.uid)})})]})})},Ye=()=>d($,{"data-testid":"cart-summary-skeleton",className:"order-confirmation-cart-summary",style:{gridTemplateColumns:"1fr"},children:[e(y,{variant:"heading",fullWidth:!0,size:"medium"}),e(z,{}),e(z,{}),e(z,{}),e(z,{}),e(z,{})]});function Qe(n){const[r,t]=ue(Ie,{isLoading:!1,token:n,details:null}),i=W({invalidOrder:"OrderConfirmation.Errors.invalidOrder",invalidSearch:"OrderConfirmation.Errors.invalidSearch",pageNotFound:"OrderConfirmation.Errors.pageNotFound",unknown:"OrderConfirmation.Errors.unknown"}),c=j(p=>{switch(p){case"Invalid order":case"We couldn't locate an order with the information provided.":return{type:K.WARNING,code:D.INVALID_ORDER,message:i.invalidOrder};case"Invalid search":return{type:K.WARNING,code:D.INVALID_SEARCH,message:i.invalidSearch}}},[i.invalidOrder,i.invalidSearch]),a=j(p=>{ce(p).then(u=>{const _=!!(u!=null&&u.number)?void 0:c("Invalid search");t({type:M.SET_DETAILS,details:u,alert:_})}).catch(()=>{const u=c("Invalid search");t({type:M.SET_DETAILS,details:null,alert:u})})},[c]),l=j(p=>{se(p).then(u=>{const _=!!(u!=null&&u.number)?void 0:c("Invalid order");t({type:M.SET_DETAILS,details:u,alert:_})}).catch(u=>{const f=c(u.message);if(!f){console.error(u);return}t({type:M.ALERT,alert:f})})},[c]),o=()=>{t({type:M.DISMISS_ALERT})},m=function(p){a(p)};return pe(()=>{r.token&&(t({type:M.LOADING}),l(r.token))},[r.token,l]),{state:r,handleOrderSearch:m,dismissAlert:o}}const dr=({token:n,routeHome:r,routeSupport:t})=>{const{state:i,handleOrderSearch:c,dismissAlert:a}=Qe(n);return e(Ve,{state:i,dismissAlert:a,onOrderSearch:c,routeHome:r,routeSupport:t})};export{dr as OrderConfirmation,dr as default};
-//# sourceMappingURL=OrderConfirmation.js.map
+import { c as guestOrder, d as guestOrderByToken } from "../chunks/guestOrderByToken__BHggZXExSv.js";
+import { useState, useEffect } from "@dropins/tools/preact-hooks.js";
+import { jsx, jsxs, Fragment } from "@dropins/tools/preact-jsx-runtime.js";
+import { Icon, Skeleton, SkeletonRow, Button, Card, Field, Input, Price, Divider, CartItem, Image } from "@dropins/tools/components/index.js";
+import { CartItemSkeleton } from "@adobe/elsie/components/CartItem/CartItemSkeleton";
+import * as React from "@dropins/tools/preact-compat.js";
+import { useReducer, useCallback, useEffect as useEffect$1 } from "@dropins/tools/preact-compat.js";
+import { Text, useText } from "@dropins/tools/i18n.js";
+import { c as classes } from "../chunks/classes__Bsz9GBN04n.js";
+import "@dropins/tools/fetch-graphql.js";
+const getFormValues = (form) => {
+  const formData = new FormData(form);
+  const result = Object.fromEntries(formData);
+  return result;
+};
+var Actions = /* @__PURE__ */ ((Actions2) => {
+  Actions2["ADD_ORDER_REFERENCE"] = "ADD_ORDER_REFERENCE";
+  Actions2["LOADING"] = "LOADING";
+  Actions2["SET_DETAILS"] = "SET_DETAILS";
+  Actions2["ALERT"] = "ALERT";
+  Actions2["DISMISS_ALERT"] = "DISMISS_ALERT";
+  return Actions2;
+})(Actions || {});
+var AlertType = /* @__PURE__ */ ((AlertType2) => {
+  AlertType2["ERROR"] = "error";
+  AlertType2["WARNING"] = "warning";
+  AlertType2["SUCCESS"] = "success";
+  return AlertType2;
+})(AlertType || {});
+var AlertCode = /* @__PURE__ */ ((AlertCode2) => {
+  AlertCode2["INVALID_ORDER"] = "invalid_order";
+  AlertCode2["INVALID_SEARCH"] = "invalid_search";
+  AlertCode2["UNKNOWN"] = "unknown_error";
+  return AlertCode2;
+})(AlertCode || {});
+function orderConfirmationReducer(state, action) {
+  switch (action.type) {
+    case "LOADING":
+      return {
+        ...state,
+        isLoading: true
+      };
+    case "SET_DETAILS":
+      return {
+        ...state,
+        isLoading: false,
+        details: action.details,
+        alert: action.alert
+      };
+    case "ALERT":
+      return {
+        ...state,
+        isLoading: false,
+        alert: action.alert
+      };
+    case "DISMISS_ALERT":
+      return {
+        ...state,
+        alert: void 0
+      };
+    default:
+      return state;
+  }
+}
+const useBreakpoint = () => {
+  const getBreakpoint = () => {
+    if (window.innerWidth >= 1920)
+      return "xxlarge";
+    if (window.innerWidth >= 1366)
+      return "xlarge";
+    if (window.innerWidth >= 1024)
+      return "large";
+    if (window.innerWidth >= 768)
+      return "medium";
+    return "small";
+  };
+  const [breakpoint, setBreakpoint] = useState(getBreakpoint());
+  useEffect(() => {
+    let timeoutId;
+    const handleResize = () => {
+      if (timeoutId)
+        clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => setBreakpoint(getBreakpoint()), 50);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      if (timeoutId)
+        clearTimeout(timeoutId);
+    };
+  }, []);
+  return breakpoint;
+};
+const ConditionalWrapper = ({
+  children,
+  className
+}) => {
+  const breakpoint = useBreakpoint();
+  return breakpoint !== "small" ? jsx("div", {
+    className,
+    children
+  }) : jsx(Fragment, {
+    children
+  });
+};
+function mapDetailsToSummary(orderDetails) {
+  const total = orderDetails == null ? void 0 : orderDetails.total;
+  if (!total) {
+    return void 0;
+  }
+  const grandTotal = total == null ? void 0 : total.grand_total;
+  const subtotal = total == null ? void 0 : total.subtotal;
+  const shipping = total == null ? void 0 : total.total_shipping;
+  const tax = total == null ? void 0 : total.total_tax;
+  return {
+    total: {
+      inclTax: {
+        amount: (grandTotal == null ? void 0 : grandTotal.value) || 0,
+        currency: (grandTotal == null ? void 0 : grandTotal.currency) || ""
+      }
+    },
+    subtotal: {
+      amount: (subtotal == null ? void 0 : subtotal.value) || 0,
+      currency: (subtotal == null ? void 0 : subtotal.currency) || "",
+      isTaxIncl: false
+    },
+    shipping: {
+      amount: (shipping == null ? void 0 : shipping.value) || 0,
+      currency: (shipping == null ? void 0 : shipping.currency) || ""
+    },
+    tax: {
+      amount: (tax == null ? void 0 : tax.value) || 0,
+      currency: (tax == null ? void 0 : tax.currency) || ""
+    }
+  };
+}
+const Aside = ({
+  state
+}) => {
+  const {
+    isLoading,
+    details
+  } = state;
+  const summary = mapDetailsToSummary(details);
+  return jsxs(Fragment, {
+    children: [jsx(OrderSummary, {
+      isLoading,
+      summary
+    }), jsx(CartSummary, {
+      isLoading,
+      details
+    })]
+  });
+};
+const AsideElement = ({
+  state
+}) => {
+  return jsx(ConditionalWrapper, {
+    className: "order-confirmation__aside",
+    children: jsx(Aside, {
+      state
+    })
+  });
+};
+const Main = ({
+  state,
+  routeHome,
+  routeSupport
+}) => {
+  const {
+    details,
+    isLoading
+  } = state;
+  const billingAddress = details == null ? void 0 : details.billing_address;
+  const customerName = (billingAddress == null ? void 0 : billingAddress.firstname) || "";
+  const orderNumber = (details == null ? void 0 : details.number) || "";
+  const orderStatus = (details == null ? void 0 : details.status) || "";
+  const showCustomerHeader = !!customerName && !!orderNumber;
+  return jsxs(Fragment, {
+    children: [(isLoading || !isLoading && showCustomerHeader) && jsx(Header, {
+      isLoading,
+      customerName,
+      orderNumber,
+      orderStatus
+    }), jsx(Details, {
+      isLoading,
+      orderDetails: details
+    }), jsx(Footer, {
+      isLoading,
+      routeHome,
+      routeSupport
+    })]
+  });
+};
+const MainElement = ({
+  state,
+  routeHome,
+  routeSupport,
+  dismissAlert,
+  onOrderSearch
+}) => {
+  return jsx(ConditionalWrapper, {
+    className: "order-confirmation__main",
+    children: jsx(Main, {
+      state,
+      routeHome,
+      routeSupport,
+      dismissAlert,
+      onOrderSearch
+    })
+  });
+};
+const OrderConfirmation$1 = ({
+  className,
+  state,
+  dismissAlert,
+  routeHome,
+  routeSupport,
+  onOrderSearch
+}) => {
+  const {
+    details,
+    alert,
+    isLoading
+  } = state;
+  const hasOrderDetails = !!(details == null ? void 0 : details.number);
+  const isInvalidOrder = alert && alert.code === AlertCode.INVALID_ORDER;
+  const isInvalidSearch = alert && alert.code === AlertCode.INVALID_SEARCH;
+  if (!isLoading && !hasOrderDetails) {
+    return jsx("div", {
+      className: classes(["order-confirmation", className]),
+      children: jsx(OrderSearchForm, {
+        alert: isInvalidOrder || isInvalidSearch ? {
+          heading: alert.message,
+          description: "",
+          type: alert.type,
+          onDismiss: dismissAlert
+        } : void 0,
+        onOrderSearch
+      })
+    });
+  }
+  return jsxs("div", {
+    className: classes(["order-confirmation", className]),
+    children: [jsx(MainElement, {
+      state,
+      dismissAlert,
+      routeHome,
+      routeSupport,
+      onOrderSearch
+    }), jsx(AsideElement, {
+      state
+    })]
+  });
+};
+const SvgClose = (props) => /* @__PURE__ */ React.createElement("svg", { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ React.createElement("path", { vectorEffect: "non-scaling-stroke", d: "M18.3599 5.64001L5.62988 18.37", stroke: "currentColor" }), /* @__PURE__ */ React.createElement("path", { vectorEffect: "non-scaling-stroke", d: "M18.3599 18.37L5.62988 5.64001", stroke: "currentColor" }));
+const SvgOrderSuccess = (props) => /* @__PURE__ */ React.createElement("svg", { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ React.createElement("g", { clipPath: "url(#clip0_4797_15077)" }, /* @__PURE__ */ React.createElement("path", { vectorEffect: "non-scaling-stroke", d: "M10.15 20.85L1.5 17.53V6.63L10.15 10V20.85Z", stroke: "currentColor", strokeLinecap: "round", strokeLinejoin: "round" }), /* @__PURE__ */ React.createElement("path", { vectorEffect: "non-scaling-stroke", d: "M1.5 6.63001L10.15 3.20001L18.8 6.63001L10.15 10L1.5 6.63001Z", stroke: "currentColor", strokeLinecap: "round", strokeLinejoin: "round" }), /* @__PURE__ */ React.createElement("path", { vectorEffect: "non-scaling-stroke", d: "M6.17969 4.77002L14.8297 8.15002V11.47", stroke: "currentColor", strokeLinecap: "round", strokeLinejoin: "round" }), /* @__PURE__ */ React.createElement("path", { vectorEffect: "non-scaling-stroke", d: "M18.7896 12.64V6.63L10.1396 10V20.85L14.8296 19.05", stroke: "currentColor", strokeLinejoin: "round" }), /* @__PURE__ */ React.createElement("path", { className: "success-icon", vectorEffect: "non-scaling-stroke", d: "M15.71 17.26C15.71 15.38 17.23 13.86 19.11 13.86C20.99 13.86 22.51 15.38 22.51 17.26C22.51 19.14 20.99 20.66 19.11 20.66C17.23 20.66 15.71 19.14 15.71 17.26Z", stroke: "currentColor" }), /* @__PURE__ */ React.createElement("path", { className: "success-icon", vectorEffect: "non-scaling-stroke", d: "M17.4805 17.49L18.5605 18.41L20.7205 16.33", stroke: "currentColor", strokeLinecap: "square", strokeLinejoin: "round" })), /* @__PURE__ */ React.createElement("defs", null, /* @__PURE__ */ React.createElement("clipPath", { id: "clip0_4797_15077" }, /* @__PURE__ */ React.createElement("rect", { width: 22, height: 18.65, fill: "white", transform: "translate(1 2.70001)" }))));
+const SvgCheckWithCircle = (props) => /* @__PURE__ */ React.createElement("svg", { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ React.createElement("path", { vectorEffect: "non-scaling-stroke", d: "M0.75 12C0.75 5.78421 5.78421 0.75 12 0.75C18.2158 0.75 23.25 5.78421 23.25 12C23.25 18.2158 18.2158 23.25 12 23.25C5.78421 23.25 0.75 18.2158 0.75 12Z", stroke: "currentColor" }), /* @__PURE__ */ React.createElement("path", { vectorEffect: "non-scaling-stroke", d: "M6.75 12.762L10.2385 15.75L17.25 9", stroke: "currentColor" }));
+const SvgWarningFilled = (props) => /* @__PURE__ */ React.createElement("svg", { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ React.createElement("path", { vectorEffect: "non-scaling-stroke", fillRule: "evenodd", clipRule: "evenodd", d: "M1 20.8953L12.1922 1.5L23.395 20.8953H1ZM13.0278 13.9638L13.25 10.0377V9H11.25V10.0377L11.4722 13.9638H13.0278ZM11.2994 16V17.7509H13.2253V16H11.2994Z", fill: "currentColor" }));
+const Header = ({
+  isLoading,
+  customerName,
+  orderNumber,
+  orderStatus
+}) => {
+  if (isLoading) {
+    return jsx(HeaderSkeleton, {});
+  }
+  return jsxs("div", {
+    className: "order-confirmation-header order-confirmation__card",
+    children: [jsx(Icon, {
+      source: SvgOrderSuccess,
+      size: "64",
+      className: "order-confirmation-header__icon"
+    }), jsx("h1", {
+      className: "order-confirmation-header__title",
+      children: customerName ? jsx(Text, {
+        id: "OrderConfirmation.Header.title",
+        fields: {
+          name: customerName
+        }
+      }) : jsx(Text, {
+        id: "OrderConfirmation.Header.defaultTitle"
+      })
+    }), orderNumber && jsxs("p", {
+      children: [jsx(Text, {
+        id: "OrderConfirmation.Header.order",
+        fields: {
+          order: orderNumber
+        }
+      }), orderStatus !== void 0 && orderStatus !== "" && jsxs("span", {
+        className: "order-confirmation-header__status",
+        children: [" ", "(", orderStatus, ")"]
+      })]
+    })]
+  });
+};
+const HeaderSkeleton = () => {
+  return jsxs(Skeleton, {
+    "data-testid": "order-confirmation-header-skeleton",
+    className: "order-confirmation-header",
+    children: [jsx(SkeletonRow, {
+      variant: "empty",
+      size: "xlarge",
+      fullWidth: true
+    }), jsx(SkeletonRow, {
+      variant: "empty",
+      size: "medium"
+    }), jsx(SkeletonRow, {
+      variant: "empty",
+      size: "medium"
+    }), jsx(SkeletonRow, {
+      variant: "empty",
+      size: "medium"
+    }), jsx(SkeletonRow, {
+      variant: "empty",
+      size: "medium"
+    }), jsx(SkeletonRow, {
+      variant: "empty",
+      size: "medium"
+    }), jsx(SkeletonRow, {
+      size: "small",
+      fullWidth: true
+    }), jsx(SkeletonRow, {
+      variant: "heading",
+      size: "xsmall",
+      fullWidth: true
+    })]
+  });
+};
+const VARIANT_TO_ICON_MAP = {
+  error: SvgWarningFilled,
+  success: SvgCheckWithCircle,
+  warning: SvgWarningFilled
+};
+const InLineAlert = ({
+  className,
+  type = "warning",
+  additionalActions,
+  onDismiss,
+  heading,
+  description,
+  ...props
+}) => {
+  var _a, _b, _c;
+  const icon = VARIANT_TO_ICON_MAP[type];
+  const translations = {
+    dismiss: "OrderConfirmation.InlineAlert.Dismiss"
+  };
+  return jsxs("div", {
+    ...props,
+    className: classes(["dropin-in-line-alert", `dropin-in-line-alert--${type}`, className]),
+    children: [jsxs("div", {
+      className: "dropin-in-line-alert__heading",
+      children: [jsxs("div", {
+        className: "dropin-in-line-alert__title-container",
+        children: [icon && jsx(Icon, {
+          source: icon,
+          className: "dropin-in-line-alert__icon"
+        }), jsx("span", {
+          className: "dropin-in-line-alert__title",
+          children: heading
+        })]
+      }), jsxs("div", {
+        className: "dropin-in-line-alert__actions-container",
+        children: [(additionalActions == null ? void 0 : additionalActions.length) == 1 && jsx(Button, {
+          variant: "tertiary",
+          className: "dropin-in-line-alert__additional-action",
+          onClick: (_a = additionalActions[0]) == null ? void 0 : _a.onClick,
+          "aria-label": (_b = additionalActions[0]) == null ? void 0 : _b.label,
+          children: (_c = additionalActions[0]) == null ? void 0 : _c.label
+        }), onDismiss && jsx(Button, {
+          icon: jsx(Icon, {
+            source: SvgClose,
+            size: "24",
+            stroke: "2"
+          }),
+          className: "dropin-in-line-alert__dismiss-button",
+          variant: "tertiary",
+          onClick: onDismiss,
+          "aria-label": translations.dismiss
+        })]
+      })]
+    }), description && jsx("p", {
+      className: "dropin-in-line-alert__description",
+      children: description
+    }), additionalActions && (additionalActions == null ? void 0 : additionalActions.length) > 1 && jsx("div", {
+      className: "dropin-in-line-alert__additional-actions-container",
+      children: additionalActions.map((action) => jsx(Button, {
+        variant: "tertiary",
+        className: "dropin-in-line-alert__additional-action",
+        onClick: action.onClick,
+        children: action.label
+      }, action.label))
+    })]
+  });
+};
+const OrderSearchForm = ({
+  alert,
+  onOrderSearch
+}) => {
+  const translations = useText({
+    email: "OrderConfirmation.OrderSearchForm.email",
+    postcode: "OrderConfirmation.OrderSearchForm.postcode",
+    number: "OrderConfirmation.OrderSearchForm.orderNumber"
+  });
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formValues = getFormValues(event.target);
+    onOrderSearch == null ? void 0 : onOrderSearch(formValues);
+  };
+  return jsxs(Card, {
+    variant: "secondary",
+    className: "order-confirmation-order-search-form order-confirmation__card",
+    children: [jsx("h2", {
+      className: "order-confirmation-order-search-form__title",
+      children: jsx(Text, {
+        id: "OrderConfirmation.OrderSearchForm.title"
+      })
+    }), jsx("p", {
+      children: jsx(Text, {
+        id: "OrderConfirmation.OrderSearchForm.description"
+      })
+    }), alert && jsx(InLineAlert, {
+      className: "order-confirmation-order-search-form__alert",
+      "data-testid": "order-confirmation-alert",
+      ...alert
+    }), jsxs("form", {
+      className: "order-confirmation-order-search-form__fields",
+      onSubmit: handleSubmit,
+      children: [jsxs("div", {
+        className: "order-confirmation-order-search-form__fields-columns",
+        children: [jsx(Field, {
+          children: jsx(Input, {
+            id: "order-email",
+            name: "email",
+            type: "email",
+            autocomplete: "email",
+            placeholder: translations.email,
+            floatingLabel: translations.email,
+            required: true,
+            "aria-label": translations.email,
+            "aria-required": true
+          })
+        }), jsx(Field, {
+          children: jsx(Input, {
+            id: "postcode",
+            name: "postcode",
+            type: "text",
+            autocomplete: "postal-code",
+            placeholder: translations.postcode,
+            floatingLabel: translations.postcode,
+            required: false,
+            "aria-label": translations.postcode,
+            "aria-required": true
+          })
+        })]
+      }), jsx(Field, {
+        children: jsx(Input, {
+          id: "order-number",
+          name: "number",
+          type: "text",
+          placeholder: translations.number,
+          floatingLabel: translations.number,
+          required: true,
+          "aria-label": translations.number,
+          "aria-required": true
+        })
+      }), jsx(Button, {
+        className: "order-confirmation-order-search-form__button",
+        size: "medium",
+        variant: "primary",
+        type: "submit",
+        children: jsx(Text, {
+          id: "OrderConfirmation.OrderSearchForm.button"
+        })
+      }, "logIn")]
+    })]
+  });
+};
+const Details = ({
+  isLoading,
+  orderDetails
+}) => {
+  var _a, _b, _c, _d, _e;
+  if (isLoading) {
+    return jsx(DetailsSkeleton, {});
+  }
+  const hasOrderDetails = orderDetails && (orderDetails == null ? void 0 : orderDetails.number);
+  const contactDetails = (orderDetails == null ? void 0 : orderDetails.email) || "";
+  const hasToDisplayContactDetails = orderDetails && contactDetails !== "";
+  const shippingAddress = orderDetails == null ? void 0 : orderDetails.shipping_address;
+  const hasToDisplayShippingAddress = orderDetails && shippingAddress !== null;
+  const billingAddress = orderDetails == null ? void 0 : orderDetails.billing_address;
+  const hasToDisplayBillingAddress = orderDetails && billingAddress !== null;
+  const shippingMethod = orderDetails == null ? void 0 : orderDetails.shipping_method;
+  const shippingCost = (_b = (_a = orderDetails == null ? void 0 : orderDetails.total) == null ? void 0 : _a.total_shipping) == null ? void 0 : _b.value;
+  const shippingCurrency = (_d = (_c = orderDetails == null ? void 0 : orderDetails.total) == null ? void 0 : _c.total_shipping) == null ? void 0 : _d.currency;
+  const hasToDisplayShippingMethod = orderDetails && shippingMethod && shippingCurrency && shippingCost != null;
+  const paymentMethods = orderDetails == null ? void 0 : orderDetails.payment_methods;
+  const hasPaymentMethod = paymentMethods && paymentMethods.length > 0;
+  const selectedPaymentMethod = hasPaymentMethod ? (_e = paymentMethods[0]) == null ? void 0 : _e.name : "";
+  const hasToDisplayPaymentMethod = orderDetails && hasPaymentMethod && selectedPaymentMethod !== "";
+  return jsxs(Card, {
+    variant: "secondary",
+    className: "order-confirmation-details order-confirmation__card",
+    children: [jsx("div", {
+      className: "order-confirmation-details__header",
+      children: jsx("h2", {
+        className: "order-confirmation-details__title",
+        children: jsx(Text, {
+          id: "OrderConfirmation.Details.title"
+        })
+      })
+    }), jsxs("div", {
+      className: "order-confirmation-details__contact",
+      children: [(!orderDetails || hasToDisplayContactDetails) && jsx("h3", {
+        children: jsx(Text, {
+          id: "OrderConfirmation.Details.contact"
+        })
+      }), hasToDisplayContactDetails && jsx("p", {
+        children: contactDetails
+      }), !hasOrderDetails && jsx(StaticSkeleton, {
+        rows: 1,
+        "data-testid": "order-confirmation-details-contact-skeleton"
+      })]
+    }), jsxs("div", {
+      className: "order-confirmation-details__information",
+      children: [jsxs("div", {
+        className: "order-confirmation-details__shipping_address",
+        children: [(!hasOrderDetails || hasToDisplayShippingAddress) && jsx("h3", {
+          children: jsx(Text, {
+            id: "OrderConfirmation.Details.shippingAddress"
+          })
+        }), hasToDisplayShippingAddress && jsxs(Fragment, {
+          children: [jsxs("p", {
+            children: [shippingAddress == null ? void 0 : shippingAddress.firstname, " ", shippingAddress == null ? void 0 : shippingAddress.lastname]
+          }), shippingAddress == null ? void 0 : shippingAddress.street.map((street, index) => jsx("p", {
+            children: street
+          }, index)), jsxs("p", {
+            children: [shippingAddress == null ? void 0 : shippingAddress.city, " ", shippingAddress == null ? void 0 : shippingAddress.region, " ", shippingAddress == null ? void 0 : shippingAddress.postcode, ", ", shippingAddress == null ? void 0 : shippingAddress.country_code]
+          })]
+        }), !hasOrderDetails && jsx(StaticSkeleton, {
+          rows: 3,
+          "data-testid": "order-confirmation-shipping-address-skeleton"
+        })]
+      }), jsxs("div", {
+        className: "order-confirmation-details__billing_address",
+        children: [(!hasOrderDetails || hasToDisplayBillingAddress) && jsx("h3", {
+          children: jsx(Text, {
+            id: "OrderConfirmation.Details.billingAddress"
+          })
+        }), hasToDisplayBillingAddress && jsxs(Fragment, {
+          children: [jsxs("p", {
+            children: [billingAddress == null ? void 0 : billingAddress.firstname, " ", billingAddress == null ? void 0 : billingAddress.lastname]
+          }), billingAddress == null ? void 0 : billingAddress.street.map((street, index) => jsx("p", {
+            children: street
+          }, index)), jsxs("p", {
+            children: [billingAddress == null ? void 0 : billingAddress.city, " ", billingAddress == null ? void 0 : billingAddress.region, " ", billingAddress == null ? void 0 : billingAddress.postcode, ", ", billingAddress == null ? void 0 : billingAddress.country_code]
+          })]
+        }), !hasOrderDetails && jsx(StaticSkeleton, {
+          rows: 3,
+          "data-testid": "order-confirmation-billing-address-skeleton"
+        })]
+      }), jsxs("div", {
+        className: "order-confirmation-details__shipping-method",
+        children: [(!hasOrderDetails || hasToDisplayShippingMethod) && jsx("h3", {
+          children: jsx(Text, {
+            id: "OrderConfirmation.Details.shippingMethod"
+          })
+        }), hasToDisplayShippingMethod && jsx(Fragment, {
+          children: shippingCost === 0 ? jsx("p", {
+            className: "order-confirmation-order-summary__price",
+            children: jsx(Text, {
+              id: "OrderConfirmation.Details.freeShipping"
+            })
+          }) : jsxs("p", {
+            children: [jsx(Price, {
+              amount: shippingCost,
+              currency: shippingCurrency
+            }), " ", shippingMethod]
+          })
+        }), !hasOrderDetails && jsx(StaticSkeleton, {
+          rows: 1,
+          "data-testid": "order-confirmation-details-shipping-method-skeleton"
+        })]
+      }), jsxs("div", {
+        className: "order-confirmation-details__payment-method",
+        children: [(!hasOrderDetails || hasToDisplayPaymentMethod) && jsx("h3", {
+          children: jsx(Text, {
+            id: "OrderConfirmation.Details.paymentMethod"
+          })
+        }), hasToDisplayPaymentMethod && jsx("p", {
+          children: selectedPaymentMethod
+        }), !hasOrderDetails && jsx(StaticSkeleton, {
+          rows: 1,
+          "data-testid": "order-confirmation-details-payment-method-skeleton"
+        })]
+      })]
+    })]
+  });
+};
+const DetailsSkeleton = () => {
+  return jsx(Card, {
+    variant: "secondary",
+    className: "order-confirmation-details",
+    children: jsxs(Skeleton, {
+      "data-testid": "order-confirmation-details-skeleton",
+      children: [jsx(SkeletonRow, {
+        variant: "heading",
+        size: "medium",
+        fullWidth: true
+      }), jsx(SkeletonRow, {
+        size: "medium"
+      }), jsx(SkeletonRow, {
+        variant: "empty",
+        size: "medium"
+      }), jsx(SkeletonRow, {
+        size: "xlarge"
+      }), jsx(SkeletonRow, {
+        size: "xlarge"
+      }), jsx(SkeletonRow, {
+        size: "xlarge"
+      }), jsx(SkeletonRow, {
+        size: "xlarge"
+      })]
+    })
+  });
+};
+const Footer = ({
+  isLoading,
+  className,
+  routeHome,
+  routeSupport,
+  ...props
+}) => {
+  if (isLoading) {
+    return jsx(FooterSkeleton, {});
+  }
+  return jsxs("div", {
+    className: classes(["order-confirmation-footer", className]),
+    ...props,
+    children: [(routeHome == null ? void 0 : routeHome()) && jsx(Button, {
+      "data-testid": "order-confirmation-footer__continue-button",
+      className: "order-confirmation-footer__continue-button",
+      size: "medium",
+      variant: "primary",
+      type: "submit",
+      href: routeHome == null ? void 0 : routeHome(),
+      children: jsx(Text, {
+        id: "OrderConfirmation.Footer.continueShopping"
+      })
+    }, "continueShopping"), jsxs("p", {
+      className: "order-confirmation-footer__contact-support",
+      children: [jsx(Text, {
+        id: "OrderConfirmation.Footer.help"
+      }), " ", (routeSupport == null ? void 0 : routeSupport()) && jsx("a", {
+        href: routeSupport == null ? void 0 : routeSupport(),
+        rel: "noreferrer",
+        className: "order-confirmation-footer__contact-support-link",
+        "data-testid": "order-confirmation-footer__contact-support-link",
+        children: jsx(Text, {
+          id: "OrderConfirmation.Footer.contactSupport"
+        })
+      })]
+    })]
+  });
+};
+const FooterSkeleton = () => {
+  return jsxs(Skeleton, {
+    className: "order-confirmation-footer",
+    children: [jsx(SkeletonRow, {
+      size: "small",
+      fullWidth: true
+    }), jsx(SkeletonRow, {
+      variant: "heading",
+      size: "xsmall",
+      fullWidth: true
+    })]
+  });
+};
+const StaticSkeleton = ({
+  rows,
+  size = "xsmall",
+  ...props
+}) => {
+  return jsx(Skeleton, {
+    className: "static-skeleton",
+    ...props,
+    children: Array.from(Array(rows).keys()).map((i) => jsx(SkeletonRow, {
+      variant: "heading",
+      size,
+      fullWidth: true
+    }, i))
+  });
+};
+const OrderSummary = ({
+  className,
+  isLoading,
+  summary,
+  variant = "secondary"
+}) => {
+  if (isLoading) {
+    return jsx(OrderSummarySkeleton, {});
+  }
+  const {
+    total,
+    subtotal,
+    shipping,
+    tax
+  } = summary ?? {};
+  return jsxs(Card, {
+    className: classes(["order-confirmation-order-summary", className]),
+    variant,
+    children: [jsx("h2", {
+      className: "order-confirmation-order-summary__title",
+      children: jsx(Text, {
+        id: "OrderConfirmation.OrderSummary.title"
+      })
+    }), jsx(Divider, {
+      variant: "primary"
+    }), subtotal != void 0 ? jsxs("div", {
+      "data-testid": "order-summary-subtotal",
+      className: "order-confirmation-order-summary__row",
+      children: [jsx("p", {
+        children: jsx(Text, {
+          id: "OrderConfirmation.OrderSummary.subtotal"
+        })
+      }), jsx(Price, {
+        amount: subtotal == null ? void 0 : subtotal.amount,
+        currency: subtotal == null ? void 0 : subtotal.currency,
+        className: classes(["order-confirmation-order-summary__price", className])
+      })]
+    }) : jsx(StaticSkeleton, {
+      rows: 1,
+      "data-testid": "order-confirmation-order-summary-subtotal-skeleton"
+    }), (subtotal == null ? void 0 : subtotal.isTaxIncl) && jsx("div", {
+      "data-testid": "order-summary-subtotal-incl-tax",
+      className: "order-confirmation-order-summary__row order-confirmation-order-summary__row--muted",
+      children: jsx("p", {
+        children: jsx(Text, {
+          id: "OrderConfirmation.OrderSummary.includingTaxes"
+        })
+      })
+    }), shipping != void 0 ? jsxs("div", {
+      "data-testid": "order-summary-shipping",
+      className: "order-confirmation-order-summary__row",
+      children: [jsx("p", {
+        children: jsx(Text, {
+          id: "OrderConfirmation.OrderSummary.shipping"
+        })
+      }), shipping.amount === 0 ? jsx("p", {
+        className: "order-confirmation-order-summary__price",
+        children: jsx(Text, {
+          id: "OrderConfirmation.OrderSummary.freeShipping"
+        })
+      }) : jsx(Price, {
+        amount: shipping.amount,
+        currency: shipping.currency,
+        className: classes(["order-confirmation-order-summary__price", className])
+      })]
+    }) : jsx(StaticSkeleton, {
+      rows: 1,
+      "data-testid": "order-confirmation-order-summary-shipping-skeleton"
+    }), tax != void 0 && !tax.breakdown && jsxs("div", {
+      "data-testid": "order-summary-tax",
+      className: "order-confirmation-order-summary__row",
+      children: [jsx("p", {
+        children: jsx(Text, {
+          id: "OrderConfirmation.OrderSummary.tax"
+        })
+      }), jsx(Price, {
+        amount: tax.amount,
+        currency: tax.currency,
+        className: classes(["order-confirmation-order-summary__price", className])
+      })]
+    }), tax != void 0 && tax.breakdown && jsxs(Fragment, {
+      children: [jsx(Divider, {
+        variant: "secondary"
+      }), jsx("div", {
+        className: "order-confirmation-order-summary__row order-confirmation-order-summary__row--margin-bottom",
+        children: jsx("p", {
+          children: jsx(Text, {
+            id: "OrderConfirmation.OrderSummary.taxBreakdown"
+          })
+        })
+      }), tax.breakdown.map((tax2) => jsxs("div", {
+        "data-testid": "order-summary-tax-breakdown",
+        className: "order-confirmation-order-summary__row order-confirmation-order-summary__row--muted",
+        children: [jsx("p", {
+          children: tax2.label
+        }), jsx(Price, {
+          amount: tax2.amount.value,
+          currency: tax2.amount.currency,
+          className: classes(["order-confirmation-order-summary__price", className])
+        })]
+      }, tax2.label)), jsxs("div", {
+        "data-testid": "order-summary-tax-breakdown-total",
+        className: "order-confirmation-order-summary__row order-confirmation-order-summary__row--strong order-confirmation-order-summary__row--margin-top",
+        children: [jsx("p", {
+          children: jsx(Text, {
+            id: "OrderConfirmation.OrderSummary.taxTotal"
+          })
+        }), jsx(Price, {
+          amount: tax.amount,
+          currency: tax.currency,
+          className: classes(["order-confirmation-order-summary__price", className])
+        })]
+      }), jsx(Divider, {
+        variant: "secondary"
+      })]
+    }), total != void 0 ? jsxs("div", {
+      "data-testid": "order-summary-total-incl-tax",
+      className: "order-confirmation-order-summary__row order-confirmation-order-summary__row--emphasized",
+      children: [jsx("p", {
+        children: jsx(Text, {
+          id: "OrderConfirmation.OrderSummary.total"
+        })
+      }), jsx(Price, {
+        amount: total == null ? void 0 : total.inclTax.amount,
+        currency: total == null ? void 0 : total.inclTax.currency,
+        className: classes(["order-confirmation-order-summary__price", className])
+      })]
+    }) : jsx(StaticSkeleton, {
+      rows: 1,
+      "data-testid": "order-confirmation-order-summary-total-skeleton"
+    }), (total == null ? void 0 : total.exclTax) != void 0 && jsxs("div", {
+      "data-testid": "order-summary-total-excl-tax",
+      className: "order-confirmation-order-summary__row order-confirmation-order-summary__row--muted",
+      children: [jsx("p", {
+        children: jsx(Text, {
+          id: "OrderConfirmation.OrderSummary.totalExclTax"
+        })
+      }), jsx(Price, {
+        amount: total.exclTax.amount,
+        currency: total.exclTax.currency,
+        className: classes(["order-confirmation-order-summary__price", className])
+      })]
+    })]
+  });
+};
+const OrderSummarySkeleton = () => {
+  return jsxs(Skeleton, {
+    "data-testid": "order-confirmation-order-summary-skeleton",
+    className: "order-confirmation-order-summary",
+    children: [jsx(SkeletonRow, {
+      variant: "heading",
+      size: "small"
+    }), jsx(SkeletonRow, {
+      variant: "empty",
+      size: "small"
+    }), jsx(SkeletonRow, {
+      variant: "empty",
+      size: "small"
+    }), jsx(SkeletonRow, {
+      variant: "empty",
+      size: "small"
+    }), jsx(SkeletonRow, {
+      variant: "heading",
+      size: "small",
+      fullWidth: true,
+      lines: 3
+    })]
+  });
+};
+const CartSummaryItem = ({
+  className,
+  item,
+  taxIncluded = false
+}) => {
+  const translations = useText({
+    Sender: "OrderConfirmation.CartSummary.GiftCard.sender",
+    Recipient: "OrderConfirmation.CartSummary.GiftCard.recipient"
+  });
+  let price = item.regularPrice;
+  let total = item.total;
+  if (taxIncluded) {
+    price = item.priceInclTax;
+    total = item.totalInclTax;
+  }
+  const configurations = {
+    ..."configurableOptions" in item ? item.configurableOptions : {},
+    ..."senderName" in item && item.senderName ? {
+      [translations.Sender]: item.senderName
+    } : {},
+    ..."senderEmail" in item && item.senderEmail ? {
+      [translations.Sender]: item.senderEmail
+    } : {},
+    ..."recipientName" in item && item.recipientName ? {
+      [translations.Recipient]: item.recipientName
+    } : {},
+    ..."recipientEmail" in item && item.recipientEmail ? {
+      [translations.Recipient]: item.recipientEmail
+    } : {}
+  };
+  return jsx("div", {
+    className: classes(["order-confirmation-cart-summary-item", className]),
+    children: jsx(CartItem, {
+      "data-testid": "cart-summary-item",
+      taxIncluded,
+      title: jsx("div", {
+        "data-testid": "product-name",
+        children: item.name
+      }),
+      sku: jsx("div", {
+        children: item.sku
+      }),
+      quantity: item.quantity,
+      image: jsx(Image, {
+        src: item.image.src,
+        alt: item.image.alt,
+        loading: "lazy",
+        width: "80",
+        height: "80",
+        params: {
+          width: 80
+        }
+      }),
+      configurations,
+      price: jsx(Price, {
+        amount: item.regularPrice.value,
+        currency: price.currency,
+        weight: "normal"
+      }),
+      total: jsxs(Fragment, {
+        children: [jsx(Price, {
+          amount: item.regularPrice.value * item.quantity,
+          currency: price.currency,
+          variant: item.discounted ? "strikethrough" : "default"
+        }), item.discounted && jsx(Price, {
+          amount: total.value,
+          currency: total.currency,
+          sale: true
+        })]
+      })
+    }, item.uid)
+  });
+};
+function transformItems(item) {
+  return {
+    uid: item.id,
+    quantity: item.quantity_ordered,
+    sku: item.product.sku,
+    name: item.product.name,
+    image: {
+      src: item.product.thumbnail.url,
+      alt: item.product.thumbnail.label
+    },
+    price: {
+      value: item.product_sale_price.value,
+      currency: item.product_sale_price.currency
+    },
+    priceInclTax: {
+      value: item.product_sale_price.value,
+      currency: item.product_sale_price.currency
+    },
+    total: {
+      value: item.product_sale_price.value * item.quantity_ordered,
+      currency: item.product_sale_price.currency
+    },
+    totalInclTax: {
+      value: item.product_sale_price.value * item.quantity_ordered,
+      currency: item.product_sale_price.currency
+    },
+    discount: {
+      value: 0,
+      currency: item.product_sale_price.currency
+    },
+    regularPrice: {
+      value: item.product.price_range.maximum_price.regular_price.value,
+      currency: item.product.price_range.maximum_price.regular_price.currency
+    },
+    discounted: item.product.price_range.maximum_price.regular_price.value * item.quantity_ordered !== item.product_sale_price.value * item.quantity_ordered,
+    configurableOptions: transformConfigurableOptions(item),
+    senderName: item.__typename === "GiftCardOrderItem" ? item.gift_card.sender_name : void 0,
+    senderEmail: item.__typename === "GiftCardOrderItem" ? item.gift_card.sender_email : void 0,
+    recipientEmail: item.__typename === "GiftCardOrderItem" ? item.gift_card.recipient_email : void 0,
+    recipientName: item.__typename === "GiftCardOrderItem" ? item.gift_card.recipient_name : void 0
+  };
+}
+function transformConfigurableOptions(item) {
+  if (!("selected_options" in item))
+    return;
+  const configurableOptions = {};
+  for (const option of item.selected_options) {
+    configurableOptions[option.label] = option.value;
+  }
+  return configurableOptions;
+}
+const CartSummary = ({
+  isLoading,
+  details
+}) => {
+  if (isLoading) {
+    return jsx(CartSummarySkeleton, {});
+  }
+  const taxIncluded = false;
+  const items = details.items;
+  const totalQuantity = items.length;
+  return jsx("div", {
+    className: "order-confirmation-cart-summary",
+    children: jsxs(Card, {
+      variant: "secondary",
+      children: [jsx("div", {
+        className: "order-confirmation-cart-summary__heading",
+        children: jsxs("h2", {
+          className: "order-confirmation-cart-summary__title",
+          children: [jsx(Text, {
+            id: "OrderConfirmation.CartSummary.title"
+          }), " (", totalQuantity, ")"]
+        })
+      }), jsx(Divider, {
+        className: "order-confirmation-cart-summary__divider-top",
+        variant: "primary"
+      }), jsx("div", {
+        className: "order-confirmation-cart-summary__items",
+        children: items == null ? void 0 : items.map((item) => {
+          const cartItem = transformItems(item);
+          return jsx(CartSummaryItem, {
+            item: cartItem,
+            taxIncluded
+          }, cartItem == null ? void 0 : cartItem.uid);
+        })
+      })]
+    })
+  });
+};
+const CartSummarySkeleton = () => {
+  return jsxs(Skeleton, {
+    "data-testid": "cart-summary-skeleton",
+    className: "order-confirmation-cart-summary",
+    style: {
+      gridTemplateColumns: "1fr"
+    },
+    children: [jsx(SkeletonRow, {
+      variant: "heading",
+      fullWidth: true,
+      size: "medium"
+    }), jsx(CartItemSkeleton, {}), jsx(CartItemSkeleton, {}), jsx(CartItemSkeleton, {}), jsx(CartItemSkeleton, {}), jsx(CartItemSkeleton, {})]
+  });
+};
+function useOrderConfirmation(token) {
+  const [state, dispatch] = useReducer(orderConfirmationReducer, {
+    isLoading: false,
+    token,
+    details: null
+  });
+  const translations = useText({
+    invalidOrder: "OrderConfirmation.Errors.invalidOrder",
+    invalidSearch: "OrderConfirmation.Errors.invalidSearch",
+    pageNotFound: "OrderConfirmation.Errors.pageNotFound",
+    unknown: "OrderConfirmation.Errors.unknown"
+  });
+  const buildAlert = useCallback((message) => {
+    switch (message) {
+      case "Invalid order":
+      case "We couldn't locate an order with the information provided.":
+        return {
+          type: AlertType.WARNING,
+          code: AlertCode.INVALID_ORDER,
+          message: translations.invalidOrder
+        };
+      case "Invalid search":
+        return {
+          type: AlertType.WARNING,
+          code: AlertCode.INVALID_SEARCH,
+          message: translations.invalidSearch
+        };
+    }
+  }, [translations.invalidOrder, translations.invalidSearch]);
+  const fetchOrderDetails = useCallback((fields) => {
+    guestOrder(fields).then((details) => {
+      const hasOrderDetails = !!(details == null ? void 0 : details.number);
+      const alert = hasOrderDetails ? void 0 : buildAlert("Invalid search");
+      dispatch({
+        type: Actions.SET_DETAILS,
+        details,
+        alert
+      });
+    }).catch(() => {
+      const alert = buildAlert("Invalid search");
+      dispatch({
+        type: Actions.SET_DETAILS,
+        details: null,
+        alert
+      });
+    });
+  }, [buildAlert]);
+  const fetchOrderDetailsByToken = useCallback((token2) => {
+    guestOrderByToken(token2).then((details) => {
+      const hasOrderDetails = !!(details == null ? void 0 : details.number);
+      const alert = hasOrderDetails ? void 0 : buildAlert("Invalid order");
+      dispatch({
+        type: Actions.SET_DETAILS,
+        details,
+        alert
+      });
+    }).catch((error) => {
+      const knownAlert = buildAlert(error.message);
+      if (!knownAlert) {
+        console.error(error);
+        return;
+      }
+      dispatch({
+        type: Actions.ALERT,
+        alert: knownAlert
+      });
+    });
+  }, [buildAlert]);
+  const dismissAlert = () => {
+    dispatch({
+      type: Actions.DISMISS_ALERT
+    });
+  };
+  const handleOrderSearch = function(fields) {
+    fetchOrderDetails(fields);
+  };
+  useEffect$1(() => {
+    if (!state.token)
+      return;
+    dispatch({
+      type: Actions.LOADING
+    });
+    fetchOrderDetailsByToken(state.token);
+  }, [state.token, fetchOrderDetailsByToken]);
+  return {
+    state,
+    handleOrderSearch,
+    dismissAlert
+  };
+}
+const OrderConfirmation = ({
+  token,
+  routeHome,
+  routeSupport
+}) => {
+  const {
+    state,
+    handleOrderSearch,
+    dismissAlert
+  } = useOrderConfirmation(token);
+  return jsx(OrderConfirmation$1, {
+    state,
+    dismissAlert,
+    onOrderSearch: handleOrderSearch,
+    routeHome,
+    routeSupport
+  });
+};
+export {
+  OrderConfirmation,
+  OrderConfirmation as default
+};

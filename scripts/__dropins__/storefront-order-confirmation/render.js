@@ -1,14 +1,582 @@
-(function(i,o){try{if(typeof document<"u"){const r=document.createElement("style"),e=o.styleId;for(const t in o.attributes)r.setAttribute(t,o.attributes[t]);r.setAttribute("data-dropin",e),r.appendChild(document.createTextNode(i)),document.head.appendChild(r)}}catch(r){console.error("vite-plugin-css-injected-by-js",r)}})(`.dropin-design{--color-brand-500: #454545;--color-brand-600: #383838;--color-brand-700: #2b2b2b;--color-neutral-50: #ffffff;--color-neutral-100: #fafafa;--color-neutral-200: #f5f5f5;--color-neutral-300: #e8e8e8;--color-neutral-400: #d6d6d6;--color-neutral-500: #b8b8b8;--color-neutral-600: #8f8f8f;--color-neutral-700: #666666;--color-neutral-800: #3d3d3d;--color-neutral-900: #292929;--color-positive-200: #eff5ef;--color-positive-500: #7fb078;--color-positive-800: #53824c;--color-informational-200: #eeeffb;--color-informational-500: #6978d9;--color-informational-800: #5d6dd6;--color-warning-200: #fdf3e9;--color-warning-500: #e79f5c;--color-warning-800: #ad5c00;--color-alert-200: #ffebeb;--color-alert-500: #db7070;--color-alert-800: #bf4545;--color-opacity-16: rgba(255, 255, 255, .16);--color-opacity-24: rgba(255, 255, 255, .24);--color-action-button-active: #ffffff;--color-action-button-hover: #e8e8e8;--color-button-active: #2b2b2b;--color-button-focus: #d6d6d6;--color-button-hover: #383838;--grid-1-columns: 4;--grid-1-margins: 0;--grid-1-gutters: 16px;--grid-2-columns: 12;--grid-2-margins: 0;--grid-2-gutters: 16px;--grid-3-columns: 12;--grid-3-margins: 0;--grid-3-gutters: 24px;--grid-4-columns: 12;--grid-4-margins: 0;--grid-4-gutters: 24px;--grid-5-columns: 12;--grid-5-margins: 0;--grid-5-gutters: 24px;--shape-border-radius-1: 3px;--shape-border-radius-2: 8px;--shape-border-radius-3: 24px;--shape-border-width-1: 1px;--shape-border-width-2: 1.5px;--shape-border-width-3: 2px;--shape-border-width-4: 4px;--shape-shadow-1: 0 0 16px 0 rgba(0, 0, 0, .16);--shape-shadow-2: 0 2px 16px 0 rgba(0, 0, 0, .16);--shape-shadow-3: 0 2px 3px 0 rgba(0, 0, 0, .16);--shape-icon-stroke-1: 1px;--shape-icon-stroke-2: 1.5px;--shape-icon-stroke-3: 2px;--shape-icon-stroke-4: 4px;--spacing-xxsmall: 4px;--spacing-xsmall: 8px;--spacing-small: 16px;--spacing-medium: 24px;--spacing-big: 32px;--spacing-xbig: 40px;--spacing-xxbig: 48px;--spacing-large: 64px;--spacing-xlarge: 72px;--spacing-xxlarge: 96px;--spacing-huge: 120px;--spacing-xhuge: 144px;--spacing-xxhuge: 192px;--type-base-font-family: system-ui, sans-serif;--type-display-1-font: normal normal 300 60px/72px var(--type-base-font-family);--type-display-1-letter-spacing: .04em;--type-display-2-font: normal normal 300 48px/56px var(--type-base-font-family);--type-display-2-letter-spacing: .04em;--type-display-3-font: normal normal 300 34px/40px var(--type-base-font-family);--type-display-3-letter-spacing: .04em;--type-headline-1-font: normal normal 400 24px/32px var(--type-base-font-family);--type-headline-1-letter-spacing: .04em;--type-headline-2-default-font: normal normal 300 20px/24px var(--type-base-font-family);--type-headline-2-default-letter-spacing: .04em;--type-headline-2-strong-font: normal normal 400 20px/24px var(--type-base-font-family);--type-headline-2-strong-letter-spacing: .04em;--type-body-1-default-font: normal normal 300 16px/24px var(--type-base-font-family);--type-body-1-default-letter-spacing: .04em;--type-body-1-strong-font: normal normal 400 16px/24px var(--type-base-font-family);--type-body-1-strong-letter-spacing: .04em;--type-body-1-emphasized-font: normal normal 700 16px/24px var(--type-base-font-family);--type-body-1-emphasized-letter-spacing: .04em;--type-body-2-default-font: normal normal 300 14px/20px var(--type-base-font-family);--type-body-2-default-letter-spacing: .04em;--type-body-2-strong-font: normal normal 400 14px/20px var(--type-base-font-family);--type-body-2-strong-letter-spacing: .04em;--type-body-2-emphasized-font: normal normal 700 14px/20px var(--type-base-font-family);--type-body-2-emphasized-letter-spacing: .04em;--type-button-1-font: normal normal 400 20px/26px var(--type-base-font-family);--type-button-1-letter-spacing: .08em;--type-button-2-font: normal normal 400 16px/24px var(--type-base-font-family);--type-button-2-letter-spacing: .08em;--type-details-caption-1-font: normal normal 400 12px/16px var(--type-base-font-family);--type-details-caption-1-letter-spacing: .08em;--type-details-caption-2-font: normal normal 300 12px/16px var(--type-base-font-family);--type-details-caption-2-letter-spacing: .08em;--type-details-overline-font: normal normal 700 12px/20px var(--type-base-font-family);--type-details-overline-letter-spacing: .16em}.dropin-design a{--textColor: var(--color-brand-500);color:var(--textColor);text-decoration:none}.dropin-design a:hover{--textColor: var(--color-brand-700);text-decoration:solid underline var(--textColor);text-underline-offset:6px}.dropin-design a:focus-visible{outline:solid var(--shape-border-width-4) var(--color-neutral-400);border:var(--shape-border-width-1) solid var(--color-neutral-800);border-radius:var(--shape-border-radius-1)}
-.dropin-skeleton{--row-gap-spacing: var(--spacing-medium);display:grid;grid-template-columns:1fr 1fr;gap:var(--row-gap-spacing)}.dropin-skeleton .dropin-skeleton--row__content{background:var(--color-neutral-300) linear-gradient(to right,var(--color-neutral-300) 0%,var(--color-neutral-100) 20%,var(--color-neutral-300) 40%,var(--color-neutral-300) 100%) no-repeat;animation:skeletonShimmer infinite 1.2s linear;border-radius:var(--shape-border-radius-2)}.dropin-skeleton__empty{background:none}.dropin-skeleton-row--multiline{--multiline-gap-spacing: var(--spacing-medium);display:grid;grid-auto-rows:max-content;gap:var(--multiline-gap-spacing)}.dropin-skeleton-row--full{grid-column:1 / -1}.dropin-skeleton-row svg{fill:var(--color-neutral-400);fill-opacity:.5;animation-duration:1s;animation-fill-mode:forwards;animation-iteration-count:infinite;animation-name:placeholderShimmer;animation-timing-function:linear}.dropin-skeleton-row__row-xsmall{height:32px}.dropin-skeleton-row__row-small{height:40px}.dropin-skeleton-row__row-medium{height:48px}.dropin-skeleton-row__row-large{height:56px}.dropin-skeleton-row__row-xlarge{height:72px}.dropin-skeleton-row__heading-xsmall{height:20px}.dropin-skeleton-row__heading-small{height:24px}.dropin-skeleton-row__heading-medium{height:32px}.dropin-skeleton-row__heading-large{height:40px}.dropin-skeleton-row__heading-xlarge{height:48px}@keyframes skeletonShimmer{0%{background-position:-600px 0}to{background-position:600px 0}}@keyframes placeholderShimmer{0%{fill-opacity:.5}50%{fill-opacity:1}to{fill-opacity:.5}}@media only screen and (max-width: 600px){.dropin-skeleton{grid-template-columns:1fr}}.dropin-incrementer__content{border-radius:var(--shape-border-radius-1);border:solid var(--shape-border-width-1) var(--color-neutral-600);display:grid;grid-template-columns:var(--spacing-xxbig) auto var(--spacing-xxbig);height:var(--spacing-xbig);opacity:1}.dropin-incrementer__content--disabled{background:var(--color-neutral-300);border-radius:var(--shape-border-radius-1);border:solid var(--shape-border-width-1) var(--color-neutral-500)}.dropin-incrementer__content--large{height:var(--spacing-xxbig)}.dropin-incrementer__content:hover{border:solid var(--shape-border-width-1) var(--color-neutral-700)}.dropin-incrementer__content:active{border:solid var(--shape-border-width-1) var(--color-neutral-800)}.dropin-incrementer__footer{font:var(--type-details-caption-2-font)}.dropin-incrementer__decrease-button>svg,.dropin-incrementer__increase-button>svg{align-items:center;justify-content:center}.dropin-incrementer__button-container{align-items:center;border-radius:var(--shape-border-radius-1);display:grid;justify-content:center;background:var(--color-neutral-50)}.dropin-incrementer__button-container--disabled{background-color:var(--color-neutral-300)}.dropin-incrementer__decrease-button,.dropin-incrementer__increase-button{align-items:center;background-color:var(--color-neutral-50);border-radius:var(--shape-border-radius-3);border:none;display:grid;height:var(--spacing-medium);width:var(--spacing-medium)}.dropin-incrementer__decrease-button:enabled,.dropin-incrementer__increase-button:enabled{cursor:pointer}.dropin-incrementer__decrease-button--disabled,.dropin-incrementer__increase-button--disabled{background-color:var(--color-neutral-300)}.dropin-incrementer__increase-button:focus-visible,.dropin-incrementer__decrease-button:focus-visible{outline:var(--shape-border-width-1) solid var(--color-brand-500);box-shadow:0 0 0 var(--shape-border-radius-1) var(--color-neutral-500)}.dropin-incrementer__decrease-button:focus:not(:focus-visible),.dropin-incrementer__increase-button:focus:not(:focus-visible){background-color:var(--color-neutral-50)}.dropin-incrementer__decrease-button:hover:enabled,.dropin-incrementer__increase-button:hover:enabled,.dropin-incrementer__decrease-button:focus,.dropin-incrementer__increase-button:focus{background:var(--color-neutral-300)}.dropin-incrementer__input{box-sizing:border-box;text-align:center;min-width:var(--spacing-xxbig)}.dropin-incrementer__input:disabled{background-color:var(--color-neutral-300);color:var(--color-neutral-500)}.dropin-incrementer__input::-webkit-outer-spin-button,.dropin-incrementer__input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}.dropin-incrementer__input:focus-within{border:none;box-sizing:border-box;text-align:center}.dropin-incrementer__input:focus-within[type=number]{box-shadow:none}.dropin-incrementer__input[type=number]{-moz-appearance:textfield;box-shadow:none;border:none}textarea:focus,input:focus{outline:none}.dropin-input{background-color:transparent;border-color:var(--color-neutral-600);border-radius:var(--shape-border-radius-1);border-style:inset solid;color:var(--color-neutral-800);-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;width:100%;max-width:100%;z-index:1}.dropin-input[type=number],.dropin-input[type=text]{-moz-appearance:textfield;-webkit-appearance:textfield;appearance:textfield}.dropin-input:focus{outline:none;box-shadow:none}.dropin-input:disabled{border-top-left-radius:var(--shape-border-radius-1);border-top-right-radius:var(--shape-border-radius-1);border-color:var(--color-neutral-500);background-color:var(--color-neutral-300);color:var(--color-neutral-500)}.dropin-input::placeholder,.dropin-input::-webkit-input-placeholder,.dropin-input::-ms-input-placeholder{color:var(--color-neutral-700);opacity:1}input:disabled::-webkit-input-placeholder{color:var(--color-neutral-500)}input:disabled:-moz-placeholder{color:var(--color-neutral-500)}input:disabled::-moz-placeholder{color:var(--color-neutral-500)}input:disabled:-ms-input-placeholder{color:var(--color-neutral-500)}.dropin-input-container{--icon-size: var(--spacing-small);display:flex;align-items:center;position:relative}.dropin-input-label-container{position:relative;display:flex;flex-grow:1;flex-direction:column}.dropin-input--primary{border:var(--shape-border-width-1) solid var(--color-neutral-600)}.dropin-input--primary:focus{border-color:var(--color-neutral-800);border-radius:var(--shape-border-radius-1)}div.dropin-input-container--primary .dropin-input--disabled{border:var(--shape-border-width-1) solid var(--color-neutral-500)}.dropin-input-container--primary .dropin-input--error{border:var(--shape-border-width-2) solid var(--color-alert-500)}.dropin-input-container--primary .dropin-input--success{border:var(--shape-border-width-2) solid var(--color-positive-500)}.dropin-input--secondary{border:0;border-radius:0;border-top:var(--shape-border-width-1) solid transparent;border-bottom:var(--shape-border-width-1) solid var(--color-neutral-600)}.dropin-input--secondary:focus{border-top-left-radius:var(--shape-border-radius-1);border-top-right-radius:var(--shape-border-radius-1);border-bottom-color:var(--color-neutral-800)}div.dropin-input-container--secondary .dropin-input--disabled{border:0;border-radius:0;border-bottom:var(--shape-border-width-1) solid var(--color-neutral-500)}.dropin-input-container--secondary .dropin-input--error{border:0;border-radius:0;border-bottom:var(--shape-border-width-2) solid var(--color-alert-500)}.dropin-input-container--secondary .dropin-input--success{border:0;border-radius:0;border-bottom:var(--shape-border-width-2) solid var(--color-positive-500)}.dropin-input--medium{font:var(--type-body-2-default-font);letter-spacing:var(--type-body-2-default-letter-spacing);padding:9px var(--spacing-small)}.dropin-input--medium~label{font:var(--type-body-2-default-font);letter-spacing:var(--type-body-2-default-letter-spacing)}.dropin-input--large{font:var(--type-body-1-default-font);letter-spacing:var(--type-body-1-default-letter-spacing);padding:11px var(--spacing-small)}.dropin-input--large~label{font:var(--type-body-1-default-font);letter-spacing:var(--type-body-1-default-letter-spacing)}.dropin-input__label--floating{cursor:text;color:var(--color-neutral-700);padding-left:var(--spacing-small);position:absolute;pointer-events:none;transform:translateY(-50%);top:50%;transition:top 50ms ease-in,left 50ms ease-in,font-size 50ms ease-in;z-index:1}.dropin-input__label--floating,.dropin-input--floating{transition:all .2s;touch-action:manipulation}.dropin-input--medium.dropin-input--floating{padding-top:17px;padding-bottom:17px}.dropin-input--medium.dropin-input--floating:focus,.dropin-input--medium.dropin-input--floating:not(:placeholder-shown){padding-top:26px}.dropin-input--large.dropin-input--floating{padding-top:15px;padding-bottom:15px}.dropin-input--large.dropin-input--floating:focus,.dropin-input--large.dropin-input--floating:not(:placeholder-shown){padding-top:22px}.dropin-input--floating:focus,.dropin-input--floating:not(:placeholder-shown){padding-bottom:calc(var(--spacing-small) - var(--spacing-xsmall))}.dropin-input__label--floating--icon-left{padding-left:calc(var(--icon-size) + (var(--spacing-small) * 2))}.dropin-input-container--floating:focus-within .dropin-input__label--floating{color:var(--color-neutral-800);transform:translate(.1em,-1.5em);font:var(--type-details-caption-1-font);letter-spacing:var(--type-details-caption-1-letter-spacing)}.dropin-input--floating:not(:placeholder-shown)~.dropin-input__label--floating{transform:translate(.1em,-1.5em);font:var(--type-details-caption-1-font);letter-spacing:var(--type-details-caption-1-letter-spacing)}.dropin-input-container--disabled .dropin-icon,.dropin-input-container--disabled .dropin-input__label--floating{color:var(--color-neutral-500)}.dropin-input--floating::-webkit-input-placeholder,.dropin-input--floating::placeholder{opacity:0;transition:inherit}.dropin-input--floating:focus::-webkit-input-placeholder,.dropin-input--floating:focus::placeholder{opacity:1}.dropin-input__label--floating--error{color:var(--color-alert-500)}.dropin-input--icon-right,.dropin-input--icon-left{--icon-space: calc(var(--icon-size) + (var(--spacing-small) * 2))}.dropin-input--icon-right{padding-right:var(--icon-space)}.dropin-input--icon-left{padding-left:var(--icon-space)}.dropin-input__field-icon--left,.dropin-input__field-icon--right{position:absolute;z-index:2}.dropin-input__field-icon--left{left:var(--spacing-small)}.dropin-input__field-icon--right{right:var(--spacing-small)}.dropin-input__field-icon--error,.dropin-input__field-icon--success{color:var(--color-neutral-100);height:var(--icon-size);width:var(--icon-size)}.dropin-input__field-icon--success{color:var(--color-positive-500)}.dropin-input__field-icon--error{color:var(--color-alert-500)}.dropin-image{background:var(--color-neutral-300) linear-gradient(to right,var(--color-neutral-300) 0%,var(--color-neutral-100) 20%,var(--color-neutral-300) 40%,var(--color-neutral-300) 100%) no-repeat;animation:imageShimmer infinite 1.2s linear;border-radius:var(--shape-border-radius-2)}.dropin-image--loaded{background:unset;border-radius:unset}@keyframes imageShimmer{0%{background-position:-600px 0}to{background-position:600px 0}}.dropin-divider{border:none}.dropin-divider--primary{border-top:var(--shape-border-width-3) solid var(--color-neutral-400);margin:var(--spacing-xbig) auto}.dropin-divider--secondary{border-top:var(--shape-border-width-2) solid var(--color-neutral-400);margin:var(--spacing-medium) auto}.dropin-price{color:inherit}.dropin-price--small{font:var(--type-body-2-strong-font);letter-spacing:var(--type-body-2-strong-letter-spacing)}.dropin-price--medium{font:var(--type-body-1-default-font);letter-spacing:var(--type-body-1-default-letter-spacing)}.dropin-price--large{font:var(--type-headline-2-strong-font);letter-spacing:var(--type-headline-2-strong-letter-spacing)}.dropin-price--strikethrough{text-decoration:line-through}.dropin-price--sale{color:var(--color-alert-800)}.dropin-price--bold{font-weight:700}.dropin-price--normal{font-weight:400}.dropin-button,.dropin-iconButton{border:0 none;cursor:pointer;white-space:normal}.dropin-button{border-radius:var(--shape-border-radius-3);font-size:var(--type-button-1-font);font-weight:var(--type-button-1-font);padding:var(--spacing-xsmall) var(--spacing-medium);display:flex;justify-content:center;align-items:center;text-align:left;word-wrap:break-word}.dropin-iconButton{height:var(--spacing-xbig);width:var(--spacing-xbig);padding:var(--spacing-xsmall)}.dropin-button:disabled,.dropin-iconButton:disabled{pointer-events:none;-webkit-user-select:none;user-select:none}.dropin-button:not(:disabled),.dropin-iconButton:not(:disabled){cursor:pointer}.dropin-button:focus,.dropin-iconButton:focus{outline:none}.dropin-button:focus-visible,.dropin-iconButton:focus-visible{outline:var(--spacing-xxsmall) solid var(--color-button-focus)}.dropin-button--primary,a.dropin-button--primary,.dropin-iconButton--primary{border:none;background:var(--color-brand-500) 0 0% no-repeat padding-box;color:var(--color-neutral-50);text-align:left;margin-right:0}.dropin-iconButton--primary{border-radius:var(--spacing-xbig);min-height:var(--spacing-xbig);min-width:var(--spacing-xbig);padding:var(--spacing-xsmall)}.dropin-button--primary--disabled,a.dropin-button--primary--disabled,.dropin-iconButton--primary--disabled{background:var(--color-neutral-300) 0 0% no-repeat padding-box;color:var(--color-neutral-500);fill:var(--color-neutral-300);pointer-events:none;-webkit-user-select:none;user-select:none}.dropin-button--primary:hover,a.dropin-button--primary:hover,.dropin-iconButton--primary:hover,.dropin-button--primary:focus:hover,.dropin-iconButton--primary:focus:hover{background-color:var(--color-button-hover);text-decoration:none}.dropin-button--primary:focus,.dropin-iconButton--primary:focus{background-color:var(--color-brand-500)}.dropin-button--primary:hover:active,.dropin-iconButton--primary:hover:active{background-color:var(--color-button-active)}.dropin-button--secondary,a.dropin-button--secondary,.dropin-iconButton--secondary{border:var(--shape-border-width-2) solid var(--color-brand-500);background:none 0 0% no-repeat padding-box;color:var(--color-brand-500);padding-top:calc(var(--spacing-xsmall) - var(--shape-border-width-2));padding-left:calc(var(--spacing-medium) - var(--shape-border-width-2))}.dropin-iconButton--secondary{border-radius:var(--spacing-xbig);min-height:var(--spacing-xbig);min-width:var(--spacing-xbig);padding:var(--spacing-xsmall);padding-top:calc(var(--spacing-xsmall) - var(--shape-border-width-2));padding-left:calc(var(--spacing-xsmall) - var(--shape-border-width-2))}.dropin-button--secondary--disabled,a.dropin-button--secondary--disabled,.dropin-iconButton--secondary--disabled{border:var(--shape-border-width-2) solid var(--color-neutral-300);background:none 0 0% no-repeat padding-box;color:var(--color-neutral-500);fill:var(--color-neutral-300);pointer-events:none;-webkit-user-select:none;user-select:none}.dropin-button--secondary:hover,a.dropin-button--secondary:hover,.dropin-iconButton--secondary:hover{border:var(--shape-border-width-2) solid var(--color-button-hover);color:var(--color-button-hover);text-decoration:none}.dropin-button--secondary:active,.dropin-iconButton--secondary:active{border:var(--shape-border-width-2) solid var(--color-button-active);color:var(--color-button-active)}.dropin-button--tertiary,a.dropin-button--tertiary,.dropin-iconButton--tertiary{border:none;background:none 0 0% no-repeat padding-box;color:var(--color-brand-500)}.dropin-iconButton--tertiary{border:none;border-radius:var(--spacing-xbig);min-height:var(--spacing-xbig);min-width:var(--spacing-xbig);padding:var(--spacing-xsmall)}.dropin-button--tertiary--disabled,a.dropin-button--tertiary--disabled,.dropin-iconButton--tertiary--disabled{border:none;color:var(--color-neutral-500);pointer-events:none;-webkit-user-select:none;user-select:none}.dropin-button--tertiary:hover,a.dropin-button--tertiary:hover,.dropin-iconButton--tertiary:hover{color:var(--color-button-hover);text-decoration:none}.dropin-button--tertiary:active,.dropin-iconButton--tertiary:active{color:var(--color-button-active)}.dropin-button--tertiary:focus-visible,.dropin-iconButton--tertiary:focus-visible{-webkit-box-shadow:inset 0 0 0 2px var(--color-neutral-800);-moz-box-shadow:inset 0 0 0 2px var(--color-neutral-800);box-shadow:inset 0 0 0 2px var(--color-neutral-800)}.dropin-button--large{font:var(--type-button-1-font);letter-spacing:var(--type-button-1-letter-spacing)}.dropin-button--medium{font:var(--type-button-2-font);letter-spacing:var(--type-button-2-letter-spacing)}.dropin-button-icon{height:24px}.dropin-button--with-icon{column-gap:var(--spacing-xsmall);row-gap:var(--spacing-xsmall)}.dropin-field{display:grid;font:var(--type-body-2-strong-font);grid-auto-rows:max-content}.dropin-field__label--medium{font:var(--type-details-caption-1-font);letter-spacing:var(--type-details-caption-1-letter-spacing);color:var(--color-neutral-800);text-align:left;padding-bottom:var(--spacing-xsmall)}.dropin-field__label--large{font:var(--type-body-2-strong-font);letter-spacing:var(--type-body-2-strong-letter-spacing);color:var(--color-neutral-800);text-align:left;padding-bottom:var(--spacing-xsmall)}.dropin-field__label--disabled{color:var(--color-neutral-500)}.dropin-field__content{display:grid;grid-auto-rows:max-content}.dropin-field__hint{font:var(--type-details-caption-2-font);letter-spacing:var(--type-details-caption-2-letter-spacing);color:var(--color-neutral-700);text-align:left}.dropin-field__hint:empty{display:none}.dropin-field__hint--medium{padding-top:var(--spacing-xsmall)}.dropin-field__hint--large{padding-top:var(--spacing-small)}.dropin-field__hint--error{color:var(--color-alert-800)}.dropin-field__hint--success{color:var(--color-positive-800)}.dropin-field__hint--disabled{color:var(--color-neutral-500)}.dropin-card{--bgColor: var(--color-neutral-200);background-color:var(--bgColor);border-width:0;border-radius:var(--shape-border-radius-2)}.dropin-card--secondary{--bgColor: var(--color-neutral-50);border-width:var(--shape-border-width-2);border-style:solid;border-color:var(--color-neutral-400)}.dropin-card__content{display:flex;flex-direction:column;gap:var(--spacing-medium);padding-top:var(--spacing-medium);padding-right:var(--spacing-medium);padding-bottom:var(--spacing-medium);padding-left:var(--spacing-medium)}.dropin-progress-spinner-provider{position:relative;display:flex;flex-direction:column;border-radius:inherit;opacity:1;padding:var(--spacing-small)}.dropin-progress-spinner{--size: var(--spacing-medium);--stroke-width: var(--shape-icon-stroke-4);width:var(--size);height:var(--size);border-style:solid;border-width:var(--stroke-width);border-color:var(--color-neutral-400);border-top-color:var(--color-brand-500);border-radius:50%;animation:indeterminate 1s infinite ease-in-out}.dropin-progress-spinner-with-provider{position:absolute;top:calc(50% - var(--size) / 2 - var(--stroke-width));left:calc(50% - var(--size) / 2 - var(--stroke-width))}.dropin-progress-spinner-background{--bgColor: var(--color-neutral-50);background-color:var(--bgColor);border-radius:inherit;opacity:.5;position:absolute;width:100%;height:100%;margin-top:calc(-1 * var(--spacing-small));margin-left:calc(-1 * var(--spacing-small))}.dropin-progress-spinner--shape-size-small{--size: var(--spacing-medium)}.dropin-progress-spinner--shape-size-medium{--size: var(--spacing-big)}.dropin-progress-spinner--shape-size-big{--size: var(--spacing-xxbig)}.dropin-progress-spinner--shape-size-large{--size: var(--spacing-large)}.dropin-progress-spinner--shape-stroke-1{--stroke-width: var(--shape-icon-stroke-1)}.dropin-progress-spinner--shape-stroke-2{--stroke-width: var(--shape-icon-stroke-2)}.dropin-progress-spinner--shape-stroke-3{--stroke-width: var(--shape-icon-stroke-3)}.dropin-progress-spinner--shape-stroke-4{--stroke-width: var(--shape-icon-stroke-4)}@keyframes indeterminate{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.dropin-cart-item{--item-group-spacing: 0;--group-spacing: var(--spacing-xsmall);font:var(--type-body-2-default-font);letter-spacing:var(--type-body-2-default-letter-spacing);color:var(--color-neutral-700);container-type:inline-size;container-name:cart-item;position:relative}.dropin-cart-item__skeleton{gap:var(--spacing-xsmall)}.dropin-cart-item__skeleton__item{width:100%;height:auto}.dropin-cart-item__skeleton__item:after{content:"";display:inline-block}.dropin-cart-item__image .dropin-cart-item__skeleton__item{padding-bottom:100%}.dropin-cart-item__image:is(img),.dropin-cart-item__image img{width:100%;height:auto}.dropin-cart-item__title{font:var(--type-body-1-default-font);letter-spacing:var(--type-body-1-default-letter-spacing);color:var(--color-neutral-800)}.dropin-cart-item__sku{font:var(--type-details-caption-2-font);letter-spacing:var(--type-details-caption-2-letter-spacing)}.dropin-cart-item__configurations{list-style-type:none;margin:var(--group-spacing) 0 0 0;padding:0}.dropin-cart-item__configurations__item__value{font-weight:inherit;color:var(--color-neutral-800)}.dropin-cart-item__configurations__item:not(:last-child){margin-right:var(--spacing-xxsmall)}.dropin-cart-item__quantity__value{font:var(--type-details-caption-2-font);letter-spacing:var(--type-details-caption-2-letter-spacing);display:none}.dropin-cart-item__quantity__number{font-weight:inherit;color:var(--color-neutral-800)}.dropin-cart-item__quantity__incrementer{max-width:160px;margin-top:calc(var(--group-spacing) / 2);margin-bottom:var(--group-spacing)}.dropin-cart-item__remove{position:absolute;right:0;top:0}.dropin-cart-item__warning,.dropin-cart-item__alert{font:var(--type-details-caption-2-font);letter-spacing:var(--type-details-caption-2-letter-spacing);margin-bottom:var(--group-spacing);display:flex;align-items:center}.dropin-cart-item__warning svg,.dropin-cart-item__alert svg{margin-right:var(--spacing-xxsmall)}.dropin-cart-item__warning{color:var(--color-warning-800)}.dropin-cart-item__warning svg{fill:var(--color-warning-800);color:var(--color-neutral-50)}.dropin-cart-item__alert{color:var(--color-alert-800)}.dropin-cart-item__alert svg{fill:var(--color-alert-800);color:var(--color-neutral-50)}.dropin-cart-item__total,.dropin-cart-item__row-total{display:flex;gap:var(--spacing-xxsmall)}.dropin-cart-item__total-tax-excluded{font:var(--type-details-caption-2-font);letter-spacing:var(--type-details-caption-2-letter-spacing);color:var(--color-neutral-800)}.dropin-cart-item--updating{opacity:.4;pointer-events:none;position:relative}.dropin-cart-item__spinner{margin:0 auto;position:absolute;z-index:999;left:0;right:0;top:calc(50% - (var(--size) / 2));bottom:0}.dropin-cart-item__wrapper{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:min-content;grid-column-gap:var(--spacing-small)}.dropin-cart-item__image{grid-column:1 / 2;grid-row:1 / 10}.dropin-cart-item__title,.dropin-cart-item__sku,.dropin-cart-item__configurations,.dropin-cart-item__price,.dropin-cart-item__total,.dropin-cart-item__warning,.dropin-cart-item__alert,.dropin-cart-item__quantity{grid-column:2 / 5}.dropin-cart-item__title--edit{padding-right:var(--spacing-xbig)}.dropin-cart-item__description,.dropin-cart-item__sku{margin-top:var(--item-group-spacing)}.dropin-cart-item__price{margin-top:var(--group-spacing)}.dropin-cart-item__quantity:not(.dropin-cart-item__quantity--edit){display:none}.dropin-cart-item__warning--quantity,.dropin-cart-item__alert--quantity,.dropin-cart-item__description{display:none}.dropin-cart-item__price-tax-message,.dropin-cart-item__price-tax-excluded-message,.dropin-cart-item__total-tax-message{font:var(--type-details-caption-2-font);letter-spacing:var(--type-details-caption-2-letter-spacing);color:var(--color-neutral-800)}@container cart-item (width >= 400px) and (width < 737px){.dropin-cart-item__title,.dropin-cart-item__sku,.dropin-cart-item__configurations,.dropin-cart-item__price,.dropin-cart-item__warning,.dropin-cart-item__alert,.dropin-cart-item__quantity{grid-column:2 / 4}.dropin-cart-item__title--edit{grid-column:2 / 5}.dropin-cart-item__total:not(.dropin-cart-item__total--edit){grid-auto-rows:min-content;grid-column:4 / 5;grid-row:1 / 10;display:grid;justify-self:end;text-align:right;gap:unset}}@container cart-item (width >= 737px) and (width < 1192px){.dropin-cart-item__wrapper{grid-template-columns:repeat(12,1fr)}.dropin-cart-item__image{grid-column:1 / 3}.dropin-cart-item__title,.dropin-cart-item__sku,.dropin-cart-item__configurations,.dropin-cart-item__price,.dropin-cart-item__warning,.dropin-cart-item__alert,.dropin-cart-item__quantity{grid-column:3 / 10}.dropin-cart-item__title--edit{padding-right:unset}.dropin-cart-item__total{grid-column:10 / 13;grid-row:1 / 10;text-align:right;display:flex;flex-direction:column;gap:0}.dropin-cart-item__row-total{display:contents;gap:var(--spacing-xxsmall)}.dropin-cart-item__total--edit{padding-right:calc(var(--spacing-xbig) + var(--spacing-xsmall))}}@container cart-item (width >= 1192px){.dropin-cart-item{--item-group-spacing: var(--spacing-xxsmall);--group-spacing: var(--spacing-small)}.dropin-cart-item__wrapper{grid-template-columns:repeat(8,1fr);grid-column-gap:var(--spacing-medium)}.dropin-cart-item__image{grid-column:1 / 2}.dropin-cart-item__title,.dropin-cart-item__description,.dropin-cart-item__sku,.dropin-cart-item__price,.dropin-cart-item__configurations{grid-column:2 / 6}.dropin-cart-item__title{padding-right:unset}.dropin-cart-item__quantity{grid-column:6 / 7;grid-row:1 / 10}.dropin-cart-item__warning,.dropin-cart-item__alert{grid-column:6 / 7}.dropin-cart-item__warning--quantity,.dropin-cart-item__alert--quantity{display:flex;align-items:center}.dropin-cart-item__warning--quantity svg,.dropin-cart-item__alert--quantity svg{margin-right:var(--spacing-xxsmall)}.dropin-cart-item__warning--quantity svg{fill:var(--color-warning-800);color:var(--color-neutral-50)}.dropin-cart-item__alert--quantity svg{fill:var(--color-alert-800);color:var(--color-neutral-50)}.dropin-cart-item__warning:not(.dropin-cart-item__warning--quantity),.dropin-cart-item__alert:not(.dropin-cart-item__alert--quantity){display:none}.dropin-cart-item__total{grid-column:7 / 9;grid-row:1 / 10;justify-self:end;text-align:right}.dropin-cart-item__total:has(.dropin-cart-item__total-tax-excluded){flex-direction:column;gap:0}.dropin-cart-item__row-total{display:flex;gap:var(--spacing-xxsmall)}.dropin-cart-item__total--edit{padding-right:calc(var(--spacing-xbig) + var(--spacing-xsmall))}.dropin-cart-item__quantity__incrementer{margin-top:0}.dropin-cart-item__quantity:not(.dropin-cart-item__quantity--edit),.dropin-cart-item__quantity__value{display:unset}.dropin-cart-item__price__quantity{display:none}.dropin-cart-item__title{font:var(--type-headline-2-default-font);letter-spacing:var(--type-headline-2-default-letter-spacing)}}.order-confirmation{display:grid;align-items:start;grid-template-columns:repeat(var(--grid-4-columns),1fr);grid-template-areas:"main aside";grid-column-gap:var(--grid-4-gutters);margin-bottom:var(--spacing-xbig)}.order-confirmation__main{display:grid;grid-row-gap:var(--spacing-xbig);grid-area:main;grid-column:1 / span 7}.order-confirmation__aside{display:grid;grid-row-gap:var(--spacing-xbig);grid-area:aside;grid-column:9 / span 4}.order-confirmation a{font:var(--type-body-2-strong-font);letter-spacing:var(--type-body-2-strong-letter-spacing);margin-left:var(--spacing-xxsmall)}.order-confirmation-header,.order-confirmation-footer,.order-confirmation-message,.order-confirmation-order-search-form,.order-confirmation-order-form,.order-confirmation-status,.order-confirmation-details{grid-column:1 / span 7}@media only screen and (min-width: 320px) and (max-width: 768px){.order-confirmation{grid-template-columns:repeat(var(--grid-1-columns),1fr);grid-column-gap:var(--grid-1-gutters);grid-template-areas:"header" "details" "orderSummary" "cartSummary" "footer"}.order-confirmation>div{grid-column:1 / span 4}.order-confirmation-details{margin-bottom:var(--spacing-xbig)}.order-confirmation-order-summary{margin-bottom:var(--spacing-xbig);grid-area:orderSummary}.order-confirmation-cart-summary{margin-bottom:var(--spacing-xbig);grid-area:cartSummary}}.order-confirmation-header{text-align:center;padding:var(--spacing-xxbig)}.order-confirmation-header__icon{margin-bottom:var(--spacing-small)}.order-confirmation-header h1{color:var(--color-neutral-800);font:var(--type-headline-1-font);letter-spacing:var(--type-headline-1-letter-spacing);margin:0}.order-confirmation-header h1:first-letter{text-transform:uppercase}.order-confirmation-header p{color:var(--color-neutral-700);font:var(--type-details-overline-font);letter-spacing:var(--type-details-overline-letter-spacing);margin:var(--spacing-xxsmall) 0 0 0}.order-confirmation-header .OrderSuccess_svg__success-icon{color:var(--color-positive-500)}.order-confirmation-order-search-form .dropin-card__content{gap:var(--spacing-small)}.order-confirmation-order-search-form p{color:var(--color-neutral-700);font:var(--type-body-2-default-font);letter-spacing:var(--type-body-2-default-letter-spacing);margin:0}.order-confirmation-order-search-form__title{color:var(--color-neutral-800);font:var(--type-headline-2-strong-font);letter-spacing:var(--type-headline-2-strong-letter-spacing);margin:0}.order-confirmation-order-search-form form{display:grid;grid-template-rows:1fr}.order-confirmation-order-search-form__fields-columns{display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-medium);margin-bottom:var(--spacing-medium)}.order-confirmation-order-search-form form button{align-self:flex-end;justify-self:flex-end;margin-top:var(--spacing-small)}.dropin-in-line-alert{border-width:var(--shape-border-width-2);border-style:solid;border-radius:var(--shape-border-radius-1);display:grid;grid-auto-flow:row;gap:var(--spacing-small);padding:var(--spacing-small);position:relative}.dropin-in-line-alert__heading{display:grid;gap:var(--spacing-small);grid-template-columns:auto auto;align-items:center}.dropin-in-line-alert__title-container{display:flex;align-items:center;gap:var(--spacing-xsmall)}.dropin-in-line-alert__title{color:var(--color-neutral-800);font:var(--type-body-2-emphasized-font);letter-spacing:var(--type-body-2-emphasized-letter-spacing);margin:0}.dropin-in-line-alert__actions-container{display:flex;justify-content:end}.dropin-in-line-alert__additional-action{padding:0!important}.dropin-in-line-alert__additional-action span{font:var(--type-details-caption-1-font);letter-spacing:var(--type-details-caption-1-letter-spacing);text-decoration:underline;color:var(--color-neutral-700)}.dropin-in-line-alert__dismiss-button{padding:0}.dropin-in-line-alert__description{color:var(--color-neutral-800);font:var(--type-body-2-default-font);letter-spacing:var(--type-body-2-default-letter-spacing);margin:0}.dropin-in-line-alert__additional-actions-container{display:flex;gap:var(--spacing-small);justify-content:flex-end}.dropin-in-line-alert--error{border-color:var(--color-alert-500)}.dropin-in-line-alert--warning{border-color:var(--color-warning-500)}.dropin-in-line-alert--success{border-color:var(--color-positive-500)}.order-confirmation-message p{color:var(--color-neutral-700);font:var(--type-body-2-default-font);letter-spacing:var(--type-body-2-default-letter-spacing);margin:0}.order-confirmation-message__title{color:var(--color-neutral-800);font:var(--type-headline-2-strong-font);letter-spacing:var(--type-headline-2-strong-letter-spacing);margin:0}.order-confirmation-details__header{display:grid;grid-auto-rows:max-content}.order-confirmation-details__title{color:var(--color-neutral-800);font:var(--type-headline-2-strong-font);letter-spacing:var(--type-headline-2-strong-letter-spacing);margin:0}.order-confirmation-details h3{font:var(--type-body-1-strong-font);letter-spacing:var(--type-body-1-strong-letter-spacing);margin:0 0 var(--spacing-xsmall) 0}.order-confirmation-details p{margin:var(--spacing-xsmall) 0 0 0;color:var(--color-neutral-700);font:var(--type-body-2-default-font);letter-spacing:var(--type-body-2-default-letter-spacing)}a.order-confirmation__login-link{font:var(--type-body-2-strong-font);margin-left:var(--spacing-xxsmall)}.order-confirmation-details__shipping-method span{font:var(--type-body-2-strong-font);letter-spacing:var(--type-body-2-strong-letter-spacing)}.order-confirmation-details__information{display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-medium)}.order-confirmation-details__information>div:empty{visibility:hidden;display:none}.order-confirmation-details .static-skeleton{gap:var(--spacing-xsmall)}@media only screen and (min-width:320px) and (max-width: 768px){.order-confirmation-details__information{grid-template-columns:1fr}}.order-confirmation-footer{gap:var(--spacing-small);text-align:center}.order-confirmation-footer .order-confirmation-footer__continue-button{margin:0 auto;text-align:center;display:inline-block}.order-confirmation-footer__contact-support{font:var(--type-body-2-default-font);letter-spacing:var(--type-body-2-default-letter-spacing);color:var(--color-neutral-700)}.order-confirmation-footer__contact-support a{font:var(--type-body-2-strong-font);letter-spacing:var(--type-body-2-strong-letter-spacing);color:var(--color-brand-500);cursor:pointer}.static-skeleton .dropin-skeleton--row__content{animation:0;background:var(--color-neutral-300);border-radius:var(--shape-border-radius-1)}.order-confirmation-order-summary .dropin-card__content{gap:var(--spacing-xsmall)}.order-confirmation-order-summary__title{color:var(--color-neutral-800);font:var(--type-headline-2-default-font);letter-spacing:var(--type-headline-2-default-letter-spacing);margin:0}.order-confirmation-order-summary .dropin-divider--primary{margin:0 0 var(--spacing-medium) 0!important}.order-confirmation-order-summary .dropin-divider--secondary{margin:var(--spacing-xsmall) 0 var(--spacing-xsmall) 0!important}.order-confirmation-order-summary__breakdown{margin:var(--spacing-big) 0 var(--spacing-medium) 0}.order-confirmation-order-summary__breakdown .dropin-divider:last-child{margin-bottom:0}.order-confirmation-order-summary__row{display:flex;justify-content:space-between;color:var(--color-neutral-800);font:var(--type-body-1-default-font);letter-spacing:var(--type-body-1-default-letter-spacing)}.order-confirmation-order-summary__row--margin-top{margin-top:var(--spacing-xsmall)}.order-confirmation-order-summary__row--margin-bottom{margin-bottom:var(--spacing-xsmall)}.order-confirmation-order-summary__row .order-confirmation-order-summary__price{color:var(--color-neutral-800);font:var(--type-body-1-default-font);letter-spacing:var(--type-body-1-default-letter-spacing)}.order-confirmation-order-summary__row p{margin:0}.order-confirmation-order-summary__row--strong{font:var(--type-body-1-strong-font);letter-spacing:var(--type-body-1-strong-letter-spacing)}.order-confirmation-order-summary__row--strong .order-confirmation-order-summary__price{color:var(--color-neutral-800);font:var(--type-body-1-strong-font);letter-spacing:var(--type-body-1-strong-letter-spacing)}.order-confirmation-order-summary__row--emphasized{font:var(--type-body-1-emphasized-font);letter-spacing:var(--type-body-1-emphasized-letter-spacing);margin-top:var(--spacing-small)}.order-confirmation-order-summary__row--emphasized .order-confirmation-order-summary__price{color:var(--color-neutral-800);font:var(--type-body-1-emphasized-font);letter-spacing:var(--type-body-1-emphasized-letter-spacing)}.order-confirmation-order-summary__row--muted{color:var(--color-neutral-700);font:var(--type-body-2-default-font);letter-spacing:var(--type-body-2-default-letter-spacing);margin-top:calc(-1 * var(--spacing-xxsmall))}.order-confirmation-order-summary__row--muted .order-confirmation-order-summary__price{color:var(--color-neutral-700);font:var(--type-body-2-default-font);letter-spacing:var(--type-body-2-default-letter-spacing)}.order-confirmation-order-summary .dropin-skeleton:last-child{margin-top:var(--spacing-big)}@media only screen and (min-width: 320px) and (max-width: 768px){.order-confirmation-order-summary{border-top:var(--shape-border-width-2) solid var(--color-neutral-400);border-bottom:var(--shape-border-width-2) solid var(--color-neutral-400);border-radius:0}.order-confirmation-skeleton .order-confirmation-order-summary{border:0 none}}.order-confirmation-summary .dropin-card__content{gap:var(--spacing-xsmall)}.order-confirmation-cart-summary__heading{display:grid;grid-template-columns:1fr max-content;grid-auto-rows:max-content}.order-confirmation-cart-summary__title{color:var(--color-neutral-800);font:var(--type-headline-2-default-font);letter-spacing:var(--type-headline-2-default-letter-spacing);margin:0}.order-confirmation-cart-summary__edit{font:var(--type-body-2-strong-font);letter-spacing:var(--type-body-2-strong-letter-spacing);align-self:flex-end;justify-self:flex-end;margin:0;cursor:pointer}.order-confirmation-cart-summary__edit a{font:var(--type-body-2-strong-font);letter-spacing:var(--type-body-2-strong-letter-spacing)}.order-confirmation-cart-summary .order-confirmation-cart-summary__divider-top{margin:0 0 var(--spacing-medium) 0}.order-confirmation-cart-summary .order-confirmation-cart-summary__divider-bottom{margin:var(--spacing-medium) 0 var(--spacing-small) 0}.order-confirmation-cart-summary__items{display:grid;gap:var(--spacing-medium)}.order-confirmation-cart-summary__action{font:var(--type-body-2-strong-font);letter-spacing:var(--type-body-2-strong-letter-spacing);color:var(--color-brand-500);background:none;margin:0 auto;border:0;text-align:center;white-space:nowrap;text-decoration:none;cursor:pointer;width:auto}.order-confirmation-cart-summary__action:hover{text-decoration:underline;text-underline-offset:var(--spacing-xxsmall);background-color:transparent;color:var(--color-brand-700)}.dropin-accordion{background-color:var(--color-neutral-200)}.dropin-accordion .dropin-divider:first-child{margin-top:0}.dropin-accordion .dropin-divider:last-child{margin-bottom:0}.dropin-accordion-section{padding:0 var(--spacing-medium)}@media only screen and (min-width: 320px) and (max-width: 768px){.order-confirmation-cart-summary .dropin-accordion-section__content-container{gap:0}.order-confirmation-cart-summary-item{margin-bottom:var(--spacing-medium)}.dropin-accordion-section__content-container .order-confirmation-cart-summary-item:last-of-type{margin-bottom:0}}.order-confirmation-cart-summary-item .dropin-cart-item__title{font:var(--type-body-1-default-font);letter-spacing:var(--type-body-1-default-letter-spacing)}.order-confirmation-cart-summary-item .dropin-cart-item__price{margin:var(--spacing-xxsmall) 0}.order-confirmation-cart-summary-item .dropin-price--sale{color:#bf4545}.dropin-cart-item__total{align-items:flex-end}`,{styleId:"order-confirmation"});
-var ge=Object.defineProperty;var me=(e,t,r)=>t in e?ge(e,t,{enumerable:!0,configurable:!0,writable:!0,value:r}):e[t]=r;var te=(e,t,r)=>(me(e,typeof t!="symbol"?t+"":t,r),r);import{useState as ye,useEffect as be}from"@dropins/tools/preact-hooks.js";import{events as xe}from"@dropins/tools/event-bus.js";import{c as we}from"./chunks/initialize__Cuu2k7GPuO.js";import{jsx as M}from"@dropins/tools/preact-jsx-runtime.js";import{V as re,d as Oe,U as Se}from"./chunks/UIProvider__KplsarDn2b.js";import{options as _,h as de,Fragment as W,render as ne}from"@dropins/tools/preact.js";import"./chunks/image-params-keymap__Bk3U4q-hHX.js";import"@dropins/tools/preact-compat.js";var Ce=/acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|^--/i,ce=/^(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)$/,Z=/[\s\n\\/='"\0<>]/,pe=/^xlink:?./,Ae=/["&<]/;function $(e){if(Ae.test(e+="")===!1)return e;for(var t=0,r=0,o="",c="";r<e.length;r++){switch(e.charCodeAt(r)){case 34:c="&quot;";break;case 38:c="&amp;";break;case 60:c="&lt;";break;default:continue}r!==t&&(o+=e.slice(t,r)),o+=c,t=r+1}return r!==t&&(o+=e.slice(t,r)),o}var ie=function(e,t){return String(e).replace(/(\n+)/g,"$1"+(t||"	"))},oe=function(e,t,r){return String(e).length>40||String(e).indexOf(`
-`)!==-1||String(e).indexOf("<")!==-1},se={},je=/([A-Z])/g;function _e(e){var t="";for(var r in e){var o=e[r];o!=null&&o!==""&&(t&&(t+=" "),t+=r[0]=="-"?r:se[r]||(se[r]=r.replace(je,"-$1").toLowerCase()),t=typeof o=="number"&&Ce.test(r)===!1?t+": "+o+"px;":t+": "+o+";")}return t||void 0}function I(e,t){return Array.isArray(t)?t.reduce(I,e):t!=null&&t!==!1&&e.push(t),e}function ae(){this.__d=!0}function he(e,t){return{__v:e,context:t,props:e.props,setState:ae,forceUpdate:ae,__d:!0,__h:[]}}function q(e,t){var r=e.contextType,o=r&&t[r.__c];return r!=null?o?o.props.value:r.__:t}var Q=[];function N(e,t,r,o,c,h){if(e==null||typeof e=="boolean")return"";if(typeof e!="object")return typeof e=="function"?"":$(e);var p=r.pretty,u=p&&typeof p=="string"?p:"	";if(Array.isArray(e)){for(var b="",y=0;y<e.length;y++)p&&y>0&&(b+=`
-`),b+=N(e[y],t,r,o,c,h);return b}if(e.constructor!==void 0)return"";var j,f=e.type,d=e.props,F=!1;if(typeof f=="function"){if(F=!0,!r.shallow||!o&&r.renderRootComponent!==!1){if(f===W){var m=[];return I(m,e.props.children),N(m,t,r,r.shallowHighOrder!==!1,c,h)}var v,n=e.__c=he(e,t);_.__b&&_.__b(e);var T=_.__r;if(f.prototype&&typeof f.prototype.render=="function"){var C=q(f,t);(n=e.__c=new f(d,C)).__v=e,n._dirty=n.__d=!0,n.props=d,n.state==null&&(n.state={}),n._nextState==null&&n.__s==null&&(n._nextState=n.__s=n.state),n.context=C,f.getDerivedStateFromProps?n.state=Object.assign({},n.state,f.getDerivedStateFromProps(n.props,n.state)):n.componentWillMount&&(n.componentWillMount(),n.state=n._nextState!==n.state?n._nextState:n.__s!==n.state?n.__s:n.state),T&&T(e),v=n.render(n.props,n.state,n.context)}else for(var D=q(f,t),L=0;n.__d&&L++<25;)n.__d=!1,T&&T(e),v=f.call(e.__c,d,D);return n.getChildContext&&(t=Object.assign({},t,n.getChildContext())),_.diffed&&_.diffed(e),N(v,t,r,r.shallowHighOrder!==!1,c,h)}f=(j=f).displayName||j!==Function&&j.name||function(X){var J=(Function.prototype.toString.call(X).match(/^\s*function\s+([^( ]+)/)||"")[1];if(!J){for(var V=-1,K=Q.length;K--;)if(Q[K]===X){V=K;break}V<0&&(V=Q.push(X)-1),J="UnnamedComponent"+V}return J}(j)}var w,x,l="<"+f;if(d){var g=Object.keys(d);r&&r.sortAttributes===!0&&g.sort();for(var A=0;A<g.length;A++){var i=g[A],a=d[i];if(i!=="children"){if(!Z.test(i)&&(r&&r.allAttributes||i!=="key"&&i!=="ref"&&i!=="__self"&&i!=="__source")){if(i==="defaultValue")i="value";else if(i==="defaultChecked")i="checked";else if(i==="defaultSelected")i="selected";else if(i==="className"){if(d.class!==void 0)continue;i="class"}else c&&pe.test(i)&&(i=i.toLowerCase().replace(/^xlink:?/,"xlink:"));if(i==="htmlFor"){if(d.for)continue;i="for"}i==="style"&&a&&typeof a=="object"&&(a=_e(a)),i[0]==="a"&&i[1]==="r"&&typeof a=="boolean"&&(a=String(a));var s=r.attributeHook&&r.attributeHook(i,a,t,r,F);if(s||s==="")l+=s;else if(i==="dangerouslySetInnerHTML")x=a&&a.__html;else if(f==="textarea"&&i==="value")w=a;else if((a||a===0||a==="")&&typeof a!="function"){if(!(a!==!0&&a!==""||(a=i,r&&r.xml))){l=l+" "+i;continue}if(i==="value"){if(f==="select"){h=a;continue}f==="option"&&h==a&&d.selected===void 0&&(l+=" selected")}l=l+" "+i+'="'+$(a)+'"'}}}else w=a}}if(p){var O=l.replace(/\n\s*/," ");O===l||~O.indexOf(`
-`)?p&&~l.indexOf(`
-`)&&(l+=`
-`):l=O}if(l+=">",Z.test(f))throw new Error(f+" is not a valid HTML tag name in "+l);var E,ve=ce.test(f)||r.voidElements&&r.voidElements.test(f),S=[];if(x)p&&oe(x)&&(x=`
-`+u+ie(x,u)),l+=x;else if(w!=null&&I(E=[],w).length){for(var z=p&&~l.indexOf(`
-`),H=!1,Y=0;Y<E.length;Y++){var B=E[Y];if(B!=null&&B!==!1){var k=N(B,t,r,!0,f==="svg"||f!=="foreignObject"&&c,h);if(p&&!z&&oe(k)&&(z=!0),k)if(p){var ee=k.length>0&&k[0]!="<";H&&ee?S[S.length-1]+=k:S.push(k),H=ee}else S.push(k)}}if(p&&z)for(var G=S.length;G--;)S[G]=`
-`+u+ie(S[G],u)}if(S.length||x)l+=S.join("");else if(r&&r.xml)return l.substring(0,l.length-1)+" />";return!ve||E||x?(p&&~l.indexOf(`
-`)&&(l+=`
-`),l=l+"</"+f+">"):l=l.replace(/>$/," />"),l}var De={shallow:!0};U.render=U;var ke=function(e,t){return U(e,t,De)},le=[];function U(e,t,r){t=t||{};var o=_.__s;_.__s=!0;var c,h=de(W,null);return h.__k=[e],c=r&&(r.pretty||r.voidElements||r.sortAttributes||r.shallow||r.allAttributes||r.xml||r.attributeHook)?N(e,t,r):P(e,t,!1,void 0,h),_.__c&&_.__c(e,le),_.__s=o,le.length=0,c}function R(e){return e==null||typeof e=="boolean"?null:typeof e=="string"||typeof e=="number"||typeof e=="bigint"?de(null,null,e):e}function Fe(e,t){return e==="className"?"class":e==="htmlFor"?"for":e==="defaultValue"?"value":e==="defaultChecked"?"checked":e==="defaultSelected"?"selected":t&&pe.test(e)?e.toLowerCase().replace(/^xlink:?/,"xlink:"):e}function Te(e,t){return e==="style"&&t!=null&&typeof t=="object"?_e(t):e[0]==="a"&&e[1]==="r"&&typeof t=="boolean"?String(t):t}var fe=Array.isArray,ue=Object.assign;function P(e,t,r,o,c){if(e==null||e===!0||e===!1||e==="")return"";if(typeof e!="object")return typeof e=="function"?"":$(e);if(fe(e)){var h="";c.__k=e;for(var p=0;p<e.length;p++)h+=P(e[p],t,r,o,c),e[p]=R(e[p]);return h}if(e.constructor!==void 0)return"";e.__=c,_.__b&&_.__b(e);var u=e.type,b=e.props;if(typeof u=="function"){var y;if(u===W)y=b.children;else{y=u.prototype&&typeof u.prototype.render=="function"?function(g,A){var i=g.type,a=q(i,A),s=new i(g.props,a);g.__c=s,s.__v=g,s.__d=!0,s.props=g.props,s.state==null&&(s.state={}),s.__s==null&&(s.__s=s.state),s.context=a,i.getDerivedStateFromProps?s.state=ue({},s.state,i.getDerivedStateFromProps(s.props,s.state)):s.componentWillMount&&(s.componentWillMount(),s.state=s.__s!==s.state?s.__s:s.state);var O=_.__r;return O&&O(g),s.render(s.props,s.state,s.context)}(e,t):function(g,A){var i,a=he(g,A),s=q(g.type,A);g.__c=a;for(var O=_.__r,E=0;a.__d&&E++<25;)a.__d=!1,O&&O(g),i=g.type.call(a,g.props,s);return i}(e,t);var j=e.__c;j.getChildContext&&(t=ue({},t,j.getChildContext()))}var f=P(y=y!=null&&y.type===W&&y.key==null?y.props.children:y,t,r,o,e);return _.diffed&&_.diffed(e),e.__=void 0,_.unmount&&_.unmount(e),f}var d,F,m="<";if(m+=u,b)for(var v in d=b.children,b){var n=b[v];if(!(v==="key"||v==="ref"||v==="__self"||v==="__source"||v==="children"||v==="className"&&"class"in b||v==="htmlFor"&&"for"in b||Z.test(v))){if(n=Te(v=Fe(v,r),n),v==="dangerouslySetInnerHTML")F=n&&n.__html;else if(u==="textarea"&&v==="value")d=n;else if((n||n===0||n==="")&&typeof n!="function"){if(n===!0||n===""){n=v,m=m+" "+v;continue}if(v==="value"){if(u==="select"){o=n;continue}u!=="option"||o!=n||"selected"in b||(m+=" selected")}m=m+" "+v+'="'+$(n)+'"'}}}var T=m;if(m+=">",Z.test(u))throw new Error(u+" is not a valid HTML tag name in "+m);var C="",D=!1;if(F)C+=F,D=!0;else if(typeof d=="string")C+=$(d),D=!0;else if(fe(d)){e.__k=d;for(var L=0;L<d.length;L++){var w=d[L];if(d[L]=R(w),w!=null&&w!==!1){var x=P(w,t,u==="svg"||u!=="foreignObject"&&r,o,e);x&&(C+=x,D=!0)}}}else if(d!=null&&d!==!1&&d!==!0){e.__k=[R(d)];var l=P(d,t,u==="svg"||u!=="foreignObject"&&r,o,e);l&&(C+=l,D=!0)}if(_.diffed&&_.diffed(e),e.__=void 0,_.unmount&&_.unmount(e),D)m+=C;else if(ce.test(u))return T+" />";return m+"</"+u+">"}U.shallowRender=ke;class Le{constructor(t){te(this,"_provider");this._provider=t}render(t,r){return async o=>{var h;if(!t)throw new Error("Component is not defined");if(!o)throw new Error("Root element is not defined");const c=await((h=t.getInitialData)==null?void 0:h.call(t,r))??{};ne(M(re,{node:this._provider,...this._provider.props,children:M(t,{...r,initialData:c})}),o)}}unmount(t){if(!t)throw new Error("Root element is not defined");ne(null,t)}async toString(t,r,o){var h;if(!t)throw new Error("Component is not defined");const c=await((h=t.getInitialData)==null?void 0:h.call(t,r))??{};return U(M(re,{node:this._provider,...this._provider.props,children:M(t,{...r,initialData:c})}),{},{...o})}}const Ee={Header:{title:"{{name}}, thank you for your order!",defaultTitle:"Thank you for your order!",order:"ORDER #{{order}}"},InlineAlert:{dismissLabel:"Dismiss Alert"},OrderSearchForm:{title:"Enter your information to view order details",description:"You can find your order number in the receipt you received via email.",button:"View Order",email:"Email",postcode:"Zip Code",orderNumber:"Order Number"},OrderSummary:{title:"Order summary",total:"Total",totalExclTax:"Total excluding taxes",subtotal:"Subtotal",tax:"Tax",taxTotal:"Tax total",taxBreakdown:"Taxes",includingTaxes:"Including taxes",shipping:"Shipping",freeShipping:"Free shipping"},Message:{title:"Your order is confirmed",description:"We have successfully processed your order and will be soon prepared for shipping. <br /> You will also receive an email with details and we will let you know when your order has shipped."},Details:{title:"Order details",contact:"Contact details",shippingAddress:"Shipping address",billingAddress:"Billing address",shippingMethod:"Shipping method",freeShipping:"Free shipping",paymentMethod:"Payment method"},Footer:{continueShopping:"Continue shopping",help:"Need help?",contactSupport:"Contact us"},CartSummary:{title:"Your order",GiftCard:{sender:"Sender",recipient:"Recipient"}},Errors:{invalidOrder:"Invalid order. Please try again.",invalidSearch:"No order found with these order details.",unknown:"Something went wrong. Please try again."}},Me={OrderConfirmation:Ee},Ne={default:Me},Pe=({children:e})=>{var h;const[t,r]=ye(),o=(h=we.getConfig())==null?void 0:h.langDefinitions;be(()=>{const p=xe.on("locale",u=>{u!==t&&r(u)},{eager:!0});return()=>{p==null||p.off()}},[t]);const c=Oe(Ne,o??{});return M(Se,{lang:t,langDefinitions:c,children:e})},Ge=new Le(M(Pe,{}));export{Ge as render};
-//# sourceMappingURL=render.js.map
+(function injectCodeCustomRunTimeFunction(cssCode, options) {
+  try {
+    if (typeof document != "undefined") {
+      const elem = document.createElement("style");
+      const name = options.styleId;
+      for (const attribute in options.attributes) {
+        elem.setAttribute(attribute, options.attributes[attribute]);
+      }
+      elem.setAttribute("data-dropin", name);
+      elem.appendChild(document.createTextNode(cssCode));
+      document.head.appendChild(elem);
+    }
+  } catch (e) {
+    console.error("dropin-styles (injectCodeFunction)", e);
+  }
+})("/* https://cssguidelin.es/#bem-like-naming */\n\n.order-confirmation {\n  display: grid;\n  align-items: start;\n  grid-template-columns: repeat(var(--grid-4-columns), 1fr);\n  grid-template-areas: 'main aside';\n  grid-column-gap: var(--grid-4-gutters);\n  margin-bottom: var(--spacing-xbig);\n}\n\n.order-confirmation__main {\n  display: grid;\n  grid-row-gap: var(--spacing-xbig);\n  grid-area: main;\n  grid-column: 1 / span 7;\n}\n\n.order-confirmation__aside {\n  display: grid;\n  grid-row-gap: var(--spacing-xbig);\n  grid-area: aside;\n  grid-column: 9 / span 4;\n}\n\n.order-confirmation a {\n  font: var(--type-body-2-strong-font);\n  letter-spacing: var(--type-body-2-strong-letter-spacing);\n  margin-left: var(--spacing-xxsmall);\n}\n\n/* GRID */\n.order-confirmation-header,\n.order-confirmation-footer,\n.order-confirmation-message,\n.order-confirmation-order-search-form,\n.order-confirmation-order-form,\n.order-confirmation-status,\n.order-confirmation-details {\n  grid-column: 1 / span 7;\n}\n\n/*********** Media queries ***********/\n/* Extra small devices (phones, 600px and down) */\n@media only screen and (min-width: 320px) and (max-width: 768px) {\n  .order-confirmation {\n    grid-template-columns: repeat(var(--grid-1-columns), 1fr);\n    grid-column-gap: var(--grid-1-gutters);\n    grid-template-areas:\n      'header'\n      'details'\n      'orderSummary'\n      'cartSummary'\n      'footer';\n  }\n\n  .order-confirmation > div {\n    grid-column: 1 / span 4;\n  }\n\n  .order-confirmation-details {\n    margin-bottom: var(--spacing-xbig);\n  }\n\n  .order-confirmation-order-summary {\n    margin-bottom: var(--spacing-xbig);\n    grid-area: orderSummary;\n  }\n\n  .order-confirmation-cart-summary {\n    margin-bottom: var(--spacing-xbig);\n    grid-area: cartSummary;\n  }\n}\n\n/*@media screen and (min-width: 768px) and (max-width: 1366px) { }*/\n\n/* Medium (portrait tablets and large phones, 768px and up) */\n/* @media only screen and (min-width: 768px) { } */\n\n/* Large (landscape tablets, 1024px and up) */\n/* @media only screen and (min-width: 1024px) { } */\n\n/* XLarge (laptops/desktops, 1366px and up) */\n/* @media only screen and (min-width: 1366px) { } */\n\n/* XXlarge (large laptops and desktops, 1920px and up) */\n/* @media only screen and (min-width: 1920px) { } */\n/* https://cssguidelin.es/#bem-like-naming */\n\n.order-confirmation-header {\n    text-align: center;\n    padding: var(--spacing-xxbig);\n}\n\n.order-confirmation-header__icon {\n    margin-bottom: var(--spacing-small);\n}\n\n.order-confirmation-header h1 {\n    color: var(--color-neutral-800);\n    font: var(--type-headline-1-font);\n    letter-spacing: var(--type-headline-1-letter-spacing);\n    margin: 0;\n}\n\n.order-confirmation-header h1:first-letter {\n    text-transform: uppercase;\n}\n\n.order-confirmation-header p {\n    color: var(--color-neutral-700);\n    font: var(--type-details-overline-font);\n    letter-spacing: var(--type-details-overline-letter-spacing);\n    margin: var(--spacing-xxsmall) 0 0 0;\n}\n\n.order-confirmation-header .OrderSuccess_svg__success-icon {\n    color: var(--color-positive-500);\n}\n\n/* Medium (portrait tablets and large phones, 768px and up) */\n/* @media only screen and (min-width: 768px) { } */\n\n/* Large (landscape tablets, 1024px and up) */\n/* @media only screen and (min-width: 1024px) { } */\n\n/* XLarge (laptops/desktops, 1366px and up) */\n/* @media only screen and (min-width: 1366px) { } */\n\n/* XXlarge (large laptops and desktops, 1920px and up) */\n/* @media only screen and (min-width: 1920px) { } */\n/* https://cssguidelin.es/#bem-like-naming */\n\n.order-confirmation-order-search-form .dropin-card__content {\n    gap: var(--spacing-small);\n}\n.order-confirmation-order-search-form p {\n    color: var(--color-neutral-700);\n    font: var(--type-body-2-default-font);\n    letter-spacing: var(--type-body-2-default-letter-spacing);\n    margin: 0;\n}\n\n.order-confirmation-order-search-form__title {\n    color: var(--color-neutral-800);\n    font: var(--type-headline-2-strong-font);\n    letter-spacing: var(--type-headline-2-strong-letter-spacing);\n    margin: 0;\n}\n\n.order-confirmation-order-search-form form {\n    display: grid;\n    grid-template-rows: 1fr;\n}\n\n.order-confirmation-order-search-form__fields-columns {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: var(--spacing-medium);\n    margin-bottom: var(--spacing-medium);\n}\n\n.order-confirmation-order-search-form form button {\n    align-self: flex-end;\n    justify-self: flex-end;\n    margin-top: var(--spacing-small);\n}\n\n/* Medium (portrait tablets and large phones, 768px and up) */\n/* @media only screen and (min-width: 768px) { } */\n\n/* Large (landscape tablets, 1024px and up) */\n/* @media only screen and (min-width: 1024px) { } */\n\n/* XLarge (laptops/desktops, 1366px and up) */\n/* @media only screen and (min-width: 1366px) { } */\n\n/* XXlarge (large laptops and desktops, 1920px and up) */\n/* @media only screen and (min-width: 1920px) { } */\n/* https://cssguidelin.es/#bem-like-naming */\n\n.dropin-in-line-alert {\n    border-width: var(--shape-border-width-2);\n    border-style: solid;\n    border-radius: var(--shape-border-radius-1);\n    display: grid;\n    grid-auto-flow: row;\n    gap: var(--spacing-small);\n    padding: var(--spacing-small);\n    position: relative;\n}\n\n.dropin-in-line-alert__heading {\n    display: grid;\n    gap: var(--spacing-small);\n    grid-template-columns: auto auto;\n    align-items: center;\n}\n\n.dropin-in-line-alert__title-container {\n    display: flex;\n    align-items: center;\n    gap: var(--spacing-xsmall);\n}\n\n.dropin-in-line-alert__title {\n    color: var(--color-neutral-800);\n    font: var(--type-body-2-emphasized-font);\n    letter-spacing: var(--type-body-2-emphasized-letter-spacing);\n    margin: 0;\n}\n\n.dropin-in-line-alert__actions-container {\n    display: flex;\n    justify-content: end;\n}\n\n.dropin-in-line-alert__additional-action {\n    padding: 0px!important;\n}\n\n.dropin-in-line-alert__additional-action span{\n    font: var(--type-details-caption-1-font);\n    letter-spacing: var(--type-details-caption-1-letter-spacing);\n    text-decoration: underline;\n    color: var(--color-neutral-700);\n}\n\n.dropin-in-line-alert__dismiss-button {\n    padding: 0;\n}\n\n.dropin-in-line-alert__description {\n    color: var(--color-neutral-800);\n    font: var(--type-body-2-default-font);\n    letter-spacing: var(--type-body-2-default-letter-spacing);\n    margin: 0;\n}\n\n.dropin-in-line-alert__additional-actions-container {\n    display: flex;\n    gap: var(--spacing-small);\n    justify-content: flex-end;\n}\n\n/* Variants */\n\n/* Error */\n.dropin-in-line-alert--error {\n    border-color: var(--color-alert-500);\n}\n\n/* Warning */\n.dropin-in-line-alert--warning {\n    border-color: var(--color-warning-500);\n}\n\n/* Success */\n.dropin-in-line-alert--success {\n    border-color: var(--color-positive-500);\n}\n\n/* Medium (portrait tablets and large phones, 768px and up) */\n/* @media only screen and (min-width: 768px) { } */\n\n/* Large (landscape tablets, 1024px and up) */\n/* @media only screen and (min-width: 1024px) { } */\n\n/* XLarge (laptops/desktops, 1366px and up) */\n/* @media only screen and (min-width: 1366px) { } */\n\n/* XXlarge (large laptops and desktops, 1920px and up) */\n/* @media only screen and (min-width: 1920px) { } */\n/* https://cssguidelin.es/#bem-like-naming */\n\n/* .order-confirmation-message { } */\n.order-confirmation-message p {\n    color: var(--color-neutral-700);\n    font: var(--type-body-2-default-font);\n    letter-spacing: var(--type-body-2-default-letter-spacing);\n    margin: 0;\n}\n\n.order-confirmation-message__title {\n    color: var(--color-neutral-800);\n    font: var(--type-headline-2-strong-font);\n    letter-spacing: var(--type-headline-2-strong-letter-spacing);\n    margin: 0;\n}\n\n/* Medium (portrait tablets and large phones, 768px and up) */\n/* @media only screen and (min-width: 768px) { } */\n\n/* Large (landscape tablets, 1024px and up) */\n/* @media only screen and (min-width: 1024px) { } */\n\n/* XLarge (laptops/desktops, 1366px and up) */\n/* @media only screen and (min-width: 1366px) { } */\n\n/* XXlarge (large laptops and desktops, 1920px and up) */\n/* @media only screen and (min-width: 1920px) { } */\n/* https://cssguidelin.es/#bem-like-naming */\n\n/* .order-confirmation-details { } */\n\n.order-confirmation-details__header {\n    display: grid;\n    grid-auto-rows: max-content;\n}\n\n.order-confirmation-details__title {\n    color: var(--color-neutral-800);\n    font: var(--type-headline-2-strong-font);\n    letter-spacing: var(--type-headline-2-strong-letter-spacing);\n    margin: 0;\n}\n\n.order-confirmation-details h3 {\n    font: var(--type-body-1-strong-font);\n    letter-spacing: var(--type-body-1-strong-letter-spacing);\n    margin: 0 0 var(--spacing-xsmall) 0;\n}\n\n.order-confirmation-details p {\n    margin: var(--spacing-xsmall) 0 0 0;\n    color: var(--color-neutral-700);\n    font: var(--type-body-2-default-font);\n    letter-spacing: var(--type-body-2-default-letter-spacing);\n}\n\na.order-confirmation__login-link {\n    font: var(--type-body-2-strong-font);\n    margin-left: var(--spacing-xxsmall);\n}\n\n.order-confirmation-details__shipping-method span {\n    font: var(--type-body-2-strong-font);\n    letter-spacing: var(--type-body-2-strong-letter-spacing);\n}\n\n.order-confirmation-details__information {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: var(--spacing-medium);\n}\n\n.order-confirmation-details__information>div:empty {\n    visibility: hidden;\n    display: none;\n}\n\n.order-confirmation-details .static-skeleton {\n    gap: var(--spacing-xsmall);\n}\n\n/* Extra small devices (phones, 600px and down) */\n@media only screen and (min-width:320px) and (max-width: 768px) {\n    .order-confirmation-details__information {\n        grid-template-columns: 1fr;\n    }\n}\n/* Medium (portrait tablets and large phones, 768px and up) */\n/* @media only screen and (min-width: 768px) { } */\n\n/* Large (landscape tablets, 1024px and up) */\n/* @media only screen and (min-width: 1024px) { } */\n\n/* XLarge (laptops/desktops, 1366px and up) */\n/* @media only screen and (min-width: 1366px) { } */\n\n/* XXlarge (large laptops and desktops, 1920px and up) */\n/* @media only screen and (min-width: 1920px) { } */\n/* https://cssguidelin.es/#bem-like-naming */\n\n.order-confirmation-footer {\n    gap: var(--spacing-small);\n    text-align: center;\n}\n\n.order-confirmation-footer .order-confirmation-footer__continue-button {\n    margin: 0 auto;\n    text-align: center;\n    display: inline-block;\n}\n\n.order-confirmation-footer__contact-support {\n    font: var(--type-body-2-default-font);\n    letter-spacing: var(--type-body-2-default-letter-spacing);\n    color: var(--color-neutral-700);\n}\n\n.order-confirmation-footer__contact-support a {\n    font: var(--type-body-2-strong-font);\n    letter-spacing: var(--type-body-2-strong-letter-spacing);\n    color: var(--color-brand-500);\n    cursor: pointer;\n}\n\n/* Medium (portrait tablets and large phones, 768px and up) */\n/* @media only screen and (min-width: 768px) { } */\n\n/* Large (landscape tablets, 1024px and up) */\n/* @media only screen and (min-width: 1024px) { } */\n\n/* XLarge (laptops/desktops, 1366px and up) */\n/* @media only screen and (min-width: 1366px) { } */\n\n/* XXlarge (large laptops and desktops, 1920px and up) */\n/* @media only screen and (min-width: 1920px) { } */\n/* https://cssguidelin.es/#bem-like-naming */\n\n.static-skeleton .dropin-skeleton--row__content {\n    animation: 0;\n    background: var(--color-neutral-300);\n    border-radius: var(--shape-border-radius-1);\n}\n.order-confirmation-order-summary .dropin-card__content {\n  gap: var(--spacing-xsmall);\n}\n\n.order-confirmation-order-summary__title {\n  color: var(--color-neutral-800);\n  font: var(--type-headline-2-default-font);\n  letter-spacing: var(--type-headline-2-default-letter-spacing);\n  margin: 0;\n}\n\n.order-confirmation-order-summary .dropin-divider--primary {\n  margin: 0 0 var(--spacing-medium) 0 !important;\n}\n\n.order-confirmation-order-summary .dropin-divider--secondary {\n  margin: var(--spacing-xsmall) 0 var(--spacing-xsmall) 0 !important;\n}\n\n.order-confirmation-order-summary__breakdown {\n  margin: var(--spacing-big) 0 var(--spacing-medium) 0;\n}\n\n.order-confirmation-order-summary__breakdown .dropin-divider:last-child {\n  margin-bottom: 0;\n}\n\n.order-confirmation-order-summary__row {\n  display: flex;\n  justify-content: space-between;\n  color: var(--color-neutral-800);\n  font: var(--type-body-1-default-font);\n  letter-spacing: var(--type-body-1-default-letter-spacing);\n}\n\n.order-confirmation-order-summary__row--margin-top {\n  margin-top: var(--spacing-xsmall);\n}\n\n.order-confirmation-order-summary__row--margin-bottom {\n  margin-bottom: var(--spacing-xsmall);\n}\n\n.order-confirmation-order-summary__row .order-confirmation-order-summary__price {\n  color: var(--color-neutral-800);\n  font: var(--type-body-1-default-font);\n  letter-spacing: var(--type-body-1-default-letter-spacing);\n}\n\n.order-confirmation-order-summary__row p {\n  margin: 0;\n}\n\n.order-confirmation-order-summary__row--strong {\n  font: var(--type-body-1-strong-font);\n  letter-spacing: var(--type-body-1-strong-letter-spacing);\n}\n\n.order-confirmation-order-summary__row--strong .order-confirmation-order-summary__price {\n  color: var(--color-neutral-800);\n  font: var(--type-body-1-strong-font);\n  letter-spacing: var(--type-body-1-strong-letter-spacing);\n}\n\n.order-confirmation-order-summary__row--emphasized {\n  font: var(--type-body-1-emphasized-font);\n  letter-spacing: var(--type-body-1-emphasized-letter-spacing);\n  margin-top: var(--spacing-small);\n}\n\n.order-confirmation-order-summary__row--emphasized .order-confirmation-order-summary__price {\n  color: var(--color-neutral-800);\n  font: var(--type-body-1-emphasized-font);\n  letter-spacing: var(--type-body-1-emphasized-letter-spacing);\n}\n\n.order-confirmation-order-summary__row--muted {\n  color: var(--color-neutral-700);\n  font: var(--type-body-2-default-font);\n  letter-spacing: var(--type-body-2-default-letter-spacing);\n  margin-top: calc(-1 * var(--spacing-xxsmall));\n}\n\n.order-confirmation-order-summary__row--muted .order-confirmation-order-summary__price {\n  color: var(--color-neutral-700);\n  font: var(--type-body-2-default-font);\n  letter-spacing: var(--type-body-2-default-letter-spacing);\n}\n\n/*.order-summary__skeleton {\n  margin-top: var(--spacing-medium);\n}*/\n\n.order-confirmation-order-summary .dropin-skeleton:last-child {\n  margin-top: var(--spacing-big);\n}\n\n@media only screen and (min-width: 320px) and (max-width: 768px) {\n  .order-confirmation-order-summary {\n    border-top: var(--shape-border-width-2) solid var(--color-neutral-400);\n    border-bottom: var(--shape-border-width-2) solid var(--color-neutral-400);\n    border-radius: 0;\n  }\n\n  .order-confirmation-skeleton .order-confirmation-order-summary {\n    border: 0 none;\n  }\n}\n/* https://cssguidelin.es/#bem-like-naming */\n\n/* .order-confirmation-cart-summary { } */\n\n.order-confirmation-summary .dropin-card__content {\n    gap: var(--spacing-xsmall);\n  }\n  \n  .order-confirmation-cart-summary__heading {\n    display: grid;\n    grid-template-columns: 1fr max-content;\n    grid-auto-rows: max-content;\n  }\n  \n  .order-confirmation-cart-summary__title {\n    color: var(--color-neutral-800);\n    font: var(--type-headline-2-default-font);\n    letter-spacing: var(--type-headline-2-default-letter-spacing);\n    margin: 0;\n  }\n  \n  .order-confirmation-cart-summary__edit {\n    font: var(--type-body-2-strong-font);\n    letter-spacing: var(--type-body-2-strong-letter-spacing);\n    align-self: flex-end;\n    justify-self: flex-end;\n    margin: 0;\n    cursor: pointer;\n  }\n  \n  .order-confirmation-cart-summary__edit a {\n    font: var(--type-body-2-strong-font);\n    letter-spacing: var(--type-body-2-strong-letter-spacing);\n  }\n  \n  .order-confirmation-cart-summary .order-confirmation-cart-summary__divider-top {\n    margin: 0 0 var(--spacing-medium) 0;\n  }\n  \n  .order-confirmation-cart-summary .order-confirmation-cart-summary__divider-bottom {\n    margin: var(--spacing-medium) 0 var(--spacing-small) 0;\n  }\n  \n  .order-confirmation-cart-summary__items {\n    display: grid;\n    gap: var(--spacing-medium);\n  }\n  \n  .order-confirmation-cart-summary__action {\n    font: var(--type-body-2-strong-font);\n    letter-spacing: var(--type-body-2-strong-letter-spacing);\n    color: var(--color-brand-500);\n    background: none;\n    margin: 0 auto;\n    border: 0;\n    text-align: center;\n    white-space: nowrap;\n    text-decoration: none;\n    cursor: pointer;\n    width: auto;\n  }\n  \n  .order-confirmation-cart-summary__action:hover {\n    text-decoration: underline;\n    text-underline-offset: var(--spacing-xxsmall);\n    background-color: transparent;\n    color: var(--color-brand-700);\n  }\n  \n  .dropin-accordion {\n      background-color: var(--color-neutral-200);\n  }\n  \n  .dropin-accordion .dropin-divider:first-child {\n      margin-top: 0;\n  }\n  \n  .dropin-accordion .dropin-divider:last-child {\n      margin-bottom: 0;\n  }\n  \n  .dropin-accordion-section {\n      padding: 0 var(--spacing-medium);\n  }\n  \n  /* Medium (portrait tablets and large phones, 768px and up) */\n  @media only screen and (min-width: 320px) and (max-width: 768px) {\n    .order-confirmation-cart-summary .dropin-accordion-section__content-container {\n      gap: 0;\n    }\n  \n    .order-confirmation-cart-summary-item {\n      margin-bottom: var(--spacing-medium);\n    }\n  \n    .dropin-accordion-section__content-container .order-confirmation-cart-summary-item:last-of-type {\n      margin-bottom: 0;\n    }\n  }\n  \n  /* Large (landscape tablets, 1024px and up) */\n  /* @media only screen and (min-width: 1024px) { } */\n  \n  /* XLarge (laptops/desktops, 1366px and up) */\n  /* @media only screen and (min-width: 1366px) { } */\n  \n  /* XXlarge (large laptops and desktops, 1920px and up) */\n  /* @media only screen and (min-width: 1920px) { } */\n  \n\n/* .order-confirmation-cart-summary { } */\n\n/* Medium (portrait tablets and large phones, 768px and up) */\n/* @media only screen and (min-width: 768px) { } */\n\n/* Large (landscape tablets, 1024px and up) */\n/* @media only screen and (min-width: 1024px) { } */\n\n/* XLarge (laptops/desktops, 1366px and up) */\n/* @media only screen and (min-width: 1366px) { } */\n\n/* XXlarge (large laptops and desktops, 1920px and up) */\n/* @media only screen and (min-width: 1920px) { } */\n/* https://cssguidelin.es/#bem-like-naming */\n\n/*.order-confirmation-cart-summary-item {}*/\n\n.order-confirmation-cart-summary-item .dropin-cart-item__title {\n    font: var(--type-body-1-default-font);\n    letter-spacing: var(--type-body-1-default-letter-spacing);\n  }\n  \n  .order-confirmation-cart-summary-item .dropin-cart-item__price {\n    margin: var(--spacing-xxsmall) 0;\n  }\n  \n  /* @TODO update color token from SDK once USF-916 released */\n  .order-confirmation-cart-summary-item .dropin-price--sale {\n    color: #BF4545;\n  }\n  \n  /* @TODO remove style once USF-1017 is released */\n  .dropin-cart-item__total {\n    align-items: flex-end;\n  }\n  \n  /* Medium (portrait tablets and large phones, 768px and up) */\n  /* @media only screen and (min-width: 768px) { } */\n  \n  /* Large (landscape tablets, 1024px and up) */\n  /* @media only screen and (min-width: 1024px) { } */\n  \n  /* XLarge (laptops/desktops, 1366px and up) */\n  /* @media only screen and (min-width: 1366px) { } */\n  \n  /* XXlarge (large laptops and desktops, 1920px and up) */\n  /* @media only screen and (min-width: 1920px) { } */", { "styleId": "order-confirmation" });
+var __defProp = Object.defineProperty;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => {
+  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+  return value;
+};
+import { useState, useEffect } from "@dropins/tools/preact-hooks.js";
+import { UIProvider } from "@dropins/tools/components/index.js";
+import { events } from "@dropins/tools/event-bus.js";
+import { c as config } from "./chunks/initialize__CIj5GMSqbf.js";
+import { jsx, Fragment as Fragment$1 } from "@dropins/tools/preact-jsx-runtime.js";
+import { options, h as h$1, Fragment, render as render$1 } from "@dropins/tools/preact.js";
+import { c as classes } from "./chunks/classes__Bsz9GBN04n.js";
+function getDefaultExportFromCjs(x2) {
+  return x2 && x2.__esModule && Object.prototype.hasOwnProperty.call(x2, "default") ? x2["default"] : x2;
+}
+var isMergeableObject = function isMergeableObject2(value) {
+  return isNonNullObject(value) && !isSpecial(value);
+};
+function isNonNullObject(value) {
+  return !!value && typeof value === "object";
+}
+function isSpecial(value) {
+  var stringValue = Object.prototype.toString.call(value);
+  return stringValue === "[object RegExp]" || stringValue === "[object Date]" || isReactElement(value);
+}
+var canUseSymbol = typeof Symbol === "function" && Symbol.for;
+var REACT_ELEMENT_TYPE = canUseSymbol ? Symbol.for("react.element") : 60103;
+function isReactElement(value) {
+  return value.$$typeof === REACT_ELEMENT_TYPE;
+}
+function emptyTarget(val) {
+  return Array.isArray(val) ? [] : {};
+}
+function cloneUnlessOtherwiseSpecified(value, options2) {
+  return options2.clone !== false && options2.isMergeableObject(value) ? deepmerge(emptyTarget(value), value, options2) : value;
+}
+function defaultArrayMerge(target, source, options2) {
+  return target.concat(source).map(function(element) {
+    return cloneUnlessOtherwiseSpecified(element, options2);
+  });
+}
+function getMergeFunction(key, options2) {
+  if (!options2.customMerge) {
+    return deepmerge;
+  }
+  var customMerge = options2.customMerge(key);
+  return typeof customMerge === "function" ? customMerge : deepmerge;
+}
+function getEnumerableOwnPropertySymbols(target) {
+  return Object.getOwnPropertySymbols ? Object.getOwnPropertySymbols(target).filter(function(symbol) {
+    return Object.propertyIsEnumerable.call(target, symbol);
+  }) : [];
+}
+function getKeys(target) {
+  return Object.keys(target).concat(getEnumerableOwnPropertySymbols(target));
+}
+function propertyIsOnObject(object, property) {
+  try {
+    return property in object;
+  } catch (_2) {
+    return false;
+  }
+}
+function propertyIsUnsafe(target, key) {
+  return propertyIsOnObject(target, key) && !(Object.hasOwnProperty.call(target, key) && Object.propertyIsEnumerable.call(target, key));
+}
+function mergeObject(target, source, options2) {
+  var destination = {};
+  if (options2.isMergeableObject(target)) {
+    getKeys(target).forEach(function(key) {
+      destination[key] = cloneUnlessOtherwiseSpecified(target[key], options2);
+    });
+  }
+  getKeys(source).forEach(function(key) {
+    if (propertyIsUnsafe(target, key)) {
+      return;
+    }
+    if (propertyIsOnObject(target, key) && options2.isMergeableObject(source[key])) {
+      destination[key] = getMergeFunction(key, options2)(target[key], source[key], options2);
+    } else {
+      destination[key] = cloneUnlessOtherwiseSpecified(source[key], options2);
+    }
+  });
+  return destination;
+}
+function deepmerge(target, source, options2) {
+  options2 = options2 || {};
+  options2.arrayMerge = options2.arrayMerge || defaultArrayMerge;
+  options2.isMergeableObject = options2.isMergeableObject || isMergeableObject;
+  options2.cloneUnlessOtherwiseSpecified = cloneUnlessOtherwiseSpecified;
+  var sourceIsArray = Array.isArray(source);
+  var targetIsArray = Array.isArray(target);
+  var sourceAndTargetTypesMatch = sourceIsArray === targetIsArray;
+  if (!sourceAndTargetTypesMatch) {
+    return cloneUnlessOtherwiseSpecified(source, options2);
+  } else if (sourceIsArray) {
+    return options2.arrayMerge(target, source, options2);
+  } else {
+    return mergeObject(target, source, options2);
+  }
+}
+deepmerge.all = function deepmergeAll(array, options2) {
+  if (!Array.isArray(array)) {
+    throw new Error("first argument should be an array");
+  }
+  return array.reduce(function(prev, next) {
+    return deepmerge(prev, next, options2);
+  }, {});
+};
+var deepmerge_1 = deepmerge;
+var cjs = deepmerge_1;
+const deepmerge$1 = /* @__PURE__ */ getDefaultExportFromCjs(cjs);
+var n = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|^--/i, o = /^(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)$/, i = /[\s\n\\/='"\0<>]/, l = /^xlink:?./, a = /["&<]/;
+function s(e) {
+  if (false === a.test(e += ""))
+    return e;
+  for (var t = 0, r = 0, n2 = "", o2 = ""; r < e.length; r++) {
+    switch (e.charCodeAt(r)) {
+      case 34:
+        o2 = "&quot;";
+        break;
+      case 38:
+        o2 = "&amp;";
+        break;
+      case 60:
+        o2 = "&lt;";
+        break;
+      default:
+        continue;
+    }
+    r !== t && (n2 += e.slice(t, r)), n2 += o2, t = r + 1;
+  }
+  return r !== t && (n2 += e.slice(t, r)), n2;
+}
+var f = function(e, t) {
+  return String(e).replace(/(\n+)/g, "$1" + (t || "	"));
+}, u = function(e, t, r) {
+  return String(e).length > 40 || -1 !== String(e).indexOf("\n") || -1 !== String(e).indexOf("<");
+}, c = {}, _ = /([A-Z])/g;
+function p(e) {
+  var t = "";
+  for (var r in e) {
+    var o2 = e[r];
+    null != o2 && "" !== o2 && (t && (t += " "), t += "-" == r[0] ? r : c[r] || (c[r] = r.replace(_, "-$1").toLowerCase()), t = "number" == typeof o2 && false === n.test(r) ? t + ": " + o2 + "px;" : t + ": " + o2 + ";");
+  }
+  return t || void 0;
+}
+function d(e, t) {
+  return Array.isArray(t) ? t.reduce(d, e) : null != t && false !== t && e.push(t), e;
+}
+function v() {
+  this.__d = true;
+}
+function h(e, t) {
+  return { __v: e, context: t, props: e.props, setState: v, forceUpdate: v, __d: true, __h: [] };
+}
+function g(e, t) {
+  var r = e.contextType, n2 = r && t[r.__c];
+  return null != r ? n2 ? n2.props.value : r.__ : t;
+}
+var y = [];
+function m(r, n2, a2, c2, _2, v2) {
+  if (null == r || "boolean" == typeof r)
+    return "";
+  if ("object" != typeof r)
+    return "function" == typeof r ? "" : s(r);
+  var b2 = a2.pretty, x2 = b2 && "string" == typeof b2 ? b2 : "	";
+  if (Array.isArray(r)) {
+    for (var k2 = "", S2 = 0; S2 < r.length; S2++)
+      b2 && S2 > 0 && (k2 += "\n"), k2 += m(r[S2], n2, a2, c2, _2, v2);
+    return k2;
+  }
+  if (void 0 !== r.constructor)
+    return "";
+  var w2, C2 = r.type, O2 = r.props, j2 = false;
+  if ("function" == typeof C2) {
+    if (j2 = true, !a2.shallow || !c2 && false !== a2.renderRootComponent) {
+      if (C2 === Fragment) {
+        var A2 = [];
+        return d(A2, r.props.children), m(A2, n2, a2, false !== a2.shallowHighOrder, _2, v2);
+      }
+      var F2, H = r.__c = h(r, n2);
+      options.__b && options.__b(r);
+      var M = options.__r;
+      if (C2.prototype && "function" == typeof C2.prototype.render) {
+        var L = g(C2, n2);
+        (H = r.__c = new C2(O2, L)).__v = r, H._dirty = H.__d = true, H.props = O2, null == H.state && (H.state = {}), null == H._nextState && null == H.__s && (H._nextState = H.__s = H.state), H.context = L, C2.getDerivedStateFromProps ? H.state = Object.assign({}, H.state, C2.getDerivedStateFromProps(H.props, H.state)) : H.componentWillMount && (H.componentWillMount(), H.state = H._nextState !== H.state ? H._nextState : H.__s !== H.state ? H.__s : H.state), M && M(r), F2 = H.render(H.props, H.state, H.context);
+      } else
+        for (var T = g(C2, n2), E = 0; H.__d && E++ < 25; )
+          H.__d = false, M && M(r), F2 = C2.call(r.__c, O2, T);
+      return H.getChildContext && (n2 = Object.assign({}, n2, H.getChildContext())), options.diffed && options.diffed(r), m(F2, n2, a2, false !== a2.shallowHighOrder, _2, v2);
+    }
+    C2 = (w2 = C2).displayName || w2 !== Function && w2.name || function(e) {
+      var t = (Function.prototype.toString.call(e).match(/^\s*function\s+([^( ]+)/) || "")[1];
+      if (!t) {
+        for (var r2 = -1, n3 = y.length; n3--; )
+          if (y[n3] === e) {
+            r2 = n3;
+            break;
+          }
+        r2 < 0 && (r2 = y.push(e) - 1), t = "UnnamedComponent" + r2;
+      }
+      return t;
+    }(w2);
+  }
+  var $, D, N = "<" + C2;
+  if (O2) {
+    var P = Object.keys(O2);
+    a2 && true === a2.sortAttributes && P.sort();
+    for (var W = 0; W < P.length; W++) {
+      var I = P[W], R = O2[I];
+      if ("children" !== I) {
+        if (!i.test(I) && (a2 && a2.allAttributes || "key" !== I && "ref" !== I && "__self" !== I && "__source" !== I)) {
+          if ("defaultValue" === I)
+            I = "value";
+          else if ("defaultChecked" === I)
+            I = "checked";
+          else if ("defaultSelected" === I)
+            I = "selected";
+          else if ("className" === I) {
+            if (void 0 !== O2.class)
+              continue;
+            I = "class";
+          } else
+            _2 && l.test(I) && (I = I.toLowerCase().replace(/^xlink:?/, "xlink:"));
+          if ("htmlFor" === I) {
+            if (O2.for)
+              continue;
+            I = "for";
+          }
+          "style" === I && R && "object" == typeof R && (R = p(R)), "a" === I[0] && "r" === I[1] && "boolean" == typeof R && (R = String(R));
+          var U = a2.attributeHook && a2.attributeHook(I, R, n2, a2, j2);
+          if (U || "" === U)
+            N += U;
+          else if ("dangerouslySetInnerHTML" === I)
+            D = R && R.__html;
+          else if ("textarea" === C2 && "value" === I)
+            $ = R;
+          else if ((R || 0 === R || "" === R) && "function" != typeof R) {
+            if (!(true !== R && "" !== R || (R = I, a2 && a2.xml))) {
+              N = N + " " + I;
+              continue;
+            }
+            if ("value" === I) {
+              if ("select" === C2) {
+                v2 = R;
+                continue;
+              }
+              "option" === C2 && v2 == R && void 0 === O2.selected && (N += " selected");
+            }
+            N = N + " " + I + '="' + s(R) + '"';
+          }
+        }
+      } else
+        $ = R;
+    }
+  }
+  if (b2) {
+    var V = N.replace(/\n\s*/, " ");
+    V === N || ~V.indexOf("\n") ? b2 && ~N.indexOf("\n") && (N += "\n") : N = V;
+  }
+  if (N += ">", i.test(C2))
+    throw new Error(C2 + " is not a valid HTML tag name in " + N);
+  var q, z = o.test(C2) || a2.voidElements && a2.voidElements.test(C2), Z = [];
+  if (D)
+    b2 && u(D) && (D = "\n" + x2 + f(D, x2)), N += D;
+  else if (null != $ && d(q = [], $).length) {
+    for (var B = b2 && ~N.indexOf("\n"), G = false, J = 0; J < q.length; J++) {
+      var K = q[J];
+      if (null != K && false !== K) {
+        var Q = m(K, n2, a2, true, "svg" === C2 || "foreignObject" !== C2 && _2, v2);
+        if (b2 && !B && u(Q) && (B = true), Q)
+          if (b2) {
+            var X = Q.length > 0 && "<" != Q[0];
+            G && X ? Z[Z.length - 1] += Q : Z.push(Q), G = X;
+          } else
+            Z.push(Q);
+      }
+    }
+    if (b2 && B)
+      for (var Y = Z.length; Y--; )
+        Z[Y] = "\n" + x2 + f(Z[Y], x2);
+  }
+  if (Z.length || D)
+    N += Z.join("");
+  else if (a2 && a2.xml)
+    return N.substring(0, N.length - 1) + " />";
+  return !z || q || D ? (b2 && ~N.indexOf("\n") && (N += "\n"), N = N + "</" + C2 + ">") : N = N.replace(/>$/, " />"), N;
+}
+var b = { shallow: true };
+S.render = S;
+var x = function(e, t) {
+  return S(e, t, b);
+}, k = [];
+function S(n2, o2, i2) {
+  o2 = o2 || {};
+  var l2 = options.__s;
+  options.__s = true;
+  var a2, s2 = h$1(Fragment, null);
+  return s2.__k = [n2], a2 = i2 && (i2.pretty || i2.voidElements || i2.sortAttributes || i2.shallow || i2.allAttributes || i2.xml || i2.attributeHook) ? m(n2, o2, i2) : F(n2, o2, false, void 0, s2), options.__c && options.__c(n2, k), options.__s = l2, k.length = 0, a2;
+}
+function w(e) {
+  return null == e || "boolean" == typeof e ? null : "string" == typeof e || "number" == typeof e || "bigint" == typeof e ? h$1(null, null, e) : e;
+}
+function C(e, t) {
+  return "className" === e ? "class" : "htmlFor" === e ? "for" : "defaultValue" === e ? "value" : "defaultChecked" === e ? "checked" : "defaultSelected" === e ? "selected" : t && l.test(e) ? e.toLowerCase().replace(/^xlink:?/, "xlink:") : e;
+}
+function O(e, t) {
+  return "style" === e && null != t && "object" == typeof t ? p(t) : "a" === e[0] && "r" === e[1] && "boolean" == typeof t ? String(t) : t;
+}
+var j = Array.isArray, A = Object.assign;
+function F(r, n2, l2, a2, f2) {
+  if (null == r || true === r || false === r || "" === r)
+    return "";
+  if ("object" != typeof r)
+    return "function" == typeof r ? "" : s(r);
+  if (j(r)) {
+    var u2 = "";
+    f2.__k = r;
+    for (var c2 = 0; c2 < r.length; c2++)
+      u2 += F(r[c2], n2, l2, a2, f2), r[c2] = w(r[c2]);
+    return u2;
+  }
+  if (void 0 !== r.constructor)
+    return "";
+  r.__ = f2, options.__b && options.__b(r);
+  var _2 = r.type, p2 = r.props;
+  if ("function" == typeof _2) {
+    var d2;
+    if (_2 === Fragment)
+      d2 = p2.children;
+    else {
+      d2 = _2.prototype && "function" == typeof _2.prototype.render ? function(e, r2) {
+        var n3 = e.type, o2 = g(n3, r2), i2 = new n3(e.props, o2);
+        e.__c = i2, i2.__v = e, i2.__d = true, i2.props = e.props, null == i2.state && (i2.state = {}), null == i2.__s && (i2.__s = i2.state), i2.context = o2, n3.getDerivedStateFromProps ? i2.state = A({}, i2.state, n3.getDerivedStateFromProps(i2.props, i2.state)) : i2.componentWillMount && (i2.componentWillMount(), i2.state = i2.__s !== i2.state ? i2.__s : i2.state);
+        var l3 = options.__r;
+        return l3 && l3(e), i2.render(i2.props, i2.state, i2.context);
+      }(r, n2) : function(e, r2) {
+        var n3, o2 = h(e, r2), i2 = g(e.type, r2);
+        e.__c = o2;
+        for (var l3 = options.__r, a3 = 0; o2.__d && a3++ < 25; )
+          o2.__d = false, l3 && l3(e), n3 = e.type.call(o2, e.props, i2);
+        return n3;
+      }(r, n2);
+      var v2 = r.__c;
+      v2.getChildContext && (n2 = A({}, n2, v2.getChildContext()));
+    }
+    var y2 = F(d2 = null != d2 && d2.type === Fragment && null == d2.key ? d2.props.children : d2, n2, l2, a2, r);
+    return options.diffed && options.diffed(r), r.__ = void 0, options.unmount && options.unmount(r), y2;
+  }
+  var m2, b2, x2 = "<";
+  if (x2 += _2, p2)
+    for (var k2 in m2 = p2.children, p2) {
+      var S2 = p2[k2];
+      if (!("key" === k2 || "ref" === k2 || "__self" === k2 || "__source" === k2 || "children" === k2 || "className" === k2 && "class" in p2 || "htmlFor" === k2 && "for" in p2 || i.test(k2))) {
+        if (S2 = O(k2 = C(k2, l2), S2), "dangerouslySetInnerHTML" === k2)
+          b2 = S2 && S2.__html;
+        else if ("textarea" === _2 && "value" === k2)
+          m2 = S2;
+        else if ((S2 || 0 === S2 || "" === S2) && "function" != typeof S2) {
+          if (true === S2 || "" === S2) {
+            S2 = k2, x2 = x2 + " " + k2;
+            continue;
+          }
+          if ("value" === k2) {
+            if ("select" === _2) {
+              a2 = S2;
+              continue;
+            }
+            "option" !== _2 || a2 != S2 || "selected" in p2 || (x2 += " selected");
+          }
+          x2 = x2 + " " + k2 + '="' + s(S2) + '"';
+        }
+      }
+    }
+  var H = x2;
+  if (x2 += ">", i.test(_2))
+    throw new Error(_2 + " is not a valid HTML tag name in " + x2);
+  var M = "", L = false;
+  if (b2)
+    M += b2, L = true;
+  else if ("string" == typeof m2)
+    M += s(m2), L = true;
+  else if (j(m2)) {
+    r.__k = m2;
+    for (var T = 0; T < m2.length; T++) {
+      var E = m2[T];
+      if (m2[T] = w(E), null != E && false !== E) {
+        var $ = F(E, n2, "svg" === _2 || "foreignObject" !== _2 && l2, a2, r);
+        $ && (M += $, L = true);
+      }
+    }
+  } else if (null != m2 && false !== m2 && true !== m2) {
+    r.__k = [w(m2)];
+    var D = F(m2, n2, "svg" === _2 || "foreignObject" !== _2 && l2, a2, r);
+    D && (M += D, L = true);
+  }
+  if (options.diffed && options.diffed(r), r.__ = void 0, options.unmount && options.unmount(r), L)
+    x2 += M;
+  else if (o.test(_2))
+    return H + " />";
+  return x2 + "</" + _2 + ">";
+}
+S.shallowRender = x;
+class Render {
+  constructor(provider) {
+    __publicField(this, "_provider");
+    this._provider = provider;
+  }
+  render(Component, props) {
+    return async (rootElement) => {
+      var _a;
+      if (!Component)
+        throw new Error("Component is not defined");
+      if (!rootElement)
+        throw new Error("Root element is not defined");
+      const initialData = await ((_a = Component.getInitialData) == null ? void 0 : _a.call(Component, props)) ?? {};
+      render$1(jsx(VComponent, {
+        node: this._provider,
+        ...this._provider.props,
+        children: jsx(Component, {
+          ...props,
+          initialData
+        })
+      }), rootElement);
+    };
+  }
+  unmount(rootElement) {
+    if (!rootElement)
+      throw new Error("Root element is not defined");
+    render$1(null, rootElement);
+  }
+  async toString(Component, props, options2) {
+    var _a;
+    if (!Component)
+      throw new Error("Component is not defined");
+    const initialData = await ((_a = Component.getInitialData) == null ? void 0 : _a.call(Component, props)) ?? {};
+    return S(jsx(VComponent, {
+      node: this._provider,
+      ...this._provider.props,
+      children: jsx(Component, {
+        ...props,
+        initialData
+      })
+    }), {}, {
+      ...options2
+    });
+  }
+}
+function VComponent({
+  node,
+  ...props
+}) {
+  if (!node)
+    return null;
+  if (Array.isArray(node)) {
+    return jsx(Fragment$1, {
+      children: node.map((n2, key) => jsx(VComponent, {
+        node: n2,
+        className: props.className,
+        ...props
+      }, key))
+    });
+  }
+  props.className = classes([node.props.className, props.className]);
+  return jsx(node.type, {
+    ref: node.ref,
+    ...node.props,
+    ...props
+  }, node.key);
+}
+const OrderConfirmation = {
+  Header: {
+    title: "{{name}}, thank you for your order!",
+    defaultTitle: "Thank you for your order!",
+    order: "ORDER #{{order}}"
+  },
+  InlineAlert: {
+    dismissLabel: "Dismiss Alert"
+  },
+  OrderSearchForm: {
+    title: "Enter your information to view order details",
+    description: "You can find your order number in the receipt you received via email.",
+    button: "View Order",
+    email: "Email",
+    postcode: "Zip Code",
+    orderNumber: "Order Number"
+  },
+  OrderSummary: {
+    title: "Order summary",
+    total: "Total",
+    totalExclTax: "Total excluding taxes",
+    subtotal: "Subtotal",
+    tax: "Tax",
+    taxTotal: "Tax total",
+    taxBreakdown: "Taxes",
+    includingTaxes: "Including taxes",
+    shipping: "Shipping",
+    freeShipping: "Free shipping"
+  },
+  Message: {
+    title: "Your order is confirmed",
+    description: "We have successfully processed your order and will be soon prepared for shipping. <br /> You will also receive an email with details and we will let you know when your order has shipped."
+  },
+  Details: {
+    title: "Order details",
+    contact: "Contact details",
+    shippingAddress: "Shipping address",
+    billingAddress: "Billing address",
+    shippingMethod: "Shipping method",
+    freeShipping: "Free shipping",
+    paymentMethod: "Payment method"
+  },
+  Footer: {
+    continueShopping: "Continue shopping",
+    help: "Need help?",
+    contactSupport: "Contact us"
+  },
+  CartSummary: {
+    title: "Your order",
+    GiftCard: {
+      sender: "Sender",
+      recipient: "Recipient"
+    }
+  },
+  Errors: {
+    invalidOrder: "Invalid order. Please try again.",
+    invalidSearch: "No order found with these order details.",
+    unknown: "Something went wrong. Please try again."
+  }
+};
+const en_US = {
+  OrderConfirmation
+};
+const langDefinitions = {
+  default: en_US
+};
+const Provider = ({
+  children
+}) => {
+  var _a;
+  const [locale, setLang] = useState();
+  const userLangDefinitions = (_a = config.getConfig()) == null ? void 0 : _a.langDefinitions;
+  useEffect(() => {
+    const localeEvent = events.on("locale", (payload) => {
+      if (payload !== locale)
+        setLang(payload);
+    }, {
+      eager: true
+    });
+    return () => {
+      localeEvent == null ? void 0 : localeEvent.off();
+    };
+  }, [locale]);
+  const definitions = deepmerge$1(langDefinitions, userLangDefinitions ?? {});
+  return jsx(UIProvider, {
+    lang: locale,
+    langDefinitions: definitions,
+    children
+  });
+};
+const render = new Render(jsx(Provider, {}));
+export {
+  render
+};

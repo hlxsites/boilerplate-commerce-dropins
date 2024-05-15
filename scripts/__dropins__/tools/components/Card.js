@@ -1,0 +1,2 @@
+import{c as a}from"../chunks/classes__DJBjVfEyCI.js";import"../chunks/image-params-keymap__DhvefBR8Rn.js";import"../preact.js";import{jsx as r}from"../preact-jsx-runtime.js";import"../chunks/preload-helper__uemlvruIqb.js";import"../preact-hooks.js";import"../i18n.js";const f=({variant:o="primary",className:i,children:p,...t})=>r("div",{...t,className:a(["dropin-card",`dropin-card--${o}`,i]),children:r("div",{class:"dropin-card__content",children:p})});export{f as Card};
+//# sourceMappingURL=Card.js.map

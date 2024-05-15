@@ -1,2 +1,442 @@
-import*as R from"@dropins/tools/preact-compat.js";import{useState as T,useEffect as H,useRef as ae,useCallback as se}from"@dropins/tools/preact-compat.js";import{events as ce}from"@dropins/tools/event-bus.js";import{d as oe,S as U,a as ie,D as G,b as de,c as le,P as W,B as X,E as pe,C as me,e as ue,I as Y}from"../chunks/MiniCart__DhyeGlECaM.js";import{jsxs as p,jsx as e,Fragment as z}from"@dropins/tools/preact-jsx-runtime.js";import{c as t,V as b,u as J,T as D}from"../chunks/UIProvider__KplsarDn2b.js";import{s as he,n as _e}from"../chunks/getStoreConfig__DjEej2Iar8.js";import{b as ye,u as ge}from"../chunks/updateProductsFromCart__BYHNUQqslq.js";import{g as ve,a as xe,b as ke}from"../chunks/getEstimateShipping__B5WuQyklDq.js";import{Icon as j}from"@dropins/tools/components/Icon.js";import{useCallback as fe,useRef as Ce}from"@dropins/tools/preact-hooks.js";import"@dropins/tools/preact.js";import"@dropins/tools/fetch-graphql.js";const Ne=l=>{const u=new FormData(l);return Object.fromEntries(u)},re=l=>R.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...l},R.createElement("path",{d:"M7.74512 9.87701L12.0001 14.132L16.2551 9.87701",stroke:"currentColor",strokeWidth:1.5,strokeLinecap:"square",strokeLinejoin:"round"})),Se=l=>R.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...l},R.createElement("path",{d:"M7.74512 14.132L12.0001 9.87701L16.2551 14.132",stroke:"#2B2B2B",strokeWidth:1.5,strokeLinecap:"square",strokeLinejoin:"round"})),be=l=>R.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...l},R.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M0.75 12C0.75 5.78421 5.78421 0.75 12 0.75C18.2158 0.75 23.25 5.78421 23.25 12C23.25 18.2158 18.2158 23.25 12 23.25C5.78421 23.25 0.75 18.2158 0.75 12Z",stroke:"currentColor"}),R.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M6.75 12.762L10.2385 15.75L17.25 9",stroke:"currentColor"})),we=l=>R.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...l},R.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M0.75 12C0.75 5.78421 5.78421 0.75 12 0.75C18.2158 0.75 23.25 5.78421 23.25 12C23.25 18.2158 18.2158 23.25 12 23.25C5.78421 23.25 0.75 18.2158 0.75 12Z",stroke:"currentColor"}),R.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M11.75 5.88423V4.75H12.25V5.88423L12.0485 13.0713H11.9515L11.75 5.88423ZM11.7994 18.25V16.9868H12.2253V18.25H11.7994Z",stroke:"currentColor"})),O=({name:l,value:u,variant:s="primary",className:_,disabled:c,error:d,floatingLabel:r,onValue:a,onUpdateError:y,size:w="medium",icon:o,maxLength:h,success:k,...f})=>{const C=(f==null?void 0:f.id)||l||`dropin-input-${Math.random().toString(36)}`,g=fe(oe(async N=>{if(a)try{await a(N)}catch(S){y&&y(S)}},200),[a,y]),B=N=>{const S=N.target;g(S.value.trim())};return p("div",{className:t(["dropin-input-container",`dropin-input-container--${s}`,["dropin-input-container--floating",!!r],["dropin-input-container--disabled",c]]),children:[o&&e(b,{node:o,className:t(["dropin-input__field-icon--left",o.props.className])}),p("div",{className:"dropin-input-label-container",children:[e("input",{id:C,onChange:B,type:"text",maxLength:h,name:l,value:u,...f,className:t(["dropin-input",`dropin-input--${w}`,`dropin-input--${s}`,["dropin-input--error",!!d],["dropin-input--success",!!k],["dropin-input--disabled",c],["dropin-input--floating",!!r],["dropin-input--icon-left",!!o],_]),disabled:c}),r&&e("label",{htmlFor:C,className:t([["dropin-input__label--floating",!!r],["dropin-input__label--floating--icon-left",!!o],["dropin-input__label--floating--error",!!d]]),children:r})]}),d&&e("div",{className:t(["dropin-input__field-icon--right","dropin-input__field-icon--error"]),children:e(j,{source:we,size:"16",stroke:"2",className:"dropin-input--warning-icon",viewBox:"-1 -1 26 26"})}),k&&e("div",{className:t(["dropin-input__field-icon--right","dropin-input__field-icon--success"]),children:e(j,{source:be,size:"16",stroke:"2",className:"dropin-input--success-icon",viewBox:"-1 -1 26 26"})})]})},ee=({name:l,value:u=null,options:s,variant:_="primary",floatingLabel:c,size:d="medium",handleSelect:r=()=>{},disabled:a=!1,error:y=!1,placeholder:w,defaultOption:o,icon:h,className:k,...f})=>{var P;const C=(f==null?void 0:f.id)||l||`dropin-picker-${Math.random().toString(36)}`,g=s==null?void 0:s.find(n=>!n.disabled),[B,N]=T({value:u,text:(o==null?void 0:o.text)||w||(g==null?void 0:g.text),icon:h});H(()=>{const n=s==null?void 0:s.find(E=>E.value===u);N(n??{value:(o==null?void 0:o.value)||(w||c?null:g==null?void 0:g.value),text:(o==null?void 0:o.text)||w||(g==null?void 0:g.text),icon:h})},[u,s,w,h,o,c]);const S=n=>{const{options:E,value:L}=n.target;for(const V of E)V.selected&&(N({value:L,text:V.text,icon:h}),r(n))},Z=s==null?void 0:s.map(n=>{const{value:E,text:L,disabled:V}=n,M=E===B.value;return e("option",{value:E,selected:M,disabled:V,className:t(["dropin-picker__option"]),children:L},E)}),v=Ce(null),x=!((P=v.current)!=null&&P.selected)||!!o;return p("div",{className:t([k,"dropin-picker",`dropin-picker__${d}`,["dropin-picker__floating",!!c],["dropin-picker__selected",x],["dropin-picker__error",y],["dropin-picker__disabled",a],["dropin-picker__icon",h]]),children:[h&&e(h.type,{...h.props,className:"dropin-picker__icon--placeholder"}),p("select",{id:C,className:t(["dropin-picker__select",`dropin-picker__select--${_}`,`dropin-picker__select--${d}`,["dropin-picker__select--floating",!!c]]),name:l,"aria-label":l,disabled:a,onChange:S,...f,children:[!o&&(c||w)&&e("option",{value:"",ref:v,className:t(["dropin-picker__option dropin-picker__placeholder"]),children:c??w},u),Z]}),e(j,{source:re,size:"24",stroke:"2",className:"dropin-picker__chevronDown"}),c&&x&&e("label",{htmlFor:C,className:t(["dropin-picker__floatingLabel",!!c]),children:c})]})},te=({className:l,children:u,title:s,secondaryText:_,actionIconPosition:c="left",iconOpen:d=U,iconClose:r=ie,iconLeft:a=U,showIconLeft:y=!1,renderContentWhenClosed:w=!0,onStateChange:o,...h})=>{const[k,f]=T(!1),C=Z=>{Z.stopImmediatePropagation();const v=!k;f(v),o==null||o(v)},g=J(`Dropin.Accordion.${k?"close":"open"}.label`).label,B=e(j,{source:d,size:"24",onClick:C,onKeyPress:C,className:"dropin-accordion-section__open-icon"}),N=e(j,{source:r,size:"24",onClick:C,onKeyPress:C,className:"dropin-accordion-section__close-icon"}),S=e(j,{source:a,size:"24"});return p("div",{...h,className:t(["dropin-accordion-section",l]),children:[p("div",{className:"dropin-accordion-section__heading",children:[e("div",{className:"dropin-accordion-section__flex",onClick:C,onKeyPress:C,role:"button","aria-label":`${g} ${s}`,tabIndex:0,children:p("div",{className:"dropin-accordion-section__title-container",children:[c==="left"&&(k?N:B),y&&S,e("h3",{className:"dropin-accordion-section__title",children:s})]})}),p("div",{className:"dropin-accordion-section__secondary-text-container",children:[_&&e("h4",{className:"dropin-accordion-section__secondary-text",children:_}),c==="right"&&(k?N:B)]})]}),e("div",{className:"dropin-accordion-section__content-container",style:{display:k?"grid":"none"},children:(k||w&&!k)&&u})]})},Pe=({className:l,children:u,actionIconPosition:s="left",iconOpen:_=U,iconClose:c=ie,...d})=>{const r=e(G,{variant:"secondary"}),a=y=>p(z,{children:[e(te,{...y.props,actionIconPosition:s,iconOpen:_,iconClose:c}),r]});return e("div",{...d,className:t(["dropin-accordion",l]),children:[r,...(Array.isArray(u)?u:[u]).map(a)]})},De=({className:l,children:u,...s})=>{const{heading:_,loading:c=!0,total:d,subTotal:r,shipping:a,taxTotal:y,taxesApplied:w,discounts:o,primaryAction:h,...k}=s,[f,C]=T(!1),g=ae(null),[B,N]=T(!0),[S,Z]=T("zip"),v=J({editZipAction:"Dropin.PriceSummary.shipping.editZipAction",destinationLinkAriaLabel:"Dropin.PriceSummary.shipping.destinationLinkAriaLabel",taxesBreakdownTitle:"Dropin.PriceSummary.taxes.breakdown",subtotalLabel:"Dropin.PriceSummary.subTotal.label",shippingLabel:"Dropin.PriceSummary.shipping.label",showTaxBreakdown:"Dropin.PriceSummary.taxes.showBreakdown",hideTaxBreakdown:"Dropin.PriceSummary.taxes.hideBreakdown",zipPlaceholder:"Dropin.PriceSummary.shipping.zipPlaceholder"}),x=m=>{m.preventDefault(),N(I=>!I)},P=m=>{m.preventDefault(),N(!0),Z(I=>I==="zip"?"state":"zip")},n=m=>{var A;m.preventDefault(),N(!1);const I=Ne(g.current);(A=a==null?void 0:a.onEstimate)==null||A.call(a,I)},E=e(de,{"data-testid":"loading-skeleton",rowGap:"xsmall",children:e(le,{variant:"row",size:"small",lines:5,fullWidth:!0,multilineGap:"xsmall"})}),L=a&&e(z,{children:p("div",{"data-testid":"shipping-content",className:t(["dropin-price-summary__entry","dropin-price-summary__shipping"]),children:[e("span",{className:"dropin-price-summary__label",children:a.estimated?a.destinationText?p(z,{children:[e(D,{id:"Dropin.PriceSummary.shipping.estimatedDestination"}),e("a",{className:"dropin-price-summary__shippingLink",role:"button",href:"",onClick:x,onKeyDown:m=>{(m.key==="Enter"||m.key===" ")&&x(m)},tabIndex:0,"aria-label":v.destinationLinkAriaLabel,"data-testid":"shipping-destination-link",children:a.destinationText})]}):e(D,{id:"Dropin.PriceSummary.shipping.estimated"}):e(D,{id:"Dropin.PriceSummary.shipping.label"})}),e(b,{node:a.price,className:"dropin-price-summary__price"}),a.estimated&&e(z,{children:e("div",{className:t(["dropin-price-summary__caption"]),children:e("a",{href:"#",className:"dropin-price-summary__shippingLink",onClick:P,"data-testid":"shipping-alternate-field-link",children:S==="zip"?e(D,{id:"Dropin.PriceSummary.shipping.alternateField.state"}):e(D,{id:"Dropin.PriceSummary.shipping.alternateField.zip"})})})}),a.estimated&&e(z,{children:p("form",{className:t(["dropin-price-summary__shipping--edit",["dropin-price-summary__shipping--hide",!B]]),ref:g,"data-testid":"shipping-estimate-form",children:[a.countryField&&e(b,{node:a.countryField,className:t(["dropin-price-summary__shipping--country"])}),S==="state"?a.stateField&&e(b,{node:a.stateField,className:t(["dropin-price-summary__shipping--state"])}):a.zipField&&e(b,{node:a.zipField,className:t(["dropin-price-summary__shipping--zip"])}),a.estimateButton&&e(b,{node:a.estimateButton,className:t(["dropin-price-summary__shipping--action"]),onClick:n,type:"submit"})]})}),a.taxIncluded&&e("div",{"data-testid":"shipping-tax-included",className:t(["dropin-price-summary__caption"]),children:e("span",{children:e(D,{id:"Dropin.PriceSummary.shipping.withTaxes"})})}),a.taxExcluded?e("div",{"data-testid":"shipping-tax-included-excluded",className:t(["dropin-price-summary__caption"]),children:p("span",{children:[a.priceExcludingTax," ",e(D,{id:"Dropin.PriceSummary.shipping.withoutTaxes"})]})}):void 0]})}),V=o&&e(z,{children:o.map(m=>p("div",{className:t(["dropin-price-summary__entry","dropin-price-summary__discount"]),children:[e("span",{className:t(["dropin-price-summary__label"]),children:m.label}),e(b,{node:m.price,className:t(["dropin-price-summary__price"])}),m.caption&&e(b,{node:m.caption,className:t(["dropin-price-summary__caption"])})]},m.label))}),M=w?e(z,{children:e(Pe,{"data-testid":"tax-breakdown",className:"dropin-price-summary__taxes",iconOpen:re,iconClose:Se,children:p(te,{title:v.taxesBreakdownTitle,secondaryText:!f&&y?e(b,{node:y.price,className:"dropin-price-summary__price"}):void 0,renderContentWhenClosed:!1,onStateChange:C,children:[e("div",{className:t(["dropin-price-summary__appliedTaxes"]),children:w.map(m=>p("div",{className:t(["dropin-price-summary__entry","dropin-price-summary__taxEntry"]),children:[e("span",{className:t(["dropin-price-summary__label","dropin-price-summary__label--muted"]),children:m.label}),e(b,{node:m.price,className:t(["dropin-price-summary__price","dropin-price-summary__price--muted"])})]},m.label))}),p("div",{className:t(["dropin-price-summary__entry"]),children:[e("span",{className:"dropin-price-summary__label",children:e(D,{id:"Dropin.PriceSummary.taxes.total"})}),y&&e(b,{node:y.price,className:"dropin-price-summary__price"})]})]})})}):y&&p("div",{"data-testid":"tax-total-only",className:t(["dropin-price-summary__entry","dropin-price-summary__taxTotal"]),children:[e("span",{className:"dropin-price-summary__label",children:y.estimated?e(D,{id:"Dropin.PriceSummary.taxes.estimated"}):e(D,{id:"Dropin.PriceSummary.taxes.totalOnly"})}),e(b,{node:y.price,className:"dropin-price-summary__price"})]}),q=d&&e(z,{children:p("div",{"data-testid":"total-content",className:t(["dropin-price-summary__entry","dropin-price-summary__total",d.estimated&&"dropin-price-summary__total--padded"]),children:[e("span",{className:t(["dropin-price-summary__label","dropin-price-summary__label--bold"]),children:d.estimated?e(D,{id:"Dropin.PriceSummary.total.estimated"}):e(D,{id:"Dropin.PriceSummary.total.label"})}),e(b,{node:d.price,className:t(["dropin-price-summary__price","dropin-price-summary__price--bold"])})]})}),i=d&&d.priceWithoutTax&&p("div",{"data-testid":"total-without-tax",className:"dropin-price-summary__entry dropin-price-summary__totalWithoutTax",children:[e("span",{className:t(["dropin-price-summary__label","dropin-price-summary__label--muted"]),children:e(D,{id:"Dropin.PriceSummary.total.withoutTax"})}),e(b,{node:d.priceWithoutTax,className:t(["dropin-price-summary__price","dropin-price-summary__price--muted"])})]}),F=h&&e("div",{className:t(["dropin-price-summary__entry","dropin-price-summary__primaryAction"]),children:h}),$=r&&p("div",{className:t(["dropin-price-summary__entry","dropin-price-summary__subTotal"]),children:[e("span",{className:"dropin-price-summary__label",children:e(D,{id:"Dropin.PriceSummary.subTotal.label"})}),e(b,{node:r.price,className:"dropin-price-summary__price"}),r.taxIncluded&&e("div",{"data-testid":"sub-total-tax-caption",className:t(["dropin-price-summary__caption"]),children:e("span",{children:e(D,{id:"Dropin.PriceSummary.subTotal.withTaxes"})})}),r.taxExcluded?e("div",{"data-testid":"sub-total-tax-caption-excluded",className:t(["dropin-price-summary__caption"]),children:p("span",{children:[r.priceExcludingTax," ",e(D,{id:"Dropin.PriceSummary.subTotal.withoutTaxes"})]})}):void 0]});return p("div",{...k,className:t(["dropin-price-summary",l]),children:[e("div",{className:"dropin-price-summary__heading",children:_}),e(G,{variant:"primary",className:"dropin-price-summary__divider-primary"}),c?E:p(z,{children:[$,L,V,M,q,i,F]})]})},Te=({className:l,children:u,emptyCart:s,heading:_,products:c,priceSummary:d,...r})=>e("div",{...r,className:t(["cart-cart",l]),children:p("div",{className:t(["cart-cart__wrapper"]),children:[_&&p("div",{className:t(["cart-cart__heading",["cart-cart__heading--full-width",!c||!d]]),children:[e(b,{node:_,className:"cart-cart__heading-text"}),e(G,{variant:"primary",className:t(["cart-cart__heading-divider"])})]}),e("div",{className:t(["cart-cart__content",["cart-cart__content--empty",!c],["cart-cart__content--full-width",!d]]),children:c||e(b,{node:s,className:"cart-cart__empty-cart"})}),c&&d&&e(b,{node:d,className:t(["cart-cart__price-summary"])})]})}),Fe=()=>{const[l,u]=T([]),[s,_]=T("US"),[c,d]=T(""),[r,a]=T(""),[y,w]=T([]),[o,h]=T(!1),[k,f]=T(),[C,g]=T(""),[B,N]=T(!1),S=se(v=>{const{shippingCountry:x,shippingState:P="",shippingZip:n=""}=v,E={countryCode:x,postcode:n,region:{code:P}};N(!0),ve(E).then(L=>{L&&(f({amount:L.amount.value,currency:L.amount.currency}),_(x),d(P),a(n),g(P||n||x))}).finally(()=>{N(!1)})},[]),Z=v=>{v.preventDefault(),d(""),a("");const x=v.target.value;_(x)};return H(()=>{xe().then(v=>{let x="US";const P=v.map(n=>(n.isDefaultCountry&&(x=n.id),{text:n.label,value:n.id}));u(P),_(x)})},[]),H(()=>{h(!0),ke(s).then(v=>{const x=v.map(P=>({text:P.name,value:P.code}));w(x)}).finally(()=>{h(!1)})},[s,h]),{loading:B,regionsLoading:o,estimatedDestinationText:C,countries:l,selectedCountry:s,selectedRegion:c,selectedZip:r,regions:y,estimatedShippingPrice:k,handleEstimateShipping:S,handleCountrySelected:Z}},Ee=({children:l,initialData:u=null,routeProduct:s,routeEmptyCartCTA:_,routeCheckout:c,...d})=>{var L,V,M,q;const[r,a]=T(u),[y,w]=T(new Set),{loading:o,regionsLoading:h,countries:k,regions:f,selectedCountry:C,selectedRegion:g,selectedZip:B,estimatedDestinationText:N,estimatedShippingPrice:S,handleCountrySelected:Z,handleEstimateShipping:v}=Fe(),x=(i,F)=>{w($=>(i?$.add(F):$.delete(F),new Set($)))},P=(i,F)=>{x(!0,i),ge([{uid:i,quantity:F}]).finally(()=>{x(!1,i)})},n=J({applyButton:"Cart.PriceSummary.estimatedShippingForm.apply.label",checkout:"Cart.PriceSummary.checkout",countryField:"Cart.PriceSummary.estimatedShippingForm.country.placeholder",discountedPrice:"Cart.CartItem.discountedPrice",download:"Cart.CartItem.download",freeShipping:"Cart.PriceSummary.freeShipping",heading:"Cart.Cart.heading",message:"Cart.CartItem.message",regularPrice:"Cart.CartItem.regularPrice",recipient:"Cart.CartItem.recipient",sender:"Cart.CartItem.sender",stateField:"Cart.PriceSummary.estimatedShippingForm.state.placeholder",taxToBeDetermined:"Cart.PriceSummary.taxToBeDetermined",zipField:"Cart.PriceSummary.estimatedShippingForm.zip.placeholder",file:"Cart.CartItem.file",files:"Cart.CartItem.files"});H(()=>{const i=ce.on("cart/data",F=>{var m,I;a(F);const $=(I=(m=F==null?void 0:F.addresses)==null?void 0:m.shipping)==null?void 0:I[0];if($){const{countryCode:A,regionCode:K,zipCode:Q}=$;v({shippingCountry:A,shippingState:K,shippingZip:Q})}},{eager:!0});return()=>{i==null||i.off()}},[v]),H(()=>{u&&Object.keys(u).length>0&&ye(u,he.locale||"en-US")},[u]);const E=(r==null?void 0:r.totalQuantity)??0?e(De,{"data-testid":"price-summary",loading:o,heading:"Order Summary",total:{price:e(W,{amount:r==null?void 0:r.total.value,currency:r==null?void 0:r.total.currency}),estimated:!0},subTotal:{price:e(W,{"data-testid":"subtotal",amount:(L=r==null?void 0:r.subtotal.excludingTax)==null?void 0:L.value,currency:(V=r==null?void 0:r.subtotal.excludingTax)==null?void 0:V.currency})},shipping:r!=null&&r.isVirtual?void 0:{price:(S==null?void 0:S.amount)==0?e("span",{"data-testId":"free-shipping",children:n.freeShipping}):S?e(W,{...S}):e("span",{children:n.taxToBeDetermined}),estimated:!0,countryField:e(ee,{name:"shippingCountry",placeholder:n.countryField,value:C,variant:"primary",options:k,handleSelect:Z,"data-testid":"estimate-shipping-country-selector"}),stateField:f.length>0?e(ee,{name:"shippingState",placeholder:n.stateField,variant:"primary",options:f,value:g,"data-testid":"estimate-shipping-state-selector",disabled:h}):e(O,{"aria-label":n.stateField,name:"shippingState",placeholder:n.stateField,variant:"primary",value:g,disabled:h,"data-testid":"estimate-shipping-state-input",maxLength:50}),zipField:e(O,{"aria-label":n.zipField,name:"shippingZip",placeholder:n.zipField,variant:"primary","data-testid":"estimate-shipping-zip-input",value:B,maxLength:12}),estimateButton:e(X,{variant:"secondary","data-testid":"estimate-shipping-apply-button","aria-label":n.applyButton,children:n.applyButton}),destinationText:N||n.taxToBeDetermined,onEstimate:v},taxTotal:{price:r!=null&&r.totalTax?e(W,{"data-testid":"tax-total",amount:(M=r==null?void 0:r.totalTax)==null?void 0:M.value,currency:(q=r==null?void 0:r.totalTax)==null?void 0:q.currency}):e("span",{"data-testid":"tax-total",children:n.taxToBeDetermined}),estimated:!0},primaryAction:c?e(X,{"data-testid":"checkout-button",variant:"primary",href:c({cartId:r.id}),children:n.checkout}):void 0,discounts:r==null?void 0:r.appliedDiscounts.map(i=>({label:i.label,price:e(W,{"data-testid":"summary-discount-total",amount:-i.amount.value,currency:i.amount.currency,sale:!0})}))}):void 0;return e(Te,{...d,heading:e("div",{children:n.heading}),emptyCart:e(pe,{ctaLinkURL:_==null?void 0:_()}),priceSummary:E,products:(r==null?void 0:r.totalQuantity)??0?e(me,{children:r==null?void 0:r.items.map((i,F)=>{var I,A,K,Q;const $=y.has(i.uid),m={...i.selectedOptions??{},...i.recipient?{[n.recipient]:i.recipient}:{},...i.recipientEmail&&i.recipient?{[n.recipient]:`${i.recipient} (${i.recipientEmail})`}:{},...i.sender?{[n.sender]:i.sender}:{},...i.senderEmail&&i.sender?{[n.sender]:`${i.sender} (${i.senderEmail})`}:{},...i.message?{[n.message]:i.message}:{},...i.links&&i.links.count?i.links.count>1?{[n.files.replace("{count}",i.links.count.toString())]:i.links.result}:{[n.file.replace("{count}",i.links.count.toString())]:i.links.result}:{}};return e(ue,{"data-testid":"cart-item",ariaLabel:i.name,updating:$,image:s?e("a",{href:s(i),children:e(Y,{loading:F<4?"eager":"lazy",src:i.image.src,alt:i.image.alt,width:"300",height:"300",params:{width:300}})}):e(Y,{loading:F<4?"eager":"lazy",src:i.image.src,alt:i.image.alt,width:"300",height:"300",params:{width:300}}),title:e("span",{children:s?e("a",{href:s(i),children:i.name}):e(z,{children:i.name})}),sku:e("span",{children:i.sku}),configurations:Object.keys(m).length>0?m:void 0,quantity:i.quantity,price:e(W,{amount:(I=i.regularPrice)==null?void 0:I.value,currency:(A=i.regularPrice)==null?void 0:A.currency,style:{font:"inherit"}}),total:p(z,{children:[e(W,{amount:i.total.value,currency:i.total.currency,variant:i.discounted?"strikethrough":"default","data-testid":"regular-total","aria-label":n.regularPrice}),i.discounted&&e(W,{amount:(K=i.discountedTotal)==null?void 0:K.value,currency:(Q=i.discountedTotal)==null?void 0:Q.currency,sale:i.discounted,"data-testid":"discount-total","aria-label":n.discountedPrice})]}),onQuantity:ne=>{P(i.uid,ne)},onRemove:()=>{P(i.uid,0)}},i.uid)})}):void 0})};Ee.getInitialData=async function(){return _e()};export{Ee as Cart,Ee as default};
-//# sourceMappingURL=Cart.js.map
+import { useState, useCallback, useEffect } from "@dropins/tools/preact-compat.js";
+import { events } from "@dropins/tools/event-bus.js";
+import { Divider, PriceSummary, Price, Picker, Input, Button, CartList, CartItem, Image } from "@dropins/tools/components/index.js";
+import { E as EmptyCart } from "../chunks/MiniCart__Z0P62hxE1k.js";
+import { jsx, jsxs, Fragment } from "@dropins/tools/preact-jsx-runtime.js";
+import { c as classes, V as VComponent } from "../chunks/vcomponent__DzjhryT0dc.js";
+import { s as state, n as getPersistedData } from "../chunks/getStoreConfig__D5TZNZKL7r.js";
+import { b as publishShoppingCartViewEvent, u as updateProductsFromCart } from "../chunks/updateProductsFromCart__BgOPk2gVgl.js";
+import { g as getEstimateShipping, a as getCountries, b as getRegions } from "../chunks/getEstimateShipping__Bin9bPsMEq.js";
+import { useText } from "@dropins/tools/i18n.js";
+import "@dropins/tools/fetch-graphql.js";
+const Cart$1 = ({
+  className,
+  children,
+  emptyCart,
+  heading,
+  products,
+  priceSummary,
+  ...props
+}) => {
+  return jsx("div", {
+    ...props,
+    className: classes(["cart-cart", className]),
+    children: jsxs("div", {
+      className: classes(["cart-cart__wrapper"]),
+      children: [heading && jsxs("div", {
+        className: classes(["cart-cart__heading", ["cart-cart__heading--full-width", !products || !priceSummary]]),
+        children: [jsx(VComponent, {
+          node: heading,
+          className: "cart-cart__heading-text"
+        }), jsx(Divider, {
+          variant: "primary",
+          className: classes(["cart-cart__heading-divider"])
+        })]
+      }), jsx("div", {
+        className: classes(["cart-cart__content", ["cart-cart__content--empty", !products], ["cart-cart__content--full-width", !priceSummary]]),
+        children: products || jsx(VComponent, {
+          node: emptyCart,
+          className: "cart-cart__empty-cart"
+        })
+      }), products && priceSummary && jsx(VComponent, {
+        node: priceSummary,
+        className: classes(["cart-cart__price-summary"])
+      })]
+    })
+  });
+};
+const useEstimatedShipping = () => {
+  const [countries, setCountries] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState("US");
+  const [selectedRegion, setSelectedRegion] = useState("");
+  const [selectedZip, setSelectedZip] = useState("");
+  const [regions, setRegions] = useState([]);
+  const [regionsLoading, setRegionsLoading] = useState(false);
+  const [estimatedShippingPrice, setEstimatedShippingPrice] = useState();
+  const [estimatedDestinationText, setEstimatedDestinationText] = useState("");
+  const [priceSummaryLoading, setPriceSummaryLoading] = useState(false);
+  const handleEstimateShipping = useCallback((formValues) => {
+    const {
+      shippingCountry,
+      shippingState = "",
+      shippingZip = ""
+    } = formValues;
+    const addressData = {
+      countryCode: shippingCountry,
+      postcode: shippingZip,
+      region: {
+        code: shippingState
+      }
+    };
+    setPriceSummaryLoading(true);
+    getEstimateShipping(addressData).then((data) => {
+      if (data) {
+        setEstimatedShippingPrice({
+          amount: data.amount.value,
+          currency: data.amount.currency
+        });
+        setSelectedCountry(shippingCountry);
+        setSelectedRegion(shippingState);
+        setSelectedZip(shippingZip);
+        setEstimatedDestinationText(shippingState || shippingZip || shippingCountry);
+      }
+    }).finally(() => {
+      setPriceSummaryLoading(false);
+    });
+  }, []);
+  const handleCountrySelected = (event) => {
+    event.preventDefault();
+    setSelectedRegion("");
+    setSelectedZip("");
+    const value = event.target.value;
+    setSelectedCountry(value);
+  };
+  useEffect(() => {
+    getCountries().then((countries2) => {
+      let defaultCountry = "US";
+      const transformedCountries = countries2.map((country) => {
+        if (country.isDefaultCountry) {
+          defaultCountry = country.id;
+        }
+        return {
+          text: country.label,
+          value: country.id
+        };
+      });
+      setCountries(transformedCountries);
+      setSelectedCountry(defaultCountry);
+    });
+  }, []);
+  useEffect(() => {
+    setRegionsLoading(true);
+    getRegions(selectedCountry).then((regions2) => {
+      const transformedRegions = regions2.map((region) => {
+        return {
+          text: region.name,
+          value: region.code
+        };
+      });
+      setRegions(transformedRegions);
+    }).finally(() => {
+      setRegionsLoading(false);
+    });
+  }, [selectedCountry, setRegionsLoading]);
+  return {
+    loading: priceSummaryLoading,
+    regionsLoading,
+    estimatedDestinationText,
+    countries,
+    selectedCountry,
+    selectedRegion,
+    selectedZip,
+    regions,
+    estimatedShippingPrice,
+    handleEstimateShipping,
+    handleCountrySelected
+  };
+};
+const Cart = ({
+  children,
+  initialData = null,
+  routeProduct,
+  routeEmptyCartCTA,
+  routeCheckout,
+  ...props
+}) => {
+  var _a, _b, _c, _d;
+  const [data, setData] = useState(initialData);
+  const [itemsLoading, setItemLoading] = useState(/* @__PURE__ */ new Set());
+  const {
+    loading: priceSummaryLoading,
+    regionsLoading,
+    countries,
+    regions,
+    selectedCountry,
+    selectedRegion,
+    selectedZip,
+    estimatedDestinationText,
+    estimatedShippingPrice,
+    handleCountrySelected,
+    handleEstimateShipping
+  } = useEstimatedShipping();
+  const handleItemsLoading = (state2, uid) => {
+    setItemLoading((prev) => {
+      state2 ? prev.add(uid) : prev.delete(uid);
+      return new Set(prev);
+    });
+  };
+  const handleItemQuantityUpdate = (uid, quantity) => {
+    handleItemsLoading(true, uid);
+    updateProductsFromCart([{
+      uid,
+      quantity
+    }]).finally(() => {
+      handleItemsLoading(false, uid);
+    });
+  };
+  const dictionary = useText({
+    applyButton: "Cart.PriceSummary.estimatedShippingForm.apply.label",
+    checkout: "Cart.PriceSummary.checkout",
+    countryField: "Cart.PriceSummary.estimatedShippingForm.country.placeholder",
+    discountedPrice: "Cart.CartItem.discountedPrice",
+    download: "Cart.CartItem.download",
+    freeShipping: "Cart.PriceSummary.freeShipping",
+    heading: "Cart.Cart.heading",
+    message: "Cart.CartItem.message",
+    regularPrice: "Cart.CartItem.regularPrice",
+    recipient: "Cart.CartItem.recipient",
+    sender: "Cart.CartItem.sender",
+    stateField: "Cart.PriceSummary.estimatedShippingForm.state.placeholder",
+    taxToBeDetermined: "Cart.PriceSummary.taxToBeDetermined",
+    zipField: "Cart.PriceSummary.estimatedShippingForm.zip.placeholder",
+    file: "Cart.CartItem.file",
+    files: "Cart.CartItem.files"
+  });
+  useEffect(() => {
+    const event = events.on("cart/data", (payload) => {
+      var _a2, _b2;
+      setData(payload);
+      const shippingAddress = (_b2 = (_a2 = payload == null ? void 0 : payload.addresses) == null ? void 0 : _a2.shipping) == null ? void 0 : _b2[0];
+      if (shippingAddress) {
+        const {
+          countryCode,
+          regionCode,
+          zipCode
+        } = shippingAddress;
+        handleEstimateShipping({
+          shippingCountry: countryCode,
+          shippingState: regionCode,
+          shippingZip: zipCode
+        });
+      }
+    }, {
+      eager: true
+    });
+    return () => {
+      event == null ? void 0 : event.off();
+    };
+  }, [handleEstimateShipping]);
+  useEffect(() => {
+    if (initialData && Object.keys(initialData).length > 0) {
+      publishShoppingCartViewEvent(initialData, state.locale || "en-US");
+    }
+  }, [initialData]);
+  const priceSummary = (data == null ? void 0 : data.totalQuantity) ?? 0 ? jsx(PriceSummary, {
+    "data-testid": "price-summary",
+    loading: priceSummaryLoading,
+    heading: "Order Summary",
+    total: {
+      price: jsx(Price, {
+        amount: data == null ? void 0 : data.total.value,
+        currency: data == null ? void 0 : data.total.currency
+      }),
+      estimated: true
+    },
+    subTotal: {
+      price: jsx(Price, {
+        "data-testid": "subtotal",
+        amount: (_a = data == null ? void 0 : data.subtotal.excludingTax) == null ? void 0 : _a.value,
+        currency: (_b = data == null ? void 0 : data.subtotal.excludingTax) == null ? void 0 : _b.currency
+      })
+    },
+    shipping: (data == null ? void 0 : data.isVirtual) ? void 0 : {
+      price: (estimatedShippingPrice == null ? void 0 : estimatedShippingPrice.amount) == 0 ? jsx("span", {
+        "data-testId": "free-shipping",
+        children: dictionary.freeShipping
+      }) : estimatedShippingPrice ? jsx(Price, {
+        ...estimatedShippingPrice
+      }) : jsx("span", {
+        children: dictionary.taxToBeDetermined
+      }),
+      estimated: true,
+      countryField: jsx(Picker, {
+        name: "shippingCountry",
+        placeholder: dictionary.countryField,
+        value: selectedCountry,
+        variant: "primary",
+        options: countries,
+        handleSelect: handleCountrySelected,
+        "data-testid": "estimate-shipping-country-selector"
+      }),
+      stateField: regions.length > 0 ? jsx(Picker, {
+        name: "shippingState",
+        placeholder: dictionary.stateField,
+        variant: "primary",
+        options: regions,
+        value: selectedRegion,
+        "data-testid": "estimate-shipping-state-selector",
+        disabled: regionsLoading
+      }) : jsx(Input, {
+        "aria-label": dictionary.stateField,
+        name: "shippingState",
+        placeholder: dictionary.stateField,
+        variant: "primary",
+        value: selectedRegion,
+        disabled: regionsLoading,
+        "data-testid": "estimate-shipping-state-input",
+        maxLength: 50
+      }),
+      zipField: jsx(Input, {
+        "aria-label": dictionary.zipField,
+        name: "shippingZip",
+        placeholder: dictionary.zipField,
+        variant: "primary",
+        "data-testid": "estimate-shipping-zip-input",
+        value: selectedZip,
+        maxLength: 12
+      }),
+      estimateButton: jsx(Button, {
+        variant: "secondary",
+        "data-testid": "estimate-shipping-apply-button",
+        "aria-label": dictionary.applyButton,
+        children: dictionary.applyButton
+      }),
+      destinationText: estimatedDestinationText || dictionary.taxToBeDetermined,
+      onEstimate: handleEstimateShipping
+    },
+    taxTotal: {
+      price: (data == null ? void 0 : data.totalTax) ? jsx(Price, {
+        "data-testid": "tax-total",
+        amount: (_c = data == null ? void 0 : data.totalTax) == null ? void 0 : _c.value,
+        currency: (_d = data == null ? void 0 : data.totalTax) == null ? void 0 : _d.currency
+      }) : jsx("span", {
+        "data-testid": "tax-total",
+        children: dictionary.taxToBeDetermined
+      }),
+      estimated: true
+    },
+    primaryAction: routeCheckout ? jsx(Button, {
+      "data-testid": "checkout-button",
+      variant: "primary",
+      href: routeCheckout({
+        cartId: data.id
+      }),
+      children: dictionary.checkout
+    }) : void 0,
+    discounts: data == null ? void 0 : data.appliedDiscounts.map((discount) => {
+      return {
+        label: discount.label,
+        price: jsx(Price, {
+          "data-testid": "summary-discount-total",
+          amount: -discount.amount.value,
+          currency: discount.amount.currency,
+          sale: true
+        })
+      };
+    })
+  }) : void 0;
+  return jsx(Cart$1, {
+    ...props,
+    heading: jsx("div", {
+      children: dictionary.heading
+    }),
+    emptyCart: jsx(EmptyCart, {
+      ctaLinkURL: routeEmptyCartCTA == null ? void 0 : routeEmptyCartCTA()
+    }),
+    priceSummary,
+    products: (data == null ? void 0 : data.totalQuantity) ?? 0 ? jsx(CartList, {
+      children: data == null ? void 0 : data.items.map((item, index) => {
+        var _a2, _b2, _c2, _d2;
+        const isLoading = itemsLoading.has(item.uid);
+        const configurations = {
+          ...item.selectedOptions ?? {},
+          ...item.recipient ? {
+            [dictionary.recipient]: item.recipient
+          } : {},
+          ...item.recipientEmail && item.recipient ? {
+            [dictionary.recipient]: `${item.recipient} (${item.recipientEmail})`
+          } : {},
+          ...item.sender ? {
+            [dictionary.sender]: item.sender
+          } : {},
+          ...item.senderEmail && item.sender ? {
+            [dictionary.sender]: `${item.sender} (${item.senderEmail})`
+          } : {},
+          ...item.message ? {
+            [dictionary.message]: item.message
+          } : {},
+          ...item.links && item.links.count ? item.links.count > 1 ? {
+            [dictionary.files.replace("{count}", item.links.count.toString())]: item.links.result
+          } : {
+            [dictionary.file.replace("{count}", item.links.count.toString())]: item.links.result
+          } : {}
+        };
+        return jsx(CartItem, {
+          "data-testid": "cart-item",
+          ariaLabel: item.name,
+          updating: isLoading,
+          image: routeProduct ? jsx("a", {
+            href: routeProduct(item),
+            children: jsx(Image, {
+              loading: index < 4 ? "eager" : "lazy",
+              src: item.image.src,
+              alt: item.image.alt,
+              width: "300",
+              height: "300",
+              params: {
+                width: 300
+              }
+            })
+          }) : jsx(Image, {
+            loading: index < 4 ? "eager" : "lazy",
+            src: item.image.src,
+            alt: item.image.alt,
+            width: "300",
+            height: "300",
+            params: {
+              width: 300
+            }
+          }),
+          title: jsx("span", {
+            children: routeProduct ? jsx("a", {
+              href: routeProduct(item),
+              children: item.name
+            }) : jsx(Fragment, {
+              children: item.name
+            })
+          }),
+          sku: jsx("span", {
+            children: item.sku
+          }),
+          configurations: Object.keys(configurations).length > 0 ? configurations : void 0,
+          quantity: item.quantity,
+          price: jsx(Price, {
+            amount: (_a2 = item.regularPrice) == null ? void 0 : _a2.value,
+            currency: (_b2 = item.regularPrice) == null ? void 0 : _b2.currency,
+            style: {
+              font: "inherit"
+            }
+          }),
+          total: jsxs(Fragment, {
+            children: [jsx(Price, {
+              amount: item.total.value,
+              currency: item.total.currency,
+              variant: item.discounted ? "strikethrough" : "default",
+              "data-testid": "regular-total",
+              "aria-label": dictionary.regularPrice
+            }), item.discounted && jsx(Price, {
+              amount: (_c2 = item.discountedTotal) == null ? void 0 : _c2.value,
+              currency: (_d2 = item.discountedTotal) == null ? void 0 : _d2.currency,
+              sale: item.discounted,
+              "data-testid": "discount-total",
+              "aria-label": dictionary.discountedPrice
+            })]
+          }),
+          onQuantity: (value) => {
+            handleItemQuantityUpdate(item.uid, value);
+          },
+          onRemove: () => {
+            handleItemQuantityUpdate(item.uid, 0);
+          }
+        }, item.uid);
+      })
+    }) : void 0
+  });
+};
+Cart.getInitialData = async function() {
+  return getPersistedData();
+};
+export {
+  Cart,
+  Cart as default
+};

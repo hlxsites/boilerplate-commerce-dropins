@@ -1,8 +1,15 @@
-import{C,a as T,s as n,f as m,h as u,t as l,c as I}from"./chunks/getStoreConfig__DjEej2Iar8.js";import{j as N,g as P,m as D,i as b,k as F,r as y,l as $,b as v,d as w,e as x}from"./chunks/getStoreConfig__DjEej2Iar8.js";import{events as d}from"@dropins/tools/event-bus.js";import{p as f,a as _}from"./chunks/updateProductsFromCart__BYHNUQqslq.js";import{u as k}from"./chunks/updateProductsFromCart__BYHNUQqslq.js";import{a as z,g as Y,b as j}from"./chunks/getEstimateShipping__B5WuQyklDq.js";import"@dropins/tools/fetch-graphql.js";const g=`
+import { C as CART_ITEMS_PAGINATION_ARGUMENTS, a as CART_FRAGMENT, s as state, f as fetchGraphQl, h as handleFetchError, t as transformCart, c as config } from "./chunks/getStoreConfig__D5TZNZKL7r.js";
+import { j, g, m, i, k, r, l, b, d, e } from "./chunks/getStoreConfig__D5TZNZKL7r.js";
+import { events } from "@dropins/tools/event-bus.js";
+import { p as publishOpenCartEvent, a as publishCartUpdateEvents } from "./chunks/updateProductsFromCart__BgOPk2gVgl.js";
+import { u } from "./chunks/updateProductsFromCart__BgOPk2gVgl.js";
+import { a, g as g2, b as b2 } from "./chunks/getEstimateShipping__Bin9bPsMEq.js";
+import "@dropins/tools/fetch-graphql.js";
+const ADD_PRODUCTS_TO_CART_MUTATION = `
   mutation ADD_PRODUCTS_TO_CART_MUTATION(
       $cartId: String!, 
       $cartItems: [CartItemInput!]!,
-      ${C}
+      ${CART_ITEMS_PAGINATION_ARGUMENTS}
     ) {
     addProductsToCart(
       cartId: $cartId
@@ -17,10 +24,90 @@ import{C,a as T,s as n,f as m,h as u,t as l,c as I}from"./chunks/getStoreConfig_
       }
     }
   }
-  ${T}
-`,S=async e=>{let r=!1;const s=n.cartId||await A().then(a=>(r=!0,a));return m(g,{variables:{cartId:s,cartItems:e.map(({sku:a,parentSku:c,quantity:t,optionsUIDs:o,enteredOptions:i})=>({sku:a,parent_sku:c,quantity:t,selected_options:o,entered_options:i}))}}).then(({errors:a,data:c})=>{if(a)return u(a);const t=l(c.addProductsToCart.cart);if(d.emit("cart/updated",t),d.emit("cart/data",t),t){const o=t.items.filter(i=>e.some(({sku:p})=>p===i.sku));r?f(t,o,n.locale||"en-US"):_(t,o,n.locale||"en-US")}return t})},h=`
+  ${CART_FRAGMENT}
+`;
+const addProductsToCart = async (items) => {
+  let isNewCart = false;
+  const cartId = state.cartId || await createEmptyCart().then((id) => {
+    isNewCart = true;
+    return id;
+  });
+  return fetchGraphQl(ADD_PRODUCTS_TO_CART_MUTATION, {
+    variables: {
+      cartId,
+      cartItems: items.map(({
+        sku,
+        parentSku: parent_sku,
+        quantity,
+        optionsUIDs: selected_options,
+        enteredOptions: entered_options
+      }) => ({
+        sku,
+        parent_sku,
+        quantity,
+        selected_options,
+        entered_options
+      }))
+    }
+  }).then(({
+    errors,
+    data
+  }) => {
+    if (errors)
+      return handleFetchError(errors);
+    const payload = transformCart(data.addProductsToCart.cart);
+    events.emit("cart/updated", payload);
+    events.emit("cart/data", payload);
+    if (payload) {
+      const updatedItems = payload.items.filter((item) => items.some(({
+        sku
+      }) => sku === item.sku));
+      if (isNewCart) {
+        publishOpenCartEvent(payload, updatedItems, state.locale || "en-US");
+      } else {
+        publishCartUpdateEvents(payload, updatedItems, state.locale || "en-US");
+      }
+    }
+    return payload;
+  });
+};
+const CREATE_EMPTY_CART_MUTATION = `
     mutation CREATE_EMPTY_CART_MUTATION {
         createEmptyCart
     }
-`,A=async()=>{const{disableGuestCart:e}=I.getConfig();if(e)throw new Error("Guest cart is disabled");return await m(h).then(({data:r})=>{const s=r.createEmptyCart;return n.cartId=s,s})};export{S as addProductsToCart,I as config,A as createEmptyCart,m as fetchGraphQl,N as getCartData,P as getConfig,z as getCountries,Y as getEstimateShipping,j as getRegions,D as getStoreConfig,b as initialize,F as initializeCart,y as removeFetchGraphQlHeader,$ as resetCart,v as setEndpoint,w as setFetchGraphQlHeader,x as setFetchGraphQlHeaders,k as updateProductsFromCart};
-//# sourceMappingURL=api.js.map
+`;
+const createEmptyCart = async () => {
+  const {
+    disableGuestCart
+  } = config.getConfig();
+  if (disableGuestCart) {
+    throw new Error("Guest cart is disabled");
+  }
+  return await fetchGraphQl(CREATE_EMPTY_CART_MUTATION).then(({
+    data
+  }) => {
+    const cartId = data.createEmptyCart;
+    state.cartId = cartId;
+    return cartId;
+  });
+};
+export {
+  addProductsToCart,
+  config,
+  createEmptyCart,
+  fetchGraphQl,
+  j as getCartData,
+  g as getConfig,
+  a as getCountries,
+  g2 as getEstimateShipping,
+  b2 as getRegions,
+  m as getStoreConfig,
+  i as initialize,
+  k as initializeCart,
+  r as removeFetchGraphQlHeader,
+  l as resetCart,
+  b as setEndpoint,
+  d as setFetchGraphQlHeader,
+  e as setFetchGraphQlHeaders,
+  u as updateProductsFromCart
+};

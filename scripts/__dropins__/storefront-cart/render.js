@@ -1,15 +1,545 @@
-(function(t,i){try{if(typeof document<"u"){const r=document.createElement("style"),o=i.styleId;for(const e in i.attributes)r.setAttribute(e,i.attributes[e]);r.setAttribute("data-dropin",o),r.appendChild(document.createTextNode(t)),document.head.appendChild(r)}}catch(r){console.error("vite-plugin-css-injected-by-js",r)}})(`.dropin-input{background-color:transparent;border-color:var(--color-neutral-600);border-radius:var(--shape-border-radius-1);border-style:inset solid;color:var(--color-neutral-800);-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;width:100%;max-width:100%;z-index:1}.dropin-input[type=number],.dropin-input[type=text]{-moz-appearance:textfield;-webkit-appearance:textfield;appearance:textfield}.dropin-input:focus{outline:none;box-shadow:none}.dropin-input:disabled{border-top-left-radius:var(--shape-border-radius-1);border-top-right-radius:var(--shape-border-radius-1);border-color:var(--color-neutral-500);background-color:var(--color-neutral-300);color:var(--color-neutral-500)}.dropin-input::placeholder,.dropin-input::-webkit-input-placeholder,.dropin-input::-ms-input-placeholder{color:var(--color-neutral-700);opacity:1}input:disabled::-webkit-input-placeholder{color:var(--color-neutral-500)}input:disabled:-moz-placeholder{color:var(--color-neutral-500)}input:disabled::-moz-placeholder{color:var(--color-neutral-500)}input:disabled:-ms-input-placeholder{color:var(--color-neutral-500)}.dropin-input-container{--icon-size: var(--spacing-small);display:flex;align-items:center;position:relative}.dropin-input-label-container{position:relative;display:flex;flex-grow:1;flex-direction:column}.dropin-input--primary{border:var(--shape-border-width-1) solid var(--color-neutral-600)}.dropin-input--primary:focus{border-color:var(--color-neutral-800);border-radius:var(--shape-border-radius-1)}div.dropin-input-container--primary .dropin-input--disabled{border:var(--shape-border-width-1) solid var(--color-neutral-500)}.dropin-input-container--primary .dropin-input--error{border:var(--shape-border-width-2) solid var(--color-alert-500)}.dropin-input-container--primary .dropin-input--success{border:var(--shape-border-width-2) solid var(--color-positive-500)}.dropin-input--secondary{border:0;border-radius:0;border-top:var(--shape-border-width-1) solid transparent;border-bottom:var(--shape-border-width-1) solid var(--color-neutral-600)}.dropin-input--secondary:focus{border-top-left-radius:var(--shape-border-radius-1);border-top-right-radius:var(--shape-border-radius-1);border-bottom-color:var(--color-neutral-800)}div.dropin-input-container--secondary .dropin-input--disabled{border:0;border-radius:0;border-bottom:var(--shape-border-width-1) solid var(--color-neutral-500)}.dropin-input-container--secondary .dropin-input--error{border:0;border-radius:0;border-bottom:var(--shape-border-width-2) solid var(--color-alert-500)}.dropin-input-container--secondary .dropin-input--success{border:0;border-radius:0;border-bottom:var(--shape-border-width-2) solid var(--color-positive-500)}.dropin-input--medium{font:var(--type-body-2-default-font);letter-spacing:var(--type-body-2-default-letter-spacing);padding:9px var(--spacing-small)}.dropin-input--medium~label{font:var(--type-body-2-default-font);letter-spacing:var(--type-body-2-default-letter-spacing)}.dropin-input--large{font:var(--type-body-1-default-font);letter-spacing:var(--type-body-1-default-letter-spacing);padding:11px var(--spacing-small)}.dropin-input--large~label{font:var(--type-body-1-default-font);letter-spacing:var(--type-body-1-default-letter-spacing)}.dropin-input__label--floating{cursor:text;color:var(--color-neutral-700);padding-left:var(--spacing-small);position:absolute;pointer-events:none;transform:translateY(-50%);top:50%;transition:top 50ms ease-in,left 50ms ease-in,font-size 50ms ease-in;z-index:1}.dropin-input__label--floating,.dropin-input--floating{transition:all .2s;touch-action:manipulation}.dropin-input--medium.dropin-input--floating{padding-top:17px;padding-bottom:17px}.dropin-input--medium.dropin-input--floating:focus,.dropin-input--medium.dropin-input--floating:not(:placeholder-shown){padding-top:26px}.dropin-input--large.dropin-input--floating{padding-top:15px;padding-bottom:15px}.dropin-input--large.dropin-input--floating:focus,.dropin-input--large.dropin-input--floating:not(:placeholder-shown){padding-top:22px}.dropin-input--floating:focus,.dropin-input--floating:not(:placeholder-shown){padding-bottom:calc(var(--spacing-small) - var(--spacing-xsmall))}.dropin-input__label--floating--icon-left{padding-left:calc(var(--icon-size) + (var(--spacing-small) * 2))}.dropin-input-container--floating:focus-within .dropin-input__label--floating{color:var(--color-neutral-800);transform:translate(.1em,-1.5em);font:var(--type-details-caption-1-font);letter-spacing:var(--type-details-caption-1-letter-spacing)}.dropin-input--floating:not(:placeholder-shown)~.dropin-input__label--floating{transform:translate(.1em,-1.5em);font:var(--type-details-caption-1-font);letter-spacing:var(--type-details-caption-1-letter-spacing)}.dropin-input-container--disabled .dropin-icon,.dropin-input-container--disabled .dropin-input__label--floating{color:var(--color-neutral-500)}.dropin-input--floating::-webkit-input-placeholder,.dropin-input--floating::placeholder{opacity:0;transition:inherit}.dropin-input--floating:focus::-webkit-input-placeholder,.dropin-input--floating:focus::placeholder{opacity:1}.dropin-input__label--floating--error{color:var(--color-alert-500)}.dropin-input--icon-right,.dropin-input--icon-left{--icon-space: calc(var(--icon-size) + (var(--spacing-small) * 2))}.dropin-input--icon-right{padding-right:var(--icon-space)}.dropin-input--icon-left{padding-left:var(--icon-space)}.dropin-input__field-icon--left,.dropin-input__field-icon--right{position:absolute;z-index:2}.dropin-input__field-icon--left{left:var(--spacing-small)}.dropin-input__field-icon--right{right:var(--spacing-small)}.dropin-input__field-icon--error,.dropin-input__field-icon--success{color:var(--color-neutral-100);height:var(--icon-size);width:var(--icon-size)}.dropin-input__field-icon--success{color:var(--color-positive-500)}.dropin-input__field-icon--error{color:var(--color-alert-500)}.dropin-picker{position:relative;display:flex;flex-direction:row;background-color:var(--color-neutral-50);justify-content:space-between;align-items:center;cursor:pointer;gap:var(--spacing-small);text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.dropin-picker select{background-color:transparent;border:var(--shape-border-width-1) solid var(--color-neutral-600);border-radius:var(--shape-border-radius-1);color:var(--color-neutral-700);-webkit-appearance:none;-moz-appearance:none;appearance:none;box-shadow:none;flex:1;cursor:pointer;width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.dropin-picker__select:focus{outline:none;border:var(--shape-border-width-1) solid var(--color-neutral-800)}.dropin-picker__medium .dropin-picker__select--primary,.dropin-picker__medium .dropin-picker__select--secondary{padding:9px var(--spacing-xxbig) 9px var(--spacing-small)}.dropin-picker__large .dropin-picker__select--primary,.dropin-picker__large .dropin-picker__select--secondary{padding:11px var(--spacing-xxbig) 11px var(--spacing-small)}.dropin-picker__select--medium{font:var(--type-body-2-default-font);letter-spacing:var(--type-body-2-default-letter-spacing)}.dropin-picker__select--large{font:var(--type-body-1-default-font);letter-spacing:var(--type-body-1-default-letter-spacing)}.dropin-picker__chevronDown{z-index:1;position:absolute;color:var(--color-neutral-700);right:var(--spacing-small);display:block;pointer-events:none;padding:0;height:var(--icon-size);width:var(--icon-size)}.dropin-picker__floatingLabel{position:absolute;pointer-events:none;left:var(--spacing-small);color:var(--color-neutral-700);touch-action:manipulation;transform:translateY(-50%);transition:top 20ms ease-in,font-size 50ms ease-in}.dropin-picker__select--floating:focus~label{transition:all 40ms}.dropin-picker__selected select{color:var(--color-neutral-800)}.dropin-picker__selected label{top:30%}.dropin-picker__medium.dropin-picker__floating.dropin-picker__selected label{font:var(--type-details-caption-1-font);letter-spacing:var(--type-details-caption-1-letter-spacing)}.dropin-picker__large.dropin-picker__floating.dropin-picker__selected label{font:var(--type-details-caption-2-font);letter-spacing:var(--type-details-caption-2-letter-spacing)}.dropin-picker__medium.dropin-picker__floating select{padding:17px var(--spacing-small)}.dropin-picker__large.dropin-picker__floating select{padding:15px var(--spacing-small)}.dropin-picker__large.dropin-picker__floating.dropin-picker__selected select{padding:25px var(--spacing-xxbig) 5px var(--spacing-small)}.dropin-picker__medium.dropin-picker__floating.dropin-picker__selected select{padding:27px var(--spacing-xxbig) 7px var(--spacing-small)}select::-ms-expand{display:none}.dropin-picker__disabled select.dropin-picker__select{background-color:var(--color-neutral-300);border:var(--shape-border-width-1) solid var(--color-neutral-500);color:var(--color-neutral-500);cursor:not-allowed}.dropin-picker__disabled svg.dropin-picker__chevronDown{color:var(--color-neutral-500)}.dropin-picker__error select{border:var(--shape-border-width-2) solid var(--color-alert-500);color:var(--color-alert-500)}.dropin-picker__error .dropin-picker__select:focus{border:var(--shape-border-width-2) solid var(--color-alert-500)}.dropin-picker__error .dropin-picker__chevronDown,.dropin-picker__error label{color:var(--color-alert-500)}.dropin-picker select.dropin-picker__select--secondary{border-top:var(--shape-border-width-1) solid transparent;border-left:0 none;border-right:0 none;border-radius:0}.dropin-picker__disabled select.dropin-picker__select--secondary{border-bottom:var(--shape-border-width-1) solid var(--color-neutral-500)}.dropin-picker__error select.dropin-picker__select--secondary{border-top:var(--shape-border-width-1) solid transparent;border-left:0 none;border-right:0 none}.dropin-picker__icon--placeholder{z-index:1;position:absolute;color:var(--color-neutral-700);left:var(--spacing-small);display:block;pointer-events:none;padding:0;height:var(--icon-size);width:var(--icon-size)}.dropin-picker__icon select.dropin-picker__select,.dropin-picker__floating.dropin-picker__selected.dropin-picker__icon select{padding-left:var(--spacing-xxbig)}.dropin-picker__floating.dropin-picker__selected.dropin-picker__icon label{left:var(--spacing-xxbig)}.dropin-accordion-section__heading{display:grid;grid-template-columns:1fr max-content}.dropin-accordion-section p{font:var(--type-body-1-default-font);letter-spacing:var(--type-body-1-default-letter-spacing);color:var(--color-neutral-700);margin:0}.dropin-accordion-section__flex{display:flex;justify-content:space-between;cursor:pointer;align-items:center}.dropin-accordion-section__title-container,.dropin-accordion-section__secondary-text-container{display:flex;gap:var(--spacing-xsmall);align-items:center}.dropin-accordion-section__secondary-text-container h4,.dropin-accordion-section__title-container h3{margin:0}.dropin-accordion-section__title{color:var(--color-neutral-800);font:var(--type-body-1-strong-font);letter-spacing:var(--type-body-1-strong-letter-spacing);cursor:pointer}.dropin-accordion-section__secondary-text{color:var(--color-neutral-700);font:var(--type-body-2-default-font);letter-spacing:var(--type-body-1-default-letter-spacing)}.dropin-accordion-section__secondary-text a{font:var(--type-body-2-strong-font);letter-spacing:var(--type-body-2-strong-letter-spacing)}.dropin-accordion-section svg{cursor:pointer}.dropin-accordion-section__content-container{display:grid;margin:var(--spacing-medium) 0;gap:var(--spacing-medium)}.dropin-accordion-section__content-container:empty{margin:0}.dropin-price-summary{display:grid;grid-auto-flow:row;padding:var(--spacing-small);row-gap:var(--spacing-xsmall)}.dropin-price-summary__heading{font:var(--type-headline-1-font);letter-spacing:var(--type-headline-1-letter-spacing)}.dropin-price-summary__label,.dropin-price-summary__price{font:var(--type-body-1-default-font);letter-spacing:var(--type-body-1-default-letter-spacing)}.dropin-price-summary__label--muted{font:var(--type-body-2-default-font);letter-spacing:var(--type-body-2-default-letter-spacing);color:var(--color-neutral-700)}.dropin-price-summary__price--muted{font:var(--type-body-2-default-font);letter-spacing:var(--type-body-2-default-letter-spacing)}.dropin-price-summary__price{text-align:right}.dropin-price-summary__label--bold,.dropin-price-summary__price--bold{font:var(--type-body-1-emphasized-font);letter-spacing:var(--type-body-1-emphasized-letter-spacing)}.dropin-price-summary__divider-primary,.dropin-price-summary__divider-secondary{width:100%;margin:var(--spacing-xxsmall) 0}.dropin-price-summary__divider-secondary{margin:0}.dropin-price-summary__entry,.dropin-price-summary__taxEntry{display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-xxsmall);align-items:center;color:var(--color-brand-700)}.dropin-price-summary__caption{font:var(--type-details-caption-2-font);letter-spacing:var(--type-details-caption-2-letter-spacing);grid-column:span 2;color:var(--color-neutral-700)}.dropin-price-summary__appliedTaxes{margin:var(--spacing-small) 0}.dropin-price-summary__primaryAction{margin-top:var(--spacing-small);grid-template-columns:1fr}.dropin-price-summary__total--padded{margin-top:var(--spacing-small)}.dropin-price-summary__shipping--edit{display:grid;grid-column:1 / span 2;gap:var(--spacing-small);padding-top:var(--spacing-small);padding-left:var(--spacing-small)}a.dropin-price-summary__shippingLink{text-decoration:underline}.dropin-price-summary__shipping--hide{display:none!important}.dropin-price-summary__shipping--edit button{width:var(--spacing-huge);justify-self:end}
-.dropin-skeleton{--row-gap-spacing: var(--spacing-medium);display:grid;grid-template-columns:1fr 1fr;gap:var(--row-gap-spacing)}.dropin-skeleton .dropin-skeleton--row__content{background:var(--color-neutral-300) linear-gradient(to right,var(--color-neutral-300) 0%,var(--color-neutral-100) 20%,var(--color-neutral-300) 40%,var(--color-neutral-300) 100%) no-repeat;animation:skeletonShimmer infinite 1.2s linear;border-radius:var(--shape-border-radius-2)}.dropin-skeleton__empty{background:none}.dropin-skeleton-row--multiline{--multiline-gap-spacing: var(--spacing-medium);display:grid;grid-auto-rows:max-content;gap:var(--multiline-gap-spacing)}.dropin-skeleton-row--full{grid-column:1 / -1}.dropin-skeleton-row svg{fill:var(--color-neutral-400);fill-opacity:.5;animation-duration:1s;animation-fill-mode:forwards;animation-iteration-count:infinite;animation-name:placeholderShimmer;animation-timing-function:linear}.dropin-skeleton-row__row-xsmall{height:32px}.dropin-skeleton-row__row-small{height:40px}.dropin-skeleton-row__row-medium{height:48px}.dropin-skeleton-row__row-large{height:56px}.dropin-skeleton-row__row-xlarge{height:72px}.dropin-skeleton-row__heading-xsmall{height:20px}.dropin-skeleton-row__heading-small{height:24px}.dropin-skeleton-row__heading-medium{height:32px}.dropin-skeleton-row__heading-large{height:40px}.dropin-skeleton-row__heading-xlarge{height:48px}@keyframes skeletonShimmer{0%{background-position:-600px 0}to{background-position:600px 0}}@keyframes placeholderShimmer{0%{fill-opacity:.5}50%{fill-opacity:1}to{fill-opacity:.5}}@media only screen and (max-width: 600px){.dropin-skeleton{grid-template-columns:1fr}}.dropin-incrementer__content{border-radius:var(--shape-border-radius-1);border:solid var(--shape-border-width-1) var(--color-neutral-600);display:grid;grid-template-columns:var(--spacing-xxbig) auto var(--spacing-xxbig);height:var(--spacing-xbig);opacity:1}.dropin-incrementer__content--disabled{background:var(--color-neutral-300);border-radius:var(--shape-border-radius-1);border:solid var(--shape-border-width-1) var(--color-neutral-500)}.dropin-incrementer__content--large{height:var(--spacing-xxbig)}.dropin-incrementer__content:hover{border:solid var(--shape-border-width-1) var(--color-neutral-700)}.dropin-incrementer__content:active{border:solid var(--shape-border-width-1) var(--color-neutral-800)}.dropin-incrementer__footer{font:var(--type-details-caption-2-font)}.dropin-incrementer__decrease-button>svg,.dropin-incrementer__increase-button>svg{align-items:center;justify-content:center}.dropin-incrementer__button-container{align-items:center;border-radius:var(--shape-border-radius-1);display:grid;justify-content:center;background:var(--color-neutral-50)}.dropin-incrementer__button-container--disabled{background-color:var(--color-neutral-300)}.dropin-incrementer__decrease-button,.dropin-incrementer__increase-button{align-items:center;background-color:var(--color-neutral-50);border-radius:var(--shape-border-radius-3);border:none;display:grid;height:var(--spacing-medium);width:var(--spacing-medium)}.dropin-incrementer__decrease-button:enabled,.dropin-incrementer__increase-button:enabled{cursor:pointer}.dropin-incrementer__decrease-button--disabled,.dropin-incrementer__increase-button--disabled{background-color:var(--color-neutral-300)}.dropin-incrementer__increase-button:focus-visible,.dropin-incrementer__decrease-button:focus-visible{outline:var(--shape-border-width-1) solid var(--color-brand-500);box-shadow:0 0 0 var(--shape-border-radius-1) var(--color-neutral-500)}.dropin-incrementer__decrease-button:focus:not(:focus-visible),.dropin-incrementer__increase-button:focus:not(:focus-visible){background-color:var(--color-neutral-50)}.dropin-incrementer__decrease-button:hover:enabled,.dropin-incrementer__increase-button:hover:enabled,.dropin-incrementer__decrease-button:focus,.dropin-incrementer__increase-button:focus{background:var(--color-neutral-300)}.dropin-incrementer__input{box-sizing:border-box;text-align:center;min-width:var(--spacing-xxbig)}.dropin-incrementer__input:disabled{background-color:var(--color-neutral-300);color:var(--color-neutral-500)}.dropin-incrementer__input::-webkit-outer-spin-button,.dropin-incrementer__input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}.dropin-incrementer__input:focus-within{border:none;box-sizing:border-box;text-align:center}.dropin-incrementer__input:focus-within[type=number]{box-shadow:none}.dropin-incrementer__input[type=number]{-moz-appearance:textfield;box-shadow:none;border:none}textarea:focus,input:focus{outline:none}.dropin-image{background:var(--color-neutral-300) linear-gradient(to right,var(--color-neutral-300) 0%,var(--color-neutral-100) 20%,var(--color-neutral-300) 40%,var(--color-neutral-300) 100%) no-repeat;animation:imageShimmer infinite 1.2s linear;border-radius:var(--shape-border-radius-2)}.dropin-image--loaded{background:unset;border-radius:unset}@keyframes imageShimmer{0%{background-position:-600px 0}to{background-position:600px 0}}.dropin-divider{border:none}.dropin-divider--primary{border-top:var(--shape-border-width-3) solid var(--color-neutral-400);margin:var(--spacing-xbig) auto}.dropin-divider--secondary{border-top:var(--shape-border-width-2) solid var(--color-neutral-400);margin:var(--spacing-medium) auto}.dropin-price{color:inherit}.dropin-price--small{font:var(--type-body-2-strong-font);letter-spacing:var(--type-body-2-strong-letter-spacing)}.dropin-price--medium{font:var(--type-body-1-default-font);letter-spacing:var(--type-body-1-default-letter-spacing)}.dropin-price--large{font:var(--type-headline-2-strong-font);letter-spacing:var(--type-headline-2-strong-letter-spacing)}.dropin-price--strikethrough{text-decoration:line-through}.dropin-price--sale{color:var(--color-alert-800)}.dropin-price--bold{font-weight:700}.dropin-price--normal{font-weight:400}.dropin-button,.dropin-iconButton{border:0 none;cursor:pointer;white-space:normal}.dropin-button{border-radius:var(--shape-border-radius-3);font-size:var(--type-button-1-font);font-weight:var(--type-button-1-font);padding:var(--spacing-xsmall) var(--spacing-medium);display:flex;justify-content:center;align-items:center;text-align:left;word-wrap:break-word}.dropin-iconButton{height:var(--spacing-xbig);width:var(--spacing-xbig);padding:var(--spacing-xsmall)}.dropin-button:disabled,.dropin-iconButton:disabled{pointer-events:none;-webkit-user-select:none;user-select:none}.dropin-button:not(:disabled),.dropin-iconButton:not(:disabled){cursor:pointer}.dropin-button:focus,.dropin-iconButton:focus{outline:none}.dropin-button:focus-visible,.dropin-iconButton:focus-visible{outline:var(--spacing-xxsmall) solid var(--color-button-focus)}.dropin-button--primary,a.dropin-button--primary,.dropin-iconButton--primary{border:none;background:var(--color-brand-500) 0 0% no-repeat padding-box;color:var(--color-neutral-50);text-align:left;margin-right:0}.dropin-iconButton--primary{border-radius:var(--spacing-xbig);min-height:var(--spacing-xbig);min-width:var(--spacing-xbig);padding:var(--spacing-xsmall)}.dropin-button--primary--disabled,a.dropin-button--primary--disabled,.dropin-iconButton--primary--disabled{background:var(--color-neutral-300) 0 0% no-repeat padding-box;color:var(--color-neutral-500);fill:var(--color-neutral-300);pointer-events:none;-webkit-user-select:none;user-select:none}.dropin-button--primary:hover,a.dropin-button--primary:hover,.dropin-iconButton--primary:hover,.dropin-button--primary:focus:hover,.dropin-iconButton--primary:focus:hover{background-color:var(--color-button-hover);text-decoration:none}.dropin-button--primary:focus,.dropin-iconButton--primary:focus{background-color:var(--color-brand-500)}.dropin-button--primary:hover:active,.dropin-iconButton--primary:hover:active{background-color:var(--color-button-active)}.dropin-button--secondary,a.dropin-button--secondary,.dropin-iconButton--secondary{border:var(--shape-border-width-2) solid var(--color-brand-500);background:none 0 0% no-repeat padding-box;color:var(--color-brand-500);padding-top:calc(var(--spacing-xsmall) - var(--shape-border-width-2));padding-left:calc(var(--spacing-medium) - var(--shape-border-width-2))}.dropin-iconButton--secondary{border-radius:var(--spacing-xbig);min-height:var(--spacing-xbig);min-width:var(--spacing-xbig);padding:var(--spacing-xsmall);padding-top:calc(var(--spacing-xsmall) - var(--shape-border-width-2));padding-left:calc(var(--spacing-xsmall) - var(--shape-border-width-2))}.dropin-button--secondary--disabled,a.dropin-button--secondary--disabled,.dropin-iconButton--secondary--disabled{border:var(--shape-border-width-2) solid var(--color-neutral-300);background:none 0 0% no-repeat padding-box;color:var(--color-neutral-500);fill:var(--color-neutral-300);pointer-events:none;-webkit-user-select:none;user-select:none}.dropin-button--secondary:hover,a.dropin-button--secondary:hover,.dropin-iconButton--secondary:hover{border:var(--shape-border-width-2) solid var(--color-button-hover);color:var(--color-button-hover);text-decoration:none}.dropin-button--secondary:active,.dropin-iconButton--secondary:active{border:var(--shape-border-width-2) solid var(--color-button-active);color:var(--color-button-active)}.dropin-button--tertiary,a.dropin-button--tertiary,.dropin-iconButton--tertiary{border:none;background:none 0 0% no-repeat padding-box;color:var(--color-brand-500)}.dropin-iconButton--tertiary{border:none;border-radius:var(--spacing-xbig);min-height:var(--spacing-xbig);min-width:var(--spacing-xbig);padding:var(--spacing-xsmall)}.dropin-button--tertiary--disabled,a.dropin-button--tertiary--disabled,.dropin-iconButton--tertiary--disabled{border:none;color:var(--color-neutral-500);pointer-events:none;-webkit-user-select:none;user-select:none}.dropin-button--tertiary:hover,a.dropin-button--tertiary:hover,.dropin-iconButton--tertiary:hover{color:var(--color-button-hover);text-decoration:none}.dropin-button--tertiary:active,.dropin-iconButton--tertiary:active{color:var(--color-button-active)}.dropin-button--tertiary:focus-visible,.dropin-iconButton--tertiary:focus-visible{-webkit-box-shadow:inset 0 0 0 2px var(--color-neutral-800);-moz-box-shadow:inset 0 0 0 2px var(--color-neutral-800);box-shadow:inset 0 0 0 2px var(--color-neutral-800)}.dropin-button--large{font:var(--type-button-1-font);letter-spacing:var(--type-button-1-letter-spacing)}.dropin-button--medium{font:var(--type-button-2-font);letter-spacing:var(--type-button-2-letter-spacing)}.dropin-button-icon{height:24px}.dropin-button--with-icon{column-gap:var(--spacing-xsmall);row-gap:var(--spacing-xsmall)}.dropin-card{--bgColor: var(--color-neutral-200);background-color:var(--bgColor);border-width:0;border-radius:var(--shape-border-radius-2)}.dropin-card--secondary{--bgColor: var(--color-neutral-50);border-width:var(--shape-border-width-2);border-style:solid;border-color:var(--color-neutral-400)}.dropin-card__content{display:flex;flex-direction:column;gap:var(--spacing-medium);padding-top:var(--spacing-medium);padding-right:var(--spacing-medium);padding-bottom:var(--spacing-medium);padding-left:var(--spacing-medium)}.dropin-progress-spinner-provider{position:relative;display:flex;flex-direction:column;border-radius:inherit;opacity:1;padding:var(--spacing-small)}.dropin-progress-spinner{--size: var(--spacing-medium);--stroke-width: var(--shape-icon-stroke-4);width:var(--size);height:var(--size);border-style:solid;border-width:var(--stroke-width);border-color:var(--color-neutral-400);border-top-color:var(--color-brand-500);border-radius:50%;animation:indeterminate 1s infinite ease-in-out}.dropin-progress-spinner-with-provider{position:absolute;top:calc(50% - var(--size) / 2 - var(--stroke-width));left:calc(50% - var(--size) / 2 - var(--stroke-width))}.dropin-progress-spinner-background{--bgColor: var(--color-neutral-50);background-color:var(--bgColor);border-radius:inherit;opacity:.5;position:absolute;width:100%;height:100%;margin-top:calc(-1 * var(--spacing-small));margin-left:calc(-1 * var(--spacing-small))}.dropin-progress-spinner--shape-size-small{--size: var(--spacing-medium)}.dropin-progress-spinner--shape-size-medium{--size: var(--spacing-big)}.dropin-progress-spinner--shape-size-big{--size: var(--spacing-xxbig)}.dropin-progress-spinner--shape-size-large{--size: var(--spacing-large)}.dropin-progress-spinner--shape-stroke-1{--stroke-width: var(--shape-icon-stroke-1)}.dropin-progress-spinner--shape-stroke-2{--stroke-width: var(--shape-icon-stroke-2)}.dropin-progress-spinner--shape-stroke-3{--stroke-width: var(--shape-icon-stroke-3)}.dropin-progress-spinner--shape-stroke-4{--stroke-width: var(--shape-icon-stroke-4)}@keyframes indeterminate{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.dropin-cart-item{--item-group-spacing: 0;--group-spacing: var(--spacing-xsmall);font:var(--type-body-2-default-font);letter-spacing:var(--type-body-2-default-letter-spacing);color:var(--color-neutral-700);container-type:inline-size;container-name:cart-item;position:relative}.dropin-cart-item__skeleton{gap:var(--spacing-xsmall)}.dropin-cart-item__skeleton__item{width:100%;height:auto}.dropin-cart-item__skeleton__item:after{content:"";display:inline-block}.dropin-cart-item__image .dropin-cart-item__skeleton__item{padding-bottom:100%}.dropin-cart-item__image:is(img),.dropin-cart-item__image img{width:100%;height:auto}.dropin-cart-item__title{font:var(--type-body-1-default-font);letter-spacing:var(--type-body-1-default-letter-spacing);color:var(--color-neutral-800)}.dropin-cart-item__sku{font:var(--type-details-caption-2-font);letter-spacing:var(--type-details-caption-2-letter-spacing)}.dropin-cart-item__configurations{list-style-type:none;margin:var(--group-spacing) 0 0 0;padding:0}.dropin-cart-item__configurations__item__value{font-weight:inherit;color:var(--color-neutral-800)}.dropin-cart-item__configurations__item:not(:last-child){margin-right:var(--spacing-xxsmall)}.dropin-cart-item__quantity__value{font:var(--type-details-caption-2-font);letter-spacing:var(--type-details-caption-2-letter-spacing);display:none}.dropin-cart-item__quantity__number{font-weight:inherit;color:var(--color-neutral-800)}.dropin-cart-item__quantity__incrementer{max-width:160px;margin-top:calc(var(--group-spacing) / 2);margin-bottom:var(--group-spacing)}.dropin-cart-item__remove{position:absolute;right:0;top:0}.dropin-cart-item__warning,.dropin-cart-item__alert{font:var(--type-details-caption-2-font);letter-spacing:var(--type-details-caption-2-letter-spacing);margin-bottom:var(--group-spacing);display:flex;align-items:center}.dropin-cart-item__warning svg,.dropin-cart-item__alert svg{margin-right:var(--spacing-xxsmall)}.dropin-cart-item__warning{color:var(--color-warning-800)}.dropin-cart-item__warning svg{fill:var(--color-warning-800);color:var(--color-neutral-50)}.dropin-cart-item__alert{color:var(--color-alert-800)}.dropin-cart-item__alert svg{fill:var(--color-alert-800);color:var(--color-neutral-50)}.dropin-cart-item__total,.dropin-cart-item__row-total{display:flex;gap:var(--spacing-xxsmall)}.dropin-cart-item__total-tax-excluded{font:var(--type-details-caption-2-font);letter-spacing:var(--type-details-caption-2-letter-spacing);color:var(--color-neutral-800)}.dropin-cart-item--updating{opacity:.4;pointer-events:none;position:relative}.dropin-cart-item__spinner{margin:0 auto;position:absolute;z-index:999;left:0;right:0;top:calc(50% - (var(--size) / 2));bottom:0}.dropin-cart-item__wrapper{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:min-content;grid-column-gap:var(--spacing-small)}.dropin-cart-item__image{grid-column:1 / 2;grid-row:1 / 10}.dropin-cart-item__title,.dropin-cart-item__sku,.dropin-cart-item__configurations,.dropin-cart-item__price,.dropin-cart-item__total,.dropin-cart-item__warning,.dropin-cart-item__alert,.dropin-cart-item__quantity{grid-column:2 / 5}.dropin-cart-item__title--edit{padding-right:var(--spacing-xbig)}.dropin-cart-item__description,.dropin-cart-item__sku{margin-top:var(--item-group-spacing)}.dropin-cart-item__price{margin-top:var(--group-spacing)}.dropin-cart-item__quantity:not(.dropin-cart-item__quantity--edit){display:none}.dropin-cart-item__warning--quantity,.dropin-cart-item__alert--quantity,.dropin-cart-item__description{display:none}.dropin-cart-item__price-tax-message,.dropin-cart-item__price-tax-excluded-message,.dropin-cart-item__total-tax-message{font:var(--type-details-caption-2-font);letter-spacing:var(--type-details-caption-2-letter-spacing);color:var(--color-neutral-800)}@container cart-item (width >= 400px) and (width < 737px){.dropin-cart-item__title,.dropin-cart-item__sku,.dropin-cart-item__configurations,.dropin-cart-item__price,.dropin-cart-item__warning,.dropin-cart-item__alert,.dropin-cart-item__quantity{grid-column:2 / 4}.dropin-cart-item__title--edit{grid-column:2 / 5}.dropin-cart-item__total:not(.dropin-cart-item__total--edit){grid-auto-rows:min-content;grid-column:4 / 5;grid-row:1 / 10;display:grid;justify-self:end;text-align:right;gap:unset}}@container cart-item (width >= 737px) and (width < 1192px){.dropin-cart-item__wrapper{grid-template-columns:repeat(12,1fr)}.dropin-cart-item__image{grid-column:1 / 3}.dropin-cart-item__title,.dropin-cart-item__sku,.dropin-cart-item__configurations,.dropin-cart-item__price,.dropin-cart-item__warning,.dropin-cart-item__alert,.dropin-cart-item__quantity{grid-column:3 / 10}.dropin-cart-item__title--edit{padding-right:unset}.dropin-cart-item__total{grid-column:10 / 13;grid-row:1 / 10;text-align:right;display:flex;flex-direction:column;gap:0}.dropin-cart-item__row-total{display:contents;gap:var(--spacing-xxsmall)}.dropin-cart-item__total--edit{padding-right:calc(var(--spacing-xbig) + var(--spacing-xsmall))}}@container cart-item (width >= 1192px){.dropin-cart-item{--item-group-spacing: var(--spacing-xxsmall);--group-spacing: var(--spacing-small)}.dropin-cart-item__wrapper{grid-template-columns:repeat(8,1fr);grid-column-gap:var(--spacing-medium)}.dropin-cart-item__image{grid-column:1 / 2}.dropin-cart-item__title,.dropin-cart-item__description,.dropin-cart-item__sku,.dropin-cart-item__price,.dropin-cart-item__configurations{grid-column:2 / 6}.dropin-cart-item__title{padding-right:unset}.dropin-cart-item__quantity{grid-column:6 / 7;grid-row:1 / 10}.dropin-cart-item__warning,.dropin-cart-item__alert{grid-column:6 / 7}.dropin-cart-item__warning--quantity,.dropin-cart-item__alert--quantity{display:flex;align-items:center}.dropin-cart-item__warning--quantity svg,.dropin-cart-item__alert--quantity svg{margin-right:var(--spacing-xxsmall)}.dropin-cart-item__warning--quantity svg{fill:var(--color-warning-800);color:var(--color-neutral-50)}.dropin-cart-item__alert--quantity svg{fill:var(--color-alert-800);color:var(--color-neutral-50)}.dropin-cart-item__warning:not(.dropin-cart-item__warning--quantity),.dropin-cart-item__alert:not(.dropin-cart-item__alert--quantity){display:none}.dropin-cart-item__total{grid-column:7 / 9;grid-row:1 / 10;justify-self:end;text-align:right}.dropin-cart-item__total:has(.dropin-cart-item__total-tax-excluded){flex-direction:column;gap:0}.dropin-cart-item__row-total{display:flex;gap:var(--spacing-xxsmall)}.dropin-cart-item__total--edit{padding-right:calc(var(--spacing-xbig) + var(--spacing-xsmall))}.dropin-cart-item__quantity__incrementer{margin-top:0}.dropin-cart-item__quantity:not(.dropin-cart-item__quantity--edit),.dropin-cart-item__quantity__value{display:unset}.dropin-cart-item__price__quantity{display:none}.dropin-cart-item__title{font:var(--type-headline-2-default-font);letter-spacing:var(--type-headline-2-default-letter-spacing)}}.dropin-cart-list{container-type:inline-size;container-name:cart-item}.dropin-cart-list__wrapper{display:grid;grid-auto-rows:min-content;grid-gap:var(--spacing-medium)}@container cart-item (width >= 737px){.dropin-cart-list__wrapper{grid-gap:0}.dropin-cart-list__item:not(:last-child):after{content:"";display:block;border-top:var(--shape-border-width-3) solid var(--color-neutral-400);margin:var(--spacing-medium) 0}}.cart-empty-cart{container-type:inline-size;container-name:cart}.cart-empty-cart__wrapper{display:grid;grid-auto-rows:min-content;justify-content:center;text-align:center}.cart-empty-cart__icon{margin-bottom:var(--spacing-small);color:var(--color-neutral-500)}.cart-empty-cart__icon svg{color:var(--color-)}.cart-empty-cart__heading{font:var(--type-headline-1-font);letter-spacing:var(--type-headline-1-letter-spacing)}.cart-empty-cart__actions{display:grid;grid-auto-rows:min-content;gap:var(--spacing-small);margin-top:var(--spacing-medium);justify-content:center}@container cart (width < 737px){.cart-empty-cart__wrapper{border:unset}}.cart-cart{container-type:inline-size;container-name:cart}.cart-cart__wrapper{display:grid;grid-template-rows:auto 1fr;grid-gap:var(--spacing-medium)}.cart-cart__heading{display:grid;row-gap:var(--spacing-xsmall);padding:var(--spacing-medium);padding-bottom:0;font:var(--type-headline-1-font);letter-spacing:var(--type-headline-1-letter-spacing)}.cart-cart__heading-divider{width:100%;margin:var(--spacing-xxsmall) 0 0 0}.cart-cart__content{display:grid;grid-template-columns:1fr;padding:0 var(--spacing-medium)}.cart-cart__empty-cart{justify-self:center;align-self:center;width:100%;max-width:800px}.cart-cart__price-summary{padding:var(--spacing-small) var(--spacing-medium);background-color:var(--color-neutral-200)}.dropin-price-summary__shipping--zip,.dropin-price-summary__shipping--state{background-color:var(--color-neutral-50)}@container cart (width >= 1024px){.cart-cart__wrapper{grid-template-columns:repeat(var(--grid-3-columns),1fr);grid-column-gap:var(--grid-3-gutters);margin:0 var(--grid-3-margins)}.cart-cart__heading{padding:var(--spacing-medium) 0 0 0}.cart-cart__content{padding:0}.cart-cart__heading,.cart-cart__content{grid-column:1 / span 8}.cart-cart__price-summary{grid-row:1 / span 3;grid-column:9 / span 4;padding:var(--spacing-medium);height:min-content}.cart-cart__heading--full-width,.cart-cart__content--empty,.cart-cart__content--full-width{grid-column:1 / span 12}}.cart-mini-cart{display:flex;flex-direction:column;height:100%;padding:var(--spacing-small) var(--spacing-small) var(--spacing-medium);box-sizing:border-box}.cart-mini-cart__empty-cart{width:100%;max-width:800px;height:100%;display:flex;flex-direction:column;justify-content:center;align-self:center}.cart-mini-cart__heading{display:grid;row-gap:var(--spacing-xsmall);font:var(--type-headline-2-default-font);letter-spacing:var(--type-headline-2-default-letter-spacing)}.cart-mini-cart__heading-divider{width:100%;margin:var(--spacing-xxsmall) 0 0 0}.cart-mini-cart__products{flex:1;overflow-y:auto;max-height:100%;padding-top:var(--spacing-medium);padding-bottom:var(--spacing-medium)}.cart-mini-cart__products .dropin-cart-item__configurations li{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.cart-mini-cart__footer{display:grid;grid-auto-flow:row;gap:var(--spacing-small);padding-top:var(--spacing-small)}.cart-mini-cart__footer__estimated-total{font:var(--type-body-1-emphasized-font);letter-spacing:var(--type-body-1-emphasized-letter-spacing);display:grid;grid-template:max-content / 1fr auto;gap:var(--spacing-xsmall)}.cart-mini-cart__footer__ctas{display:grid;grid-auto-flow:row;gap:var(--spacing-xsmall)}
-.dropin-design{--color-brand-500: #454545;--color-brand-600: #383838;--color-brand-700: #2b2b2b;--color-neutral-50: #ffffff;--color-neutral-100: #fafafa;--color-neutral-200: #f5f5f5;--color-neutral-300: #e8e8e8;--color-neutral-400: #d6d6d6;--color-neutral-500: #b8b8b8;--color-neutral-600: #8f8f8f;--color-neutral-700: #666666;--color-neutral-800: #3d3d3d;--color-neutral-900: #292929;--color-positive-200: #eff5ef;--color-positive-500: #7fb078;--color-positive-800: #53824c;--color-informational-200: #eeeffb;--color-informational-500: #6978d9;--color-informational-800: #5d6dd6;--color-warning-200: #fdf3e9;--color-warning-500: #e79f5c;--color-warning-800: #ad5c00;--color-alert-200: #ffebeb;--color-alert-500: #db7070;--color-alert-800: #bf4545;--color-opacity-16: rgba(255, 255, 255, .16);--color-opacity-24: rgba(255, 255, 255, .24);--color-action-button-active: #ffffff;--color-action-button-hover: #e8e8e8;--color-button-active: #2b2b2b;--color-button-focus: #d6d6d6;--color-button-hover: #383838;--grid-1-columns: 4;--grid-1-margins: 0;--grid-1-gutters: 16px;--grid-2-columns: 12;--grid-2-margins: 0;--grid-2-gutters: 16px;--grid-3-columns: 12;--grid-3-margins: 0;--grid-3-gutters: 24px;--grid-4-columns: 12;--grid-4-margins: 0;--grid-4-gutters: 24px;--grid-5-columns: 12;--grid-5-margins: 0;--grid-5-gutters: 24px;--shape-border-radius-1: 3px;--shape-border-radius-2: 8px;--shape-border-radius-3: 24px;--shape-border-width-1: 1px;--shape-border-width-2: 1.5px;--shape-border-width-3: 2px;--shape-border-width-4: 4px;--shape-shadow-1: 0 0 16px 0 rgba(0, 0, 0, .16);--shape-shadow-2: 0 2px 16px 0 rgba(0, 0, 0, .16);--shape-shadow-3: 0 2px 3px 0 rgba(0, 0, 0, .16);--shape-icon-stroke-1: 1px;--shape-icon-stroke-2: 1.5px;--shape-icon-stroke-3: 2px;--shape-icon-stroke-4: 4px;--spacing-xxsmall: 4px;--spacing-xsmall: 8px;--spacing-small: 16px;--spacing-medium: 24px;--spacing-big: 32px;--spacing-xbig: 40px;--spacing-xxbig: 48px;--spacing-large: 64px;--spacing-xlarge: 72px;--spacing-xxlarge: 96px;--spacing-huge: 120px;--spacing-xhuge: 144px;--spacing-xxhuge: 192px;--type-base-font-family: system-ui, sans-serif;--type-display-1-font: normal normal 300 60px/72px var(--type-base-font-family);--type-display-1-letter-spacing: .04em;--type-display-2-font: normal normal 300 48px/56px var(--type-base-font-family);--type-display-2-letter-spacing: .04em;--type-display-3-font: normal normal 300 34px/40px var(--type-base-font-family);--type-display-3-letter-spacing: .04em;--type-headline-1-font: normal normal 400 24px/32px var(--type-base-font-family);--type-headline-1-letter-spacing: .04em;--type-headline-2-default-font: normal normal 300 20px/24px var(--type-base-font-family);--type-headline-2-default-letter-spacing: .04em;--type-headline-2-strong-font: normal normal 400 20px/24px var(--type-base-font-family);--type-headline-2-strong-letter-spacing: .04em;--type-body-1-default-font: normal normal 300 16px/24px var(--type-base-font-family);--type-body-1-default-letter-spacing: .04em;--type-body-1-strong-font: normal normal 400 16px/24px var(--type-base-font-family);--type-body-1-strong-letter-spacing: .04em;--type-body-1-emphasized-font: normal normal 700 16px/24px var(--type-base-font-family);--type-body-1-emphasized-letter-spacing: .04em;--type-body-2-default-font: normal normal 300 14px/20px var(--type-base-font-family);--type-body-2-default-letter-spacing: .04em;--type-body-2-strong-font: normal normal 400 14px/20px var(--type-base-font-family);--type-body-2-strong-letter-spacing: .04em;--type-body-2-emphasized-font: normal normal 700 14px/20px var(--type-base-font-family);--type-body-2-emphasized-letter-spacing: .04em;--type-button-1-font: normal normal 400 20px/26px var(--type-base-font-family);--type-button-1-letter-spacing: .08em;--type-button-2-font: normal normal 400 16px/24px var(--type-base-font-family);--type-button-2-letter-spacing: .08em;--type-details-caption-1-font: normal normal 400 12px/16px var(--type-base-font-family);--type-details-caption-1-letter-spacing: .08em;--type-details-caption-2-font: normal normal 300 12px/16px var(--type-base-font-family);--type-details-caption-2-letter-spacing: .08em;--type-details-overline-font: normal normal 700 12px/20px var(--type-base-font-family);--type-details-overline-letter-spacing: .16em}.dropin-design a{--textColor: var(--color-brand-500);color:var(--textColor);text-decoration:none}.dropin-design a:hover{--textColor: var(--color-brand-700);text-decoration:solid underline var(--textColor);text-underline-offset:6px}.dropin-design a:focus-visible{outline:solid var(--shape-border-width-4) var(--color-neutral-400);border:var(--shape-border-width-1) solid var(--color-neutral-800);border-radius:var(--shape-border-radius-1)}`,{styleId:"Cart"});
-var ge=Object.defineProperty;var me=(e,t,n)=>t in e?ge(e,t,{enumerable:!0,configurable:!0,writable:!0,value:n}):e[t]=n;var te=(e,t,n)=>(me(e,typeof t!="symbol"?t+"":t,n),n);import{useState as ye,useEffect as be}from"@dropins/tools/preact-hooks.js";import{events as xe}from"@dropins/tools/event-bus.js";import{c as we}from"./chunks/getStoreConfig__DjEej2Iar8.js";import{jsx as T}from"@dropins/tools/preact-jsx-runtime.js";import{V as ne,d as Ce,U as Oe}from"./chunks/UIProvider__KplsarDn2b.js";import{options as _,h as ce,Fragment as V,render as re}from"@dropins/tools/preact.js";import"@dropins/tools/fetch-graphql.js";import"@dropins/tools/preact-compat.js";var je=/acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|^--/i,pe=/^(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)$/,Z=/[\s\n\\/='"\0<>]/,de=/^xlink:?./,ke=/["&<]/;function N(e){if(ke.test(e+="")===!1)return e;for(var t=0,n=0,o="",p="";n<e.length;n++){switch(e.charCodeAt(n)){case 34:p="&quot;";break;case 38:p="&amp;";break;case 60:p="&lt;";break;default:continue}n!==t&&(o+=e.slice(t,n)),o+=p,t=n+1}return n!==t&&(o+=e.slice(t,n)),o}var ie=function(e,t){return String(e).replace(/(\n+)/g,"$1"+(t||"	"))},oe=function(e,t,n){return String(e).length>40||String(e).indexOf(`
-`)!==-1||String(e).indexOf("<")!==-1},se={},De=/([A-Z])/g;function _e(e){var t="";for(var n in e){var o=e[n];o!=null&&o!==""&&(t&&(t+=" "),t+=n[0]=="-"?n:se[n]||(se[n]=n.replace(De,"-$1").toLowerCase()),t=typeof o=="number"&&je.test(n)===!1?t+": "+o+"px;":t+": "+o+";")}return t||void 0}function H(e,t){return Array.isArray(t)?t.reduce(H,e):t!=null&&t!==!1&&e.push(t),e}function ae(){this.__d=!0}function ve(e,t){return{__v:e,context:t,props:e.props,setState:ae,forceUpdate:ae,__d:!0,__h:[]}}function q(e,t){var n=e.contextType,o=n&&t[n.__c];return n!=null?o?o.props.value:n.__:t}var Q=[];function $(e,t,n,o,p,v){if(e==null||typeof e=="boolean")return"";if(typeof e!="object")return typeof e=="function"?"":N(e);var d=n.pretty,u=d&&typeof d=="string"?d:"	";if(Array.isArray(e)){for(var b="",y=0;y<e.length;y++)d&&y>0&&(b+=`
-`),b+=$(e[y],t,n,o,p,v);return b}if(e.constructor!==void 0)return"";var D,f=e.type,c=e.props,F=!1;if(typeof f=="function"){if(F=!0,!n.shallow||!o&&n.renderRootComponent!==!1){if(f===V){var m=[];return H(m,e.props.children),$(m,t,n,n.shallowHighOrder!==!1,p,v)}var h,r=e.__c=ve(e,t);_.__b&&_.__b(e);var L=_.__r;if(f.prototype&&typeof f.prototype.render=="function"){var j=q(f,t);(r=e.__c=new f(c,j)).__v=e,r._dirty=r.__d=!0,r.props=c,r.state==null&&(r.state={}),r._nextState==null&&r.__s==null&&(r._nextState=r.__s=r.state),r.context=j,f.getDerivedStateFromProps?r.state=Object.assign({},r.state,f.getDerivedStateFromProps(r.props,r.state)):r.componentWillMount&&(r.componentWillMount(),r.state=r._nextState!==r.state?r._nextState:r.__s!==r.state?r.__s:r.state),L&&L(e),h=r.render(r.props,r.state,r.context)}else for(var S=q(f,t),P=0;r.__d&&P++<25;)r.__d=!1,L&&L(e),h=f.call(e.__c,c,S);return r.getChildContext&&(t=Object.assign({},t,r.getChildContext())),_.diffed&&_.diffed(e),$(h,t,n,n.shallowHighOrder!==!1,p,v)}f=(D=f).displayName||D!==Function&&D.name||function(Y){var J=(Function.prototype.toString.call(Y).match(/^\s*function\s+([^( ]+)/)||"")[1];if(!J){for(var U=-1,K=Q.length;K--;)if(Q[K]===Y){U=K;break}U<0&&(U=Q.push(Y)-1),J="UnnamedComponent"+U}return J}(D)}var w,x,l="<"+f;if(c){var g=Object.keys(c);n&&n.sortAttributes===!0&&g.sort();for(var k=0;k<g.length;k++){var i=g[k],a=c[i];if(i!=="children"){if(!Z.test(i)&&(n&&n.allAttributes||i!=="key"&&i!=="ref"&&i!=="__self"&&i!=="__source")){if(i==="defaultValue")i="value";else if(i==="defaultChecked")i="checked";else if(i==="defaultSelected")i="selected";else if(i==="className"){if(c.class!==void 0)continue;i="class"}else p&&de.test(i)&&(i=i.toLowerCase().replace(/^xlink:?/,"xlink:"));if(i==="htmlFor"){if(c.for)continue;i="for"}i==="style"&&a&&typeof a=="object"&&(a=_e(a)),i[0]==="a"&&i[1]==="r"&&typeof a=="boolean"&&(a=String(a));var s=n.attributeHook&&n.attributeHook(i,a,t,n,F);if(s||s==="")l+=s;else if(i==="dangerouslySetInnerHTML")x=a&&a.__html;else if(f==="textarea"&&i==="value")w=a;else if((a||a===0||a==="")&&typeof a!="function"){if(!(a!==!0&&a!==""||(a=i,n&&n.xml))){l=l+" "+i;continue}if(i==="value"){if(f==="select"){v=a;continue}f==="option"&&v==a&&c.selected===void 0&&(l+=" selected")}l=l+" "+i+'="'+N(a)+'"'}}}else w=a}}if(d){var C=l.replace(/\n\s*/," ");C===l||~C.indexOf(`
-`)?d&&~l.indexOf(`
-`)&&(l+=`
-`):l=C}if(l+=">",Z.test(f))throw new Error(f+" is not a valid HTML tag name in "+l);var M,he=pe.test(f)||n.voidElements&&n.voidElements.test(f),O=[];if(x)d&&oe(x)&&(x=`
-`+u+ie(x,u)),l+=x;else if(w!=null&&H(M=[],w).length){for(var W=d&&~l.indexOf(`
-`),I=!1,B=0;B<M.length;B++){var G=M[B];if(G!=null&&G!==!1){var A=$(G,t,n,!0,f==="svg"||f!=="foreignObject"&&p,v);if(d&&!W&&oe(A)&&(W=!0),A)if(d){var ee=A.length>0&&A[0]!="<";I&&ee?O[O.length-1]+=A:O.push(A),I=ee}else O.push(A)}}if(d&&W)for(var X=O.length;X--;)O[X]=`
-`+u+ie(O[X],u)}if(O.length||x)l+=O.join("");else if(n&&n.xml)return l.substring(0,l.length-1)+" />";return!he||M||x?(d&&~l.indexOf(`
-`)&&(l+=`
-`),l=l+"</"+f+">"):l=l.replace(/>$/," />"),l}var Se={shallow:!0};z.render=z;var Ae=function(e,t){return z(e,t,Se)},le=[];function z(e,t,n){t=t||{};var o=_.__s;_.__s=!0;var p,v=ce(V,null);return v.__k=[e],p=n&&(n.pretty||n.voidElements||n.sortAttributes||n.shallow||n.allAttributes||n.xml||n.attributeHook)?$(e,t,n):E(e,t,!1,void 0,v),_.__c&&_.__c(e,le),_.__s=o,le.length=0,p}function R(e){return e==null||typeof e=="boolean"?null:typeof e=="string"||typeof e=="number"||typeof e=="bigint"?ce(null,null,e):e}function Fe(e,t){return e==="className"?"class":e==="htmlFor"?"for":e==="defaultValue"?"value":e==="defaultChecked"?"checked":e==="defaultSelected"?"selected":t&&de.test(e)?e.toLowerCase().replace(/^xlink:?/,"xlink:"):e}function Le(e,t){return e==="style"&&t!=null&&typeof t=="object"?_e(t):e[0]==="a"&&e[1]==="r"&&typeof t=="boolean"?String(t):t}var fe=Array.isArray,ue=Object.assign;function E(e,t,n,o,p){if(e==null||e===!0||e===!1||e==="")return"";if(typeof e!="object")return typeof e=="function"?"":N(e);if(fe(e)){var v="";p.__k=e;for(var d=0;d<e.length;d++)v+=E(e[d],t,n,o,p),e[d]=R(e[d]);return v}if(e.constructor!==void 0)return"";e.__=p,_.__b&&_.__b(e);var u=e.type,b=e.props;if(typeof u=="function"){var y;if(u===V)y=b.children;else{y=u.prototype&&typeof u.prototype.render=="function"?function(g,k){var i=g.type,a=q(i,k),s=new i(g.props,a);g.__c=s,s.__v=g,s.__d=!0,s.props=g.props,s.state==null&&(s.state={}),s.__s==null&&(s.__s=s.state),s.context=a,i.getDerivedStateFromProps?s.state=ue({},s.state,i.getDerivedStateFromProps(s.props,s.state)):s.componentWillMount&&(s.componentWillMount(),s.state=s.__s!==s.state?s.__s:s.state);var C=_.__r;return C&&C(g),s.render(s.props,s.state,s.context)}(e,t):function(g,k){var i,a=ve(g,k),s=q(g.type,k);g.__c=a;for(var C=_.__r,M=0;a.__d&&M++<25;)a.__d=!1,C&&C(g),i=g.type.call(a,g.props,s);return i}(e,t);var D=e.__c;D.getChildContext&&(t=ue({},t,D.getChildContext()))}var f=E(y=y!=null&&y.type===V&&y.key==null?y.props.children:y,t,n,o,e);return _.diffed&&_.diffed(e),e.__=void 0,_.unmount&&_.unmount(e),f}var c,F,m="<";if(m+=u,b)for(var h in c=b.children,b){var r=b[h];if(!(h==="key"||h==="ref"||h==="__self"||h==="__source"||h==="children"||h==="className"&&"class"in b||h==="htmlFor"&&"for"in b||Z.test(h))){if(r=Le(h=Fe(h,n),r),h==="dangerouslySetInnerHTML")F=r&&r.__html;else if(u==="textarea"&&h==="value")c=r;else if((r||r===0||r==="")&&typeof r!="function"){if(r===!0||r===""){r=h,m=m+" "+h;continue}if(h==="value"){if(u==="select"){o=r;continue}u!=="option"||o!=r||"selected"in b||(m+=" selected")}m=m+" "+h+'="'+N(r)+'"'}}}var L=m;if(m+=">",Z.test(u))throw new Error(u+" is not a valid HTML tag name in "+m);var j="",S=!1;if(F)j+=F,S=!0;else if(typeof c=="string")j+=N(c),S=!0;else if(fe(c)){e.__k=c;for(var P=0;P<c.length;P++){var w=c[P];if(c[P]=R(w),w!=null&&w!==!1){var x=E(w,t,u==="svg"||u!=="foreignObject"&&n,o,e);x&&(j+=x,S=!0)}}}else if(c!=null&&c!==!1&&c!==!0){e.__k=[R(c)];var l=E(c,t,u==="svg"||u!=="foreignObject"&&n,o,e);l&&(j+=l,S=!0)}if(_.diffed&&_.diffed(e),e.__=void 0,_.unmount&&_.unmount(e),S)m+=j;else if(pe.test(u))return L+" />";return m+"</"+u+">"}z.shallowRender=Ae;class Pe{constructor(t){te(this,"_provider");this._provider=t}render(t,n){return async o=>{var v;if(!t)throw new Error("Component is not defined");if(!o)throw new Error("Root element is not defined");const p=await((v=t.getInitialData)==null?void 0:v.call(t,n))??{};re(T(ne,{node:this._provider,...this._provider.props,children:T(t,{...n,initialData:p})}),o)}}unmount(t){if(!t)throw new Error("Root element is not defined");re(null,t)}async toString(t,n,o){var v;if(!t)throw new Error("Component is not defined");const p=await((v=t.getInitialData)==null?void 0:v.call(t,n))??{};return z(T(ne,{node:this._provider,...this._provider.props,children:T(t,{...n,initialData:p})}),{},{...o})}}const Me={Cart:{heading:"Shopping Cart"},MiniCart:{heading:"Shopping Cart ({count})",estimatedTotal:"Estimated Total",cartLink:"View Cart",checkoutLink:"Checkout"},EmptyCart:{heading:"Your cart is empty",cta:"Continue Shopping"},PriceSummary:{taxToBeDetermined:"TBD",checkout:"Checkout",estimatedShippingForm:{country:{placeholder:"Country"},state:{placeholder:"State"},zip:{placeholder:"Zip Code"},apply:{label:"Apply"}},freeShipping:"Free"},CartItem:{discountedPrice:"Discounted Price",download:"file",message:"Note",recipient:"To",regularPrice:"Regular Price",sender:"From",file:"{count} file",files:"{count} files"}},Te={Cart:Me},$e={default:Te},Ee=({children:e})=>{var v;const[t,n]=ye(),o=(v=we.getConfig())==null?void 0:v.langDefinitions;be(()=>{const d=xe.on("locale",u=>{u!==t&&n(u)},{eager:!0});return()=>{d==null||d.off()}},[t]);const p=Ce($e,o??{});return T(Oe,{lang:t,langDefinitions:p,children:e})},Xe=new Pe(T(Ee,{}));export{Xe as render};
-//# sourceMappingURL=render.js.map
+(function injectCodeCustomRunTimeFunction(cssCode, options) {
+  try {
+    if (typeof document != "undefined") {
+      const elem = document.createElement("style");
+      const name = options.styleId;
+      for (const attribute in options.attributes) {
+        elem.setAttribute(attribute, options.attributes[attribute]);
+      }
+      elem.setAttribute("data-dropin", name);
+      elem.appendChild(document.createTextNode(cssCode));
+      document.head.appendChild(elem);
+    }
+  } catch (e) {
+    console.error("dropin-styles (injectCodeFunction)", e);
+  }
+})("/* https://cssguidelin.es/#bem-like-naming */\n\n.cart-empty-cart {\n  container-type: inline-size;\n  container-name: cart;\n}\n\n.cart-empty-cart__wrapper {\n  display: grid;\n  grid-auto-rows: min-content;\n  justify-content: center;\n  text-align: center;\n}\n\n.cart-empty-cart__icon {\n  margin-bottom: var(--spacing-small);\n  color: var(--color-neutral-500);\n}\n\n.cart-empty-cart__icon svg {\n  color: var(--color-);\n}\n\n.cart-empty-cart__heading {\n  font: var(--type-headline-1-font);\n  letter-spacing: var(--type-headline-1-letter-spacing);\n}\n\n.cart-empty-cart__actions {\n  display: grid;\n  grid-auto-rows: min-content;\n  gap: var(--spacing-small);\n  margin-top: var(--spacing-medium);\n  justify-content: center;\n}\n\n@container cart (width < 737px) {\n  .cart-empty-cart__wrapper {\n    border: unset;\n  }\n}\n\n/* Medium (portrait tablets and large phones, 768px and up) */\n/* @media only screen and (min-width: 768px) { } */\n\n/* Large (landscape tablets, 1024px and up) */\n/* @media only screen and (min-width: 1024px) { } */\n\n/* XLarge (laptops/desktops, 1366px and up) */\n/* @media only screen and (min-width: 1366px) { } */\n\n/* XXlarge (large laptops and desktops, 1920px and up) */\n/* @media only screen and (min-width: 1920px) { } */\n/* https://cssguidelin.es/#bem-like-naming */\n\n.cart-cart {\n  container-type: inline-size;\n  container-name: cart;\n}\n\n.cart-cart__wrapper {\n  display: grid;\n  grid-template-rows: auto 1fr;\n  grid-gap: var(--spacing-medium);\n}\n\n.cart-cart__heading {\n  display: grid;\n  row-gap: var(--spacing-xsmall);\n  padding: var(--spacing-medium);\n  padding-bottom: 0px;\n  font: var(--type-headline-1-font);\n  letter-spacing: var(--type-headline-1-letter-spacing);\n}\n\n.cart-cart__heading-divider {\n  width: 100%;\n  margin: var(--spacing-xxsmall) 0 0 0;\n}\n\n.cart-cart__content {\n  display: grid;\n  grid-template-columns: 1fr;\n  padding: 0 var(--spacing-medium);\n}\n\n.cart-cart__empty-cart {\n  justify-self: center;\n  align-self: center;\n  width: 100%;\n  max-width: 800px;\n}\n\n.cart-cart__price-summary {\n  padding: var(--spacing-small) var(--spacing-medium);\n  background-color: var(--color-neutral-200);\n}\n\n.dropin-price-summary__shipping--zip,\n.dropin-price-summary__shipping--state {\n  background-color: var(--color-neutral-50);\n}\n\n\n@container cart (width >= 1024px) {\n  .cart-cart__wrapper {\n    grid-template-columns: repeat(var(--grid-3-columns), 1fr);\n    grid-column-gap: var(--grid-3-gutters);\n    margin: 0 var(--grid-3-margins);\n  }\n\n  .cart-cart__heading {\n    padding: var(--spacing-medium) 0 0 0;\n  }\n\n  .cart-cart__content {\n    padding: 0px;\n  }\n\n  .cart-cart__heading,\n  .cart-cart__content {\n    grid-column: 1 / span 8;\n  }\n\n  .cart-cart__price-summary {\n    grid-row: 1 / span 3;\n    grid-column: 9 / span 4;\n    padding: var(--spacing-medium);\n    height: min-content;\n  }\n\n  .cart-cart__heading--full-width,\n  .cart-cart__content--empty,\n  .cart-cart__content--full-width {\n    grid-column: 1 / span 12;\n  }\n}\n\n/* Medium (portrait tablets and large phones, 768px and up) */\n/* @media only screen and (min-width: 768px) { } */\n\n/* Large (landscape tablets, 1024px and up) */\n/* @media only screen and (min-width: 1024px) { } */\n\n/* XLarge (laptops/desktops, 1366px and up) */\n/* @media only screen and (min-width: 1366px) { } */\n\n/* XXlarge (large laptops and desktops, 1920px and up) */\n/* @media only screen and (min-width: 1920px) { } */\n/* https://cssguidelin.es/#bem-like-naming */\n\n.cart-mini-cart {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  padding: var(--spacing-small) var(--spacing-small) var(--spacing-medium);\n  box-sizing: border-box;\n}\n\n.cart-mini-cart__empty-cart {\n  width: 100%;\n  max-width: 800px;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-self: center;\n}\n\n.cart-mini-cart__heading {\n  display: grid;\n  row-gap: var(--spacing-xsmall);\n  font: var(--type-headline-2-default-font);\n  letter-spacing: var(--type-headline-2-default-letter-spacing);\n}\n\n.cart-mini-cart__heading-divider {\n  width: 100%;\n  margin: var(--spacing-xxsmall) 0 0 0;\n}\n\n.cart-mini-cart__products {\n  flex: 1;\n  overflow-y: auto;\n  max-height: 100%;\n  padding-top: var(--spacing-medium);\n  padding-bottom: var(--spacing-medium);\n}\n\n.cart-mini-cart__products .dropin-cart-item__configurations li {\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n  overflow: hidden;\n}\n\n.cart-mini-cart__footer {\n  display: grid;\n  grid-auto-flow: row;\n  gap: var(--spacing-small);\n  padding-top: var(--spacing-small);\n}\n\n.cart-mini-cart__footer__estimated-total {\n  font: var(--type-body-1-emphasized-font);\n  letter-spacing: var(--type-body-1-emphasized-letter-spacing);\n  display: grid;\n  grid-template: max-content / 1fr auto;\n  gap: var(--spacing-xsmall);\n}\n\n.cart-mini-cart__footer__ctas {\n  display: grid;\n  grid-auto-flow: row;\n  gap: var(--spacing-xsmall);\n}\n\n/* Medium (portrait tablets and large phones, 768px and up) */\n/* @media only screen and (min-width: 768px) { } */\n\n/* Large (landscape tablets, 1024px and up) */\n/* @media only screen and (min-width: 1024px) { } */\n\n/* XLarge (laptops/desktops, 1366px and up) */\n/* @media only screen and (min-width: 1366px) { } */\n\n/* XXlarge (large laptops and desktops, 1920px and up) */\n/* @media only screen and (min-width: 1920px) { } */", { "styleId": "Cart" });
+var __defProp = Object.defineProperty;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => {
+  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+  return value;
+};
+import { useState, useEffect } from "@dropins/tools/preact-hooks.js";
+import { UIProvider } from "@dropins/tools/components/index.js";
+import { events } from "@dropins/tools/event-bus.js";
+import { c as config } from "./chunks/getStoreConfig__D5TZNZKL7r.js";
+import { jsx } from "@dropins/tools/preact-jsx-runtime.js";
+import { options, h as h$1, Fragment, render as render$1 } from "@dropins/tools/preact.js";
+import { V as VComponent } from "./chunks/vcomponent__DzjhryT0dc.js";
+import "@dropins/tools/fetch-graphql.js";
+function getDefaultExportFromCjs(x2) {
+  return x2 && x2.__esModule && Object.prototype.hasOwnProperty.call(x2, "default") ? x2["default"] : x2;
+}
+var isMergeableObject = function isMergeableObject2(value) {
+  return isNonNullObject(value) && !isSpecial(value);
+};
+function isNonNullObject(value) {
+  return !!value && typeof value === "object";
+}
+function isSpecial(value) {
+  var stringValue = Object.prototype.toString.call(value);
+  return stringValue === "[object RegExp]" || stringValue === "[object Date]" || isReactElement(value);
+}
+var canUseSymbol = typeof Symbol === "function" && Symbol.for;
+var REACT_ELEMENT_TYPE = canUseSymbol ? Symbol.for("react.element") : 60103;
+function isReactElement(value) {
+  return value.$$typeof === REACT_ELEMENT_TYPE;
+}
+function emptyTarget(val) {
+  return Array.isArray(val) ? [] : {};
+}
+function cloneUnlessOtherwiseSpecified(value, options2) {
+  return options2.clone !== false && options2.isMergeableObject(value) ? deepmerge(emptyTarget(value), value, options2) : value;
+}
+function defaultArrayMerge(target, source, options2) {
+  return target.concat(source).map(function(element) {
+    return cloneUnlessOtherwiseSpecified(element, options2);
+  });
+}
+function getMergeFunction(key, options2) {
+  if (!options2.customMerge) {
+    return deepmerge;
+  }
+  var customMerge = options2.customMerge(key);
+  return typeof customMerge === "function" ? customMerge : deepmerge;
+}
+function getEnumerableOwnPropertySymbols(target) {
+  return Object.getOwnPropertySymbols ? Object.getOwnPropertySymbols(target).filter(function(symbol) {
+    return Object.propertyIsEnumerable.call(target, symbol);
+  }) : [];
+}
+function getKeys(target) {
+  return Object.keys(target).concat(getEnumerableOwnPropertySymbols(target));
+}
+function propertyIsOnObject(object, property) {
+  try {
+    return property in object;
+  } catch (_2) {
+    return false;
+  }
+}
+function propertyIsUnsafe(target, key) {
+  return propertyIsOnObject(target, key) && !(Object.hasOwnProperty.call(target, key) && Object.propertyIsEnumerable.call(target, key));
+}
+function mergeObject(target, source, options2) {
+  var destination = {};
+  if (options2.isMergeableObject(target)) {
+    getKeys(target).forEach(function(key) {
+      destination[key] = cloneUnlessOtherwiseSpecified(target[key], options2);
+    });
+  }
+  getKeys(source).forEach(function(key) {
+    if (propertyIsUnsafe(target, key)) {
+      return;
+    }
+    if (propertyIsOnObject(target, key) && options2.isMergeableObject(source[key])) {
+      destination[key] = getMergeFunction(key, options2)(target[key], source[key], options2);
+    } else {
+      destination[key] = cloneUnlessOtherwiseSpecified(source[key], options2);
+    }
+  });
+  return destination;
+}
+function deepmerge(target, source, options2) {
+  options2 = options2 || {};
+  options2.arrayMerge = options2.arrayMerge || defaultArrayMerge;
+  options2.isMergeableObject = options2.isMergeableObject || isMergeableObject;
+  options2.cloneUnlessOtherwiseSpecified = cloneUnlessOtherwiseSpecified;
+  var sourceIsArray = Array.isArray(source);
+  var targetIsArray = Array.isArray(target);
+  var sourceAndTargetTypesMatch = sourceIsArray === targetIsArray;
+  if (!sourceAndTargetTypesMatch) {
+    return cloneUnlessOtherwiseSpecified(source, options2);
+  } else if (sourceIsArray) {
+    return options2.arrayMerge(target, source, options2);
+  } else {
+    return mergeObject(target, source, options2);
+  }
+}
+deepmerge.all = function deepmergeAll(array, options2) {
+  if (!Array.isArray(array)) {
+    throw new Error("first argument should be an array");
+  }
+  return array.reduce(function(prev, next) {
+    return deepmerge(prev, next, options2);
+  }, {});
+};
+var deepmerge_1 = deepmerge;
+var cjs = deepmerge_1;
+const deepmerge$1 = /* @__PURE__ */ getDefaultExportFromCjs(cjs);
+var n = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|^--/i, o = /^(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)$/, i = /[\s\n\\/='"\0<>]/, l = /^xlink:?./, a = /["&<]/;
+function s(e) {
+  if (false === a.test(e += ""))
+    return e;
+  for (var t = 0, r = 0, n2 = "", o2 = ""; r < e.length; r++) {
+    switch (e.charCodeAt(r)) {
+      case 34:
+        o2 = "&quot;";
+        break;
+      case 38:
+        o2 = "&amp;";
+        break;
+      case 60:
+        o2 = "&lt;";
+        break;
+      default:
+        continue;
+    }
+    r !== t && (n2 += e.slice(t, r)), n2 += o2, t = r + 1;
+  }
+  return r !== t && (n2 += e.slice(t, r)), n2;
+}
+var f = function(e, t) {
+  return String(e).replace(/(\n+)/g, "$1" + (t || "	"));
+}, u = function(e, t, r) {
+  return String(e).length > 40 || -1 !== String(e).indexOf("\n") || -1 !== String(e).indexOf("<");
+}, c = {}, _ = /([A-Z])/g;
+function p(e) {
+  var t = "";
+  for (var r in e) {
+    var o2 = e[r];
+    null != o2 && "" !== o2 && (t && (t += " "), t += "-" == r[0] ? r : c[r] || (c[r] = r.replace(_, "-$1").toLowerCase()), t = "number" == typeof o2 && false === n.test(r) ? t + ": " + o2 + "px;" : t + ": " + o2 + ";");
+  }
+  return t || void 0;
+}
+function d(e, t) {
+  return Array.isArray(t) ? t.reduce(d, e) : null != t && false !== t && e.push(t), e;
+}
+function v() {
+  this.__d = true;
+}
+function h(e, t) {
+  return { __v: e, context: t, props: e.props, setState: v, forceUpdate: v, __d: true, __h: [] };
+}
+function g(e, t) {
+  var r = e.contextType, n2 = r && t[r.__c];
+  return null != r ? n2 ? n2.props.value : r.__ : t;
+}
+var y = [];
+function m(r, n2, a2, c2, _2, v2) {
+  if (null == r || "boolean" == typeof r)
+    return "";
+  if ("object" != typeof r)
+    return "function" == typeof r ? "" : s(r);
+  var b2 = a2.pretty, x2 = b2 && "string" == typeof b2 ? b2 : "	";
+  if (Array.isArray(r)) {
+    for (var k2 = "", S2 = 0; S2 < r.length; S2++)
+      b2 && S2 > 0 && (k2 += "\n"), k2 += m(r[S2], n2, a2, c2, _2, v2);
+    return k2;
+  }
+  if (void 0 !== r.constructor)
+    return "";
+  var w2, C2 = r.type, O2 = r.props, j2 = false;
+  if ("function" == typeof C2) {
+    if (j2 = true, !a2.shallow || !c2 && false !== a2.renderRootComponent) {
+      if (C2 === Fragment) {
+        var A2 = [];
+        return d(A2, r.props.children), m(A2, n2, a2, false !== a2.shallowHighOrder, _2, v2);
+      }
+      var F2, H = r.__c = h(r, n2);
+      options.__b && options.__b(r);
+      var M = options.__r;
+      if (C2.prototype && "function" == typeof C2.prototype.render) {
+        var L = g(C2, n2);
+        (H = r.__c = new C2(O2, L)).__v = r, H._dirty = H.__d = true, H.props = O2, null == H.state && (H.state = {}), null == H._nextState && null == H.__s && (H._nextState = H.__s = H.state), H.context = L, C2.getDerivedStateFromProps ? H.state = Object.assign({}, H.state, C2.getDerivedStateFromProps(H.props, H.state)) : H.componentWillMount && (H.componentWillMount(), H.state = H._nextState !== H.state ? H._nextState : H.__s !== H.state ? H.__s : H.state), M && M(r), F2 = H.render(H.props, H.state, H.context);
+      } else
+        for (var T = g(C2, n2), E = 0; H.__d && E++ < 25; )
+          H.__d = false, M && M(r), F2 = C2.call(r.__c, O2, T);
+      return H.getChildContext && (n2 = Object.assign({}, n2, H.getChildContext())), options.diffed && options.diffed(r), m(F2, n2, a2, false !== a2.shallowHighOrder, _2, v2);
+    }
+    C2 = (w2 = C2).displayName || w2 !== Function && w2.name || function(e) {
+      var t = (Function.prototype.toString.call(e).match(/^\s*function\s+([^( ]+)/) || "")[1];
+      if (!t) {
+        for (var r2 = -1, n3 = y.length; n3--; )
+          if (y[n3] === e) {
+            r2 = n3;
+            break;
+          }
+        r2 < 0 && (r2 = y.push(e) - 1), t = "UnnamedComponent" + r2;
+      }
+      return t;
+    }(w2);
+  }
+  var $, D, N = "<" + C2;
+  if (O2) {
+    var P = Object.keys(O2);
+    a2 && true === a2.sortAttributes && P.sort();
+    for (var W = 0; W < P.length; W++) {
+      var I = P[W], R = O2[I];
+      if ("children" !== I) {
+        if (!i.test(I) && (a2 && a2.allAttributes || "key" !== I && "ref" !== I && "__self" !== I && "__source" !== I)) {
+          if ("defaultValue" === I)
+            I = "value";
+          else if ("defaultChecked" === I)
+            I = "checked";
+          else if ("defaultSelected" === I)
+            I = "selected";
+          else if ("className" === I) {
+            if (void 0 !== O2.class)
+              continue;
+            I = "class";
+          } else
+            _2 && l.test(I) && (I = I.toLowerCase().replace(/^xlink:?/, "xlink:"));
+          if ("htmlFor" === I) {
+            if (O2.for)
+              continue;
+            I = "for";
+          }
+          "style" === I && R && "object" == typeof R && (R = p(R)), "a" === I[0] && "r" === I[1] && "boolean" == typeof R && (R = String(R));
+          var U = a2.attributeHook && a2.attributeHook(I, R, n2, a2, j2);
+          if (U || "" === U)
+            N += U;
+          else if ("dangerouslySetInnerHTML" === I)
+            D = R && R.__html;
+          else if ("textarea" === C2 && "value" === I)
+            $ = R;
+          else if ((R || 0 === R || "" === R) && "function" != typeof R) {
+            if (!(true !== R && "" !== R || (R = I, a2 && a2.xml))) {
+              N = N + " " + I;
+              continue;
+            }
+            if ("value" === I) {
+              if ("select" === C2) {
+                v2 = R;
+                continue;
+              }
+              "option" === C2 && v2 == R && void 0 === O2.selected && (N += " selected");
+            }
+            N = N + " " + I + '="' + s(R) + '"';
+          }
+        }
+      } else
+        $ = R;
+    }
+  }
+  if (b2) {
+    var V = N.replace(/\n\s*/, " ");
+    V === N || ~V.indexOf("\n") ? b2 && ~N.indexOf("\n") && (N += "\n") : N = V;
+  }
+  if (N += ">", i.test(C2))
+    throw new Error(C2 + " is not a valid HTML tag name in " + N);
+  var q, z = o.test(C2) || a2.voidElements && a2.voidElements.test(C2), Z = [];
+  if (D)
+    b2 && u(D) && (D = "\n" + x2 + f(D, x2)), N += D;
+  else if (null != $ && d(q = [], $).length) {
+    for (var B = b2 && ~N.indexOf("\n"), G = false, J = 0; J < q.length; J++) {
+      var K = q[J];
+      if (null != K && false !== K) {
+        var Q = m(K, n2, a2, true, "svg" === C2 || "foreignObject" !== C2 && _2, v2);
+        if (b2 && !B && u(Q) && (B = true), Q)
+          if (b2) {
+            var X = Q.length > 0 && "<" != Q[0];
+            G && X ? Z[Z.length - 1] += Q : Z.push(Q), G = X;
+          } else
+            Z.push(Q);
+      }
+    }
+    if (b2 && B)
+      for (var Y = Z.length; Y--; )
+        Z[Y] = "\n" + x2 + f(Z[Y], x2);
+  }
+  if (Z.length || D)
+    N += Z.join("");
+  else if (a2 && a2.xml)
+    return N.substring(0, N.length - 1) + " />";
+  return !z || q || D ? (b2 && ~N.indexOf("\n") && (N += "\n"), N = N + "</" + C2 + ">") : N = N.replace(/>$/, " />"), N;
+}
+var b = { shallow: true };
+S.render = S;
+var x = function(e, t) {
+  return S(e, t, b);
+}, k = [];
+function S(n2, o2, i2) {
+  o2 = o2 || {};
+  var l2 = options.__s;
+  options.__s = true;
+  var a2, s2 = h$1(Fragment, null);
+  return s2.__k = [n2], a2 = i2 && (i2.pretty || i2.voidElements || i2.sortAttributes || i2.shallow || i2.allAttributes || i2.xml || i2.attributeHook) ? m(n2, o2, i2) : F(n2, o2, false, void 0, s2), options.__c && options.__c(n2, k), options.__s = l2, k.length = 0, a2;
+}
+function w(e) {
+  return null == e || "boolean" == typeof e ? null : "string" == typeof e || "number" == typeof e || "bigint" == typeof e ? h$1(null, null, e) : e;
+}
+function C(e, t) {
+  return "className" === e ? "class" : "htmlFor" === e ? "for" : "defaultValue" === e ? "value" : "defaultChecked" === e ? "checked" : "defaultSelected" === e ? "selected" : t && l.test(e) ? e.toLowerCase().replace(/^xlink:?/, "xlink:") : e;
+}
+function O(e, t) {
+  return "style" === e && null != t && "object" == typeof t ? p(t) : "a" === e[0] && "r" === e[1] && "boolean" == typeof t ? String(t) : t;
+}
+var j = Array.isArray, A = Object.assign;
+function F(r, n2, l2, a2, f2) {
+  if (null == r || true === r || false === r || "" === r)
+    return "";
+  if ("object" != typeof r)
+    return "function" == typeof r ? "" : s(r);
+  if (j(r)) {
+    var u2 = "";
+    f2.__k = r;
+    for (var c2 = 0; c2 < r.length; c2++)
+      u2 += F(r[c2], n2, l2, a2, f2), r[c2] = w(r[c2]);
+    return u2;
+  }
+  if (void 0 !== r.constructor)
+    return "";
+  r.__ = f2, options.__b && options.__b(r);
+  var _2 = r.type, p2 = r.props;
+  if ("function" == typeof _2) {
+    var d2;
+    if (_2 === Fragment)
+      d2 = p2.children;
+    else {
+      d2 = _2.prototype && "function" == typeof _2.prototype.render ? function(e, r2) {
+        var n3 = e.type, o2 = g(n3, r2), i2 = new n3(e.props, o2);
+        e.__c = i2, i2.__v = e, i2.__d = true, i2.props = e.props, null == i2.state && (i2.state = {}), null == i2.__s && (i2.__s = i2.state), i2.context = o2, n3.getDerivedStateFromProps ? i2.state = A({}, i2.state, n3.getDerivedStateFromProps(i2.props, i2.state)) : i2.componentWillMount && (i2.componentWillMount(), i2.state = i2.__s !== i2.state ? i2.__s : i2.state);
+        var l3 = options.__r;
+        return l3 && l3(e), i2.render(i2.props, i2.state, i2.context);
+      }(r, n2) : function(e, r2) {
+        var n3, o2 = h(e, r2), i2 = g(e.type, r2);
+        e.__c = o2;
+        for (var l3 = options.__r, a3 = 0; o2.__d && a3++ < 25; )
+          o2.__d = false, l3 && l3(e), n3 = e.type.call(o2, e.props, i2);
+        return n3;
+      }(r, n2);
+      var v2 = r.__c;
+      v2.getChildContext && (n2 = A({}, n2, v2.getChildContext()));
+    }
+    var y2 = F(d2 = null != d2 && d2.type === Fragment && null == d2.key ? d2.props.children : d2, n2, l2, a2, r);
+    return options.diffed && options.diffed(r), r.__ = void 0, options.unmount && options.unmount(r), y2;
+  }
+  var m2, b2, x2 = "<";
+  if (x2 += _2, p2)
+    for (var k2 in m2 = p2.children, p2) {
+      var S2 = p2[k2];
+      if (!("key" === k2 || "ref" === k2 || "__self" === k2 || "__source" === k2 || "children" === k2 || "className" === k2 && "class" in p2 || "htmlFor" === k2 && "for" in p2 || i.test(k2))) {
+        if (S2 = O(k2 = C(k2, l2), S2), "dangerouslySetInnerHTML" === k2)
+          b2 = S2 && S2.__html;
+        else if ("textarea" === _2 && "value" === k2)
+          m2 = S2;
+        else if ((S2 || 0 === S2 || "" === S2) && "function" != typeof S2) {
+          if (true === S2 || "" === S2) {
+            S2 = k2, x2 = x2 + " " + k2;
+            continue;
+          }
+          if ("value" === k2) {
+            if ("select" === _2) {
+              a2 = S2;
+              continue;
+            }
+            "option" !== _2 || a2 != S2 || "selected" in p2 || (x2 += " selected");
+          }
+          x2 = x2 + " " + k2 + '="' + s(S2) + '"';
+        }
+      }
+    }
+  var H = x2;
+  if (x2 += ">", i.test(_2))
+    throw new Error(_2 + " is not a valid HTML tag name in " + x2);
+  var M = "", L = false;
+  if (b2)
+    M += b2, L = true;
+  else if ("string" == typeof m2)
+    M += s(m2), L = true;
+  else if (j(m2)) {
+    r.__k = m2;
+    for (var T = 0; T < m2.length; T++) {
+      var E = m2[T];
+      if (m2[T] = w(E), null != E && false !== E) {
+        var $ = F(E, n2, "svg" === _2 || "foreignObject" !== _2 && l2, a2, r);
+        $ && (M += $, L = true);
+      }
+    }
+  } else if (null != m2 && false !== m2 && true !== m2) {
+    r.__k = [w(m2)];
+    var D = F(m2, n2, "svg" === _2 || "foreignObject" !== _2 && l2, a2, r);
+    D && (M += D, L = true);
+  }
+  if (options.diffed && options.diffed(r), r.__ = void 0, options.unmount && options.unmount(r), L)
+    x2 += M;
+  else if (o.test(_2))
+    return H + " />";
+  return x2 + "</" + _2 + ">";
+}
+S.shallowRender = x;
+class Render {
+  constructor(provider) {
+    __publicField(this, "_provider");
+    this._provider = provider;
+  }
+  render(Component, props) {
+    return async (rootElement) => {
+      var _a;
+      if (!Component)
+        throw new Error("Component is not defined");
+      if (!rootElement)
+        throw new Error("Root element is not defined");
+      const initialData = await ((_a = Component.getInitialData) == null ? void 0 : _a.call(Component, props)) ?? {};
+      render$1(jsx(VComponent, {
+        node: this._provider,
+        ...this._provider.props,
+        children: jsx(Component, {
+          ...props,
+          initialData
+        })
+      }), rootElement);
+    };
+  }
+  unmount(rootElement) {
+    if (!rootElement)
+      throw new Error("Root element is not defined");
+    render$1(null, rootElement);
+  }
+  async toString(Component, props, options2) {
+    var _a;
+    if (!Component)
+      throw new Error("Component is not defined");
+    const initialData = await ((_a = Component.getInitialData) == null ? void 0 : _a.call(Component, props)) ?? {};
+    return S(jsx(VComponent, {
+      node: this._provider,
+      ...this._provider.props,
+      children: jsx(Component, {
+        ...props,
+        initialData
+      })
+    }), {}, {
+      ...options2
+    });
+  }
+}
+const Cart = {
+  Cart: {
+    heading: "Shopping Cart"
+  },
+  MiniCart: {
+    heading: "Shopping Cart ({count})",
+    estimatedTotal: "Estimated Total",
+    cartLink: "View Cart",
+    checkoutLink: "Checkout"
+  },
+  EmptyCart: {
+    heading: "Your cart is empty",
+    cta: "Continue Shopping"
+  },
+  PriceSummary: {
+    taxToBeDetermined: "TBD",
+    checkout: "Checkout",
+    estimatedShippingForm: {
+      country: {
+        placeholder: "Country"
+      },
+      state: {
+        placeholder: "State"
+      },
+      zip: {
+        placeholder: "Zip Code"
+      },
+      apply: {
+        label: "Apply"
+      }
+    },
+    freeShipping: "Free"
+  },
+  CartItem: {
+    discountedPrice: "Discounted Price",
+    download: "file",
+    message: "Note",
+    recipient: "To",
+    regularPrice: "Regular Price",
+    sender: "From",
+    file: "{count} file",
+    files: "{count} files"
+  }
+};
+const en_US = {
+  Cart
+};
+const langDefinitions = {
+  default: en_US
+};
+const Provider = ({
+  children
+}) => {
+  var _a;
+  const [locale, setLang] = useState();
+  const userLangDefinitions = (_a = config.getConfig()) == null ? void 0 : _a.langDefinitions;
+  useEffect(() => {
+    const localeEvent = events.on("locale", (payload) => {
+      if (payload !== locale)
+        setLang(payload);
+    }, {
+      eager: true
+    });
+    return () => {
+      localeEvent == null ? void 0 : localeEvent.off();
+    };
+  }, [locale]);
+  const definitions = deepmerge$1(langDefinitions, userLangDefinitions ?? {});
+  return jsx(UIProvider, {
+    lang: locale,
+    langDefinitions: definitions,
+    children
+  });
+};
+const render = new Render(jsx(Provider, {}));
+export {
+  render
+};

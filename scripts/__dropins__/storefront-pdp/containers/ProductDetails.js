@@ -1,4 +1,1534 @@
 const __vite__fileDeps=["debugger.css"],__vite__mapDeps=i=>i.map(i=>__vite__fileDeps[i]);
-import*as Z from"@dropins/tools/preact-compat.js";import{useState as Q,useMemo as se,useEffect as ne,useCallback as J,useRef as Se,Children as le}from"@dropins/tools/preact-compat.js";import{jsx as t,jsxs as W,Fragment as me}from"@dropins/tools/preact-jsx-runtime.js";import{a as Ke,c as P,L as Be,T as Re,V as j,u as q}from"../chunks/vcomponent__EtPta1CxTg.js";import{Icon as oe}from"@dropins/tools/components/Icon.js";import{useEffect as ge,useRef as ye,useState as Ae,useMemo as Qe,useContext as Je,useCallback as re}from"@dropins/tools/preact-hooks.js";import{g as Ze,c as qe}from"../chunks/initialize__BUBKxffedU.js";import{c as He,d as Te}from"../chunks/getRefinedProduct__BhlaXXDBRK.js";import{events as Xe}from"@dropins/tools/event-bus.js";import"@dropins/tools/preact.js";import"@dropins/tools/fetch-graphql.js";const Le=(e,c)=>{let o;return function(...s){clearTimeout(o),o=setTimeout(()=>e.apply(this,s),c)}},Me={medium:768,large:1024,xlarge:1366,xxlarge:1920},Ye=(e,c)=>{const[o,s]=e.split("?"),l=new URLSearchParams(s),d=Ze();let h={};return d&&Object.keys(d).length>0&&c?h=Object.entries(c).reduce((u,[r,$])=>{const b=d[r];return b&&(u[b]=$),u},{}):h={auto:"webp",quality:80,crop:!1,fit:"cover",...c},Object.entries(h).forEach(([u,r])=>{r!=null&&l.set(u,String(r))}),`${o}?${l.toString()}`},Ce=(e,c)=>{if(!e||!(c!=null&&c.width))return;const o=s=>Ye(e,{...s});return Object.entries(Me).map(([,s])=>{const l=c.width*s/Me.xxlarge;return`${o({...c,width:l})} ${s}w`}).join(`,
-`)},De=e=>e.replace("_","-"),et="modulepreload",tt=function(e){return"/"+e},Ve={},rt=function(c,o,s){let l=Promise.resolve();if(o&&o.length>0){document.getElementsByTagName("link");const d=document.querySelector("meta[property=csp-nonce]"),h=(d==null?void 0:d.nonce)||(d==null?void 0:d.getAttribute("nonce"));l=Promise.all(o.map(u=>{if(u=tt(u),u in Ve)return;Ve[u]=!0;const r=u.endsWith(".css"),$=r?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${u}"]${$}`))return;const b=document.createElement("link");if(b.rel=r?"stylesheet":et,r||(b.as="script",b.crossOrigin=""),b.href=u,h&&b.setAttribute("nonce",h),document.head.appendChild(b),r)return new Promise((n,w)=>{b.addEventListener("load",n),b.addEventListener("error",()=>w(new Error(`Unable to preload CSS for ${u}`)))})}))}return l.then(()=>c()).catch(d=>{const h=new Event("vite:preloadError",{cancelable:!0});if(h.payload=d,window.dispatchEvent(h),!h.defaultPrevented)throw d})};function nt(e={},c,o){const s=ye(null),l=ye(!1),d=ye([]),[h,u]=Ae({children:[o==null?void 0:o({})]}),[r,$]=Ae({}),b=Qe(()=>({get:v=>r[v],set:(v,p)=>{$({...b,[v]:p})}}),[r]),{intl:n}=Je(Ke);e.dictionary=n.dictionary,e._setProps=u;const w=re(v=>{typeof v=="function"?d.current.push(v):console.warn("Skipped: Invalid _registerMethod",v)},[]);e._registerMethod=w;const k=re(v=>t("div",{"data-slot-html-element":v.tagName.toLowerCase(),ref:p=>{p==null||p.appendChild(v)}}),[]);return e._htmlElementToVNode=k,e.getSlotElement=re(v=>{const p=document.querySelector(`[data-slot-key="${v}"]`);if(p)return{appendChild:f=>{p.appendChild(f)},prependChild:f=>{p.insertBefore(f,p.firstChild)},appendSibling:f=>{const m=p.parentNode;m==null||m.insertBefore(f,p.nextSibling)},prependSibling:f=>{const m=p.parentNode;m==null||m.insertBefore(f,p)}}},[]),e.onChange=re(v=>{d.current.push(v)},[]),e.replaceWith=re(v=>{w(p=>{const f=k(v);p._setProps({children:[f]})})},[k,w]),e.appendChild=re(v=>{w(p=>{const f=k(v);p._setProps(m=>({...m,children:[...m.children,f]}))})},[k,w]),e.prependChild=re(v=>{w(p=>{const f=k(v);p._setProps(m=>({...m,children:[f,...m.children]}))})},[k,w]),e.appendSibling=re(v=>{w(()=>{var f,m;const p=(f=s.current)==null?void 0:f.parentNode;p==null||p.insertBefore(v,((m=s.current)==null?void 0:m.nextSibling)??null)})},[w]),e.prependSibling=re(v=>{w(()=>{var f;const p=(f=s.current)==null?void 0:f.parentNode;p==null||p.insertBefore(v,s.current)})},[w]),ge(()=>{const v=s.current;if(!(!c||!v))try{c(e,v)}catch(p){console.error(`Error in "${c.name}" Slot callback`,p)}},[]),ge(()=>{u({children:[o==null?void 0:o(h)]}),d.current.forEach(v=>{v(e,b)}),(o==null?void 0:o.name)==="render"&&l.current===!1&&(l.current=!0)},[JSON.stringify(e),JSON.stringify(r),l.current]),[s,h]}function K({name:e,slot:c,context:o,children:s,render:l,...d}){const[h,u]=nt(o,c,l??(()=>s));return ge(()=>{e||console.warn('Slot "name" is required')},[e]),t("div",{...d,ref:h,"data-slot":e,children:u.children})}window.DROPINS=window.DROPINS||{};window.DROPINS.showSlots=async e=>{if(window.sessionStorage.setItem("dropin-debugger--show-slots",e.toString()),document.body.classList.toggle("dropin-debugger--show-slots",e),e)try{await rt(()=>Promise.resolve({}),__vite__mapDeps([0]))}catch{}};window.DROPINS.showSlots(window.sessionStorage.getItem("dropin-debugger--show-slots")==="true");const ct=e=>Z.createElement("svg",{id:"Icon_Add_Base","data-name":"Icon \\u2013 Add \\u2013 Base",xmlns:"http://www.w3.org/2000/svg",width:24,height:24,viewBox:"0 0 24 24",...e},Z.createElement("g",{id:"Large"},Z.createElement("rect",{id:"Placement_area","data-name":"Placement area",width:24,height:24,fill:"#fff",opacity:0}),Z.createElement("g",{id:"Add_icon","data-name":"Add icon",transform:"translate(9.734 9.737)"},Z.createElement("line",{vectorEffect:"non-scaling-stroke",id:"Line_579","data-name":"Line 579",y2:12.7,transform:"translate(2.216 -4.087)",fill:"none",stroke:"currentColor"}),Z.createElement("line",{vectorEffect:"non-scaling-stroke",id:"Line_580","data-name":"Line 580",x2:12.7,transform:"translate(-4.079 2.263)",fill:"none",stroke:"currentColor"})))),ze=e=>Z.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...e},Z.createElement("path",{d:"M7.74512 9.87701L12.0001 14.132L16.2551 9.87701",stroke:"currentColor",strokeWidth:1.5,strokeLinecap:"square",strokeLinejoin:"round"})),lt=e=>Z.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...e},Z.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M18.3599 5.64001L5.62988 18.37",stroke:"currentColor"}),Z.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M18.3599 18.37L5.62988 5.64001",stroke:"currentColor"})),at=e=>Z.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...e},Z.createElement("path",{d:"M17.3332 11.75H6.6665",strokeWidth:1.5,strokeLinecap:"square",strokeLinejoin:"round",vectorEffect:"non-scaling-stroke",fill:"none",stroke:"currentColor"})),ot=({name:e,value:c="1",className:o,disabled:s,error:l,success:d,min:h,max:u,onValue:r,onUpdateError:$,size:b="medium",...n})=>{const[w,k]=Ae(Number(c)),v=Number(h),p=Number(u);ge(()=>{k(Number(c))},[c]);const f=re(Le(async S=>{if(r)try{await r(S)}catch(i){$&&$(i)}},200),[r,$]),m=S=>{let i=S;S<v&&(i=v),S>p&&(i=p),f(i),k(i)};return t("div",{className:P(["dropin-incrementer",`dropin-incrementer--${b}`,o]),children:W("div",{className:P(["dropin-incrementer__content",`dropin-incrementer__content--${b}`,["dropin-incrementer__content--error",l],["dropin-incrementer__content--success",d],["dropin-incrementer__content--disabled",s]]),children:[t("div",{className:P(["dropin-incrementer__button-container",["dropin-incrementer__button-container--disabled",s]]),children:t(Be,{children:t("button",{type:"button",className:P(["dropin-incrementer__decrease-button",["dropin-incrementer__decrease-button--disabled",s]]),onClick:()=>m(w-1),disabled:s||w<v+1,"aria-label":t(Re,{id:"Dropin.Incrementer.decreaseLabel"}),children:t(oe,{source:at,size:"16",stroke:"1",viewBox:"4 2 20 20",className:"dropin-incrementer__down"})})})}),t("input",{className:"dropin-incrementer__input",max:u,min:h,step:1,type:"number",name:e,value:w,disabled:s,onChange:S=>{const i=S.currentTarget.value;i!==""&&m(Number(i))},...n}),t("div",{className:P(["dropin-incrementer__button-container",["dropin-incrementer__button-container--disabled",s]]),children:t(Be,{children:t("button",{type:"button",className:P(["dropin-incrementer__increase-button",["dropin-incrementer__increase-button--disabled",s]]),onClick:()=>m(w+1),disabled:s||w>p-1,"aria-label":t(Re,{id:"Dropin.Incrementer.increaseLabel"}),children:t(oe,{source:ct,size:"16",stroke:"1",viewBox:"4 2 20 20",className:"dropin-incrementer__add"})})})})]})})},xe=({className:e,src:c,params:o,loading:s="lazy",srcSet:l,onLoad:d,...h})=>{const[u,r]=Q(!1),$=se(()=>{if(l)return l;if(!(!c||!o))return Ce(c,{...o})},[o,c,l]),b=n=>{r(!0),d==null||d(n)};return t("img",{...h,className:P(["dropin-image",["dropin-image--loaded",u],e]),loading:s,onLoad:b,src:c,srcSet:$})},ke=({amount:e=0,currency:c,locale:o=void 0,variant:s="default",weight:l="bold",className:d,children:h,sale:u=!1,formatOptions:r={},size:$="small",...b})=>{const n=se(()=>new Intl.NumberFormat(o,{style:"currency",currency:c||"USD",minimumFractionDigits:2,maximumFractionDigits:2,...r}),[o,c,r]),w=se(()=>n.format(e),[e,n]);return t("span",{...b,className:P(["dropin-price",`dropin-price--${s}`,`dropin-price--${$}`,`dropin-price--${l}`,["dropin-price--sale",u],d]),children:w})},Ne=({value:e,variant:c="primary",size:o="medium",icon:s,className:l,children:d,disabled:h=!1,active:u=!1,activeChildren:r,activeIcon:$,href:b,...n})=>{let w="dropin-button";(s&&!d||s&&u&&!r||!s&&u&&$)&&(w="dropin-iconButton"),u&&r&&(w="dropin-button"),l=P([w,`${w}--${o}`,`${w}--${c}`,[`${w}--${c}--disabled`,h],d&&s&&`${w}--with-icon`,!d&&r&&s&&`${w}--with-icon`,u&&$&&`${w}--with-icon`,l]);const k=P(["dropin-button-icon",`dropin-button-icon--${c}`,[`dropin-button-icon--${c}--disabled`,h],s==null?void 0:s.props.className]),v=b?{node:t("a",{}),role:"link",href:b,...n,disabled:h,active:u}:{node:t("button",{}),role:"button",...n,value:e,disabled:h,active:u};return W(j,{...v,className:l,children:[s&&!u&&t(j,{node:s,className:k}),$&&u&&t(j,{node:$,className:k}),d&&!u&&(typeof d=="string"?t("span",{children:d}):d),u&&r&&(typeof r=="string"?t("span",{children:r}):r)]})},st=({name:e,value:c=null,options:o,variant:s="primary",floatingLabel:l,size:d="medium",handleSelect:h=()=>{},disabled:u=!1,error:r=!1,placeholder:$,defaultOption:b,icon:n,className:w,...k})=>{var a;const v=(k==null?void 0:k.id)||e||`dropin-picker-${Math.random().toString(36)}`,p=o==null?void 0:o.find(L=>!L.disabled),[f,m]=Q({value:c,text:(b==null?void 0:b.text)||$||(p==null?void 0:p.text),icon:n});ne(()=>{const L=o==null?void 0:o.find(M=>M.value===c);m(L??{value:(b==null?void 0:b.value)||($||l?null:p==null?void 0:p.value),text:(b==null?void 0:b.text)||$||(p==null?void 0:p.text),icon:n})},[c,o,$,n,b,l]);const S=L=>{const{options:M,value:I}=L.target;for(const X of M)X.selected&&(m({value:I,text:X.text,icon:n}),h(L))},i=o==null?void 0:o.map(L=>{const{value:M,text:I,disabled:X}=L,H=M===f.value;return t("option",{value:M,selected:H,disabled:X,className:P(["dropin-picker__option"]),children:I},M)}),V=ye(null),A=!((a=V.current)!=null&&a.selected)||!!b;return W("div",{className:P([w,"dropin-picker",`dropin-picker__${d}`,["dropin-picker__floating",!!l],["dropin-picker__selected",A],["dropin-picker__error",r],["dropin-picker__disabled",u],["dropin-picker__icon",n]]),children:[n&&t(n.type,{...n.props,className:"dropin-picker__icon--placeholder"}),W("select",{id:v,className:P(["dropin-picker__select",`dropin-picker__select--${s}`,`dropin-picker__select--${d}`,["dropin-picker__select--floating",!!l]]),name:e,"aria-label":e,disabled:u,onChange:S,...k,children:[!b&&(l||$)&&t("option",{value:"",ref:V,className:P(["dropin-picker__option dropin-picker__placeholder"]),children:l??$},c),i]}),t(oe,{source:ze,size:"24",stroke:"2",className:"dropin-picker__chevronDown"}),l&&A&&t("label",{htmlFor:v,className:P(["dropin-picker__floatingLabel",!!l]),children:l})]})},it=({className:e,name:c,value:o,id:s,label:l,groupAriaLabel:d,size:h="medium",color:u,disabled:r=!1,selected:$=!1,outOfStock:b=!1,multi:n=!1,onValue:w,onUpdateError:k,...v})=>{const p=q("Dropin.Swatches.outOfStock.label").label,f=q("Dropin.Swatches.selected.label").label,m=q("Dropin.Swatches.swatch.label").label,S=J(async M=>{if(w)try{await w(M)}catch(I){k&&k(I)}},[w,k]),i=M=>{const I=M.target;S(I.value)},a=u&&(M=>{const I=new Option().style;return I.color=M,I.color!==""})(u)?u:"var(--color-gray-300);",L=()=>b?`${d}: ${l} ${p}`:$?`${d}: ${l} ${f}`:`${d}: ${l} ${m}`;return W("label",{className:P(["dropin-color-swatch__container",`dropin-color-swatch__container--${h}`,e]),children:[t("input",{type:n?"checkbox":"radio",name:c,id:s,value:o,"aria-label":L(),checked:$,disabled:r,onChange:i,...v,className:P(["dropin-color-swatch",["dropin-color-swatch--selected",$],["dropin-color-swatch--disabled",r],e])}),t("span",{style:{"--bg-color":a},className:P(["dropin-color-swatch__span",["dropin-color-swatch__span--out-of-stock",b],e])})]})},dt=({className:e,name:c,value:o,label:s,groupAriaLabel:l,id:d,disabled:h=!1,selected:u=!1,outOfStock:r=!1,multi:$=!1,onValue:b,onUpdateError:n,...w})=>{const k=q("Dropin.Swatches.outOfStock.label").label,v=q("Dropin.Swatches.selected.label").label,p=q("Dropin.Swatches.swatch.label").label,[f,m]=Q(!1),S=Se(null),i=J(async a=>{if(b)try{await b(a)}catch(L){n&&n(L)}},[b,n]),V=a=>{const L=a.target;i(L.value)},A=()=>r?`${l}: ${s} ${k}`:u?`${l}: ${s} ${v}`:`${l}: ${s} ${p}`;return ne(()=>{S.current&&S.current.scrollWidth>S.current.clientWidth&&m(!0)},[s]),W("div",{className:"dropin-text-swatch__container",...f?{"data-tooltip":s}:{},children:[t("input",{type:$?"checkbox":"radio",name:c,id:d,value:o,"aria-label":A(),checked:u,disabled:h,onChange:V,...w,className:P(["dropin-text-swatch",["dropin-text-swatch--selected",u],["dropin-text-swatch--disabled",h],e])}),t("label",{htmlFor:d,ref:S,className:P(["dropin-text-swatch__label",["dropin-text-swatch__label--out-of-stock",r],e]),children:s})]})},pt=({className:e,name:c,value:o,id:s,label:l,groupAriaLabel:d,src:h,alt:u,disabled:r=!1,selected:$=!1,outOfStock:b=!1,multi:n=!1,onValue:w,onUpdateError:k,...v})=>{const p=q("Dropin.Swatches.outOfStock.label").label,f=q("Dropin.Swatches.selected.label").label,m=q("Dropin.Swatches.swatch.label").label,S=J(async A=>{if(w)try{await w(A)}catch(a){k&&k(a)}},[w,k]),i=A=>{const a=A.target;S(a.value)},V=()=>b?`${d}: ${l} ${p}`:$?`${d}: ${l} ${f}`:`${d}: ${l} ${m}`;return W("label",{className:P(["dropin-image-swatch__container",e]),children:[t("input",{type:n?"checkbox":"radio",name:c,id:s,value:o,"aria-label":V(),checked:$,disabled:r,onChange:i,...v,className:P(["dropin-image-swatch",["dropin-image-swatch--selected",$],["dropin-image-swatch--disabled",r],e])}),t("span",{className:P(["dropin-image-swatch__span",["dropin-image-swatch__span--out-of-stock",b],e]),children:t(xe,{src:h,className:P(["dropin-image-swatch__content"]),params:{width:100,fit:"bounds",crop:!0},alt:u,loading:"lazy",onError:A=>A.target.style.display="none"})})]})},ht=({className:e,categories:c,separator:o,...s})=>t(me,{children:(c==null?void 0:c.length)>1&&t("nav",{role:"navigation",...s,className:P(["dropin-breadcrumbs__container",e]),children:t("ul",{className:"dropin-breadcrumbs__items",children:c==null?void 0:c.map((l,d)=>W("li",{className:P(["dropin-breadcrumbs__item",["dropin-breadcrumbs__item--last",d===c.length-1]]),children:[t(j,{node:l,className:"dropin-breadcrumbs__link"}),!o&&d!==c.length-1&&W("span",{className:"dropin-breadcrumbs__separator--default",children:[" ","/"," "]}),o&&d!==c.length-1&&t(j,{node:o,className:"dropin-breadcrumbs__separator--icon"})]},d))})})}),ve=({show:e=1,scrollbar:c=!1,peak:o=!1,arrows:s=!1,controls:l="dots",arrowsOnMainImage:d=!1,loop:h=!1,gap:u=null,direction:r="horizontal",width:$="100%",height:b="100%",defaultIndex:n=0,className:w,children:k,thumbnails:v=null,isZoomed:p,...f})=>{const m=q("PDP.Carousel.label").label,S=q("PDP.Carousel.Slide.label").label,i=q("PDP.Carousel.Previous.label").label,V=q("PDP.Carousel.Next.label").label,A=q("PDP.Carousel.Controls.label").label,a=q("PDP.Carousel.Controls.Button.label").label,[L,M]=Q(()=>We(e)),I=Math.ceil(le.toArray(k).length/L),X={small:16,medium:24,large:64},H=o?24:0,T=u?X[u]:0,C=le.toArray(k).length%L,ae=16,ce=2,ie="32",[O,de]=Q(h?n+1:n),ee=Se([]),[U,te]=Q(0),[ue,_e]=Q(0),N=se(()=>le.toArray(v),[v]),g=se(()=>{const _=le.toArray(k).reduce((y,R,E)=>E%L===0?[...y,[R]]:[...y.slice(0,-1),[...y[y.length-1],R]],[]);return!h||_.length===1?_:h&&le.toArray(k).length%L===0?[_[I-1]].concat(_).concat([_[0],_[1]]):[le.toArray(k).slice(-L)].concat(_).concat([_[0],_[1]])},[k,L,I,h]),D=Se(null),B=Se(null),x=l==="thumbnailsRow"||l==="thumbnailsColumn";ne(()=>{const _=document.body,y=Le(()=>{var z,$e;te(((z=D.current)==null?void 0:z.offsetWidth)??0),_e((($e=D.current)==null?void 0:$e.offsetHeight)??0);const E=window.innerWidth,G=We(e,E);G!==L&&M(G)},50),R=new ResizeObserver(y);return R.observe(_),()=>{R.unobserve(_)}},[L,e]);const Y=J(_=>{const y=h?_-1:_,R=ee==null?void 0:ee.current[0],E=(R==null?void 0:R.offsetWidth)+ae,G=(R==null?void 0:R.offsetHeight)+ae,z=B.current;l==="thumbnailsRow"&&(z!=null&&z.offsetWidth)&&(E*(y+1)>z.offsetWidth&&(z.style.scrollBehavior="smooth",z.scrollLeft=(y+ce)*E),z.scrollLeft>E*y&&(z.style.scrollBehavior="smooth",z.scrollLeft=(y-ce)*E)),l==="thumbnailsColumn"&&(z!=null&&z.offsetHeight)&&(G*(y+1)>z.offsetHeight&&(z.style.scrollBehavior="smooth",z.scrollTop=(y+ce)*G),z.scrollTop>G*y&&(z.style.scrollBehavior="smooth",z.scrollTop=(y-ce)*G))},[l,h]),F=J((_,y,R)=>{(l==="thumbnailsRow"||l==="thumbnailsColumn")&&Y(_);const E=D.current,G=H?E.offsetWidth-H:E.offsetWidth-H+T;if(!Array.from(E.querySelectorAll("[data-index]")).filter(fe=>{const he=Number(fe.getAttribute("data-index"));return!isNaN(he)&&he>-1})[_])return;if(R){const fe=_===0?I:0,he=G*(I+(C||L)/L);if(E.scrollLeft>=0&&E.scrollLeft<G-5){F(1,!0);return}if(E.scrollLeft>he-G&&E.scrollLeft<=he){F(I,!0);return}E.style.scrollBehavior="auto",E.scrollLeft=fe===0?0:he,F(fe===0?1:I,!0);return}const Ue=(E.offsetWidth-T)/L*g[_].length-H;E.style.scrollBehavior=y?"smooth":"auto",E.scrollLeft=g[_].length===L?G*_:G*(_-1)+Ue},[T,I,H,L,C,g,Y,l]),pe=J(()=>{if(h){const y=O-1;F(y,!0,O===1);return}const _=O<=0?0:O-1;F(_,!0)},[O,F,h]),be=J(()=>{const _=g.length-1;if(h){const R=O+1;F(R,!0,O===I);return}const y=O>=_?_:O+1;F(y,!0)},[g.length,h,O,F,I]);ne(()=>{const _=y=>{y.key==="ArrowLeft"&&(y.preventDefault(),pe()),y.key==="ArrowRight"&&(y.preventDefault(),be())};return window.addEventListener("keydown",_),()=>{window.removeEventListener("keydown",_)}},[be,pe]),ne(()=>{F(h?n+1:n,!1)},[n,F,h]);const Pe=Le(()=>{const _=D.current,y=H?_.offsetWidth-H:_.offsetWidth-H+T,R=_.scrollLeft/y,E=Math.round(R)-R<1?Math.round(R):Math.ceil(R);if(x&&Y(E),h){const G=y*(I+(C||L)/L);if(Math.ceil(_.scrollLeft)>=Math.ceil(G)-5){_.style.scrollBehavior="auto",_.scrollLeft=_.offsetWidth*1+(Math.ceil(_.scrollLeft)-Math.ceil(G)-H);return}if(_.scrollLeft===0){_.style.scrollBehavior="auto",_.scrollLeft=G-_.offsetWidth+H;return}}O!==E&&de(E)},100);ne(()=>{const _=D.current;return _==null||_.addEventListener("scroll",Pe),()=>{_==null||_.removeEventListener("scroll",Pe)}},[Pe]);const we=(_,y,R)=>t(Ne,{className:P([["pdp-carousel__button",!_],[`pdp-carousel__button--${y}`,!_],[`pdp-carousel__button--${l}`,_]]),style:{"--height":`${ue}px`},variant:"tertiary","aria-label":y==="next"?V:i,onClick:R,disabled:h?!1:y==="next"?O>=g.length-1:O<1,children:t(oe,{className:P([["pdp-carousel__button__icon",!_],[`pdp-carousel__button__icon--${y}`,!_],[`pdp-carousel__button__icon--${l}--${y}`,_]]),size:ie,source:ze})}),Ie=s&&g.length!=1&&we(x,"prev",pe),Ee=s&&g.length!=1&&we(x,"next",be),Ge=s&&g.length!=1&&we(!1,"prev",pe),Fe=s&&g.length!=1&&we(!1,"next",be);return W("div",{role:"region","aria-roledescription":m,className:P(["pdp-carousel",["pdp-carousel--main-image-controls",d],["pdp-carousel--arrows",s&&!x],[`pdp-carousel--${l}`,x],w]),style:{"--flex-carousel":l==="thumbnailsColumn"?"row-reverse":"column","--gap":x?"0":"var(--spacing-small)","--width":$},...f,children:[t("div",{ref:D,className:P(["pdp-carousel__wrapper",`pdp-carousel__wrapper--${r}`,["pdp-carousel__wrapper--scrollbar",c],["pdp-carousel__wrapper--peak",o]]),style:{"--total-width":l==="thumbnailsColumn"?"81.6%":"100%","--height":l==="thumbnailsColumn"?"auto":b,"--gap":u?`var(--spacing-${u})`:"0px","--per-page":L},tabIndex:0,children:g.map((_,y)=>{const R=_.length<L;return t("div",{role:"group","aria-roledescription":S,"data-index":y,className:P(["pdp-carousel__slide",`pdp-carousel__slide--${r}`,["pdp-carousel__slide--active",O===y],["pdp-carousel__slide--orphan",R]]),style:{"--length":_.length},children:_},y)})}),!x&&W(me,{children:[Ie,Ee]}),x&&d&&W(me,{children:[Ge,Fe]}),l&&g.length!=1&&W("div",{className:P([[`pdp-carousel__controls__container--${l}`,x],["pdp-carousel__controls__container--no-arrows",!s||d]]),style:{"--width":l==="thumbnailsRow"?`${U}px`:$,"--height":`${ue}px`,"--nr-thumbnails":N.length},children:[(x||p)&&!d&&Ie,t("div",{ref:B,className:P([[`pdp-carousel__controls__wrapper--${l}`,x],["pdp-carousel__controls__wrapper",x]]),children:t("div",{role:"group","aria-label":A,className:P(["pdp-carousel__controls",[`pdp-carousel__controls--${l}`,x]]),children:(h?g.slice(0,I):g).map((_,y)=>{const R=h?I:g.length,E=h?O-1===y:O===y;return x?W("label",{className:P(["pdp-carousel__thumbnail__container"]),ref:G=>{G&&(ee.current[y]=G)},children:[t("input",{type:"radio",name:"carousel-thumbnails","aria-label":a.replace("{key}",String(y+1)).replace("{total}",String(R)),checked:E&&U!==0,onChange:()=>{F(h?y+1:y,!0)},...f,className:P(["pdp-carousel__thumbnail",["pdp-carousel__thumbnail--selected",E&&U!==0]])}),t("span",{className:P(["pdp-carousel__thumbnail__span"]),children:N[y]})]},y):t("button",{"aria-label":a.replace("{key}",String(y+1)).replace("{total}",String(R)),onClick:()=>{F(h?y+1:y,!0)},className:P(["pdp-carousel__controls__button",["pdp-carousel__controls__button--active",E]])},y)})})}),(x||p)&&!d&&Ee]})]})};function We(e,c=0){if(typeof e=="number")return e;const{small:o,medium:s,large:l}=e,d=786;return c>1024?l:c>d?s:o}const ut=({title:e,breadcrumbs:c,galleryContent:o,infoContent:s,productContent:l,sku:d,outOfStock:h,hideSku:u,shortDescription:r,description:$,attributes:b,images:n,options:w,price:k,specialPrice:v,className:p,children:f,quantity:m,actions:S,carouselConfig:i,...V})=>{var C,ae,ce,ie,O,de;const A=q("PDP.Product.RegularPrice.label").label,a=q("PDP.Product.SpecialPrice.label").label,L=q("PDP.Product.OutOfStock.label").label,M=q("PDP.Product.Image.label").label,[I,X]=Q(null),H=n!=null&&n.length?n.map((ee,U)=>{var te;return t(j,{node:ee,loading:U===0?"eager":"lazy",alt:((te=e==null?void 0:e.props)==null?void 0:te.children)&&(M==null?void 0:M.replace("{product}",e.props.children.toString()).replace("{key}",String(U+1)).replace("{total}",String(n.length))),onClick:()=>X(U)},U)}):t("img",{src:"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",className:"pdp-product__images__placeholder","aria-hidden":!0}),T=(C=i==null?void 0:i.thumbnails)!=null&&C.length?i.thumbnails.map((ee,U)=>{var te;return t(j,{node:ee,loading:(i==null?void 0:i.thumbnailsLoadingMode)||"lazy",alt:((te=e==null?void 0:e.props)==null?void 0:te.children)&&(M==null?void 0:M.replace("{product}",e.props.children.toString()).replace("{key}",String(U+1)).replace("{total}",String(n.length)))},U)}):t("img",{src:"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",className:"pdp-product__images__placeholder","aria-hidden":!0});return W("div",{...V,className:P(["pdp-product",p]),children:[c&&t(j,{node:c,className:"pdp-product__breadcrumbs"}),W("div",{className:"pdp-product__column-container pdp-product__gallery-column",children:[t("div",{className:"pdp-product__column-body",children:i!=null&&i.controls?t(ve,{className:"pdp-product__overlay__carousel",arrows:(n==null?void 0:n.length)>1,controls:(n==null?void 0:n.length)>1?i.controls:"dots",arrowsOnMainImage:i==null?void 0:i.arrowsOnMainImage,loop:(i==null?void 0:i.loopable)&&(n==null?void 0:n.length)>1,peak:((ae=i==null?void 0:i.thumbnails)==null?void 0:ae.length)>1&&((ce=i==null?void 0:i.peak)==null?void 0:ce.desktop)||!1,gap:(i==null?void 0:i.gap)||null,width:"100%",height:"100%",defaultIndex:I||0,thumbnails:T,children:H}):t(mt,{className:"pdp-product__images",gap:"small",children:H})}),o&&t(j,{node:o,className:"pdp-product__gallery-content"})]}),W("div",{className:"pdp-product__column-container pdp-product__content-column",children:[W("div",{className:"pdp-product__column-body",children:[W("div",{className:"pdp-product__header",children:[t(j,{node:t("h1",{children:e}),className:"pdp-product__title"}),!u&&d&&t(j,{node:d,className:"pdp-product__sku"})]}),W("div",{className:"pdp-product__prices",children:[v&&t(j,{node:v,className:P(["pdp-product__price-special","pdp-product__price"]),"aria-label":a,role:"text"}),k&&t(j,{node:k,className:P(["pdp-product__price-regular","pdp-product__price--grey"]),"aria-label":A,role:"text"})]}),i!=null&&i.mobile?t(ve,{className:"pdp-product__images pdp-product__images--carousel pdp-product__images--carousel--thumbnails",width:"100%",height:"auto",arrows:(n==null?void 0:n.length)>1,controls:(n==null?void 0:n.length)>1?"thumbnailsRow":null,loop:(i==null?void 0:i.loopable)&&(n==null?void 0:n.length)>1,peak:((ie=i==null?void 0:i.thumbnails)==null?void 0:ie.length)>1&&((O=i==null?void 0:i.peak)==null?void 0:O.mobile)||!1,gap:(i==null?void 0:i.gap)||null,thumbnails:T,children:H}):t(ve,{className:"pdp-product__images pdp-product__images--carousel",peak:((de=i==null?void 0:i.peak)==null?void 0:de.mobile)&&(n==null?void 0:n.length)>1,gap:(i==null?void 0:i.gap)||null,width:"100%",height:"auto",arrows:(n==null?void 0:n.length)>1,controls:(n==null?void 0:n.length)>1?"dots":null,loop:(i==null?void 0:i.loopable)&&(n==null?void 0:n.length)>1,children:H}),W("div",{className:P(["pdp-product__actions",["pdp-product__actions--out-of-stock",h]]),children:[h&&t("div",{className:"pdp-product__out-of-stock__text",children:L}),w&&t(j,{node:w,className:P(["pdp-product__options"])}),m&&t("div",{className:"pdp-product__quantity",children:t(j,{node:m})}),S&&t(j,{node:S,className:P(["pdp-product__buttons"])})]}),r&&t(j,{node:r,className:P(["pdp-product__short_description"])}),$&&t(j,{node:$,className:P(["pdp-product__description"])}),b?t("div",{className:"pdp-product__attributes",children:b}):null]}),s&&t(j,{node:s,className:"pdp-product__info-content"})]}),l&&t(j,{node:l,className:"pdp-product__content"}),I===null?null:t(_t,{className:"pdp-product__overlay",onClose:()=>X(null),centered:!0,children:t(ve,{className:"pdp-product__overlay__carousel",arrows:(n==null?void 0:n.length)>1,width:"100%",height:"100%",defaultIndex:I||0,loop:(n==null?void 0:n.length)>1,controls:(n==null?void 0:n.length)>1?"dots":null,isZoomed:!0,children:H})})]})},mt=({children:e,gap:c=null,className:o,style:s,...l})=>{const d=le.count(e);return t("div",{...l,className:P(["pdp-gallery-grid",o]),style:{"--gap":c?`var(--spacing-${c})`:"0px",...s},children:le.map(e,(h,u)=>t("div",{className:"pdp-gallery-grid__item",children:t(j,{node:h,loading:u===0?"eager":"lazy"},h.props.src)},d+u))})},Oe=({amount:e,currency:c,locale:o,variant:s,sale:l,minimumAmount:d,maximumAmount:h,className:u,...r})=>t(me,{children:e||d===h?t("div",{className:"pdp-price-range",...r,children:t(ke,{amount:e||d,currency:c,locale:o,variant:s,sale:l,className:u})}):W("div",{className:"pdp-price-range",...r,children:[t(ke,{amount:d,currency:c,locale:o,className:u}),t("span",{className:"pdp-price-range__label",children:"-"}),t(ke,{amount:h,currency:c,locale:o,className:u})]})}),_t=({centered:e,onClose:c,className:o,children:s,...l})=>{const d=q("PDP.Overlay.Close.label").label,h=J(()=>{c==null||c()},[c]);return ne(()=>{const u=r=>{r.key==="Escape"&&h()};return document.addEventListener("keydown",u),()=>{document.removeEventListener("keydown",u)}},[h]),ne(()=>{const u=document.scrollingElement,r=u.style.overflow;return u.style.overflow="hidden",()=>{u.style.overflow=r}},[]),W("div",{...l,className:P(["pdp-overlay",["pdp-overlay--centered",e],o]),children:[t("div",{className:"pdp-overlay__content",children:s}),t(Ne,{"aria-label":d,variant:"tertiary",className:"pdp-overlay__close-button",onClick:h,icon:t(lt,{})})]})},bt=["text","image","color","dropdown"],wt=e=>e.map(c=>({...c,text:c.label,disabled:!c.inStock})),ft=({options:e,hideSelectedValue:c,onValues:o,onErrors:s,defaultOptions:l,selectionsToUpdate:d,className:h,children:u,...r})=>{const $=q("PDP.Swatches.Required.label").label,[b,n]=Q(()=>e==null?void 0:e.reduce((f,m)=>{const{items:S}=m,i=S==null?void 0:S.find(A=>l==null?void 0:l.includes(A.id)),V=S==null?void 0:S.find(A=>A.selected);return i?{...f,[m.id]:{label:i.label,value:i.id}}:V?{...f,[m.id]:{label:V.label,value:V.id}}:f},{}));ne(()=>{d==null||d.forEach(p=>{n(f=>{var i;const m=(i=p==null?void 0:p.items)==null?void 0:i.find(V=>V.selected);return m?{...f,[p.id]:{label:m==null?void 0:m.label,value:m==null?void 0:m.id}}:f})})},[d,n]),se(()=>{const p=e==null?void 0:e.reduce((f,m)=>{var S;return(S=m==null?void 0:m.items)==null||S.forEach(i=>{var A;const V=((A=b[m.id])==null?void 0:A.value)===i.id;m.required&&!V&&(f[m.id]=$)}),f},{});return s==null||s(p),p},[b]);const w=J((p,f,m)=>{n(S=>{const i={...S,[p]:{label:f,value:m}};return o==null||o(i,m),i})},[o]),k=(p,f)=>{var S;const m=((S=f.selectedOptions[0])==null?void 0:S.label)??"";w(p,m,f.value)},v=J(({items:p,id:f,required:m,type:S,selected:i,label:V})=>t("div",{className:P(["pdp-swatches__options"]),children:(S==null?void 0:S.toLowerCase())==="dropdown"?t(st,{"aria-label":V,handleSelect:A=>k(f,A.target),options:wt(p),value:i}):p==null?void 0:p.map(A=>{const a={key:A.id,id:A.id,name:f,value:A.value,label:A.label,groupAriaLabel:V,selected:i===A.id,outOfStock:!A.inStock,required:m===null?!0:m,onValue:()=>{w(f,A.label,A.id)}};switch(S){case"text":return t(dt,{...a,label:A.label});case"image":return t(pt,{...a,src:A.value,alt:A.label});case"color":return t(it,{...a,size:"large",color:A.value});default:return console.warn(`Invalid swatch type ${S}`),null}})}),[w]);return t("div",{...r,className:P(["pdp-swatches",h]),children:e==null?void 0:e.map(({type:p,label:f,id:m,multiple:S,required:i,items:V})=>{var A;if(!p){console.warn("Bundle product not supported on UI.");return}return bt.includes(p)||console.warn(`Invalid swatch type ${p}`),S&&console.warn("Multiple selection swatches are not currently supported."),W("div",{id:`swatch-item-${m}`,"data-slot-key":`product-swatch--${m}`,className:"pdp-swatches__field",children:[t("div",{className:"pdp-swatches__field__label",children:b[m]?c?`${f}`:`${f}: ${b[m].label}`:f}),t(v,{id:m,type:p,required:i,items:V,label:f,selected:(A=b[m])==null?void 0:A.value})]},`swatch-item-${m}`)})})};function vt(e,c="en_US"){if(!je(e))throw Error("Invalid date string");return e.split(" ")[1]||(e=`${e} 00:00:00`),new Date(e).toLocaleDateString(De(c)).toString()}function je(e){if(![/^\d{4}-\d{2}-\d{2}$/,/^\d{1,2}\/\d{1,2}\/\d{4}$/,/^\d{2}\/\d{2}\/\d{4}$/,/^\d{4}\/\d{2}\/\d{2}$/,/^\d{1,2}\.\d{1,2}\.\d{4}$/,/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/].some(s=>s.test(e)))return!1;const o=new Date(e);return!isNaN(o.getTime())}function St(e){const c=new URLSearchParams(window.location.search);Object.entries(e).forEach(([s,l])=>{l===null?c.delete(s):c.set(s,String(l))});let o=window.location.pathname;o+=`?${c.toString()}`,o+=window.location.hash,window.history.replaceState({},"",o)}function yt(){const e=new URLSearchParams(window.location.search),c={};return e.forEach((o,s)=>{c[s]=o}),c}const gt=({sku:e,hideSku:c,hideQuantity:o,hideShortDescription:s,hideDescription:l,hideAttributes:d,hideURLParams:h,hideSelectedOptionValue:u,slots:r,children:$,initialData:b,carousel:n,optionsConfig:w,onAddToCart:k,...v})=>{var U,te,ue,_e;const p=q("PDP.Product.AddToCart.label").label,f=q("PDP.Product.Incrementer.label").label,m=q("PDP.Product.Details.label").label,[S,i]=Q(qe.getConfig().defaultLocale||"en-US"),[V,A]=Q(),[a=null,L]=Q(b),[M,I]=Q(()=>{const N={sku:e,quantity:1};return a!=null&&a.optionUIDs&&(N.optionsUIDs=a.optionUIDs),N}),[X,H]=Q(()=>{var N,g;return!(a!=null&&a.options&&((N=a==null?void 0:a.options)==null?void 0:N.length)>0&&((g=a==null?void 0:a.optionUIDs)==null?void 0:g.length)!==(a==null?void 0:a.options.length))}),T={data:a,values:M,valid:X};ne(()=>{const N=Xe.on("locale",g=>{g!==S&&(i(g),He(e).then(L))});return()=>{N==null||N.off()}},[S,e]);const C=J(N=>{I(g=>({...g,...N}))},[]),ae=J(N=>{var D;let g=Object.keys(N).map(B=>N[B].value).filter(B=>B!==void 0);h||St({optionsUIDs:g.join(",")}),I(B=>({...B,optionsUIDs:g})),H((g==null?void 0:g.length)===((D=a==null?void 0:a.options)==null?void 0:D.length)),Te(e,g,w==null?void 0:w.anchorOptions).then(B=>{var x;L(B),(x=w==null?void 0:w.anchorOptions)!=null&&x.length&&ce(B,g)})},[e]),ce=J((N,g)=>{var x;const D=(N==null?void 0:N.optionUIDs)??[];g.every(Y=>D.includes(Y))||(A(N==null?void 0:N.options),I(Y=>({...Y,optionsUIDs:D})),H((D==null?void 0:D.length)===((x=N==null?void 0:N.options)==null?void 0:x.length)))},[e]),ie=J(N=>{Object.keys(N).length!==0&&H(!1)},[]),O=se(()=>{var N;return(N=a==null?void 0:a.attributes)==null?void 0:N.map(({label:g,value:D},B)=>{const x=je(D)?vt(D,S):D.toString();return W("li",{children:[g,": ",t("span",{dangerouslySetInnerHTML:{__html:x}})]},B)})},[a==null?void 0:a.attributes,S]),de=!o&&(a!=null&&a.inStock)?t(K,{name:"Quantity",slot:r==null?void 0:r.Quantity,context:{...T},children:t(ot,{name:"quantity",defaultValue:M.quantity.toString(),min:1,"aria-label":f,className:"pdp-product__quantity",onValue:N=>{C({quantity:Number(N)})}},"quantity")}):void 0,ee=()=>{if(a!=null&&a.options)return t(K,{name:"Options",slot:r==null?void 0:r.Options,context:{...T},children:t(ft,{options:a.options,defaultOptions:M.optionsUIDs,selectionsToUpdate:V,hideSelectedValue:u,onValues:ae,onErrors:ie})})};return t("div",{...v,children:t(ut,{title:t(K,{name:"Title",slot:r==null?void 0:r.Title,context:{...T},children:a==null?void 0:a.name}),sku:c?void 0:t(K,{name:"SKU",slot:r==null?void 0:r.SKU,context:{...T},children:a==null?void 0:a.sku}),options:ee(),breadcrumbs:(r==null?void 0:r.Breadcrumbs)&&t(K,{name:"Breadcrumbs",slot:r==null?void 0:r.Breadcrumbs,context:{...T,setSeparator(N){this._registerMethod((...g)=>{const D=N(...g),B=D&&t(oe,{source:D});this._setProps(x=>({...x,separator:B}))})},appendLink(N){this._registerMethod((...g)=>{const{text:D,...B}=N(...g),x=t("a",{...B,children:D});this._setProps(Y=>({...Y,categories:[...Y.categories||[],x]}))})},appendHTMLElement(N){this._registerMethod((...g)=>{const D=N(...g),B=this._htmlElementToVNode(D);this._setProps(x=>({...x,categories:[...x.categories||[],B]}))})}},render:({separator:N,categories:g})=>t(ht,{separator:N,categories:g})}),quantity:de,actions:t(K,{name:"Actions",slot:r==null?void 0:r.Actions,context:{...T,appendButton(N){this._registerMethod((...g)=>{const D=N(...g);if(!D)return;const{text:B,icon:x,...Y}=D,F=t(Ne,{type:"button",...Y,icon:x&&t(oe,{source:x}),children:B});this._setProps(pe=>({children:[...pe.children||[],F]}))})}},children:!(r!=null&&r.Actions)&&t(Ne,{size:"medium",type:"submit",icon:t(oe,{source:"Cart"}),disabled:!(a!=null&&a.inStock)||!X,"aria-label":p,onClick:()=>k==null?void 0:k(M),children:p})}),shortDescription:s?void 0:t(K,{name:"ShortDescription",slot:r==null?void 0:r.ShortDescription,context:{...T},children:t("div",{dangerouslySetInnerHTML:{__html:(a==null?void 0:a.shortDescription)??""}})}),description:l?void 0:t(K,{name:"Description",slot:r==null?void 0:r.Description,context:{...T},children:t("div",{dangerouslySetInnerHTML:{__html:(a==null?void 0:a.description)??""}})}),images:((U=a==null?void 0:a.images)==null?void 0:U.map(({label:N,url:g})=>{var D,B;return t(xe,{title:N,alt:N,src:g,width:((D=n==null?void 0:n.imageParams)==null?void 0:D.width)??960,height:((B=n==null?void 0:n.imageParams)==null?void 0:B.height)??1191,params:(n==null?void 0:n.imageParams)??{width:960}},g)}))??[],specialPrice:(te=a==null?void 0:a.prices)!=null&&te.visible?t(K,{name:"SpecialPrice",slot:r==null?void 0:r.SpecialPrice,context:{...T},children:t(Oe,{...a.prices.final,locale:De(S)})}):void 0,price:(ue=a==null?void 0:a.prices)!=null&&ue.visible&&a.prices.regular&&a.prices.final.amount!==(a==null?void 0:a.prices.regular.amount)?t(K,{name:"RegularPrice",slot:r==null?void 0:r.RegularPrice,context:{...T},children:t(Oe,{...a.prices.regular,locale:De(S)})}):void 0,carouselConfig:{...n,thumbnails:n?((_e=a==null?void 0:a.images)==null?void 0:_e.map(({label:N,url:g})=>{var D,B;return t(xe,{title:N,alt:N,src:g,width:((D=n==null?void 0:n.thumbnailParams)==null?void 0:D.width)??200,height:((B=n==null?void 0:n.thumbnailParams)==null?void 0:B.height)??248,params:(n==null?void 0:n.thumbnailParams)??{width:200}},g)}))??[]:[]},outOfStock:!(a!=null&&a.inStock),attributes:d?void 0:t(K,{name:"Attributes",slot:r==null?void 0:r.Attributes,context:{...T},children:O!=null&&O.length?W(me,{children:[m,t("ul",{children:O})]}):null}),galleryContent:(r==null?void 0:r.GalleryContent)&&t(K,{name:"GalleryContent",slot:r.GalleryContent,context:{...T}}),infoContent:(r==null?void 0:r.InfoContent)&&t(K,{name:"InfoContent",slot:r.InfoContent,context:{...T}}),productContent:(r==null?void 0:r.Content)&&t(K,{name:"Content",slot:r.Content,context:{...T}})})})};gt.getInitialData=async function({sku:e,optionsConfig:c}){var s,l,d,h,u,r;const o=((s=yt().optionsUIDs)==null?void 0:s.split(","))||((r=(u=(h=(d=(l=qe)==null?void 0:l.getConfig())==null?void 0:d.models)==null?void 0:h.ProductDetails)==null?void 0:u.initialData)==null?void 0:r.optionsUIDs);return o!=null&&o.length?await Te(e,o,c==null?void 0:c.anchorOptions):await He(e)};export{gt as ProductDetails,gt as default};
-//# sourceMappingURL=ProductDetails.js.map
+import * as React from "@dropins/tools/preact-compat.js";
+import { useState as useState$1, Children, useRef as useRef$1, useMemo as useMemo$1, useEffect as useEffect$1, useCallback as useCallback$1 } from "@dropins/tools/preact-compat.js";
+import { Button, Icon, Price, Picker, ColorSwatch, ImageSwatch, TextSwatch, Incrementer, Breadcrumbs, Image } from "@dropins/tools/components/index.js";
+import { jsx, jsxs, Fragment } from "@dropins/tools/preact-jsx-runtime.js";
+import { IntlContext, useText } from "@dropins/tools/i18n.js";
+import { c as classes, V as VComponent } from "../chunks/vcomponent__DzjhryT0dc.js";
+import { c as getProductData, d as getRefinedProduct } from "../chunks/getRefinedProduct__DCGlQKU-jK.js";
+import { events } from "@dropins/tools/event-bus.js";
+import { useEffect, useRef, useState, useMemo, useContext, useCallback } from "@dropins/tools/preact-hooks.js";
+import { c as config } from "../chunks/initialize__DZrQ7EkF8R.js";
+import "@dropins/tools/fetch-graphql.js";
+const debounce = (fn, ms) => {
+  let timeoutId;
+  return function(...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => fn.apply(this, args), ms);
+  };
+};
+const toLanguageTag = (locale) => {
+  return locale.replace("_", "-");
+};
+const scriptRel = "modulepreload";
+const assetsURL = function(dep) {
+  return "/" + dep;
+};
+const seen = {};
+const __vitePreload = function preload(baseModule, deps, importerUrl) {
+  let promise = Promise.resolve();
+  if (deps && deps.length > 0) {
+    document.getElementsByTagName("link");
+    const cspNonceMeta = document.querySelector("meta[property=csp-nonce]");
+    const cspNonce = (cspNonceMeta == null ? void 0 : cspNonceMeta.nonce) || (cspNonceMeta == null ? void 0 : cspNonceMeta.getAttribute("nonce"));
+    promise = Promise.all(deps.map((dep) => {
+      dep = assetsURL(dep);
+      if (dep in seen)
+        return;
+      seen[dep] = true;
+      const isCss = dep.endsWith(".css");
+      const cssSelector = isCss ? '[rel="stylesheet"]' : "";
+      if (document.querySelector(`link[href="${dep}"]${cssSelector}`)) {
+        return;
+      }
+      const link = document.createElement("link");
+      link.rel = isCss ? "stylesheet" : scriptRel;
+      if (!isCss) {
+        link.as = "script";
+        link.crossOrigin = "";
+      }
+      link.href = dep;
+      if (cspNonce) {
+        link.setAttribute("nonce", cspNonce);
+      }
+      document.head.appendChild(link);
+      if (isCss) {
+        return new Promise((res, rej) => {
+          link.addEventListener("load", res);
+          link.addEventListener("error", () => rej(new Error(`Unable to preload CSS for ${dep}`)));
+        });
+      }
+    }));
+  }
+  return promise.then(() => baseModule()).catch((err) => {
+    const e = new Event("vite:preloadError", { cancelable: true });
+    e.payload = err;
+    window.dispatchEvent(e);
+    if (!e.defaultPrevented) {
+      throw err;
+    }
+  });
+};
+function useSlot(context = {}, callback, render) {
+  const elementRef = useRef(null);
+  const loadedRef = useRef(false);
+  const methodsRef = useRef([]);
+  const [props, _setProps] = useState({
+    children: [render == null ? void 0 : render({})]
+  });
+  const [_state, setState] = useState({});
+  const state = useMemo(() => ({
+    get: (key) => _state[key],
+    set: (key, value) => {
+      setState({
+        ...state,
+        [key]: value
+      });
+    }
+  }), [_state]);
+  const {
+    intl
+  } = useContext(IntlContext);
+  context.dictionary = intl.dictionary;
+  context._setProps = _setProps;
+  const _registerMethod = useCallback((callback2) => {
+    if (typeof callback2 === "function") {
+      methodsRef.current.push(callback2);
+    } else {
+      console.warn("Skipped: Invalid _registerMethod", callback2);
+    }
+  }, []);
+  context._registerMethod = _registerMethod;
+  const _htmlElementToVNode = useCallback((elem) => {
+    return jsx("div", {
+      "data-slot-html-element": elem.tagName.toLowerCase(),
+      ref: (refElem) => {
+        refElem == null ? void 0 : refElem.appendChild(elem);
+      }
+    });
+  }, []);
+  context._htmlElementToVNode = _htmlElementToVNode;
+  context.getSlotElement = useCallback((key) => {
+    const element = document.querySelector(`[data-slot-key="${key}"]`);
+    if (!element)
+      return;
+    return {
+      appendChild: (elem) => {
+        element.appendChild(elem);
+      },
+      prependChild: (elem) => {
+        element.insertBefore(elem, element.firstChild);
+      },
+      appendSibling: (elem) => {
+        const parent = element.parentNode;
+        parent == null ? void 0 : parent.insertBefore(elem, element.nextSibling);
+      },
+      prependSibling: (elem) => {
+        const parent = element.parentNode;
+        parent == null ? void 0 : parent.insertBefore(elem, element);
+      }
+    };
+  }, []);
+  context.onChange = useCallback((callback2) => {
+    methodsRef.current.push(callback2);
+  }, []);
+  context.replaceWith = useCallback((elem) => {
+    _registerMethod((next) => {
+      const children = _htmlElementToVNode(elem);
+      next._setProps({
+        children: [children]
+      });
+    });
+  }, [_htmlElementToVNode, _registerMethod]);
+  context.appendChild = useCallback((elem) => {
+    _registerMethod((next) => {
+      const vnode = _htmlElementToVNode(elem);
+      next._setProps((prev) => {
+        return {
+          ...prev,
+          children: [...prev.children, vnode]
+        };
+      });
+    });
+  }, [_htmlElementToVNode, _registerMethod]);
+  context.prependChild = useCallback((elem) => {
+    _registerMethod((next) => {
+      const vnode = _htmlElementToVNode(elem);
+      next._setProps((prev) => {
+        return {
+          ...prev,
+          children: [vnode, ...prev.children]
+        };
+      });
+    });
+  }, [_htmlElementToVNode, _registerMethod]);
+  context.appendSibling = useCallback((elem) => {
+    _registerMethod(() => {
+      var _a, _b;
+      const parent = (_a = elementRef.current) == null ? void 0 : _a.parentNode;
+      parent == null ? void 0 : parent.insertBefore(elem, ((_b = elementRef.current) == null ? void 0 : _b.nextSibling) ?? null);
+    });
+  }, [_registerMethod]);
+  context.prependSibling = useCallback((elem) => {
+    _registerMethod(() => {
+      var _a;
+      const parent = (_a = elementRef.current) == null ? void 0 : _a.parentNode;
+      parent == null ? void 0 : parent.insertBefore(elem, elementRef.current);
+    });
+  }, [_registerMethod]);
+  useEffect(() => {
+    const element = elementRef.current;
+    if (!callback || !element)
+      return;
+    try {
+      callback(context, element);
+    } catch (error) {
+      console.error(`Error in "${callback.name}" Slot callback`, error);
+    }
+  }, []);
+  useEffect(() => {
+    _setProps({
+      children: [render == null ? void 0 : render(props)]
+    });
+    methodsRef.current.forEach((method) => {
+      method(context, state);
+    });
+    if ((render == null ? void 0 : render.name) === "render" && loadedRef.current === false) {
+      loadedRef.current = true;
+    }
+  }, [JSON.stringify(context), JSON.stringify(_state), loadedRef.current]);
+  return [elementRef, props];
+}
+function Slot({
+  name,
+  slot,
+  context,
+  children,
+  render,
+  ...props
+}) {
+  const [elementRef, slotProps] = useSlot(context, slot, render ?? (() => children));
+  useEffect(() => {
+    if (!name)
+      console.warn('Slot "name" is required');
+  }, [name]);
+  return jsx("div", {
+    ...props,
+    ref: elementRef,
+    "data-slot": name,
+    children: slotProps.children
+  });
+}
+window.DROPINS = window.DROPINS || {};
+window.DROPINS.showSlots = async (state) => {
+  window.sessionStorage.setItem("dropin-debugger--show-slots", state.toString());
+  document.body.classList.toggle("dropin-debugger--show-slots", state);
+  if (state) {
+    try {
+      await __vitePreload(() => Promise.resolve({}), true ? __vite__mapDeps([0]) : void 0);
+    } catch (error) {
+    }
+  }
+};
+window.DROPINS.showSlots(window.sessionStorage.getItem("dropin-debugger--show-slots") === "true");
+const SvgChevronDown = (props) => /* @__PURE__ */ React.createElement("svg", { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ React.createElement("path", { d: "M7.74512 9.87701L12.0001 14.132L16.2551 9.87701", stroke: "currentColor", strokeWidth: 1.5, strokeLinecap: "square", strokeLinejoin: "round" }));
+const SvgClose = (props) => /* @__PURE__ */ React.createElement("svg", { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ React.createElement("path", { vectorEffect: "non-scaling-stroke", d: "M18.3599 5.64001L5.62988 18.37", stroke: "currentColor" }), /* @__PURE__ */ React.createElement("path", { vectorEffect: "non-scaling-stroke", d: "M18.3599 18.37L5.62988 5.64001", stroke: "currentColor" }));
+const Carousel = ({
+  show = 1,
+  scrollbar = false,
+  peak = false,
+  arrows = false,
+  controls = "dots",
+  arrowsOnMainImage = false,
+  loop = false,
+  gap = null,
+  direction = "horizontal",
+  width = "100%",
+  height = "100%",
+  defaultIndex = 0,
+  className,
+  children,
+  thumbnails = null,
+  isZoomed,
+  ...props
+}) => {
+  const Label = useText("PDP.Carousel.label").label;
+  const SlideLabel = useText("PDP.Carousel.Slide.label").label;
+  const PreviousLabel = useText("PDP.Carousel.Previous.label").label;
+  const NextLabel = useText("PDP.Carousel.Next.label").label;
+  const ControlsLabel = useText("PDP.Carousel.Controls.label").label;
+  const ControlsBtnLabel = useText("PDP.Carousel.Controls.Button.label").label;
+  const [perPage, setPerPage] = useState$1(() => getPerPageFromBreakpoint(show));
+  const length = Math.ceil(Children.toArray(children).length / perPage);
+  const gapSizes = {
+    small: 16,
+    medium: 24,
+    large: 64
+  };
+  const peakWidth = peak ? 24 : 0;
+  const gapWidth = gap ? gapSizes[gap] : 0;
+  const rest = Children.toArray(children).length % perPage;
+  const thumbGap = 16;
+  const thumbSeen = 2;
+  const iconSize = "32";
+  const [current, setCurrent] = useState$1(loop ? defaultIndex + 1 : defaultIndex);
+  const thumbnailsRefs = useRef$1([]);
+  const [thumbWidth, setThumbWidth] = useState$1(0);
+  const [thumbHeight, setThumbHeight] = useState$1(0);
+  const thumbnailSlides = useMemo$1(() => {
+    return Children.toArray(thumbnails);
+  }, [thumbnails]);
+  const slides = useMemo$1(() => {
+    const returnValue = Children.toArray(children).reduce((acc, child, i) => {
+      if (i % perPage === 0) {
+        return [...acc, [child]];
+      }
+      return [...acc.slice(0, -1), [...acc[acc.length - 1], child]];
+    }, []);
+    if (!loop || returnValue.length === 1) {
+      return returnValue;
+    }
+    if (loop && !(Children.toArray(children).length % perPage !== 0)) {
+      return [returnValue[length - 1]].concat(returnValue).concat([returnValue[0], returnValue[1]]);
+    }
+    return [Children.toArray(children).slice(-perPage)].concat(returnValue).concat([returnValue[0], returnValue[1]]);
+  }, [children, perPage, length, loop]);
+  const wrapperRef = useRef$1(null);
+  const thumbnailsWrapperRef = useRef$1(null);
+  const thumbnailControls = controls === "thumbnailsRow" || controls === "thumbnailsColumn";
+  useEffect$1(() => {
+    const wrapper = document.body;
+    const handleResize = debounce(() => {
+      var _a, _b;
+      setThumbWidth(((_a = wrapperRef.current) == null ? void 0 : _a.offsetWidth) ?? 0);
+      setThumbHeight(((_b = wrapperRef.current) == null ? void 0 : _b.offsetHeight) ?? 0);
+      const width2 = window.innerWidth;
+      const newPerPage = getPerPageFromBreakpoint(show, width2);
+      if (newPerPage !== perPage) {
+        setPerPage(newPerPage);
+      }
+    }, 50);
+    const observer = new ResizeObserver(handleResize);
+    observer.observe(wrapper);
+    return () => {
+      observer.unobserve(wrapper);
+    };
+  }, [perPage, show]);
+  const handleThumbnailsScroll = useCallback$1((nextSlideIndex) => {
+    const nextItem = loop ? nextSlideIndex - 1 : nextSlideIndex;
+    const thumbnailRef = thumbnailsRefs == null ? void 0 : thumbnailsRefs.current[0];
+    const oneItemWidth = (thumbnailRef == null ? void 0 : thumbnailRef.offsetWidth) + thumbGap;
+    const oneItemHeight = (thumbnailRef == null ? void 0 : thumbnailRef.offsetHeight) + thumbGap;
+    const thumbnailsWrapper = thumbnailsWrapperRef.current;
+    if (controls === "thumbnailsRow" && (thumbnailsWrapper == null ? void 0 : thumbnailsWrapper.offsetWidth)) {
+      if (oneItemWidth * (nextItem + 1) > thumbnailsWrapper.offsetWidth) {
+        thumbnailsWrapper.style.scrollBehavior = "smooth";
+        thumbnailsWrapper.scrollLeft = (nextItem + thumbSeen) * oneItemWidth;
+      }
+      if (thumbnailsWrapper.scrollLeft > oneItemWidth * nextItem) {
+        thumbnailsWrapper.style.scrollBehavior = "smooth";
+        thumbnailsWrapper.scrollLeft = (nextItem - thumbSeen) * oneItemWidth;
+      }
+    }
+    if (controls === "thumbnailsColumn" && (thumbnailsWrapper == null ? void 0 : thumbnailsWrapper.offsetHeight)) {
+      if (oneItemHeight * (nextItem + 1) > thumbnailsWrapper.offsetHeight) {
+        thumbnailsWrapper.style.scrollBehavior = "smooth";
+        thumbnailsWrapper.scrollTop = (nextItem + thumbSeen) * oneItemHeight;
+      }
+      if (thumbnailsWrapper.scrollTop > oneItemHeight * nextItem) {
+        thumbnailsWrapper.style.scrollBehavior = "smooth";
+        thumbnailsWrapper.scrollTop = (nextItem - thumbSeen) * oneItemHeight;
+      }
+    }
+  }, [controls, loop]);
+  const handleScrollTo = useCallback$1((nextSlideIndex, smooth, reset) => {
+    if (controls === "thumbnailsRow" || controls === "thumbnailsColumn") {
+      handleThumbnailsScroll(nextSlideIndex);
+    }
+    const wrapper = wrapperRef.current;
+    const realWidth = peakWidth ? wrapper.offsetWidth - peakWidth : wrapper.offsetWidth - peakWidth + gapWidth;
+    const items = Array.from(wrapper.querySelectorAll("[data-index]")).filter((element) => {
+      const dataIndex = Number(element.getAttribute("data-index"));
+      return !isNaN(dataIndex) && dataIndex > -1;
+    });
+    const item = items[nextSlideIndex];
+    if (!item) {
+      return;
+    }
+    if (reset) {
+      const futureIndex = nextSlideIndex === 0 ? length : 0;
+      const scrollWidth = realWidth * (length + (rest ? rest : perPage) / perPage);
+      if (wrapper.scrollLeft >= 0 && wrapper.scrollLeft < realWidth - 5) {
+        handleScrollTo(1, true);
+        return;
+      }
+      if (wrapper.scrollLeft > scrollWidth - realWidth && wrapper.scrollLeft <= scrollWidth) {
+        handleScrollTo(length, true);
+        return;
+      }
+      wrapper.style.scrollBehavior = "auto";
+      wrapper.scrollLeft = futureIndex === 0 ? 0 : scrollWidth;
+      handleScrollTo(futureIndex === 0 ? 1 : length, true);
+      return;
+    }
+    const diff = (wrapper.offsetWidth - gapWidth) / perPage * slides[nextSlideIndex].length - peakWidth;
+    wrapper.style.scrollBehavior = smooth ? "smooth" : "auto";
+    wrapper.scrollLeft = slides[nextSlideIndex].length === perPage ? realWidth * nextSlideIndex : realWidth * (nextSlideIndex - 1) + diff;
+    return;
+  }, [gapWidth, length, peakWidth, perPage, rest, slides, handleThumbnailsScroll, controls]);
+  const handleGoToPrev = useCallback$1(() => {
+    if (loop) {
+      const nextSlideIndex2 = current - 1;
+      handleScrollTo(nextSlideIndex2, true, current === 1);
+      return;
+    }
+    const nextSlideIndex = current <= 0 ? 0 : current - 1;
+    handleScrollTo(nextSlideIndex, true);
+  }, [current, handleScrollTo, loop]);
+  const handleGoToNext = useCallback$1(() => {
+    const lastSlideIndex = slides.length - 1;
+    if (loop) {
+      const nextSlideIndex2 = current + 1;
+      handleScrollTo(nextSlideIndex2, true, current === length);
+      return;
+    }
+    const nextSlideIndex = current >= lastSlideIndex ? lastSlideIndex : current + 1;
+    handleScrollTo(nextSlideIndex, true);
+  }, [slides.length, loop, current, handleScrollTo, length]);
+  useEffect$1(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        handleGoToPrev();
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        handleGoToNext();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleGoToNext, handleGoToPrev]);
+  useEffect$1(() => {
+    handleScrollTo(loop ? defaultIndex + 1 : defaultIndex, false);
+  }, [defaultIndex, handleScrollTo, loop]);
+  const handleOnScroll = debounce(() => {
+    const wrapper = wrapperRef.current;
+    const realWidth = peakWidth ? wrapper.offsetWidth - peakWidth : wrapper.offsetWidth - peakWidth + gapWidth;
+    const dividing = wrapper.scrollLeft / realWidth;
+    const nextSlideIndex = Math.round(dividing) - dividing < 1 ? Math.round(dividing) : Math.ceil(dividing);
+    if (thumbnailControls) {
+      handleThumbnailsScroll(nextSlideIndex);
+    }
+    if (loop) {
+      const totalWidth = realWidth * (length + (rest ? rest : perPage) / perPage);
+      if (Math.ceil(wrapper.scrollLeft) >= Math.ceil(totalWidth) - 5) {
+        wrapper.style.scrollBehavior = "auto";
+        wrapper.scrollLeft = wrapper.offsetWidth * 1 + (Math.ceil(wrapper.scrollLeft) - Math.ceil(totalWidth) - peakWidth);
+        return;
+      }
+      if (wrapper.scrollLeft === 0) {
+        wrapper.style.scrollBehavior = "auto";
+        wrapper.scrollLeft = totalWidth - wrapper.offsetWidth + peakWidth;
+        return;
+      }
+    }
+    if (current !== nextSlideIndex) {
+      setCurrent(nextSlideIndex);
+    }
+  }, 100);
+  useEffect$1(() => {
+    const wrapper = wrapperRef.current;
+    wrapper == null ? void 0 : wrapper.addEventListener("scroll", handleOnScroll);
+    return () => {
+      wrapper == null ? void 0 : wrapper.removeEventListener("scroll", handleOnScroll);
+    };
+  }, [handleOnScroll]);
+  const getArrow = (forThumbnails, direction2, callback) => {
+    return jsx(Button, {
+      className: classes([["pdp-carousel__button", !forThumbnails], [`pdp-carousel__button--${direction2}`, !forThumbnails], [`pdp-carousel__button--${controls}`, forThumbnails]]),
+      style: {
+        "--height": `${thumbHeight}px`
+      },
+      variant: "tertiary",
+      "aria-label": direction2 === "next" ? NextLabel : PreviousLabel,
+      onClick: callback,
+      disabled: loop ? false : direction2 === "next" ? current >= slides.length - 1 : current < 1,
+      children: jsx(Icon, {
+        className: classes([["pdp-carousel__button__icon", !forThumbnails], [`pdp-carousel__button__icon--${direction2}`, !forThumbnails], [`pdp-carousel__button__icon--${controls}--${direction2}`, forThumbnails]]),
+        size: iconSize,
+        source: SvgChevronDown
+      })
+    });
+  };
+  const prevArrow = arrows && slides.length != 1 && getArrow(thumbnailControls, "prev", handleGoToPrev);
+  const nextArrow = arrows && slides.length != 1 && getArrow(thumbnailControls, "next", handleGoToNext);
+  const prevArrowMainImage = arrows && slides.length != 1 && getArrow(false, "prev", handleGoToPrev);
+  const nextArrowMainImage = arrows && slides.length != 1 && getArrow(false, "next", handleGoToNext);
+  return jsxs("div", {
+    role: "region",
+    "aria-roledescription": Label,
+    className: classes(["pdp-carousel", ["pdp-carousel--main-image-controls", arrowsOnMainImage], ["pdp-carousel--arrows", arrows && !thumbnailControls], [`pdp-carousel--${controls}`, thumbnailControls], className]),
+    style: {
+      "--flex-carousel": controls === "thumbnailsColumn" ? "row-reverse" : "column",
+      "--gap": thumbnailControls ? "0" : "var(--spacing-small)",
+      "--width": width
+    },
+    ...props,
+    children: [jsx("div", {
+      ref: wrapperRef,
+      className: classes(["pdp-carousel__wrapper", `pdp-carousel__wrapper--${direction}`, ["pdp-carousel__wrapper--scrollbar", scrollbar], ["pdp-carousel__wrapper--peak", peak]]),
+      style: {
+        "--total-width": controls === "thumbnailsColumn" ? `81.6%` : `100%`,
+        "--height": controls === "thumbnailsColumn" ? "auto" : height,
+        "--gap": gap ? `var(--spacing-${gap})` : "0px",
+        "--per-page": perPage
+      },
+      tabIndex: 0,
+      children: slides.map((page, index) => {
+        const orphan = page.length < perPage;
+        return jsx("div", {
+          role: "group",
+          "aria-roledescription": SlideLabel,
+          "data-index": index,
+          className: classes(["pdp-carousel__slide", `pdp-carousel__slide--${direction}`, ["pdp-carousel__slide--active", current === index], ["pdp-carousel__slide--orphan", orphan]]),
+          style: {
+            "--length": page.length
+          },
+          children: page
+        }, index);
+      })
+    }), !thumbnailControls && jsxs(Fragment, {
+      children: [prevArrow, nextArrow]
+    }), thumbnailControls && arrowsOnMainImage && jsxs(Fragment, {
+      children: [prevArrowMainImage, nextArrowMainImage]
+    }), controls && slides.length != 1 && jsxs("div", {
+      className: classes([[`pdp-carousel__controls__container--${controls}`, thumbnailControls], ["pdp-carousel__controls__container--no-arrows", !arrows || arrowsOnMainImage]]),
+      style: {
+        "--width": controls === "thumbnailsRow" ? `${thumbWidth}px` : width,
+        "--height": `${thumbHeight}px`,
+        "--nr-thumbnails": thumbnailSlides.length
+      },
+      children: [(thumbnailControls || isZoomed) && !arrowsOnMainImage && prevArrow, jsx("div", {
+        ref: thumbnailsWrapperRef,
+        className: classes([[`pdp-carousel__controls__wrapper--${controls}`, thumbnailControls], [`pdp-carousel__controls__wrapper`, thumbnailControls]]),
+        children: jsx("div", {
+          role: "group",
+          "aria-label": ControlsLabel,
+          className: classes(["pdp-carousel__controls", [`pdp-carousel__controls--${controls}`, thumbnailControls]]),
+          children: (loop ? slides.slice(0, length) : slides).map((_, key) => {
+            const buttonsLength = loop ? length : slides.length;
+            const active = loop ? current - 1 === key : current === key;
+            if (!thumbnailControls) {
+              return jsx("button", {
+                "aria-label": ControlsBtnLabel.replace("{key}", String(key + 1)).replace("{total}", String(buttonsLength)),
+                onClick: () => {
+                  handleScrollTo(loop ? key + 1 : key, true);
+                },
+                className: classes(["pdp-carousel__controls__button", ["pdp-carousel__controls__button--active", active]])
+              }, key);
+            }
+            return jsxs("label", {
+              className: classes(["pdp-carousel__thumbnail__container"]),
+              ref: (el) => {
+                if (el) {
+                  thumbnailsRefs.current[key] = el;
+                }
+              },
+              children: [jsx("input", {
+                type: "radio",
+                name: "carousel-thumbnails",
+                "aria-label": ControlsBtnLabel.replace("{key}", String(key + 1)).replace("{total}", String(buttonsLength)),
+                checked: active && thumbWidth !== 0,
+                onChange: () => {
+                  handleScrollTo(loop ? key + 1 : key, true);
+                },
+                ...props,
+                className: classes(["pdp-carousel__thumbnail", ["pdp-carousel__thumbnail--selected", active && thumbWidth !== 0]])
+              }), jsx("span", {
+                className: classes(["pdp-carousel__thumbnail__span"]),
+                children: thumbnailSlides[key]
+              })]
+            }, key);
+          })
+        })
+      }), (thumbnailControls || isZoomed) && !arrowsOnMainImage && nextArrow]
+    })]
+  });
+};
+function getPerPageFromBreakpoint(breakpoints, width = 0) {
+  if (typeof breakpoints === "number")
+    return breakpoints;
+  const {
+    small,
+    medium,
+    large
+  } = breakpoints;
+  const mediumViewport = 786;
+  const largeVierport = 1024;
+  if (width > largeVierport)
+    return large;
+  if (width > mediumViewport)
+    return medium;
+  return small;
+}
+const Product = ({
+  title,
+  breadcrumbs,
+  galleryContent,
+  infoContent,
+  productContent,
+  sku,
+  outOfStock,
+  hideSku,
+  shortDescription,
+  description,
+  attributes,
+  images,
+  options,
+  price,
+  specialPrice,
+  className,
+  children,
+  quantity,
+  actions,
+  carouselConfig,
+  ...props
+}) => {
+  var _a, _b, _c, _d, _e, _f;
+  const RegularPriceLabel = useText("PDP.Product.RegularPrice.label").label;
+  const SpecialPriceLabel = useText("PDP.Product.SpecialPrice.label").label;
+  const OutOfStockLabel = useText("PDP.Product.OutOfStock.label").label;
+  const ImagesLabel = useText("PDP.Product.Image.label").label;
+  const [zoom, setZoom] = useState$1(null);
+  const galleryImages = (images == null ? void 0 : images.length) ? images.map((image, key) => {
+    var _a2;
+    return jsx(VComponent, {
+      node: image,
+      loading: key === 0 ? "eager" : "lazy",
+      alt: ((_a2 = title == null ? void 0 : title.props) == null ? void 0 : _a2.children) && (ImagesLabel == null ? void 0 : ImagesLabel.replace("{product}", title.props.children.toString()).replace("{key}", String(key + 1)).replace("{total}", String(images.length))),
+      onClick: () => setZoom(key)
+    }, key);
+  }) : jsx("img", {
+    src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    className: "pdp-product__images__placeholder",
+    "aria-hidden": true
+  });
+  const localThumbnailsImages = ((_a = carouselConfig == null ? void 0 : carouselConfig.thumbnails) == null ? void 0 : _a.length) ? carouselConfig.thumbnails.map((image, key) => {
+    var _a2;
+    return jsx(VComponent, {
+      node: image,
+      loading: (carouselConfig == null ? void 0 : carouselConfig.thumbnailsLoadingMode) || "lazy",
+      alt: ((_a2 = title == null ? void 0 : title.props) == null ? void 0 : _a2.children) && (ImagesLabel == null ? void 0 : ImagesLabel.replace("{product}", title.props.children.toString()).replace("{key}", String(key + 1)).replace("{total}", String(images.length)))
+    }, key);
+  }) : jsx("img", {
+    src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    className: "pdp-product__images__placeholder",
+    "aria-hidden": true
+  });
+  return jsxs("div", {
+    ...props,
+    className: classes(["pdp-product", className]),
+    children: [breadcrumbs && jsx(VComponent, {
+      node: breadcrumbs,
+      className: "pdp-product__breadcrumbs"
+    }), jsxs("div", {
+      className: "pdp-product__column-container pdp-product__gallery-column",
+      children: [jsx("div", {
+        className: "pdp-product__column-body",
+        children: (carouselConfig == null ? void 0 : carouselConfig.controls) ? jsx(Carousel, {
+          className: "pdp-product__overlay__carousel",
+          arrows: (images == null ? void 0 : images.length) > 1,
+          controls: (images == null ? void 0 : images.length) > 1 ? carouselConfig.controls : "dots",
+          arrowsOnMainImage: carouselConfig == null ? void 0 : carouselConfig.arrowsOnMainImage,
+          loop: (carouselConfig == null ? void 0 : carouselConfig.loopable) && (images == null ? void 0 : images.length) > 1,
+          peak: ((_b = carouselConfig == null ? void 0 : carouselConfig.thumbnails) == null ? void 0 : _b.length) > 1 && ((_c = carouselConfig == null ? void 0 : carouselConfig.peak) == null ? void 0 : _c.desktop) || false,
+          gap: (carouselConfig == null ? void 0 : carouselConfig.gap) || null,
+          width: "100%",
+          height: "100%",
+          defaultIndex: zoom || 0,
+          thumbnails: localThumbnailsImages,
+          children: galleryImages
+        }) : jsx(GalleryGrid, {
+          className: "pdp-product__images",
+          gap: "small",
+          children: galleryImages
+        })
+      }), galleryContent && jsx(VComponent, {
+        node: galleryContent,
+        className: "pdp-product__gallery-content"
+      })]
+    }), jsxs("div", {
+      className: "pdp-product__column-container pdp-product__content-column",
+      children: [jsxs("div", {
+        className: "pdp-product__column-body",
+        children: [jsxs("div", {
+          className: "pdp-product__header",
+          children: [jsx(VComponent, {
+            node: jsx("h1", {
+              children: title
+            }),
+            className: "pdp-product__title"
+          }), !hideSku && sku && jsx(VComponent, {
+            node: sku,
+            className: "pdp-product__sku"
+          })]
+        }), jsxs("div", {
+          className: "pdp-product__prices",
+          children: [specialPrice && jsx(VComponent, {
+            node: specialPrice,
+            className: classes(["pdp-product__price-special", "pdp-product__price"]),
+            "aria-label": SpecialPriceLabel,
+            role: "text"
+          }), price && jsx(VComponent, {
+            node: price,
+            className: classes(["pdp-product__price-regular", "pdp-product__price--grey"]),
+            "aria-label": RegularPriceLabel,
+            role: "text"
+          })]
+        }), (carouselConfig == null ? void 0 : carouselConfig.mobile) ? jsx(Carousel, {
+          className: "pdp-product__images pdp-product__images--carousel pdp-product__images--carousel--thumbnails",
+          width: "100%",
+          height: "auto",
+          arrows: (images == null ? void 0 : images.length) > 1,
+          controls: (images == null ? void 0 : images.length) > 1 ? "thumbnailsRow" : null,
+          loop: (carouselConfig == null ? void 0 : carouselConfig.loopable) && (images == null ? void 0 : images.length) > 1,
+          peak: ((_d = carouselConfig == null ? void 0 : carouselConfig.thumbnails) == null ? void 0 : _d.length) > 1 && ((_e = carouselConfig == null ? void 0 : carouselConfig.peak) == null ? void 0 : _e.mobile) || false,
+          gap: (carouselConfig == null ? void 0 : carouselConfig.gap) || null,
+          thumbnails: localThumbnailsImages,
+          children: galleryImages
+        }) : jsx(Carousel, {
+          className: "pdp-product__images pdp-product__images--carousel",
+          peak: ((_f = carouselConfig == null ? void 0 : carouselConfig.peak) == null ? void 0 : _f.mobile) && (images == null ? void 0 : images.length) > 1,
+          gap: (carouselConfig == null ? void 0 : carouselConfig.gap) || null,
+          width: "100%",
+          height: "auto",
+          arrows: (images == null ? void 0 : images.length) > 1,
+          controls: (images == null ? void 0 : images.length) > 1 ? "dots" : null,
+          loop: (carouselConfig == null ? void 0 : carouselConfig.loopable) && (images == null ? void 0 : images.length) > 1,
+          children: galleryImages
+        }), jsxs("div", {
+          className: classes(["pdp-product__actions", [`pdp-product__actions--out-of-stock`, outOfStock]]),
+          children: [outOfStock && jsx("div", {
+            className: "pdp-product__out-of-stock__text",
+            children: OutOfStockLabel
+          }), options && jsx(VComponent, {
+            node: options,
+            className: classes(["pdp-product__options"])
+          }), quantity && jsx("div", {
+            className: "pdp-product__quantity",
+            children: jsx(VComponent, {
+              node: quantity
+            })
+          }), actions && jsx(VComponent, {
+            node: actions,
+            className: classes(["pdp-product__buttons"])
+          })]
+        }), shortDescription && jsx(VComponent, {
+          node: shortDescription,
+          className: classes(["pdp-product__short_description"])
+        }), description && jsx(VComponent, {
+          node: description,
+          className: classes(["pdp-product__description"])
+        }), attributes ? jsx("div", {
+          className: "pdp-product__attributes",
+          children: attributes
+        }) : null]
+      }), infoContent && jsx(VComponent, {
+        node: infoContent,
+        className: "pdp-product__info-content"
+      })]
+    }), productContent && jsx(VComponent, {
+      node: productContent,
+      className: "pdp-product__content"
+    }), zoom === null ? null : jsx(Overlay, {
+      className: "pdp-product__overlay",
+      onClose: () => setZoom(null),
+      centered: true,
+      children: jsx(Carousel, {
+        className: "pdp-product__overlay__carousel",
+        arrows: (images == null ? void 0 : images.length) > 1,
+        width: "100%",
+        height: "100%",
+        defaultIndex: zoom || 0,
+        loop: (images == null ? void 0 : images.length) > 1,
+        controls: (images == null ? void 0 : images.length) > 1 ? "dots" : null,
+        isZoomed: true,
+        children: galleryImages
+      })
+    })]
+  });
+};
+const GalleryGrid = ({
+  children,
+  gap = null,
+  className,
+  style,
+  ...props
+}) => {
+  const count = Children.count(children);
+  return jsx("div", {
+    ...props,
+    className: classes(["pdp-gallery-grid", className]),
+    style: {
+      "--gap": gap ? `var(--spacing-${gap})` : "0px",
+      ...style
+    },
+    children: Children.map(children, (child, key) => jsx("div", {
+      className: "pdp-gallery-grid__item",
+      children: jsx(VComponent, {
+        node: child,
+        loading: key === 0 ? "eager" : "lazy"
+      }, child.props.src)
+    }, count + key))
+  });
+};
+const PriceRange = ({
+  amount,
+  currency,
+  locale,
+  variant,
+  sale,
+  minimumAmount,
+  maximumAmount,
+  className,
+  ...props
+}) => {
+  return jsx(Fragment, {
+    children: amount || minimumAmount === maximumAmount ? jsx("div", {
+      className: "pdp-price-range",
+      ...props,
+      children: jsx(Price, {
+        amount: amount ? amount : minimumAmount,
+        currency,
+        locale,
+        variant,
+        sale,
+        className
+      })
+    }) : jsxs("div", {
+      className: "pdp-price-range",
+      ...props,
+      children: [jsx(Price, {
+        amount: minimumAmount,
+        currency,
+        locale,
+        className
+      }), jsx("span", {
+        className: "pdp-price-range__label",
+        children: "-"
+      }), jsx(Price, {
+        amount: maximumAmount,
+        currency,
+        locale,
+        className
+      })]
+    })
+  });
+};
+const Overlay = ({
+  centered,
+  onClose,
+  className,
+  children,
+  ...props
+}) => {
+  const CloseLabel = useText("PDP.Overlay.Close.label").label;
+  const handleOnClose = useCallback$1(() => {
+    onClose == null ? void 0 : onClose();
+  }, [onClose]);
+  useEffect$1(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        handleOnClose();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleOnClose]);
+  useEffect$1(() => {
+    const scrollingElement = document.scrollingElement;
+    const defaultOverflowValue = scrollingElement.style.overflow;
+    scrollingElement.style.overflow = "hidden";
+    return () => {
+      scrollingElement.style.overflow = defaultOverflowValue;
+    };
+  }, []);
+  return jsxs("div", {
+    ...props,
+    className: classes(["pdp-overlay", ["pdp-overlay--centered", centered], className]),
+    children: [jsx("div", {
+      className: "pdp-overlay__content",
+      children
+    }), jsx(Button, {
+      "aria-label": CloseLabel,
+      variant: "tertiary",
+      className: "pdp-overlay__close-button",
+      onClick: handleOnClose,
+      icon: jsx(SvgClose, {})
+    })]
+  });
+};
+const supportedTypes = ["text", "image", "color", "dropdown"];
+const mapToPickerOptions = (items) => {
+  return items.map((item) => ({
+    ...item,
+    text: item.label,
+    disabled: !item.inStock
+  }));
+};
+const Swatches = ({
+  options,
+  hideSelectedValue,
+  onValues,
+  onErrors,
+  defaultOptions,
+  selectionsToUpdate,
+  className,
+  children,
+  ...props
+}) => {
+  const RequiredLabel = useText("PDP.Swatches.Required.label").label;
+  const [selections, setSelections] = useState$1(() => {
+    const initial = options == null ? void 0 : options.reduce((accum, option) => {
+      const {
+        items
+      } = option;
+      const defaultSelection = items == null ? void 0 : items.find((item) => defaultOptions == null ? void 0 : defaultOptions.includes(item.id));
+      const selected = items == null ? void 0 : items.find((item) => item.selected);
+      if (defaultSelection) {
+        return {
+          ...accum,
+          [option.id]: {
+            label: defaultSelection.label,
+            value: defaultSelection.id
+          }
+        };
+      } else if (selected) {
+        return {
+          ...accum,
+          [option.id]: {
+            label: selected.label,
+            value: selected.id
+          }
+        };
+      }
+      return accum;
+    }, {});
+    return initial;
+  });
+  useEffect$1(() => {
+    selectionsToUpdate == null ? void 0 : selectionsToUpdate.forEach((selectionToUpdate) => {
+      setSelections((prev) => {
+        var _a;
+        const selectedItem = (_a = selectionToUpdate == null ? void 0 : selectionToUpdate.items) == null ? void 0 : _a.find((item) => item.selected);
+        if (!selectedItem)
+          return prev;
+        const next = {
+          ...prev,
+          [selectionToUpdate.id]: {
+            label: selectedItem == null ? void 0 : selectedItem.label,
+            value: selectedItem == null ? void 0 : selectedItem.id
+          }
+        };
+        return next;
+      });
+    });
+  }, [selectionsToUpdate, setSelections]);
+  useMemo$1(() => {
+    const errors = options == null ? void 0 : options.reduce((accum, option) => {
+      var _a;
+      (_a = option == null ? void 0 : option.items) == null ? void 0 : _a.forEach((item) => {
+        var _a2;
+        const selected = ((_a2 = selections[option.id]) == null ? void 0 : _a2.value) === item.id;
+        if (option.required && !selected) {
+          accum[option.id] = RequiredLabel;
+        }
+      });
+      return accum;
+    }, {});
+    onErrors == null ? void 0 : onErrors(errors);
+    return errors;
+  }, [selections]);
+  const handleOnSelection = useCallback$1((id, label, optionId) => {
+    setSelections((prev) => {
+      const next = {
+        ...prev,
+        [id]: {
+          label,
+          value: optionId
+        }
+      };
+      onValues == null ? void 0 : onValues(next, optionId);
+      return next;
+    });
+  }, [onValues]);
+  const handlePickerSelect = (optionId, selection) => {
+    var _a;
+    const label = ((_a = selection.selectedOptions[0]) == null ? void 0 : _a.label) ?? "";
+    handleOnSelection(optionId, label, selection.value);
+  };
+  const Swatches2 = useCallback$1(({
+    items,
+    id,
+    required,
+    type,
+    selected,
+    label
+  }) => {
+    return jsx("div", {
+      className: classes(["pdp-swatches__options"]),
+      children: (type == null ? void 0 : type.toLowerCase()) === "dropdown" ? jsx(Picker, {
+        "aria-label": label,
+        handleSelect: (event) => handlePickerSelect(id, event.target),
+        options: mapToPickerOptions(items),
+        value: selected
+      }) : items == null ? void 0 : items.map((option) => {
+        const common = {
+          key: option.id,
+          id: option.id,
+          name: id,
+          value: option.value,
+          label: option.label,
+          groupAriaLabel: label,
+          selected: selected === option.id,
+          outOfStock: !option.inStock,
+          // API may return null, we default to true as all swatches are required.
+          //  we still comply to this in case the api return "false".
+          required: required === null ? true : required,
+          onValue: () => {
+            handleOnSelection(id, option.label, option.id);
+          }
+        };
+        switch (type) {
+          case "text":
+            return jsx(TextSwatch, {
+              ...common,
+              label: option.label
+            });
+          case "image":
+            return jsx(ImageSwatch, {
+              ...common,
+              src: option.value,
+              alt: option.label
+            });
+          case "color":
+            return jsx(ColorSwatch, {
+              ...common,
+              size: "large",
+              color: option.value
+            });
+          default:
+            console.warn(`Invalid swatch type ${type}`);
+            return null;
+        }
+      })
+    });
+  }, [handleOnSelection]);
+  return jsx("div", {
+    ...props,
+    className: classes(["pdp-swatches", className]),
+    children: options == null ? void 0 : options.map(({
+      type,
+      label,
+      id,
+      multiple,
+      required,
+      items
+    }) => {
+      var _a;
+      if (!type) {
+        console.warn(`Bundle product not supported on UI.`);
+        return;
+      }
+      if (!supportedTypes.includes(type)) {
+        console.warn(`Invalid swatch type ${type}`);
+      }
+      if (multiple) {
+        console.warn("Multiple selection swatches are not currently supported.");
+      }
+      return jsxs("div", {
+        id: `swatch-item-${id}`,
+        "data-slot-key": `product-swatch--${id}`,
+        className: "pdp-swatches__field",
+        children: [jsx("div", {
+          className: "pdp-swatches__field__label",
+          children: selections[id] ? hideSelectedValue ? `${label}` : `${label}: ${selections[id].label}` : label
+        }), jsx(Swatches2, {
+          id,
+          type,
+          required,
+          items,
+          label,
+          selected: (_a = selections[id]) == null ? void 0 : _a.value
+        })]
+      }, `swatch-item-${id}`);
+    })
+  });
+};
+function toDateString(value, locale = "en_US") {
+  if (!isDateValid(value))
+    throw Error("Invalid date string");
+  const time = value.split(" ")[1];
+  if (!time)
+    value = `${value} 00:00:00`;
+  return new Date(value).toLocaleDateString(toLanguageTag(locale)).toString();
+}
+function isDateValid(dateString) {
+  const acceptedFormats = [
+    /^\d{4}-\d{2}-\d{2}$/,
+    // YYYY-MM-DD
+    /^\d{1,2}\/\d{1,2}\/\d{4}$/,
+    // MM/DD/YYYY
+    /^\d{2}\/\d{2}\/\d{4}$/,
+    // MM/DD/YYYY
+    /^\d{4}\/\d{2}\/\d{2}$/,
+    // YYYY/MM/DD
+    /^\d{1,2}\.\d{1,2}\.\d{4}$/,
+    // DD.MM.YYYY
+    /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/
+    // YYYY-MM-DD HH:mm:ss
+  ];
+  if (!acceptedFormats.some((format) => format.test(dateString)))
+    return false;
+  const date = new Date(dateString);
+  return !isNaN(date.getTime());
+}
+function setUrlParams(params) {
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  Object.entries(params).forEach(([key, value]) => {
+    if (value === null) {
+      urlSearchParams.delete(key);
+    } else {
+      urlSearchParams.set(key, String(value));
+    }
+  });
+  let url = window.location.pathname;
+  url += `?${urlSearchParams.toString()}`;
+  url += window.location.hash;
+  window.history.replaceState({}, "", url);
+}
+function getUrlParams() {
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const params = {};
+  urlSearchParams.forEach((value, key) => {
+    params[key] = value;
+  });
+  return params;
+}
+const ProductDetails = ({
+  sku,
+  hideSku,
+  hideQuantity,
+  hideShortDescription,
+  hideDescription,
+  hideAttributes,
+  hideURLParams,
+  hideSelectedOptionValue,
+  slots,
+  children,
+  initialData,
+  carousel,
+  optionsConfig,
+  onAddToCart,
+  ...props
+}) => {
+  var _a, _b, _c, _d;
+  const AddToCartLabel = useText("PDP.Product.AddToCart.label").label;
+  const IncrementerLabel = useText("PDP.Product.Incrementer.label").label;
+  const DetailsLabel = useText("PDP.Product.Details.label").label;
+  const [locale, setLocale] = useState$1(config.getConfig().defaultLocale || "en-US");
+  const [selectionsToUpdate, setSelectionsToUpdate] = useState$1();
+  const [data = null, setData] = useState$1(initialData);
+  const [values, setValues] = useState$1(() => {
+    const defaultValues = {
+      sku,
+      quantity: 1
+    };
+    if (data == null ? void 0 : data.optionUIDs) {
+      defaultValues.optionsUIDs = data.optionUIDs;
+    }
+    return defaultValues;
+  });
+  const [valid, setValid] = useState$1(() => {
+    var _a2, _b2;
+    return !((data == null ? void 0 : data.options) && ((_a2 = data == null ? void 0 : data.options) == null ? void 0 : _a2.length) > 0 && ((_b2 = data == null ? void 0 : data.optionUIDs) == null ? void 0 : _b2.length) !== (data == null ? void 0 : data.options.length));
+  });
+  const defaultSlotContext = {
+    data,
+    values,
+    valid
+  };
+  useEffect$1(() => {
+    const localeEvent = events.on("locale", (payload) => {
+      if (payload === locale)
+        return;
+      setLocale(payload);
+      getProductData(sku).then(setData);
+    });
+    return () => {
+      localeEvent == null ? void 0 : localeEvent.off();
+    };
+  }, [locale, sku]);
+  const handleOnValues = useCallback$1((newValues) => {
+    setValues((prev) => ({
+      ...prev,
+      ...newValues
+    }));
+  }, []);
+  const handleOptionSelected = useCallback$1((selections) => {
+    var _a2;
+    let optionsUIDs = Object.keys(selections).map((id) => selections[id].value).filter((element) => element !== void 0);
+    if (!hideURLParams) {
+      setUrlParams({
+        optionsUIDs: optionsUIDs.join(",")
+      });
+    }
+    setValues((prev) => ({
+      ...prev,
+      optionsUIDs
+    }));
+    setValid((optionsUIDs == null ? void 0 : optionsUIDs.length) === ((_a2 = data == null ? void 0 : data.options) == null ? void 0 : _a2.length));
+    getRefinedProduct(sku, optionsUIDs, optionsConfig == null ? void 0 : optionsConfig.anchorOptions).then((next) => {
+      var _a3;
+      setData(next);
+      if ((_a3 = optionsConfig == null ? void 0 : optionsConfig.anchorOptions) == null ? void 0 : _a3.length) {
+        processUpdates(next, optionsUIDs);
+      }
+    });
+  }, [sku]);
+  const processUpdates = useCallback$1((next, previousOptionsUIDs) => {
+    var _a2;
+    const updatedOptionsUIDs = (next == null ? void 0 : next.optionUIDs) ?? [];
+    const haveSameValues = previousOptionsUIDs.every((item) => updatedOptionsUIDs.includes(item));
+    if (!haveSameValues) {
+      setSelectionsToUpdate(next == null ? void 0 : next.options);
+      setValues((prev) => ({
+        ...prev,
+        optionsUIDs: updatedOptionsUIDs
+      }));
+      setValid((updatedOptionsUIDs == null ? void 0 : updatedOptionsUIDs.length) === ((_a2 = next == null ? void 0 : next.options) == null ? void 0 : _a2.length));
+    }
+  }, [sku]);
+  const handleOnErrors = useCallback$1((_errors) => {
+    if (Object.keys(_errors).length !== 0)
+      setValid(false);
+  }, []);
+  const attributes = useMemo$1(() => {
+    var _a2;
+    return (_a2 = data == null ? void 0 : data.attributes) == null ? void 0 : _a2.map(({
+      label,
+      value
+    }, key) => {
+      const __html = isDateValid(value) ? toDateString(value, locale) : value.toString();
+      return jsxs("li", {
+        children: [label, ": ", jsx("span", {
+          dangerouslySetInnerHTML: {
+            __html
+          }
+        })]
+      }, key);
+    });
+  }, [data == null ? void 0 : data.attributes, locale]);
+  const quantity = !hideQuantity && (data == null ? void 0 : data.inStock) ? jsx(Slot, {
+    name: "Quantity",
+    slot: slots == null ? void 0 : slots.Quantity,
+    context: {
+      ...defaultSlotContext
+    },
+    children: jsx(Incrementer, {
+      name: "quantity",
+      defaultValue: values.quantity.toString(),
+      min: 1,
+      "aria-label": IncrementerLabel,
+      className: "pdp-product__quantity",
+      onValue: (quantity2) => {
+        handleOnValues({
+          quantity: Number(quantity2)
+        });
+      }
+    }, "quantity")
+  }) : void 0;
+  const renderOptions = () => {
+    if (data == null ? void 0 : data.options) {
+      return jsx(Slot, {
+        name: "Options",
+        slot: slots == null ? void 0 : slots.Options,
+        context: {
+          ...defaultSlotContext
+        },
+        children: jsx(Swatches, {
+          options: data.options,
+          defaultOptions: values.optionsUIDs,
+          selectionsToUpdate,
+          hideSelectedValue: hideSelectedOptionValue,
+          onValues: handleOptionSelected,
+          onErrors: handleOnErrors
+        })
+      });
+    }
+  };
+  return jsx("div", {
+    ...props,
+    children: jsx(Product, {
+      title: jsx(Slot, {
+        name: "Title",
+        slot: slots == null ? void 0 : slots.Title,
+        context: {
+          ...defaultSlotContext
+        },
+        children: data == null ? void 0 : data.name
+      }),
+      sku: hideSku ? void 0 : jsx(Slot, {
+        name: "SKU",
+        slot: slots == null ? void 0 : slots.SKU,
+        context: {
+          ...defaultSlotContext
+        },
+        children: data == null ? void 0 : data.sku
+      }),
+      options: renderOptions(),
+      breadcrumbs: (slots == null ? void 0 : slots.Breadcrumbs) && jsx(Slot, {
+        name: "Breadcrumbs",
+        slot: slots == null ? void 0 : slots.Breadcrumbs,
+        context: {
+          ...defaultSlotContext,
+          setSeparator(callback) {
+            this._registerMethod((...attrs) => {
+              const nextSeparator = callback(...attrs);
+              const separator = nextSeparator && jsx(Icon, {
+                source: nextSeparator
+              });
+              this._setProps((prev) => {
+                return {
+                  ...prev,
+                  separator
+                };
+              });
+            });
+          },
+          appendLink(callback) {
+            this._registerMethod((...attrs) => {
+              const {
+                text,
+                ...p
+              } = callback(...attrs);
+              const link = jsx("a", {
+                ...p,
+                children: text
+              });
+              this._setProps((prev) => {
+                return {
+                  ...prev,
+                  categories: [...prev.categories || [], link]
+                };
+              });
+            });
+          },
+          appendHTMLElement(callback) {
+            this._registerMethod((...attrs) => {
+              const domElement = callback(...attrs);
+              const vnode = this._htmlElementToVNode(domElement);
+              this._setProps((prev) => {
+                return {
+                  ...prev,
+                  categories: [...prev.categories || [], vnode]
+                };
+              });
+            });
+          }
+        },
+        render: ({
+          separator,
+          categories
+        }) => {
+          return jsx(Breadcrumbs, {
+            separator,
+            categories
+          });
+        }
+      }),
+      quantity,
+      actions: jsx(Slot, {
+        name: "Actions",
+        slot: slots == null ? void 0 : slots.Actions,
+        context: {
+          ...defaultSlotContext,
+          appendButton(callback) {
+            this._registerMethod((...attrs) => {
+              const _button = callback(...attrs);
+              if (!_button)
+                return;
+              const {
+                text,
+                icon,
+                ...buttonProps
+              } = _button;
+              const button = jsx(Button, {
+                type: "button",
+                ...buttonProps,
+                icon: icon && jsx(Icon, {
+                  source: icon
+                }),
+                children: text
+              });
+              this._setProps((prev) => ({
+                children: [...prev.children || [], button]
+              }));
+            });
+          }
+        },
+        children: (
+          // Default Add to Cart button if no slot is provided
+          !(slots == null ? void 0 : slots.Actions) && jsx(Button, {
+            size: "medium",
+            type: "submit",
+            icon: jsx(Icon, {
+              source: "Cart"
+            }),
+            disabled: !(data == null ? void 0 : data.inStock) || !valid,
+            "aria-label": AddToCartLabel,
+            onClick: () => {
+              return onAddToCart == null ? void 0 : onAddToCart(values);
+            },
+            children: AddToCartLabel
+          })
+        )
+      }),
+      shortDescription: !hideShortDescription ? jsx(Slot, {
+        name: "ShortDescription",
+        slot: slots == null ? void 0 : slots.ShortDescription,
+        context: {
+          ...defaultSlotContext
+        },
+        children: jsx("div", {
+          dangerouslySetInnerHTML: {
+            __html: (data == null ? void 0 : data.shortDescription) ?? ""
+          }
+        })
+      }) : void 0,
+      description: !hideDescription ? jsx(Slot, {
+        name: "Description",
+        slot: slots == null ? void 0 : slots.Description,
+        context: {
+          ...defaultSlotContext
+        },
+        children: jsx("div", {
+          dangerouslySetInnerHTML: {
+            __html: (data == null ? void 0 : data.description) ?? ""
+          }
+        })
+      }) : void 0,
+      images: ((_a = data == null ? void 0 : data.images) == null ? void 0 : _a.map(({
+        label,
+        url
+      }) => {
+        var _a2, _b2;
+        return jsx(Image, {
+          title: label,
+          alt: label,
+          src: url,
+          width: ((_a2 = carousel == null ? void 0 : carousel.imageParams) == null ? void 0 : _a2.width) ?? 960,
+          height: ((_b2 = carousel == null ? void 0 : carousel.imageParams) == null ? void 0 : _b2.height) ?? 1191,
+          params: (carousel == null ? void 0 : carousel.imageParams) ?? {
+            width: 960
+          }
+        }, url);
+      })) ?? [],
+      specialPrice: ((_b = data == null ? void 0 : data.prices) == null ? void 0 : _b.visible) ? jsx(Slot, {
+        name: "SpecialPrice",
+        slot: slots == null ? void 0 : slots.SpecialPrice,
+        context: {
+          ...defaultSlotContext
+        },
+        children: jsx(PriceRange, {
+          ...data.prices.final,
+          locale: toLanguageTag(locale)
+        })
+      }) : void 0,
+      price: ((_c = data == null ? void 0 : data.prices) == null ? void 0 : _c.visible) && data.prices.regular && data.prices.final.amount !== (data == null ? void 0 : data.prices.regular.amount) ? jsx(Slot, {
+        name: "RegularPrice",
+        slot: slots == null ? void 0 : slots.RegularPrice,
+        context: {
+          ...defaultSlotContext
+        },
+        children: jsx(PriceRange, {
+          ...data.prices.regular,
+          locale: toLanguageTag(locale)
+        })
+      }) : void 0,
+      carouselConfig: {
+        ...carousel,
+        thumbnails: carousel ? ((_d = data == null ? void 0 : data.images) == null ? void 0 : _d.map(({
+          label,
+          url
+        }) => {
+          var _a2, _b2;
+          return jsx(Image, {
+            title: label,
+            alt: label,
+            src: url,
+            width: ((_a2 = carousel == null ? void 0 : carousel.thumbnailParams) == null ? void 0 : _a2.width) ?? 200,
+            height: ((_b2 = carousel == null ? void 0 : carousel.thumbnailParams) == null ? void 0 : _b2.height) ?? 248,
+            params: (carousel == null ? void 0 : carousel.thumbnailParams) ?? {
+              width: 200
+            }
+          }, url);
+        })) ?? [] : []
+      },
+      outOfStock: !(data == null ? void 0 : data.inStock),
+      attributes: !hideAttributes ? jsx(Slot, {
+        name: "Attributes",
+        slot: slots == null ? void 0 : slots.Attributes,
+        context: {
+          ...defaultSlotContext
+        },
+        children: (attributes == null ? void 0 : attributes.length) ? jsxs(Fragment, {
+          children: [DetailsLabel, jsx("ul", {
+            children: attributes
+          })]
+        }) : null
+      }) : void 0,
+      galleryContent: (slots == null ? void 0 : slots.GalleryContent) && jsx(Slot, {
+        name: "GalleryContent",
+        slot: slots.GalleryContent,
+        context: {
+          ...defaultSlotContext
+        }
+      }),
+      infoContent: (slots == null ? void 0 : slots.InfoContent) && jsx(Slot, {
+        name: "InfoContent",
+        slot: slots.InfoContent,
+        context: {
+          ...defaultSlotContext
+        }
+      }),
+      productContent: (slots == null ? void 0 : slots.Content) && jsx(Slot, {
+        name: "Content",
+        slot: slots.Content,
+        context: {
+          ...defaultSlotContext
+        }
+      })
+    })
+  });
+};
+ProductDetails.getInitialData = async function({
+  sku,
+  optionsConfig
+}) {
+  var _a, _b, _c, _d, _e, _f;
+  const defaultSelections = ((_a = getUrlParams().optionsUIDs) == null ? void 0 : _a.split(",")) || ((_f = (_e = (_d = (_c = (_b = config) == null ? void 0 : _b.getConfig()) == null ? void 0 : _c.models) == null ? void 0 : _d.ProductDetails) == null ? void 0 : _e.initialData) == null ? void 0 : _f.optionsUIDs);
+  if (defaultSelections == null ? void 0 : defaultSelections.length) {
+    return await getRefinedProduct(sku, defaultSelections, optionsConfig == null ? void 0 : optionsConfig.anchorOptions);
+  }
+  return await getProductData(sku);
+};
+export {
+  ProductDetails,
+  ProductDetails as default
+};
