@@ -1,0 +1,2 @@
+import{c as e}from"./classes__DJBjVfEyCI.js";import"./image-params-keymap__LH6wjfp1fd.js";import{Fragment as c}from"../preact.js";import{jsx as s}from"../preact-jsx-runtime.js";function i({node:r,...a}){return r?Array.isArray(r)?s(c,{children:r.map((m,t)=>s(i,{node:m,className:a.className,...a},t))}):(a.className=e([r.props.className,a.className]),s(r.type,{ref:r.ref,...r.props,...a},r.key)):null}export{i as V};
+//# sourceMappingURL=vcomponent__BjnR-FRhjl.js.map

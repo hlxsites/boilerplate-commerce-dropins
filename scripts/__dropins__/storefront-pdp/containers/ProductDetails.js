@@ -1,3 +1,1321 @@
-const __vite__fileDeps=["debugger.css"],__vite__mapDeps=i=>i.map(i=>__vite__fileDeps[i]);
-import*as pe from"@dropins/tools/preact-compat.js";import{useState as J,Children as re,useRef as Ae,useMemo as ve,useEffect as ne,useCallback as Z}from"@dropins/tools/preact-compat.js";import{Button as fe,Icon as we,Price as Ne,Picker as ze,ColorSwatch as Ge,ImageSwatch as je,TextSwatch as Fe,Incrementer as Ke,Breadcrumbs as Qe,Image as Ie}from"@dropins/tools/components/index.js";import{jsx as t,jsxs as T,Fragment as Se}from"@dropins/tools/preact-jsx-runtime.js";import{IntlContext as Je,useText as z}from"@dropins/tools/i18n.js";import{c as k,V as H}from"../chunks/vcomponent__7E94D35BBn.js";import{c as Me,d as We}from"../chunks/getRefinedProduct__BeU9ZMr3mu.js";import{events as Ze}from"@dropins/tools/event-bus.js";import{useEffect as Le,useRef as ge,useState as ke,useMemo as Xe,useContext as Ye,useCallback as te}from"@dropins/tools/preact-hooks.js";import{c as Ve}from"../chunks/initialize__BRSu0U-gnU.js";import"@dropins/tools/fetch-graphql.js";const Re=(e,s)=>{let i;return function(...w){clearTimeout(i),i=setTimeout(()=>e.apply(this,w),s)}},De=e=>e.replace("_","-"),Ce="modulepreload",et=function(e){return"/"+e},Be={},tt=function(s,i,w){let u=Promise.resolve();if(i&&i.length>0){document.getElementsByTagName("link");const v=document.querySelector("meta[property=csp-nonce]"),p=(v==null?void 0:v.nonce)||(v==null?void 0:v.getAttribute("nonce"));u=Promise.all(i.map(f=>{if(f=et(f),f in Be)return;Be[f]=!0;const l=f.endsWith(".css"),K=l?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${f}"]${K}`))return;const E=document.createElement("link");if(E.rel=l?"stylesheet":Ce,l||(E.as="script",E.crossOrigin=""),E.href=f,p&&E.setAttribute("nonce",p),document.head.appendChild(E),l)return new Promise((r,g)=>{E.addEventListener("load",r),E.addEventListener("error",()=>g(new Error(`Unable to preload CSS for ${f}`)))})}))}return u.then(()=>s()).catch(v=>{const p=new Event("vite:preloadError",{cancelable:!0});if(p.payload=v,window.dispatchEvent(p),!p.defaultPrevented)throw v})};function rt(e={},s,i){const w=ge(null),u=ge(!1),v=ge([]),[p,f]=ke({children:[i==null?void 0:i({})]}),[l,K]=ke({}),E=Xe(()=>({get:S=>l[S],set:(S,o)=>{K({...E,[S]:o})}}),[l]),{intl:r}=Ye(Je);e.dictionary=r.dictionary,e._setProps=f;const g=te(S=>{typeof S=="function"?v.current.push(S):console.warn("Skipped: Invalid _registerMethod",S)},[]);e._registerMethod=g;const R=te(S=>t("div",{"data-slot-html-element":S.tagName.toLowerCase(),ref:o=>{o==null||o.appendChild(S)}}),[]);return e._htmlElementToVNode=R,e.getSlotElement=te(S=>{const o=document.querySelector(`[data-slot-key="${S}"]`);if(o)return{appendChild:b=>{o.appendChild(b)},prependChild:b=>{o.insertBefore(b,o.firstChild)},appendSibling:b=>{const d=o.parentNode;d==null||d.insertBefore(b,o.nextSibling)},prependSibling:b=>{const d=o.parentNode;d==null||d.insertBefore(b,o)}}},[]),e.onChange=te(S=>{v.current.push(S)},[]),e.replaceWith=te(S=>{g(o=>{const b=R(S);o._setProps({children:[b]})})},[R,g]),e.appendChild=te(S=>{g(o=>{const b=R(S);o._setProps(d=>({...d,children:[...d.children,b]}))})},[R,g]),e.prependChild=te(S=>{g(o=>{const b=R(S);o._setProps(d=>({...d,children:[b,...d.children]}))})},[R,g]),e.appendSibling=te(S=>{g(()=>{var b,d;const o=(b=w.current)==null?void 0:b.parentNode;o==null||o.insertBefore(S,((d=w.current)==null?void 0:d.nextSibling)??null)})},[g]),e.prependSibling=te(S=>{g(()=>{var b;const o=(b=w.current)==null?void 0:b.parentNode;o==null||o.insertBefore(S,w.current)})},[g]),Le(()=>{const S=w.current;if(!(!s||!S))try{s(e,S)}catch(o){console.error(`Error in "${s.name}" Slot callback`,o)}},[]),Le(()=>{f({children:[i==null?void 0:i(p)]}),v.current.forEach(S=>{S(e,E)}),(i==null?void 0:i.name)==="render"&&u.current===!1&&(u.current=!0)},[JSON.stringify(e),JSON.stringify(l),u.current]),[w,p]}function j({name:e,slot:s,context:i,children:w,render:u,...v}){const[p,f]=rt(i,s,u??(()=>w));return Le(()=>{e||console.warn('Slot "name" is required')},[e]),t("div",{...v,ref:p,"data-slot":e,children:f.children})}window.DROPINS=window.DROPINS||{};window.DROPINS.showSlots=async e=>{if(window.sessionStorage.setItem("dropin-debugger--show-slots",e.toString()),document.body.classList.toggle("dropin-debugger--show-slots",e),e)try{await tt(()=>Promise.resolve({}),__vite__mapDeps([0]))}catch{}};window.DROPINS.showSlots(window.sessionStorage.getItem("dropin-debugger--show-slots")==="true");const nt=e=>pe.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...e},pe.createElement("path",{d:"M7.74512 9.87701L12.0001 14.132L16.2551 9.87701",stroke:"currentColor",strokeWidth:1.5,strokeLinecap:"square",strokeLinejoin:"round"})),lt=e=>pe.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...e},pe.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M18.3599 5.64001L5.62988 18.37",stroke:"currentColor"}),pe.createElement("path",{vectorEffect:"non-scaling-stroke",d:"M18.3599 18.37L5.62988 5.64001",stroke:"currentColor"})),be=({show:e=1,scrollbar:s=!1,peak:i=!1,arrows:w=!1,controls:u="dots",arrowsOnMainImage:v=!1,loop:p=!1,gap:f=null,direction:l="horizontal",width:K="100%",height:E="100%",defaultIndex:r=0,className:g,children:R,thumbnails:S=null,isZoomed:o,...b})=>{const d=z("PDP.Carousel.label").label,P=z("PDP.Carousel.Slide.label").label,c=z("PDP.Carousel.Previous.label").label,q=z("PDP.Carousel.Next.label").label,N=z("PDP.Carousel.Controls.label").label,n=z("PDP.Carousel.Controls.Button.label").label,[B,F]=J(()=>Oe(e)),M=Math.ceil(re.toArray(R).length/B),le={small:16,medium:24,large:64},W=i?24:0,O=f?le[f]:0,X=re.toArray(R).length%B,ce=16,ee=2,ae="32",[I,oe]=J(p?r+1:r),Y=Ae([]),[G,C]=J(0),[se,he]=J(0),m=ve(()=>re.toArray(S),[S]),_=ve(()=>{const a=re.toArray(R).reduce((h,$,L)=>L%B===0?[...h,[$]]:[...h.slice(0,-1),[...h[h.length-1],$]],[]);return!p||a.length===1?a:p&&re.toArray(R).length%B===0?[a[M-1]].concat(a).concat([a[0],a[1]]):[re.toArray(R).slice(-B)].concat(a).concat([a[0],a[1]])},[R,B,M,p]),y=Ae(null),D=Ae(null),A=u==="thumbnailsRow"||u==="thumbnailsColumn";ne(()=>{const a=document.body,h=Re(()=>{var x,ye;C(((x=y.current)==null?void 0:x.offsetWidth)??0),he(((ye=y.current)==null?void 0:ye.offsetHeight)??0);const L=window.innerWidth,V=Oe(e,L);V!==B&&F(V)},50),$=new ResizeObserver(h);return $.observe(a),()=>{$.unobserve(a)}},[B,e]);const Q=Z(a=>{const h=p?a-1:a,$=Y==null?void 0:Y.current[0],L=($==null?void 0:$.offsetWidth)+ce,V=($==null?void 0:$.offsetHeight)+ce,x=D.current;u==="thumbnailsRow"&&(x!=null&&x.offsetWidth)&&(L*(h+1)>x.offsetWidth&&(x.style.scrollBehavior="smooth",x.scrollLeft=(h+ee)*L),x.scrollLeft>L*h&&(x.style.scrollBehavior="smooth",x.scrollLeft=(h-ee)*L)),u==="thumbnailsColumn"&&(x!=null&&x.offsetHeight)&&(V*(h+1)>x.offsetHeight&&(x.style.scrollBehavior="smooth",x.scrollTop=(h+ee)*V),x.scrollTop>V*h&&(x.style.scrollBehavior="smooth",x.scrollTop=(h-ee)*V))},[u,p]),U=Z((a,h,$)=>{(u==="thumbnailsRow"||u==="thumbnailsColumn")&&Q(a);const L=y.current,V=W?L.offsetWidth-W:L.offsetWidth-W+O;if(!Array.from(L.querySelectorAll("[data-index]")).filter(me=>{const ie=Number(me.getAttribute("data-index"));return!isNaN(ie)&&ie>-1})[a])return;if($){const me=a===0?M:0,ie=V*(M+(X||B)/B);if(L.scrollLeft>=0&&L.scrollLeft<V-5){U(1,!0);return}if(L.scrollLeft>ie-V&&L.scrollLeft<=ie){U(M,!0);return}L.style.scrollBehavior="auto",L.scrollLeft=me===0?0:ie,U(me===0?1:M,!0);return}const Ue=(L.offsetWidth-O)/B*_[a].length-W;L.style.scrollBehavior=h?"smooth":"auto",L.scrollLeft=_[a].length===B?V*a:V*(a-1)+Ue},[O,M,W,B,X,_,Q,u]),de=Z(()=>{if(p){const h=I-1;U(h,!0,I===1);return}const a=I<=0?0:I-1;U(a,!0)},[I,U,p]),ue=Z(()=>{const a=_.length-1;if(p){const $=I+1;U($,!0,I===M);return}const h=I>=a?a:I+1;U(h,!0)},[_.length,p,I,U,M]);ne(()=>{const a=h=>{h.key==="ArrowLeft"&&(h.preventDefault(),de()),h.key==="ArrowRight"&&(h.preventDefault(),ue())};return window.addEventListener("keydown",a),()=>{window.removeEventListener("keydown",a)}},[ue,de]),ne(()=>{U(p?r+1:r,!1)},[r,U,p]);const Pe=Re(()=>{const a=y.current,h=W?a.offsetWidth-W:a.offsetWidth-W+O,$=a.scrollLeft/h,L=Math.round($)-$<1?Math.round($):Math.ceil($);if(A&&Q(L),p){const V=h*(M+(X||B)/B);if(Math.ceil(a.scrollLeft)>=Math.ceil(V)-5){a.style.scrollBehavior="auto",a.scrollLeft=a.offsetWidth*1+(Math.ceil(a.scrollLeft)-Math.ceil(V)-W);return}if(a.scrollLeft===0){a.style.scrollBehavior="auto",a.scrollLeft=V-a.offsetWidth+W;return}}I!==L&&oe(L)},100);ne(()=>{const a=y.current;return a==null||a.addEventListener("scroll",Pe),()=>{a==null||a.removeEventListener("scroll",Pe)}},[Pe]);const _e=(a,h,$)=>t(fe,{className:k([["pdp-carousel__button",!a],[`pdp-carousel__button--${h}`,!a],[`pdp-carousel__button--${u}`,a]]),style:{"--height":`${se}px`},variant:"tertiary","aria-label":h==="next"?q:c,onClick:$,disabled:p?!1:h==="next"?I>=_.length-1:I<1,children:t(we,{className:k([["pdp-carousel__button__icon",!a],[`pdp-carousel__button__icon--${h}`,!a],[`pdp-carousel__button__icon--${u}--${h}`,a]]),size:ae,source:nt})}),$e=w&&_.length!=1&&_e(A,"prev",de),Ee=w&&_.length!=1&&_e(A,"next",ue),Te=w&&_.length!=1&&_e(!1,"prev",de),He=w&&_.length!=1&&_e(!1,"next",ue);return T("div",{role:"region","aria-roledescription":d,className:k(["pdp-carousel",["pdp-carousel--main-image-controls",v],["pdp-carousel--arrows",w&&!A],[`pdp-carousel--${u}`,A],g]),style:{"--flex-carousel":u==="thumbnailsColumn"?"row-reverse":"column","--gap":A?"0":"var(--spacing-small)","--width":K},...b,children:[t("div",{ref:y,className:k(["pdp-carousel__wrapper",`pdp-carousel__wrapper--${l}`,["pdp-carousel__wrapper--scrollbar",s],["pdp-carousel__wrapper--peak",i]]),style:{"--total-width":u==="thumbnailsColumn"?"81.6%":"100%","--height":u==="thumbnailsColumn"?"auto":E,"--gap":f?`var(--spacing-${f})`:"0px","--per-page":B},tabIndex:0,children:_.map((a,h)=>{const $=a.length<B;return t("div",{role:"group","aria-roledescription":P,"data-index":h,className:k(["pdp-carousel__slide",`pdp-carousel__slide--${l}`,["pdp-carousel__slide--active",I===h],["pdp-carousel__slide--orphan",$]]),style:{"--length":a.length},children:a},h)})}),!A&&T(Se,{children:[$e,Ee]}),A&&v&&T(Se,{children:[Te,He]}),u&&_.length!=1&&T("div",{className:k([[`pdp-carousel__controls__container--${u}`,A],["pdp-carousel__controls__container--no-arrows",!w||v]]),style:{"--width":u==="thumbnailsRow"?`${G}px`:K,"--height":`${se}px`,"--nr-thumbnails":m.length},children:[(A||o)&&!v&&$e,t("div",{ref:D,className:k([[`pdp-carousel__controls__wrapper--${u}`,A],["pdp-carousel__controls__wrapper",A]]),children:t("div",{role:"group","aria-label":N,className:k(["pdp-carousel__controls",[`pdp-carousel__controls--${u}`,A]]),children:(p?_.slice(0,M):_).map((a,h)=>{const $=p?M:_.length,L=p?I-1===h:I===h;return A?T("label",{className:k(["pdp-carousel__thumbnail__container"]),ref:V=>{V&&(Y.current[h]=V)},children:[t("input",{type:"radio",name:"carousel-thumbnails","aria-label":n.replace("{key}",String(h+1)).replace("{total}",String($)),checked:L&&G!==0,onChange:()=>{U(p?h+1:h,!0)},...b,className:k(["pdp-carousel__thumbnail",["pdp-carousel__thumbnail--selected",L&&G!==0]])}),t("span",{className:k(["pdp-carousel__thumbnail__span"]),children:m[h]})]},h):t("button",{"aria-label":n.replace("{key}",String(h+1)).replace("{total}",String($)),onClick:()=>{U(p?h+1:h,!0)},className:k(["pdp-carousel__controls__button",["pdp-carousel__controls__button--active",L]])},h)})})}),(A||o)&&!v&&Ee]})]})};function Oe(e,s=0){if(typeof e=="number")return e;const{small:i,medium:w,large:u}=e,v=786;return s>1024?u:s>v?w:i}const ct=({title:e,breadcrumbs:s,galleryContent:i,infoContent:w,productContent:u,sku:v,outOfStock:p,hideSku:f,shortDescription:l,description:K,attributes:E,images:r,options:g,price:R,specialPrice:S,className:o,children:b,quantity:d,actions:P,carouselConfig:c,...q})=>{var X,ce,ee,ae,I,oe;const N=z("PDP.Product.RegularPrice.label").label,n=z("PDP.Product.SpecialPrice.label").label,B=z("PDP.Product.OutOfStock.label").label,F=z("PDP.Product.Image.label").label,[M,le]=J(null),W=r!=null&&r.length?r.map((Y,G)=>{var C;return t(H,{node:Y,loading:G===0?"eager":"lazy",alt:((C=e==null?void 0:e.props)==null?void 0:C.children)&&(F==null?void 0:F.replace("{product}",e.props.children.toString()).replace("{key}",String(G+1)).replace("{total}",String(r.length))),onClick:()=>le(G)},G)}):t("img",{src:"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",className:"pdp-product__images__placeholder","aria-hidden":!0}),O=(X=c==null?void 0:c.thumbnails)!=null&&X.length?c.thumbnails.map((Y,G)=>{var C;return t(H,{node:Y,loading:(c==null?void 0:c.thumbnailsLoadingMode)||"lazy",alt:((C=e==null?void 0:e.props)==null?void 0:C.children)&&(F==null?void 0:F.replace("{product}",e.props.children.toString()).replace("{key}",String(G+1)).replace("{total}",String(r.length)))},G)}):t("img",{src:"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",className:"pdp-product__images__placeholder","aria-hidden":!0});return T("div",{...q,className:k(["pdp-product",o]),children:[s&&t(H,{node:s,className:"pdp-product__breadcrumbs"}),T("div",{className:"pdp-product__column-container pdp-product__gallery-column",children:[t("div",{className:"pdp-product__column-body",children:c!=null&&c.controls?t(be,{className:"pdp-product__overlay__carousel",arrows:(r==null?void 0:r.length)>1,controls:(r==null?void 0:r.length)>1?c.controls:"dots",arrowsOnMainImage:c==null?void 0:c.arrowsOnMainImage,loop:(c==null?void 0:c.loopable)&&(r==null?void 0:r.length)>1,peak:((ce=c==null?void 0:c.thumbnails)==null?void 0:ce.length)>1&&((ee=c==null?void 0:c.peak)==null?void 0:ee.desktop)||!1,gap:(c==null?void 0:c.gap)||null,width:"100%",height:"100%",defaultIndex:M||0,thumbnails:O,children:W}):t(at,{className:"pdp-product__images",gap:"small",children:W})}),i&&t(H,{node:i,className:"pdp-product__gallery-content"})]}),T("div",{className:"pdp-product__column-container pdp-product__content-column",children:[T("div",{className:"pdp-product__column-body",children:[T("div",{className:"pdp-product__header",children:[e&&t(H,{node:e,className:"pdp-product__title"}),!f&&v&&t(H,{node:v,className:"pdp-product__sku"})]}),T("div",{className:"pdp-product__prices",children:[S&&t(H,{node:S,className:k(["pdp-product__price-special","pdp-product__price"]),"aria-label":n,role:"text"}),R&&t(H,{node:R,className:k(["pdp-product__price-regular","pdp-product__price--grey"]),"aria-label":N,role:"text"})]}),c!=null&&c.mobile?t(be,{className:"pdp-product__images pdp-product__images--carousel pdp-product__images--carousel--thumbnails",width:"100%",height:"auto",arrows:(r==null?void 0:r.length)>1,controls:(r==null?void 0:r.length)>1?"thumbnailsRow":null,loop:(c==null?void 0:c.loopable)&&(r==null?void 0:r.length)>1,peak:((ae=c==null?void 0:c.thumbnails)==null?void 0:ae.length)>1&&((I=c==null?void 0:c.peak)==null?void 0:I.mobile)||!1,gap:(c==null?void 0:c.gap)||null,thumbnails:O,children:W}):t(be,{className:"pdp-product__images pdp-product__images--carousel",peak:((oe=c==null?void 0:c.peak)==null?void 0:oe.mobile)&&(r==null?void 0:r.length)>1,gap:(c==null?void 0:c.gap)||null,width:"100%",height:"auto",arrows:(r==null?void 0:r.length)>1,controls:(r==null?void 0:r.length)>1?"dots":null,loop:(c==null?void 0:c.loopable)&&(r==null?void 0:r.length)>1,children:W}),T("div",{className:k(["pdp-product__actions",["pdp-product__actions--out-of-stock",p]]),children:[p&&t("div",{className:"pdp-product__out-of-stock__text",children:B}),g&&t(H,{node:g,className:k(["pdp-product__options"])}),d&&t("div",{className:"pdp-product__quantity",children:t(H,{node:d})}),P&&t(H,{node:P,className:k(["pdp-product__buttons"])})]}),l&&t(H,{node:l,className:k(["pdp-product__short_description"])}),K&&t(H,{node:K,className:k(["pdp-product__description"])}),E?t("div",{className:"pdp-product__attributes",children:E}):null]}),w&&t(H,{node:w,className:"pdp-product__info-content"})]}),u&&t(H,{node:u,className:"pdp-product__content"}),M===null?null:t(ot,{className:"pdp-product__overlay",onClose:()=>le(null),centered:!0,children:t(be,{className:"pdp-product__overlay__carousel",arrows:(r==null?void 0:r.length)>1,width:"100%",height:"100%",defaultIndex:M||0,loop:(r==null?void 0:r.length)>1,controls:(r==null?void 0:r.length)>1?"dots":null,isZoomed:!0,children:W})})]})},at=({children:e,gap:s=null,className:i,style:w,...u})=>{const v=re.count(e);return t("div",{...u,className:k(["pdp-gallery-grid",i]),style:{"--gap":s?`var(--spacing-${s})`:"0px",...w},children:re.map(e,(p,f)=>t("div",{className:"pdp-gallery-grid__item",children:t(H,{node:p,loading:f===0?"eager":"lazy"},p.props.src)},v+f))})},xe=({amount:e,currency:s,locale:i,variant:w,sale:u,minimumAmount:v,maximumAmount:p,className:f,...l})=>t(Se,{children:e||v===p?t("div",{className:"pdp-price-range",...l,children:t(Ne,{amount:e||v,currency:s,locale:i,variant:w,sale:u,className:f})}):T("div",{className:"pdp-price-range",...l,children:[t(Ne,{amount:v,currency:s,locale:i,className:f}),t("span",{className:"pdp-price-range__label",children:"-"}),t(Ne,{amount:p,currency:s,locale:i,className:f})]})}),ot=({centered:e,onClose:s,className:i,children:w,...u})=>{const v=z("PDP.Overlay.Close.label").label,p=Z(()=>{s==null||s()},[s]);return ne(()=>{const f=l=>{l.key==="Escape"&&p()};return document.addEventListener("keydown",f),()=>{document.removeEventListener("keydown",f)}},[p]),ne(()=>{const f=document.scrollingElement,l=f.style.overflow;return f.style.overflow="hidden",()=>{f.style.overflow=l}},[]),T("div",{...u,className:k(["pdp-overlay",["pdp-overlay--centered",e],i]),children:[t("div",{className:"pdp-overlay__content",children:w}),t(fe,{"aria-label":v,variant:"tertiary",className:"pdp-overlay__close-button",onClick:p,icon:t(lt,{})})]})},dt=["text","image","color","dropdown"],it=e=>e.map(s=>({...s,text:s.label,disabled:!s.inStock})),st=({options:e,hideSelectedValue:s,onValues:i,onErrors:w,defaultOptions:u,selectionsToUpdate:v,className:p,children:f,...l})=>{const K=z("PDP.Swatches.Required.label").label,[E,r]=J(()=>e==null?void 0:e.reduce((b,d)=>{const{items:P}=d,c=P==null?void 0:P.find(N=>u==null?void 0:u.includes(N.id)),q=P==null?void 0:P.find(N=>N.selected);return c?{...b,[d.id]:{label:c.label,value:c.id}}:q?{...b,[d.id]:{label:q.label,value:q.id}}:b},{}));ne(()=>{v==null||v.forEach(o=>{r(b=>{var c;const d=(c=o==null?void 0:o.items)==null?void 0:c.find(q=>q.selected);return d?{...b,[o.id]:{label:d==null?void 0:d.label,value:d==null?void 0:d.id}}:b})})},[v,r]),ve(()=>{const o=e==null?void 0:e.reduce((b,d)=>{var P;return(P=d==null?void 0:d.items)==null||P.forEach(c=>{var N;const q=((N=E[d.id])==null?void 0:N.value)===c.id;d.required&&!q&&(b[d.id]=K)}),b},{});return w==null||w(o),o},[E]);const g=Z((o,b,d)=>{r(P=>{const c={...P,[o]:{label:b,value:d}};return i==null||i(c,d),c})},[i]),R=(o,b)=>{var P;const d=((P=b.selectedOptions[0])==null?void 0:P.label)??"";g(o,d,b.value)},S=Z(({items:o,id:b,required:d,type:P,selected:c,label:q})=>t("div",{className:k(["pdp-swatches__options"]),children:(P==null?void 0:P.toLowerCase())==="dropdown"?t(ze,{"aria-label":q,handleSelect:N=>R(b,N.target),options:it(o),value:c}):o==null?void 0:o.map(N=>{const n={key:N.id,id:N.id,name:b,value:N.value,label:N.label,groupAriaLabel:q,selected:c===N.id,outOfStock:!N.inStock,required:d===null?!0:d,onValue:()=>{g(b,N.label,N.id)}};switch(P){case"text":return t(Fe,{...n,label:N.label});case"image":return t(je,{...n,src:N.value,alt:N.label});case"color":return t(Ge,{...n,size:"large",color:N.value});default:return console.warn(`Invalid swatch type ${P}`),null}})}),[g]);return t("div",{...l,className:k(["pdp-swatches",p]),children:e==null?void 0:e.map(({type:o,label:b,id:d,multiple:P,required:c,items:q})=>{var N;if(!o){console.warn("Bundle product not supported on UI.");return}return dt.includes(o)||console.warn(`Invalid swatch type ${o}`),P&&console.warn("Multiple selection swatches are not currently supported."),T("div",{id:`swatch-item-${d}`,"data-slot-key":`product-swatch--${d}`,className:"pdp-swatches__field",children:[t("div",{className:"pdp-swatches__field__label",children:E[d]?s?`${b}`:`${b}: ${E[d].label}`:b}),t(S,{id:d,type:o,required:c,items:q,label:b,selected:(N=E[d])==null?void 0:N.value})]},`swatch-item-${d}`)})})};function pt(e,s="en_US"){if(!qe(e))throw Error("Invalid date string");return e.split(" ")[1]||(e=`${e} 00:00:00`),new Date(e).toLocaleDateString(De(s)).toString()}function qe(e){if(![/^\d{4}-\d{2}-\d{2}$/,/^\d{1,2}\/\d{1,2}\/\d{4}$/,/^\d{2}\/\d{2}\/\d{4}$/,/^\d{4}\/\d{2}\/\d{2}$/,/^\d{1,2}\.\d{1,2}\.\d{4}$/,/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/].some(w=>w.test(e)))return!1;const i=new Date(e);return!isNaN(i.getTime())}function ht(e){const s=new URLSearchParams(window.location.search);Object.entries(e).forEach(([w,u])=>{u===null?s.delete(w):s.set(w,String(u))});let i=window.location.pathname;i+=`?${s.toString()}`,i+=window.location.hash,window.history.replaceState({},"",i)}function ut(){const e=new URLSearchParams(window.location.search),s={};return e.forEach((i,w)=>{s[w]=i}),s}const _t=({sku:e,hideSku:s,hideQuantity:i,hideShortDescription:w,hideDescription:u,hideAttributes:v,hideURLParams:p,hideSelectedOptionValue:f,slots:l,children:K,initialData:E,carousel:r,optionsConfig:g,onAddToCart:R,...S})=>{var G,C,se,he;const o=z("PDP.Product.AddToCart.label").label,b=z("PDP.Product.Incrementer.label").label,d=z("PDP.Product.Details.label").label,[P,c]=J(Ve.getConfig().defaultLocale||"en-US"),[q,N]=J(),[n=null,B]=J(E),[F,M]=J(()=>{const m={sku:e,quantity:1};return n!=null&&n.optionUIDs&&(m.optionsUIDs=n.optionUIDs),m}),[le,W]=J(()=>{var m,_;return!(n!=null&&n.options&&((m=n==null?void 0:n.options)==null?void 0:m.length)>0&&((_=n==null?void 0:n.optionUIDs)==null?void 0:_.length)!==(n==null?void 0:n.options.length))}),O={data:n,values:F,valid:le};ne(()=>{const m=Ze.on("locale",_=>{_!==P&&(c(_),Me(e).then(B))});return()=>{m==null||m.off()}},[P,e]);const X=Z(m=>{M(_=>({..._,...m}))},[]),ce=Z(m=>{var y;let _=Object.keys(m).map(D=>m[D].value).filter(D=>D!==void 0);p||ht({optionsUIDs:_.join(",")}),M(D=>({...D,optionsUIDs:_})),W((_==null?void 0:_.length)===((y=n==null?void 0:n.options)==null?void 0:y.length)),We(e,_,g==null?void 0:g.anchorOptions).then(D=>{var A;B(D),(A=g==null?void 0:g.anchorOptions)!=null&&A.length&&ee(D,_)})},[e]),ee=Z((m,_)=>{var A;const y=(m==null?void 0:m.optionUIDs)??[];_.every(Q=>y.includes(Q))||(N(m==null?void 0:m.options),M(Q=>({...Q,optionsUIDs:y})),W((y==null?void 0:y.length)===((A=m==null?void 0:m.options)==null?void 0:A.length)))},[e]),ae=Z(m=>{Object.keys(m).length!==0&&W(!1)},[]),I=ve(()=>{var m;return(m=n==null?void 0:n.attributes)==null?void 0:m.map(({label:_,value:y},D)=>{const A=qe(y)?pt(y,P):y.toString();return T("li",{children:[_,": ",t("span",{dangerouslySetInnerHTML:{__html:A}})]},D)})},[n==null?void 0:n.attributes,P]),oe=!i&&(n!=null&&n.inStock)?t(j,{name:"Quantity",slot:l==null?void 0:l.Quantity,context:{...O},children:t(Ke,{name:"quantity",defaultValue:F.quantity.toString(),min:1,"aria-label":b,className:"pdp-product__quantity",onValue:m=>{X({quantity:Number(m)})}},"quantity")}):void 0,Y=()=>{if(n!=null&&n.options)return t(j,{name:"Options",slot:l==null?void 0:l.Options,context:{...O},children:t(st,{options:n.options,defaultOptions:F.optionsUIDs,selectionsToUpdate:q,hideSelectedValue:f,onValues:ce,onErrors:ae})})};return t("div",{...S,children:t(ct,{title:t(j,{name:"Title",slot:l==null?void 0:l.Title,context:{...O},children:n==null?void 0:n.name}),sku:s?void 0:t(j,{name:"SKU",slot:l==null?void 0:l.SKU,context:{...O},children:n==null?void 0:n.sku}),options:Y(),breadcrumbs:(l==null?void 0:l.Breadcrumbs)&&t(j,{name:"Breadcrumbs",slot:l==null?void 0:l.Breadcrumbs,context:{...O,setSeparator(m){this._registerMethod((..._)=>{const y=m(..._),D=y&&t(we,{source:y});this._setProps(A=>({...A,separator:D}))})},appendLink(m){this._registerMethod((..._)=>{const{text:y,...D}=m(..._),A=t("a",{...D,children:y});this._setProps(Q=>({...Q,categories:[...Q.categories||[],A]}))})},appendHTMLElement(m){this._registerMethod((..._)=>{const y=m(..._),D=this._htmlElementToVNode(y);this._setProps(A=>({...A,categories:[...A.categories||[],D]}))})}},render:({separator:m,categories:_})=>t(Qe,{separator:m,categories:_})}),quantity:oe,actions:t(j,{name:"Actions",slot:l==null?void 0:l.Actions,context:{...O,appendButton(m){this._registerMethod((..._)=>{const y=m(..._);if(!y)return;const{text:D,icon:A,...Q}=y,U=t(fe,{type:"button",...Q,icon:A&&t(we,{source:A}),children:D});this._setProps(de=>({children:[...de.children||[],U]}))})}},children:!(l!=null&&l.Actions)&&t(fe,{size:"medium",type:"submit",icon:t(we,{source:"Cart"}),disabled:!(n!=null&&n.inStock)||!le,"aria-label":o,onClick:()=>R==null?void 0:R(F),children:o})}),shortDescription:w?void 0:t(j,{name:"ShortDescription",slot:l==null?void 0:l.ShortDescription,context:{...O},children:t("div",{dangerouslySetInnerHTML:{__html:(n==null?void 0:n.shortDescription)??""}})}),description:u?void 0:t(j,{name:"Description",slot:l==null?void 0:l.Description,context:{...O},children:t("div",{dangerouslySetInnerHTML:{__html:(n==null?void 0:n.description)??""}})}),images:((G=n==null?void 0:n.images)==null?void 0:G.map(({label:m,url:_})=>{var y,D;return t(Ie,{title:m,alt:m,src:_,width:((y=r==null?void 0:r.imageParams)==null?void 0:y.width)??960,height:((D=r==null?void 0:r.imageParams)==null?void 0:D.height)??1191,params:(r==null?void 0:r.imageParams)??{width:960}},_)}))??[],specialPrice:(C=n==null?void 0:n.prices)!=null&&C.visible?t(j,{name:"SpecialPrice",slot:l==null?void 0:l.SpecialPrice,context:{...O},children:t(xe,{...n.prices.final,locale:De(P)})}):void 0,price:(se=n==null?void 0:n.prices)!=null&&se.visible&&n.prices.regular&&n.prices.final.amount!==(n==null?void 0:n.prices.regular.amount)?t(j,{name:"RegularPrice",slot:l==null?void 0:l.RegularPrice,context:{...O},children:t(xe,{...n.prices.regular,locale:De(P)})}):void 0,carouselConfig:{...r,thumbnails:r?((he=n==null?void 0:n.images)==null?void 0:he.map(({label:m,url:_})=>{var y,D;return t(Ie,{title:m,alt:m,src:_,width:((y=r==null?void 0:r.thumbnailParams)==null?void 0:y.width)??200,height:((D=r==null?void 0:r.thumbnailParams)==null?void 0:D.height)??248,params:(r==null?void 0:r.thumbnailParams)??{width:200}},_)}))??[]:[]},outOfStock:!(n!=null&&n.inStock),attributes:v?void 0:t(j,{name:"Attributes",slot:l==null?void 0:l.Attributes,context:{...O},children:I!=null&&I.length?T(Se,{children:[d,t("ul",{children:I})]}):null}),galleryContent:(l==null?void 0:l.GalleryContent)&&t(j,{name:"GalleryContent",slot:l.GalleryContent,context:{...O}}),infoContent:(l==null?void 0:l.InfoContent)&&t(j,{name:"InfoContent",slot:l.InfoContent,context:{...O}}),productContent:(l==null?void 0:l.Content)&&t(j,{name:"Content",slot:l.Content,context:{...O}})})})};_t.getInitialData=async function({sku:e,optionsConfig:s}){var w,u,v,p,f,l;const i=((w=ut().optionsUIDs)==null?void 0:w.split(","))||((l=(f=(p=(v=(u=Ve)==null?void 0:u.getConfig())==null?void 0:v.models)==null?void 0:p.ProductDetails)==null?void 0:f.initialData)==null?void 0:l.optionsUIDs);return i!=null&&i.length?await We(e,i,s==null?void 0:s.anchorOptions):await Me(e)};export{_t as ProductDetails,_t as default};
+import * as React from "@dropins/tools/preact-compat.js";
+import { useState, Children, useRef, useMemo, useEffect, useCallback } from "@dropins/tools/preact-compat.js";
+import { Button, Icon, Price, Picker, ColorSwatch, ImageSwatch, TextSwatch, Incrementer, Breadcrumbs, Image } from "@dropins/tools/components/index.js";
+import { jsxs, jsx, Fragment } from "@dropins/tools/preact-jsx-runtime.js";
+import { useText } from "@dropins/tools/i18n.js";
+import { c as classes, V as VComponent } from "../chunks/vcomponent__DzjhryT0dc.js";
+import { c as getProductData, d as getRefinedProduct } from "../chunks/getRefinedProduct__DCGlQKU-jK.js";
+import { events } from "@dropins/tools/event-bus.js";
+import { c as config } from "../chunks/initialize__DZrQ7EkF8R.js";
+import { Slot } from "@dropins/tools/lib/slot.js";
+import "@dropins/tools/fetch-graphql.js";
+const debounce = (fn, ms) => {
+  let timeoutId;
+  return function(...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => fn.apply(this, args), ms);
+  };
+};
+const toLanguageTag = (locale) => {
+  return locale.replace("_", "-");
+};
+const SvgChevronDown = (props) => /* @__PURE__ */ React.createElement("svg", { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ React.createElement("path", { d: "M7.74512 9.87701L12.0001 14.132L16.2551 9.87701", stroke: "currentColor", strokeWidth: 1.5, strokeLinecap: "square", strokeLinejoin: "round" }));
+const SvgClose = (props) => /* @__PURE__ */ React.createElement("svg", { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ React.createElement("path", { vectorEffect: "non-scaling-stroke", d: "M18.3599 5.64001L5.62988 18.37", stroke: "currentColor" }), /* @__PURE__ */ React.createElement("path", { vectorEffect: "non-scaling-stroke", d: "M18.3599 18.37L5.62988 5.64001", stroke: "currentColor" }));
+const Carousel = ({
+  show = 1,
+  scrollbar = false,
+  peak = false,
+  arrows = false,
+  controls = "dots",
+  arrowsOnMainImage = false,
+  loop = false,
+  gap = null,
+  direction = "horizontal",
+  width = "100%",
+  height = "100%",
+  defaultIndex = 0,
+  className,
+  children,
+  thumbnails = null,
+  isZoomed,
+  ...props
+}) => {
+  const Label = useText("PDP.Carousel.label").label;
+  const SlideLabel = useText("PDP.Carousel.Slide.label").label;
+  const PreviousLabel = useText("PDP.Carousel.Previous.label").label;
+  const NextLabel = useText("PDP.Carousel.Next.label").label;
+  const ControlsLabel = useText("PDP.Carousel.Controls.label").label;
+  const ControlsBtnLabel = useText("PDP.Carousel.Controls.Button.label").label;
+  const [perPage, setPerPage] = useState(() => getPerPageFromBreakpoint(show));
+  const length = Math.ceil(Children.toArray(children).length / perPage);
+  const gapSizes = {
+    small: 16,
+    medium: 24,
+    large: 64
+  };
+  const peakWidth = peak ? 24 : 0;
+  const gapWidth = gap ? gapSizes[gap] : 0;
+  const rest = Children.toArray(children).length % perPage;
+  const thumbGap = 16;
+  const thumbSeen = 2;
+  const iconSize = "32";
+  const [current, setCurrent] = useState(loop ? defaultIndex + 1 : defaultIndex);
+  const thumbnailsRefs = useRef([]);
+  const [thumbWidth, setThumbWidth] = useState(0);
+  const [thumbHeight, setThumbHeight] = useState(0);
+  const thumbnailSlides = useMemo(() => {
+    return Children.toArray(thumbnails);
+  }, [thumbnails]);
+  const slides = useMemo(() => {
+    const returnValue = Children.toArray(children).reduce((acc, child, i) => {
+      if (i % perPage === 0) {
+        return [...acc, [child]];
+      }
+      return [...acc.slice(0, -1), [...acc[acc.length - 1], child]];
+    }, []);
+    if (!loop || returnValue.length === 1) {
+      return returnValue;
+    }
+    if (loop && !(Children.toArray(children).length % perPage !== 0)) {
+      return [returnValue[length - 1]].concat(returnValue).concat([returnValue[0], returnValue[1]]);
+    }
+    return [Children.toArray(children).slice(-perPage)].concat(returnValue).concat([returnValue[0], returnValue[1]]);
+  }, [children, perPage, length, loop]);
+  const wrapperRef = useRef(null);
+  const thumbnailsWrapperRef = useRef(null);
+  const thumbnailControls = controls === "thumbnailsRow" || controls === "thumbnailsColumn";
+  useEffect(() => {
+    const wrapper = document.body;
+    const handleResize = debounce(() => {
+      var _a, _b;
+      setThumbWidth(((_a = wrapperRef.current) == null ? void 0 : _a.offsetWidth) ?? 0);
+      setThumbHeight(((_b = wrapperRef.current) == null ? void 0 : _b.offsetHeight) ?? 0);
+      const width2 = window.innerWidth;
+      const newPerPage = getPerPageFromBreakpoint(show, width2);
+      if (newPerPage !== perPage) {
+        setPerPage(newPerPage);
+      }
+    }, 50);
+    const observer = new ResizeObserver(handleResize);
+    observer.observe(wrapper);
+    return () => {
+      observer.unobserve(wrapper);
+    };
+  }, [perPage, show]);
+  const handleThumbnailsScroll = useCallback((nextSlideIndex) => {
+    const nextItem = loop ? nextSlideIndex - 1 : nextSlideIndex;
+    const thumbnailRef = thumbnailsRefs == null ? void 0 : thumbnailsRefs.current[0];
+    const oneItemWidth = (thumbnailRef == null ? void 0 : thumbnailRef.offsetWidth) + thumbGap;
+    const oneItemHeight = (thumbnailRef == null ? void 0 : thumbnailRef.offsetHeight) + thumbGap;
+    const thumbnailsWrapper = thumbnailsWrapperRef.current;
+    if (controls === "thumbnailsRow" && (thumbnailsWrapper == null ? void 0 : thumbnailsWrapper.offsetWidth)) {
+      if (oneItemWidth * (nextItem + 1) > thumbnailsWrapper.offsetWidth) {
+        thumbnailsWrapper.style.scrollBehavior = "smooth";
+        thumbnailsWrapper.scrollLeft = (nextItem + thumbSeen) * oneItemWidth;
+      }
+      if (thumbnailsWrapper.scrollLeft > oneItemWidth * nextItem) {
+        thumbnailsWrapper.style.scrollBehavior = "smooth";
+        thumbnailsWrapper.scrollLeft = (nextItem - thumbSeen) * oneItemWidth;
+      }
+    }
+    if (controls === "thumbnailsColumn" && (thumbnailsWrapper == null ? void 0 : thumbnailsWrapper.offsetHeight)) {
+      if (oneItemHeight * (nextItem + 1) > thumbnailsWrapper.offsetHeight) {
+        thumbnailsWrapper.style.scrollBehavior = "smooth";
+        thumbnailsWrapper.scrollTop = (nextItem + thumbSeen) * oneItemHeight;
+      }
+      if (thumbnailsWrapper.scrollTop > oneItemHeight * nextItem) {
+        thumbnailsWrapper.style.scrollBehavior = "smooth";
+        thumbnailsWrapper.scrollTop = (nextItem - thumbSeen) * oneItemHeight;
+      }
+    }
+  }, [controls, loop]);
+  const handleScrollTo = useCallback((nextSlideIndex, smooth, reset) => {
+    if (controls === "thumbnailsRow" || controls === "thumbnailsColumn") {
+      handleThumbnailsScroll(nextSlideIndex);
+    }
+    const wrapper = wrapperRef.current;
+    const realWidth = peakWidth ? wrapper.offsetWidth - peakWidth : wrapper.offsetWidth - peakWidth + gapWidth;
+    const items = Array.from(wrapper.querySelectorAll("[data-index]")).filter((element) => {
+      const dataIndex = Number(element.getAttribute("data-index"));
+      return !isNaN(dataIndex) && dataIndex > -1;
+    });
+    const item = items[nextSlideIndex];
+    if (!item) {
+      return;
+    }
+    if (reset) {
+      const futureIndex = nextSlideIndex === 0 ? length : 0;
+      const scrollWidth = realWidth * (length + (rest ? rest : perPage) / perPage);
+      if (wrapper.scrollLeft >= 0 && wrapper.scrollLeft < realWidth - 5) {
+        handleScrollTo(1, true);
+        return;
+      }
+      if (wrapper.scrollLeft > scrollWidth - realWidth && wrapper.scrollLeft <= scrollWidth) {
+        handleScrollTo(length, true);
+        return;
+      }
+      wrapper.style.scrollBehavior = "auto";
+      wrapper.scrollLeft = futureIndex === 0 ? 0 : scrollWidth;
+      handleScrollTo(futureIndex === 0 ? 1 : length, true);
+      return;
+    }
+    const diff = (wrapper.offsetWidth - gapWidth) / perPage * slides[nextSlideIndex].length - peakWidth;
+    wrapper.style.scrollBehavior = smooth ? "smooth" : "auto";
+    wrapper.scrollLeft = slides[nextSlideIndex].length === perPage ? realWidth * nextSlideIndex : realWidth * (nextSlideIndex - 1) + diff;
+    return;
+  }, [gapWidth, length, peakWidth, perPage, rest, slides, handleThumbnailsScroll, controls]);
+  const handleGoToPrev = useCallback(() => {
+    if (loop) {
+      const nextSlideIndex2 = current - 1;
+      handleScrollTo(nextSlideIndex2, true, current === 1);
+      return;
+    }
+    const nextSlideIndex = current <= 0 ? 0 : current - 1;
+    handleScrollTo(nextSlideIndex, true);
+  }, [current, handleScrollTo, loop]);
+  const handleGoToNext = useCallback(() => {
+    const lastSlideIndex = slides.length - 1;
+    if (loop) {
+      const nextSlideIndex2 = current + 1;
+      handleScrollTo(nextSlideIndex2, true, current === length);
+      return;
+    }
+    const nextSlideIndex = current >= lastSlideIndex ? lastSlideIndex : current + 1;
+    handleScrollTo(nextSlideIndex, true);
+  }, [slides.length, loop, current, handleScrollTo, length]);
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        handleGoToPrev();
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        handleGoToNext();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleGoToNext, handleGoToPrev]);
+  useEffect(() => {
+    handleScrollTo(loop ? defaultIndex + 1 : defaultIndex, false);
+  }, [defaultIndex, handleScrollTo, loop]);
+  const handleOnScroll = debounce(() => {
+    const wrapper = wrapperRef.current;
+    const realWidth = peakWidth ? wrapper.offsetWidth - peakWidth : wrapper.offsetWidth - peakWidth + gapWidth;
+    const dividing = wrapper.scrollLeft / realWidth;
+    const nextSlideIndex = Math.round(dividing) - dividing < 1 ? Math.round(dividing) : Math.ceil(dividing);
+    if (thumbnailControls) {
+      handleThumbnailsScroll(nextSlideIndex);
+    }
+    if (loop) {
+      const totalWidth = realWidth * (length + (rest ? rest : perPage) / perPage);
+      if (Math.ceil(wrapper.scrollLeft) >= Math.ceil(totalWidth) - 5) {
+        wrapper.style.scrollBehavior = "auto";
+        wrapper.scrollLeft = wrapper.offsetWidth * 1 + (Math.ceil(wrapper.scrollLeft) - Math.ceil(totalWidth) - peakWidth);
+        return;
+      }
+      if (wrapper.scrollLeft === 0) {
+        wrapper.style.scrollBehavior = "auto";
+        wrapper.scrollLeft = totalWidth - wrapper.offsetWidth + peakWidth;
+        return;
+      }
+    }
+    if (current !== nextSlideIndex) {
+      setCurrent(nextSlideIndex);
+    }
+  }, 100);
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    wrapper == null ? void 0 : wrapper.addEventListener("scroll", handleOnScroll);
+    return () => {
+      wrapper == null ? void 0 : wrapper.removeEventListener("scroll", handleOnScroll);
+    };
+  }, [handleOnScroll]);
+  const getArrow = (forThumbnails, direction2, callback) => {
+    return jsx(Button, {
+      className: classes([["pdp-carousel__button", !forThumbnails], [`pdp-carousel__button--${direction2}`, !forThumbnails], [`pdp-carousel__button--${controls}`, forThumbnails]]),
+      style: {
+        "--height": `${thumbHeight}px`
+      },
+      variant: "tertiary",
+      "aria-label": direction2 === "next" ? NextLabel : PreviousLabel,
+      onClick: callback,
+      disabled: loop ? false : direction2 === "next" ? current >= slides.length - 1 : current < 1,
+      children: jsx(Icon, {
+        className: classes([["pdp-carousel__button__icon", !forThumbnails], [`pdp-carousel__button__icon--${direction2}`, !forThumbnails], [`pdp-carousel__button__icon--${controls}--${direction2}`, forThumbnails]]),
+        size: iconSize,
+        source: SvgChevronDown
+      })
+    });
+  };
+  const prevArrow = arrows && slides.length != 1 && getArrow(thumbnailControls, "prev", handleGoToPrev);
+  const nextArrow = arrows && slides.length != 1 && getArrow(thumbnailControls, "next", handleGoToNext);
+  const prevArrowMainImage = arrows && slides.length != 1 && getArrow(false, "prev", handleGoToPrev);
+  const nextArrowMainImage = arrows && slides.length != 1 && getArrow(false, "next", handleGoToNext);
+  return jsxs("div", {
+    role: "region",
+    "aria-roledescription": Label,
+    className: classes(["pdp-carousel", ["pdp-carousel--main-image-controls", arrowsOnMainImage], ["pdp-carousel--arrows", arrows && !thumbnailControls], [`pdp-carousel--${controls}`, thumbnailControls], className]),
+    style: {
+      "--flex-carousel": controls === "thumbnailsColumn" ? "row-reverse" : "column",
+      "--gap": thumbnailControls ? "0" : "var(--spacing-small)",
+      "--width": width
+    },
+    ...props,
+    children: [jsx("div", {
+      ref: wrapperRef,
+      className: classes(["pdp-carousel__wrapper", `pdp-carousel__wrapper--${direction}`, ["pdp-carousel__wrapper--scrollbar", scrollbar], ["pdp-carousel__wrapper--peak", peak]]),
+      style: {
+        "--total-width": controls === "thumbnailsColumn" ? `81.6%` : `100%`,
+        "--height": controls === "thumbnailsColumn" ? "auto" : height,
+        "--gap": gap ? `var(--spacing-${gap})` : "0px",
+        "--per-page": perPage
+      },
+      tabIndex: 0,
+      children: slides.map((page, index) => {
+        const orphan = page.length < perPage;
+        return jsx("div", {
+          role: "group",
+          "aria-roledescription": SlideLabel,
+          "data-index": index,
+          className: classes(["pdp-carousel__slide", `pdp-carousel__slide--${direction}`, ["pdp-carousel__slide--active", current === index], ["pdp-carousel__slide--orphan", orphan]]),
+          style: {
+            "--length": page.length
+          },
+          children: page
+        }, index);
+      })
+    }), !thumbnailControls && jsxs(Fragment, {
+      children: [prevArrow, nextArrow]
+    }), thumbnailControls && arrowsOnMainImage && jsxs(Fragment, {
+      children: [prevArrowMainImage, nextArrowMainImage]
+    }), controls && slides.length != 1 && jsxs("div", {
+      className: classes([[`pdp-carousel__controls__container--${controls}`, thumbnailControls], ["pdp-carousel__controls__container--no-arrows", !arrows || arrowsOnMainImage]]),
+      style: {
+        "--width": controls === "thumbnailsRow" ? `${thumbWidth}px` : width,
+        "--height": `${thumbHeight}px`,
+        "--nr-thumbnails": thumbnailSlides.length
+      },
+      children: [(thumbnailControls || isZoomed) && !arrowsOnMainImage && prevArrow, jsx("div", {
+        ref: thumbnailsWrapperRef,
+        className: classes([[`pdp-carousel__controls__wrapper--${controls}`, thumbnailControls], [`pdp-carousel__controls__wrapper`, thumbnailControls]]),
+        children: jsx("div", {
+          role: "group",
+          "aria-label": ControlsLabel,
+          className: classes(["pdp-carousel__controls", [`pdp-carousel__controls--${controls}`, thumbnailControls]]),
+          children: (loop ? slides.slice(0, length) : slides).map((_, key) => {
+            const buttonsLength = loop ? length : slides.length;
+            const active = loop ? current - 1 === key : current === key;
+            if (!thumbnailControls) {
+              return jsx("button", {
+                "aria-label": ControlsBtnLabel.replace("{key}", String(key + 1)).replace("{total}", String(buttonsLength)),
+                onClick: () => {
+                  handleScrollTo(loop ? key + 1 : key, true);
+                },
+                className: classes(["pdp-carousel__controls__button", ["pdp-carousel__controls__button--active", active]])
+              }, key);
+            }
+            return jsxs("label", {
+              className: classes(["pdp-carousel__thumbnail__container"]),
+              ref: (el) => {
+                if (el) {
+                  thumbnailsRefs.current[key] = el;
+                }
+              },
+              children: [jsx("input", {
+                type: "radio",
+                name: "carousel-thumbnails",
+                "aria-label": ControlsBtnLabel.replace("{key}", String(key + 1)).replace("{total}", String(buttonsLength)),
+                checked: active && thumbWidth !== 0,
+                onChange: () => {
+                  handleScrollTo(loop ? key + 1 : key, true);
+                },
+                ...props,
+                className: classes(["pdp-carousel__thumbnail", ["pdp-carousel__thumbnail--selected", active && thumbWidth !== 0]])
+              }), jsx("span", {
+                className: classes(["pdp-carousel__thumbnail__span"]),
+                children: thumbnailSlides[key]
+              })]
+            }, key);
+          })
+        })
+      }), (thumbnailControls || isZoomed) && !arrowsOnMainImage && nextArrow]
+    })]
+  });
+};
+function getPerPageFromBreakpoint(breakpoints, width = 0) {
+  if (typeof breakpoints === "number")
+    return breakpoints;
+  const {
+    small,
+    medium,
+    large
+  } = breakpoints;
+  const mediumViewport = 786;
+  const largeVierport = 1024;
+  if (width > largeVierport)
+    return large;
+  if (width > mediumViewport)
+    return medium;
+  return small;
+}
+const Product = ({
+  title,
+  breadcrumbs,
+  galleryContent,
+  infoContent,
+  productContent,
+  sku,
+  outOfStock,
+  hideSku,
+  shortDescription,
+  description,
+  attributes,
+  images,
+  options,
+  price,
+  specialPrice,
+  className,
+  children,
+  quantity,
+  actions,
+  carouselConfig,
+  ...props
+}) => {
+  var _a, _b, _c, _d, _e, _f;
+  const RegularPriceLabel = useText("PDP.Product.RegularPrice.label").label;
+  const SpecialPriceLabel = useText("PDP.Product.SpecialPrice.label").label;
+  const OutOfStockLabel = useText("PDP.Product.OutOfStock.label").label;
+  const ImagesLabel = useText("PDP.Product.Image.label").label;
+  const [zoom, setZoom] = useState(null);
+  const galleryImages = (images == null ? void 0 : images.length) ? images.map((image, key) => {
+    var _a2;
+    return jsx(VComponent, {
+      node: image,
+      loading: key === 0 ? "eager" : "lazy",
+      alt: ((_a2 = title == null ? void 0 : title.props) == null ? void 0 : _a2.children) && (ImagesLabel == null ? void 0 : ImagesLabel.replace("{product}", title.props.children.toString()).replace("{key}", String(key + 1)).replace("{total}", String(images.length))),
+      onClick: () => setZoom(key)
+    }, key);
+  }) : jsx("img", {
+    src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    className: "pdp-product__images__placeholder",
+    "aria-hidden": true
+  });
+  const localThumbnailsImages = ((_a = carouselConfig == null ? void 0 : carouselConfig.thumbnails) == null ? void 0 : _a.length) ? carouselConfig.thumbnails.map((image, key) => {
+    var _a2;
+    return jsx(VComponent, {
+      node: image,
+      loading: (carouselConfig == null ? void 0 : carouselConfig.thumbnailsLoadingMode) || "lazy",
+      alt: ((_a2 = title == null ? void 0 : title.props) == null ? void 0 : _a2.children) && (ImagesLabel == null ? void 0 : ImagesLabel.replace("{product}", title.props.children.toString()).replace("{key}", String(key + 1)).replace("{total}", String(images.length)))
+    }, key);
+  }) : jsx("img", {
+    src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    className: "pdp-product__images__placeholder",
+    "aria-hidden": true
+  });
+  return jsxs("div", {
+    ...props,
+    className: classes(["pdp-product", className]),
+    children: [breadcrumbs && jsx(VComponent, {
+      node: breadcrumbs,
+      className: "pdp-product__breadcrumbs"
+    }), jsxs("div", {
+      className: "pdp-product__column-container pdp-product__gallery-column",
+      children: [jsx("div", {
+        className: "pdp-product__column-body",
+        children: (carouselConfig == null ? void 0 : carouselConfig.controls) ? jsx(Carousel, {
+          className: "pdp-product__overlay__carousel",
+          arrows: (images == null ? void 0 : images.length) > 1,
+          controls: (images == null ? void 0 : images.length) > 1 ? carouselConfig.controls : "dots",
+          arrowsOnMainImage: carouselConfig == null ? void 0 : carouselConfig.arrowsOnMainImage,
+          loop: (carouselConfig == null ? void 0 : carouselConfig.loopable) && (images == null ? void 0 : images.length) > 1,
+          peak: ((_b = carouselConfig == null ? void 0 : carouselConfig.thumbnails) == null ? void 0 : _b.length) > 1 && ((_c = carouselConfig == null ? void 0 : carouselConfig.peak) == null ? void 0 : _c.desktop) || false,
+          gap: (carouselConfig == null ? void 0 : carouselConfig.gap) || null,
+          width: "100%",
+          height: "100%",
+          defaultIndex: zoom || 0,
+          thumbnails: localThumbnailsImages,
+          children: galleryImages
+        }) : jsx(GalleryGrid, {
+          className: "pdp-product__images",
+          gap: "small",
+          children: galleryImages
+        })
+      }), galleryContent && jsx(VComponent, {
+        node: galleryContent,
+        className: "pdp-product__gallery-content"
+      })]
+    }), jsxs("div", {
+      className: "pdp-product__column-container pdp-product__content-column",
+      children: [jsxs("div", {
+        className: "pdp-product__column-body",
+        children: [jsxs("div", {
+          className: "pdp-product__header",
+          children: [title && jsx(VComponent, {
+            node: title,
+            className: "pdp-product__title"
+          }), !hideSku && sku && jsx(VComponent, {
+            node: sku,
+            className: "pdp-product__sku"
+          })]
+        }), jsxs("div", {
+          className: "pdp-product__prices",
+          children: [specialPrice && jsx(VComponent, {
+            node: specialPrice,
+            className: classes(["pdp-product__price-special", "pdp-product__price"]),
+            "aria-label": SpecialPriceLabel,
+            role: "text"
+          }), price && jsx(VComponent, {
+            node: price,
+            className: classes(["pdp-product__price-regular", "pdp-product__price--grey"]),
+            "aria-label": RegularPriceLabel,
+            role: "text"
+          })]
+        }), (carouselConfig == null ? void 0 : carouselConfig.mobile) ? jsx(Carousel, {
+          className: "pdp-product__images pdp-product__images--carousel pdp-product__images--carousel--thumbnails",
+          width: "100%",
+          height: "auto",
+          arrows: (images == null ? void 0 : images.length) > 1,
+          controls: (images == null ? void 0 : images.length) > 1 ? "thumbnailsRow" : null,
+          loop: (carouselConfig == null ? void 0 : carouselConfig.loopable) && (images == null ? void 0 : images.length) > 1,
+          peak: ((_d = carouselConfig == null ? void 0 : carouselConfig.thumbnails) == null ? void 0 : _d.length) > 1 && ((_e = carouselConfig == null ? void 0 : carouselConfig.peak) == null ? void 0 : _e.mobile) || false,
+          gap: (carouselConfig == null ? void 0 : carouselConfig.gap) || null,
+          thumbnails: localThumbnailsImages,
+          children: galleryImages
+        }) : jsx(Carousel, {
+          className: "pdp-product__images pdp-product__images--carousel",
+          peak: ((_f = carouselConfig == null ? void 0 : carouselConfig.peak) == null ? void 0 : _f.mobile) && (images == null ? void 0 : images.length) > 1,
+          gap: (carouselConfig == null ? void 0 : carouselConfig.gap) || null,
+          width: "100%",
+          height: "auto",
+          arrows: (images == null ? void 0 : images.length) > 1,
+          controls: (images == null ? void 0 : images.length) > 1 ? "dots" : null,
+          loop: (carouselConfig == null ? void 0 : carouselConfig.loopable) && (images == null ? void 0 : images.length) > 1,
+          children: galleryImages
+        }), jsxs("div", {
+          className: classes(["pdp-product__actions", [`pdp-product__actions--out-of-stock`, outOfStock]]),
+          children: [outOfStock && jsx("div", {
+            className: "pdp-product__out-of-stock__text",
+            children: OutOfStockLabel
+          }), options && jsx(VComponent, {
+            node: options,
+            className: classes(["pdp-product__options"])
+          }), quantity && jsx("div", {
+            className: "pdp-product__quantity",
+            children: jsx(VComponent, {
+              node: quantity
+            })
+          }), actions && jsx(VComponent, {
+            node: actions,
+            className: classes(["pdp-product__buttons"])
+          })]
+        }), shortDescription && jsx(VComponent, {
+          node: shortDescription,
+          className: classes(["pdp-product__short_description"])
+        }), description && jsx(VComponent, {
+          node: description,
+          className: classes(["pdp-product__description"])
+        }), attributes ? jsx("div", {
+          className: "pdp-product__attributes",
+          children: attributes
+        }) : null]
+      }), infoContent && jsx(VComponent, {
+        node: infoContent,
+        className: "pdp-product__info-content"
+      })]
+    }), productContent && jsx(VComponent, {
+      node: productContent,
+      className: "pdp-product__content"
+    }), zoom === null ? null : jsx(Overlay, {
+      className: "pdp-product__overlay",
+      onClose: () => setZoom(null),
+      centered: true,
+      children: jsx(Carousel, {
+        className: "pdp-product__overlay__carousel",
+        arrows: (images == null ? void 0 : images.length) > 1,
+        width: "100%",
+        height: "100%",
+        defaultIndex: zoom || 0,
+        loop: (images == null ? void 0 : images.length) > 1,
+        controls: (images == null ? void 0 : images.length) > 1 ? "dots" : null,
+        isZoomed: true,
+        children: galleryImages
+      })
+    })]
+  });
+};
+const GalleryGrid = ({
+  children,
+  gap = null,
+  className,
+  style,
+  ...props
+}) => {
+  const count = Children.count(children);
+  return jsx("div", {
+    ...props,
+    className: classes(["pdp-gallery-grid", className]),
+    style: {
+      "--gap": gap ? `var(--spacing-${gap})` : "0px",
+      ...style
+    },
+    children: Children.map(children, (child, key) => jsx("div", {
+      className: "pdp-gallery-grid__item",
+      children: jsx(VComponent, {
+        node: child,
+        loading: key === 0 ? "eager" : "lazy"
+      }, child.props.src)
+    }, count + key))
+  });
+};
+const PriceRange = ({
+  amount,
+  currency,
+  locale,
+  variant,
+  sale,
+  minimumAmount,
+  maximumAmount,
+  className,
+  ...props
+}) => {
+  return jsx(Fragment, {
+    children: amount || minimumAmount === maximumAmount ? jsx("div", {
+      className: "pdp-price-range",
+      ...props,
+      children: jsx(Price, {
+        amount: amount ? amount : minimumAmount,
+        currency,
+        locale,
+        variant,
+        sale,
+        className
+      })
+    }) : jsxs("div", {
+      className: "pdp-price-range",
+      ...props,
+      children: [jsx(Price, {
+        amount: minimumAmount,
+        currency,
+        locale,
+        className
+      }), jsx("span", {
+        className: "pdp-price-range__label",
+        children: "-"
+      }), jsx(Price, {
+        amount: maximumAmount,
+        currency,
+        locale,
+        className
+      })]
+    })
+  });
+};
+const Overlay = ({
+  centered,
+  onClose,
+  className,
+  children,
+  ...props
+}) => {
+  const CloseLabel = useText("PDP.Overlay.Close.label").label;
+  const handleOnClose = useCallback(() => {
+    onClose == null ? void 0 : onClose();
+  }, [onClose]);
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        handleOnClose();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleOnClose]);
+  useEffect(() => {
+    const scrollingElement = document.scrollingElement;
+    const defaultOverflowValue = scrollingElement.style.overflow;
+    scrollingElement.style.overflow = "hidden";
+    return () => {
+      scrollingElement.style.overflow = defaultOverflowValue;
+    };
+  }, []);
+  return jsxs("div", {
+    ...props,
+    className: classes(["pdp-overlay", ["pdp-overlay--centered", centered], className]),
+    children: [jsx("div", {
+      className: "pdp-overlay__content",
+      children
+    }), jsx(Button, {
+      "aria-label": CloseLabel,
+      variant: "tertiary",
+      className: "pdp-overlay__close-button",
+      onClick: handleOnClose,
+      icon: jsx(SvgClose, {})
+    })]
+  });
+};
+const supportedTypes = ["text", "image", "color", "dropdown"];
+const mapToPickerOptions = (items) => {
+  return items.map((item) => ({
+    ...item,
+    text: item.label,
+    disabled: !item.inStock
+  }));
+};
+const Swatches = ({
+  options,
+  hideSelectedValue,
+  onValues,
+  onErrors,
+  defaultOptions,
+  selectionsToUpdate,
+  className,
+  children,
+  ...props
+}) => {
+  const RequiredLabel = useText("PDP.Swatches.Required.label").label;
+  const [selections, setSelections] = useState(() => {
+    const initial = options == null ? void 0 : options.reduce((accum, option) => {
+      const {
+        items
+      } = option;
+      const defaultSelection = items == null ? void 0 : items.find((item) => defaultOptions == null ? void 0 : defaultOptions.includes(item.id));
+      const selected = items == null ? void 0 : items.find((item) => item.selected);
+      if (defaultSelection) {
+        return {
+          ...accum,
+          [option.id]: {
+            label: defaultSelection.label,
+            value: defaultSelection.id
+          }
+        };
+      } else if (selected) {
+        return {
+          ...accum,
+          [option.id]: {
+            label: selected.label,
+            value: selected.id
+          }
+        };
+      }
+      return accum;
+    }, {});
+    return initial;
+  });
+  useEffect(() => {
+    selectionsToUpdate == null ? void 0 : selectionsToUpdate.forEach((selectionToUpdate) => {
+      setSelections((prev) => {
+        var _a;
+        const selectedItem = (_a = selectionToUpdate == null ? void 0 : selectionToUpdate.items) == null ? void 0 : _a.find((item) => item.selected);
+        if (!selectedItem)
+          return prev;
+        const next = {
+          ...prev,
+          [selectionToUpdate.id]: {
+            label: selectedItem == null ? void 0 : selectedItem.label,
+            value: selectedItem == null ? void 0 : selectedItem.id
+          }
+        };
+        return next;
+      });
+    });
+  }, [selectionsToUpdate, setSelections]);
+  useMemo(() => {
+    const errors = options == null ? void 0 : options.reduce((accum, option) => {
+      var _a;
+      (_a = option == null ? void 0 : option.items) == null ? void 0 : _a.forEach((item) => {
+        var _a2;
+        const selected = ((_a2 = selections[option.id]) == null ? void 0 : _a2.value) === item.id;
+        if (option.required && !selected) {
+          accum[option.id] = RequiredLabel;
+        }
+      });
+      return accum;
+    }, {});
+    onErrors == null ? void 0 : onErrors(errors);
+    return errors;
+  }, [selections]);
+  const handleOnSelection = useCallback((id, label, optionId) => {
+    setSelections((prev) => {
+      const next = {
+        ...prev,
+        [id]: {
+          label,
+          value: optionId
+        }
+      };
+      onValues == null ? void 0 : onValues(next, optionId);
+      return next;
+    });
+  }, [onValues]);
+  const handlePickerSelect = (optionId, selection) => {
+    var _a;
+    const label = ((_a = selection.selectedOptions[0]) == null ? void 0 : _a.label) ?? "";
+    handleOnSelection(optionId, label, selection.value);
+  };
+  const Swatches2 = useCallback(({
+    items,
+    id,
+    required,
+    type,
+    selected,
+    label
+  }) => {
+    return jsx("div", {
+      className: classes(["pdp-swatches__options"]),
+      children: (type == null ? void 0 : type.toLowerCase()) === "dropdown" ? jsx(Picker, {
+        "aria-label": label,
+        handleSelect: (event) => handlePickerSelect(id, event.target),
+        options: mapToPickerOptions(items),
+        value: selected
+      }) : items == null ? void 0 : items.map((option) => {
+        const common = {
+          key: option.id,
+          id: option.id,
+          name: id,
+          value: option.value,
+          label: option.label,
+          groupAriaLabel: label,
+          selected: selected === option.id,
+          outOfStock: !option.inStock,
+          // API may return null, we default to true as all swatches are required.
+          //  we still comply to this in case the api return "false".
+          required: required === null ? true : required,
+          onValue: () => {
+            handleOnSelection(id, option.label, option.id);
+          }
+        };
+        switch (type) {
+          case "text":
+            return jsx(TextSwatch, {
+              ...common,
+              label: option.label
+            });
+          case "image":
+            return jsx(ImageSwatch, {
+              ...common,
+              src: option.value,
+              alt: option.label
+            });
+          case "color":
+            return jsx(ColorSwatch, {
+              ...common,
+              size: "large",
+              color: option.value
+            });
+          default:
+            console.warn(`Invalid swatch type ${type}`);
+            return null;
+        }
+      })
+    });
+  }, [handleOnSelection]);
+  return jsx("div", {
+    ...props,
+    className: classes(["pdp-swatches", className]),
+    children: options == null ? void 0 : options.map(({
+      type,
+      label,
+      id,
+      multiple,
+      required,
+      items
+    }) => {
+      var _a;
+      if (!type) {
+        console.warn(`Bundle product not supported on UI.`);
+        return;
+      }
+      if (!supportedTypes.includes(type)) {
+        console.warn(`Invalid swatch type ${type}`);
+      }
+      if (multiple) {
+        console.warn("Multiple selection swatches are not currently supported.");
+      }
+      return jsxs("div", {
+        id: `swatch-item-${id}`,
+        "data-slot-key": `product-swatch--${id}`,
+        className: "pdp-swatches__field",
+        children: [jsx("div", {
+          className: "pdp-swatches__field__label",
+          children: selections[id] ? hideSelectedValue ? `${label}` : `${label}: ${selections[id].label}` : label
+        }), jsx(Swatches2, {
+          id,
+          type,
+          required,
+          items,
+          label,
+          selected: (_a = selections[id]) == null ? void 0 : _a.value
+        })]
+      }, `swatch-item-${id}`);
+    })
+  });
+};
+function toDateString(value, locale = "en_US") {
+  if (!isDateValid(value))
+    throw Error("Invalid date string");
+  const time = value.split(" ")[1];
+  if (!time)
+    value = `${value} 00:00:00`;
+  return new Date(value).toLocaleDateString(toLanguageTag(locale)).toString();
+}
+function isDateValid(dateString) {
+  const acceptedFormats = [
+    /^\d{4}-\d{2}-\d{2}$/,
+    // YYYY-MM-DD
+    /^\d{1,2}\/\d{1,2}\/\d{4}$/,
+    // MM/DD/YYYY
+    /^\d{2}\/\d{2}\/\d{4}$/,
+    // MM/DD/YYYY
+    /^\d{4}\/\d{2}\/\d{2}$/,
+    // YYYY/MM/DD
+    /^\d{1,2}\.\d{1,2}\.\d{4}$/,
+    // DD.MM.YYYY
+    /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/
+    // YYYY-MM-DD HH:mm:ss
+  ];
+  if (!acceptedFormats.some((format) => format.test(dateString)))
+    return false;
+  const date = new Date(dateString);
+  return !isNaN(date.getTime());
+}
+function setUrlParams(params) {
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  Object.entries(params).forEach(([key, value]) => {
+    if (value === null) {
+      urlSearchParams.delete(key);
+    } else {
+      urlSearchParams.set(key, String(value));
+    }
+  });
+  let url = window.location.pathname;
+  url += `?${urlSearchParams.toString()}`;
+  url += window.location.hash;
+  window.history.replaceState({}, "", url);
+}
+function getUrlParams() {
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const params = {};
+  urlSearchParams.forEach((value, key) => {
+    params[key] = value;
+  });
+  return params;
+}
+const ProductDetails = ({
+  sku,
+  hideSku,
+  hideQuantity,
+  hideShortDescription,
+  hideDescription,
+  hideAttributes,
+  hideURLParams,
+  hideSelectedOptionValue,
+  slots,
+  children,
+  initialData,
+  carousel,
+  optionsConfig,
+  onAddToCart,
+  ...props
+}) => {
+  var _a, _b, _c, _d;
+  const AddToCartLabel = useText("PDP.Product.AddToCart.label").label;
+  const IncrementerLabel = useText("PDP.Product.Incrementer.label").label;
+  const DetailsLabel = useText("PDP.Product.Details.label").label;
+  const [locale, setLocale] = useState(config.getConfig().defaultLocale || "en-US");
+  const [selectionsToUpdate, setSelectionsToUpdate] = useState();
+  const [data = null, setData] = useState(initialData);
+  const [values, setValues] = useState(() => {
+    const defaultValues = {
+      sku,
+      quantity: 1
+    };
+    if (data == null ? void 0 : data.optionUIDs) {
+      defaultValues.optionsUIDs = data.optionUIDs;
+    }
+    return defaultValues;
+  });
+  const [valid, setValid] = useState(() => {
+    var _a2, _b2;
+    return !((data == null ? void 0 : data.options) && ((_a2 = data == null ? void 0 : data.options) == null ? void 0 : _a2.length) > 0 && ((_b2 = data == null ? void 0 : data.optionUIDs) == null ? void 0 : _b2.length) !== (data == null ? void 0 : data.options.length));
+  });
+  const defaultSlotContext = {
+    data,
+    values,
+    valid
+  };
+  useEffect(() => {
+    const localeEvent = events.on("locale", (payload) => {
+      if (payload === locale)
+        return;
+      setLocale(payload);
+      getProductData(sku).then(setData);
+    });
+    return () => {
+      localeEvent == null ? void 0 : localeEvent.off();
+    };
+  }, [locale, sku]);
+  const handleOnValues = useCallback((newValues) => {
+    setValues((prev) => ({
+      ...prev,
+      ...newValues
+    }));
+  }, []);
+  const handleOptionSelected = useCallback((selections) => {
+    var _a2;
+    let optionsUIDs = Object.keys(selections).map((id) => selections[id].value).filter((element) => element !== void 0);
+    if (!hideURLParams) {
+      setUrlParams({
+        optionsUIDs: optionsUIDs.join(",")
+      });
+    }
+    setValues((prev) => ({
+      ...prev,
+      optionsUIDs
+    }));
+    setValid((optionsUIDs == null ? void 0 : optionsUIDs.length) === ((_a2 = data == null ? void 0 : data.options) == null ? void 0 : _a2.length));
+    getRefinedProduct(sku, optionsUIDs, optionsConfig == null ? void 0 : optionsConfig.anchorOptions).then((next) => {
+      var _a3;
+      setData(next);
+      if ((_a3 = optionsConfig == null ? void 0 : optionsConfig.anchorOptions) == null ? void 0 : _a3.length) {
+        processUpdates(next, optionsUIDs);
+      }
+    });
+  }, [sku]);
+  const processUpdates = useCallback((next, previousOptionsUIDs) => {
+    var _a2;
+    const updatedOptionsUIDs = (next == null ? void 0 : next.optionUIDs) ?? [];
+    const haveSameValues = previousOptionsUIDs.every((item) => updatedOptionsUIDs.includes(item));
+    if (!haveSameValues) {
+      setSelectionsToUpdate(next == null ? void 0 : next.options);
+      setValues((prev) => ({
+        ...prev,
+        optionsUIDs: updatedOptionsUIDs
+      }));
+      setValid((updatedOptionsUIDs == null ? void 0 : updatedOptionsUIDs.length) === ((_a2 = next == null ? void 0 : next.options) == null ? void 0 : _a2.length));
+    }
+  }, [sku]);
+  const handleOnErrors = useCallback((_errors) => {
+    if (Object.keys(_errors).length !== 0)
+      setValid(false);
+  }, []);
+  const attributes = useMemo(() => {
+    var _a2;
+    return (_a2 = data == null ? void 0 : data.attributes) == null ? void 0 : _a2.map(({
+      label,
+      value
+    }, key) => {
+      const __html = isDateValid(value) ? toDateString(value, locale) : value.toString();
+      return jsxs("li", {
+        children: [label, ": ", jsx("span", {
+          dangerouslySetInnerHTML: {
+            __html
+          }
+        })]
+      }, key);
+    });
+  }, [data == null ? void 0 : data.attributes, locale]);
+  const quantity = !hideQuantity && (data == null ? void 0 : data.inStock) ? jsx(Slot, {
+    name: "Quantity",
+    slot: slots == null ? void 0 : slots.Quantity,
+    context: {
+      ...defaultSlotContext
+    },
+    children: jsx(Incrementer, {
+      name: "quantity",
+      defaultValue: values.quantity.toString(),
+      min: 1,
+      "aria-label": IncrementerLabel,
+      className: "pdp-product__quantity",
+      onValue: (quantity2) => {
+        handleOnValues({
+          quantity: Number(quantity2)
+        });
+      }
+    }, "quantity")
+  }) : void 0;
+  const renderOptions = () => {
+    if (data == null ? void 0 : data.options) {
+      return jsx(Slot, {
+        name: "Options",
+        slot: slots == null ? void 0 : slots.Options,
+        context: {
+          ...defaultSlotContext
+        },
+        children: jsx(Swatches, {
+          options: data.options,
+          defaultOptions: values.optionsUIDs,
+          selectionsToUpdate,
+          hideSelectedValue: hideSelectedOptionValue,
+          onValues: handleOptionSelected,
+          onErrors: handleOnErrors
+        })
+      });
+    }
+  };
+  return jsx("div", {
+    ...props,
+    children: jsx(Product, {
+      title: jsx(Slot, {
+        name: "Title",
+        slot: slots == null ? void 0 : slots.Title,
+        context: {
+          ...defaultSlotContext
+        },
+        children: data == null ? void 0 : data.name
+      }),
+      sku: hideSku ? void 0 : jsx(Slot, {
+        name: "SKU",
+        slot: slots == null ? void 0 : slots.SKU,
+        context: {
+          ...defaultSlotContext
+        },
+        children: data == null ? void 0 : data.sku
+      }),
+      options: renderOptions(),
+      breadcrumbs: (slots == null ? void 0 : slots.Breadcrumbs) && jsx(Slot, {
+        name: "Breadcrumbs",
+        slot: slots == null ? void 0 : slots.Breadcrumbs,
+        context: {
+          ...defaultSlotContext,
+          setSeparator(callback) {
+            this._registerMethod((...attrs) => {
+              const nextSeparator = callback(...attrs);
+              const separator = nextSeparator && jsx(Icon, {
+                source: nextSeparator
+              });
+              this._setProps((prev) => {
+                return {
+                  ...prev,
+                  separator
+                };
+              });
+            });
+          },
+          appendLink(callback) {
+            this._registerMethod((...attrs) => {
+              const {
+                text,
+                ...p
+              } = callback(...attrs);
+              const link = jsx("a", {
+                ...p,
+                children: text
+              });
+              this._setProps((prev) => {
+                return {
+                  ...prev,
+                  categories: [...prev.categories || [], link]
+                };
+              });
+            });
+          },
+          appendHTMLElement(callback) {
+            this._registerMethod((...attrs) => {
+              const domElement = callback(...attrs);
+              const vnode = this._htmlElementToVNode(domElement);
+              this._setProps((prev) => {
+                return {
+                  ...prev,
+                  categories: [...prev.categories || [], vnode]
+                };
+              });
+            });
+          }
+        },
+        render: ({
+          separator,
+          categories
+        }) => {
+          return jsx(Breadcrumbs, {
+            separator,
+            categories
+          });
+        }
+      }),
+      quantity,
+      actions: jsx(Slot, {
+        name: "Actions",
+        slot: slots == null ? void 0 : slots.Actions,
+        context: {
+          ...defaultSlotContext,
+          appendButton(callback) {
+            this._registerMethod((...attrs) => {
+              const _button = callback(...attrs);
+              if (!_button)
+                return;
+              const {
+                text,
+                icon,
+                ...buttonProps
+              } = _button;
+              const button = jsx(Button, {
+                type: "button",
+                ...buttonProps,
+                icon: icon && jsx(Icon, {
+                  source: icon
+                }),
+                children: text
+              });
+              this._setProps((prev) => ({
+                children: [...prev.children || [], button]
+              }));
+            });
+          }
+        },
+        children: (
+          // Default Add to Cart button if no slot is provided
+          !(slots == null ? void 0 : slots.Actions) && jsx(Button, {
+            size: "medium",
+            type: "submit",
+            icon: jsx(Icon, {
+              source: "Cart"
+            }),
+            disabled: !(data == null ? void 0 : data.inStock) || !valid,
+            "aria-label": AddToCartLabel,
+            onClick: () => {
+              return onAddToCart == null ? void 0 : onAddToCart(values);
+            },
+            children: AddToCartLabel
+          })
+        )
+      }),
+      shortDescription: !hideShortDescription ? jsx(Slot, {
+        name: "ShortDescription",
+        slot: slots == null ? void 0 : slots.ShortDescription,
+        context: {
+          ...defaultSlotContext
+        },
+        children: jsx("div", {
+          dangerouslySetInnerHTML: {
+            __html: (data == null ? void 0 : data.shortDescription) ?? ""
+          }
+        })
+      }) : void 0,
+      description: !hideDescription ? jsx(Slot, {
+        name: "Description",
+        slot: slots == null ? void 0 : slots.Description,
+        context: {
+          ...defaultSlotContext
+        },
+        children: jsx("div", {
+          dangerouslySetInnerHTML: {
+            __html: (data == null ? void 0 : data.description) ?? ""
+          }
+        })
+      }) : void 0,
+      images: ((_a = data == null ? void 0 : data.images) == null ? void 0 : _a.map(({
+        label,
+        url
+      }) => {
+        var _a2, _b2;
+        return jsx(Image, {
+          title: label,
+          alt: label,
+          src: url,
+          width: ((_a2 = carousel == null ? void 0 : carousel.imageParams) == null ? void 0 : _a2.width) ?? 960,
+          height: ((_b2 = carousel == null ? void 0 : carousel.imageParams) == null ? void 0 : _b2.height) ?? 1191,
+          params: (carousel == null ? void 0 : carousel.imageParams) ?? {
+            width: 960
+          }
+        }, url);
+      })) ?? [],
+      specialPrice: ((_b = data == null ? void 0 : data.prices) == null ? void 0 : _b.visible) ? jsx(Slot, {
+        name: "SpecialPrice",
+        slot: slots == null ? void 0 : slots.SpecialPrice,
+        context: {
+          ...defaultSlotContext
+        },
+        children: jsx(PriceRange, {
+          ...data.prices.final,
+          locale: toLanguageTag(locale)
+        })
+      }) : void 0,
+      price: ((_c = data == null ? void 0 : data.prices) == null ? void 0 : _c.visible) && data.prices.regular && data.prices.final.amount !== (data == null ? void 0 : data.prices.regular.amount) ? jsx(Slot, {
+        name: "RegularPrice",
+        slot: slots == null ? void 0 : slots.RegularPrice,
+        context: {
+          ...defaultSlotContext
+        },
+        children: jsx(PriceRange, {
+          ...data.prices.regular,
+          locale: toLanguageTag(locale)
+        })
+      }) : void 0,
+      carouselConfig: {
+        ...carousel,
+        thumbnails: carousel ? ((_d = data == null ? void 0 : data.images) == null ? void 0 : _d.map(({
+          label,
+          url
+        }) => {
+          var _a2, _b2;
+          return jsx(Image, {
+            title: label,
+            alt: label,
+            src: url,
+            width: ((_a2 = carousel == null ? void 0 : carousel.thumbnailParams) == null ? void 0 : _a2.width) ?? 200,
+            height: ((_b2 = carousel == null ? void 0 : carousel.thumbnailParams) == null ? void 0 : _b2.height) ?? 248,
+            params: (carousel == null ? void 0 : carousel.thumbnailParams) ?? {
+              width: 200
+            }
+          }, url);
+        })) ?? [] : []
+      },
+      outOfStock: !(data == null ? void 0 : data.inStock),
+      attributes: !hideAttributes ? jsx(Slot, {
+        name: "Attributes",
+        slot: slots == null ? void 0 : slots.Attributes,
+        context: {
+          ...defaultSlotContext
+        },
+        children: (attributes == null ? void 0 : attributes.length) ? jsxs(Fragment, {
+          children: [DetailsLabel, jsx("ul", {
+            children: attributes
+          })]
+        }) : null
+      }) : void 0,
+      galleryContent: (slots == null ? void 0 : slots.GalleryContent) && jsx(Slot, {
+        name: "GalleryContent",
+        slot: slots.GalleryContent,
+        context: {
+          ...defaultSlotContext
+        }
+      }),
+      infoContent: (slots == null ? void 0 : slots.InfoContent) && jsx(Slot, {
+        name: "InfoContent",
+        slot: slots.InfoContent,
+        context: {
+          ...defaultSlotContext
+        }
+      }),
+      productContent: (slots == null ? void 0 : slots.Content) && jsx(Slot, {
+        name: "Content",
+        slot: slots.Content,
+        context: {
+          ...defaultSlotContext
+        }
+      })
+    })
+  });
+};
+ProductDetails.getInitialData = async function({
+  sku,
+  optionsConfig
+}) {
+  var _a, _b, _c, _d, _e, _f;
+  const defaultSelections = ((_a = getUrlParams().optionsUIDs) == null ? void 0 : _a.split(",")) || ((_f = (_e = (_d = (_c = (_b = config) == null ? void 0 : _b.getConfig()) == null ? void 0 : _c.models) == null ? void 0 : _d.ProductDetails) == null ? void 0 : _e.initialData) == null ? void 0 : _f.optionsUIDs);
+  if (defaultSelections == null ? void 0 : defaultSelections.length) {
+    return await getRefinedProduct(sku, defaultSelections, optionsConfig == null ? void 0 : optionsConfig.anchorOptions);
+  }
+  return await getProductData(sku);
+};
+export {
+  ProductDetails,
+  ProductDetails as default
+};
 //# sourceMappingURL=ProductDetails.js.map

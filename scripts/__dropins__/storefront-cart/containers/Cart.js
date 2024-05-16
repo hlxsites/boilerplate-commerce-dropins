@@ -1,2 +1,443 @@
-import{useState as o,useCallback as W,useEffect as w}from"@dropins/tools/preact-compat.js";import{events as X}from"@dropins/tools/event-bus.js";import{Divider as Y,PriceSummary as A,Price as h,Picker as q,Input as G,Button as H,CartList as ee,CartItem as te,Image as J}from"@dropins/tools/components/index.js";import{E as ae}from"../chunks/MiniCart__BNaTlGYlao.js";import{jsx as a,jsxs as j,Fragment as K}from"@dropins/tools/preact-jsx-runtime.js";import{c as S,V as $}from"../chunks/vcomponent__7E94D35BBn.js";import{s as re,n as ne}from"../chunks/getStoreConfig__D8pXAQ9VHy.js";import{b as ie,u as se}from"../chunks/updateProductsFromCart__BE6LbKXMc0.js";import{g as ce,a as oe,b as le}from"../chunks/getEstimateShipping__CYg_N_c5R-.js";import{useText as de}from"@dropins/tools/i18n.js";import"@dropins/tools/fetch-graphql.js";const ue=({className:b,children:m,emptyCart:l,heading:d,products:u,priceSummary:p,...t})=>a("div",{...t,className:S(["cart-cart",b]),children:j("div",{className:S(["cart-cart__wrapper"]),children:[d&&j("div",{className:S(["cart-cart__heading",["cart-cart__heading--full-width",!u||!p]]),children:[a($,{node:d,className:"cart-cart__heading-text"}),a(Y,{variant:"primary",className:S(["cart-cart__heading-divider"])})]}),a("div",{className:S(["cart-cart__content",["cart-cart__content--empty",!u],["cart-cart__content--full-width",!p]]),children:u||a($,{node:l,className:"cart-cart__empty-cart"})}),u&&p&&a($,{node:p,className:S(["cart-cart__price-summary"])})]})}),pe=()=>{const[b,m]=o([]),[l,d]=o("US"),[u,p]=o(""),[t,_]=o(""),[D,E]=o([]),[B,f]=o(!1),[z,P]=o(),[R,k]=o(""),[N,F]=o(!1),y=W(i=>{const{shippingCountry:n,shippingState:c="",shippingZip:r=""}=i,U={countryCode:n,postcode:r,region:{code:c}};F(!0),ce(U).then(C=>{C&&(P({amount:C.amount.value,currency:C.amount.currency}),d(n),p(c),_(r),k(c||r||n))}).finally(()=>{F(!1)})},[]),Z=i=>{i.preventDefault(),p(""),_("");const n=i.target.value;d(n)};return w(()=>{oe().then(i=>{let n="US";const c=i.map(r=>(r.isDefaultCountry&&(n=r.id),{text:r.label,value:r.id}));m(c),d(n)})},[]),w(()=>{f(!0),le(l).then(i=>{const n=i.map(c=>({text:c.name,value:c.code}));E(n)}).finally(()=>{f(!1)})},[l,f]),{loading:N,regionsLoading:B,estimatedDestinationText:R,countries:b,selectedCountry:l,selectedRegion:u,selectedZip:t,regions:D,estimatedShippingPrice:z,handleEstimateShipping:y,handleCountrySelected:Z}},me=({children:b,initialData:m=null,routeProduct:l,routeEmptyCartCTA:d,routeCheckout:u,...p})=>{var C,O,Q,V;const[t,_]=o(m),[D,E]=o(new Set),{loading:B,regionsLoading:f,countries:z,regions:P,selectedCountry:R,selectedRegion:k,selectedZip:N,estimatedDestinationText:F,estimatedShippingPrice:y,handleCountrySelected:Z,handleEstimateShipping:i}=pe(),n=(e,s)=>{E(g=>(e?g.add(s):g.delete(s),new Set(g)))},c=(e,s)=>{n(!0,e),se([{uid:e,quantity:s}]).finally(()=>{n(!1,e)})},r=de({applyButton:"Cart.PriceSummary.estimatedShippingForm.apply.label",checkout:"Cart.PriceSummary.checkout",countryField:"Cart.PriceSummary.estimatedShippingForm.country.placeholder",discountedPrice:"Cart.CartItem.discountedPrice",download:"Cart.CartItem.download",freeShipping:"Cart.PriceSummary.freeShipping",heading:"Cart.Cart.heading",message:"Cart.CartItem.message",regularPrice:"Cart.CartItem.regularPrice",recipient:"Cart.CartItem.recipient",sender:"Cart.CartItem.sender",stateField:"Cart.PriceSummary.estimatedShippingForm.state.placeholder",taxToBeDetermined:"Cart.PriceSummary.taxToBeDetermined",zipField:"Cart.PriceSummary.estimatedShippingForm.zip.placeholder",file:"Cart.CartItem.file",files:"Cart.CartItem.files"});w(()=>{const e=X.on("cart/data",s=>{var v,x;_(s);const g=(x=(v=s==null?void 0:s.addresses)==null?void 0:v.shipping)==null?void 0:x[0];if(g){const{countryCode:I,regionCode:L,zipCode:T}=g;i({shippingCountry:I,shippingState:L,shippingZip:T})}},{eager:!0});return()=>{e==null||e.off()}},[i]),w(()=>{m&&Object.keys(m).length>0&&ie(m,re.locale||"en-US")},[m]);const U=(t==null?void 0:t.totalQuantity)??0?a(A,{"data-testid":"price-summary",loading:B,heading:"Order Summary",total:{price:a(h,{amount:t==null?void 0:t.total.value,currency:t==null?void 0:t.total.currency}),estimated:!0},subTotal:{price:a(h,{"data-testid":"subtotal",amount:(C=t==null?void 0:t.subtotal.excludingTax)==null?void 0:C.value,currency:(O=t==null?void 0:t.subtotal.excludingTax)==null?void 0:O.currency})},shipping:t!=null&&t.isVirtual?void 0:{price:(y==null?void 0:y.amount)==0?a("span",{"data-testId":"free-shipping",children:r.freeShipping}):y?a(h,{...y}):a("span",{children:r.taxToBeDetermined}),estimated:!0,countryField:a(q,{name:"shippingCountry",placeholder:r.countryField,value:R,variant:"primary",options:z,handleSelect:Z,"data-testid":"estimate-shipping-country-selector"}),stateField:P.length>0?a(q,{name:"shippingState",placeholder:r.stateField,variant:"primary",options:P,value:k,"data-testid":"estimate-shipping-state-selector",disabled:f}):a(G,{"aria-label":r.stateField,name:"shippingState",placeholder:r.stateField,variant:"primary",value:k,disabled:f,"data-testid":"estimate-shipping-state-input",maxLength:50}),zipField:a(G,{"aria-label":r.zipField,name:"shippingZip",placeholder:r.zipField,variant:"primary","data-testid":"estimate-shipping-zip-input",value:N,maxLength:12}),estimateButton:a(H,{variant:"secondary","data-testid":"estimate-shipping-apply-button","aria-label":r.applyButton,children:r.applyButton}),destinationText:F||r.taxToBeDetermined,onEstimate:i},taxTotal:{price:t!=null&&t.totalTax?a(h,{"data-testid":"tax-total",amount:(Q=t==null?void 0:t.totalTax)==null?void 0:Q.value,currency:(V=t==null?void 0:t.totalTax)==null?void 0:V.currency}):a("span",{"data-testid":"tax-total",children:r.taxToBeDetermined}),estimated:!0},primaryAction:u?a(H,{"data-testid":"checkout-button",variant:"primary",href:u({cartId:t.id}),children:r.checkout}):void 0,discounts:t==null?void 0:t.appliedDiscounts.map(e=>({label:e.label,price:a(h,{"data-testid":"summary-discount-total",amount:-e.amount.value,currency:e.amount.currency,sale:!0})}))}):void 0;return a(ue,{...p,heading:a("div",{children:r.heading}),emptyCart:a(ae,{ctaLinkURL:d==null?void 0:d()}),priceSummary:U,products:(t==null?void 0:t.totalQuantity)??0?a(ee,{children:t==null?void 0:t.items.map((e,s)=>{var x,I,L,T;const g=D.has(e.uid),v={...e.selectedOptions??{},...e.recipient?{[r.recipient]:e.recipient}:{},...e.recipientEmail&&e.recipient?{[r.recipient]:`${e.recipient} (${e.recipientEmail})`}:{},...e.sender?{[r.sender]:e.sender}:{},...e.senderEmail&&e.sender?{[r.sender]:`${e.sender} (${e.senderEmail})`}:{},...e.message?{[r.message]:e.message}:{},...e.links&&e.links.count?e.links.count>1?{[r.files.replace("{count}",e.links.count.toString())]:e.links.result}:{[r.file.replace("{count}",e.links.count.toString())]:e.links.result}:{}};return a(te,{"data-testid":"cart-item",ariaLabel:e.name,updating:g,image:l?a("a",{href:l(e),children:a(J,{loading:s<4?"eager":"lazy",src:e.image.src,alt:e.image.alt,width:"300",height:"300",params:{width:300}})}):a(J,{loading:s<4?"eager":"lazy",src:e.image.src,alt:e.image.alt,width:"300",height:"300",params:{width:300}}),title:a("span",{children:l?a("a",{href:l(e),children:e.name}):a(K,{children:e.name})}),sku:a("span",{children:e.sku}),configurations:Object.keys(v).length>0?v:void 0,quantity:e.quantity,price:a(h,{amount:(x=e.regularPrice)==null?void 0:x.value,currency:(I=e.regularPrice)==null?void 0:I.currency,style:{font:"inherit"}}),total:j(K,{children:[a(h,{amount:e.total.value,currency:e.total.currency,variant:e.discounted?"strikethrough":"default","data-testid":"regular-total","aria-label":r.regularPrice}),e.discounted&&a(h,{amount:(L=e.discountedTotal)==null?void 0:L.value,currency:(T=e.discountedTotal)==null?void 0:T.currency,sale:e.discounted,"data-testid":"discount-total","aria-label":r.discountedPrice})]}),onQuantity:M=>{c(e.uid,M)},onRemove:()=>{c(e.uid,0)}},e.uid)})}):void 0})};me.getInitialData=async function(){return ne()};export{me as Cart,me as default};
+import { useState, useCallback, useEffect } from "@dropins/tools/preact-compat.js";
+import { events } from "@dropins/tools/event-bus.js";
+import { Divider, PriceSummary, Price, Picker, Input, Button, CartList, CartItem, Image } from "@dropins/tools/components/index.js";
+import { E as EmptyCart } from "../chunks/MiniCart__Z0P62hxE1k.js";
+import { jsx, jsxs, Fragment } from "@dropins/tools/preact-jsx-runtime.js";
+import { c as classes, V as VComponent } from "../chunks/vcomponent__DzjhryT0dc.js";
+import { s as state, n as getPersistedData } from "../chunks/getStoreConfig__D5TZNZKL7r.js";
+import { b as publishShoppingCartViewEvent, u as updateProductsFromCart } from "../chunks/updateProductsFromCart__BgOPk2gVgl.js";
+import { g as getEstimateShipping, a as getCountries, b as getRegions } from "../chunks/getEstimateShipping__Bin9bPsMEq.js";
+import { useText } from "@dropins/tools/i18n.js";
+import "@dropins/tools/fetch-graphql.js";
+const Cart$1 = ({
+  className,
+  children,
+  emptyCart,
+  heading,
+  products,
+  priceSummary,
+  ...props
+}) => {
+  return jsx("div", {
+    ...props,
+    className: classes(["cart-cart", className]),
+    children: jsxs("div", {
+      className: classes(["cart-cart__wrapper"]),
+      children: [heading && jsxs("div", {
+        className: classes(["cart-cart__heading", ["cart-cart__heading--full-width", !products || !priceSummary]]),
+        children: [jsx(VComponent, {
+          node: heading,
+          className: "cart-cart__heading-text"
+        }), jsx(Divider, {
+          variant: "primary",
+          className: classes(["cart-cart__heading-divider"])
+        })]
+      }), jsx("div", {
+        className: classes(["cart-cart__content", ["cart-cart__content--empty", !products], ["cart-cart__content--full-width", !priceSummary]]),
+        children: products || jsx(VComponent, {
+          node: emptyCart,
+          className: "cart-cart__empty-cart"
+        })
+      }), products && priceSummary && jsx(VComponent, {
+        node: priceSummary,
+        className: classes(["cart-cart__price-summary"])
+      })]
+    })
+  });
+};
+const useEstimatedShipping = () => {
+  const [countries, setCountries] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState("US");
+  const [selectedRegion, setSelectedRegion] = useState("");
+  const [selectedZip, setSelectedZip] = useState("");
+  const [regions, setRegions] = useState([]);
+  const [regionsLoading, setRegionsLoading] = useState(false);
+  const [estimatedShippingPrice, setEstimatedShippingPrice] = useState();
+  const [estimatedDestinationText, setEstimatedDestinationText] = useState("");
+  const [priceSummaryLoading, setPriceSummaryLoading] = useState(false);
+  const handleEstimateShipping = useCallback((formValues) => {
+    const {
+      shippingCountry,
+      shippingState = "",
+      shippingZip = ""
+    } = formValues;
+    const addressData = {
+      countryCode: shippingCountry,
+      postcode: shippingZip,
+      region: {
+        code: shippingState
+      }
+    };
+    setPriceSummaryLoading(true);
+    getEstimateShipping(addressData).then((data) => {
+      if (data) {
+        setEstimatedShippingPrice({
+          amount: data.amount.value,
+          currency: data.amount.currency
+        });
+        setSelectedCountry(shippingCountry);
+        setSelectedRegion(shippingState);
+        setSelectedZip(shippingZip);
+        setEstimatedDestinationText(shippingState || shippingZip || shippingCountry);
+      }
+    }).finally(() => {
+      setPriceSummaryLoading(false);
+    });
+  }, []);
+  const handleCountrySelected = (event) => {
+    event.preventDefault();
+    setSelectedRegion("");
+    setSelectedZip("");
+    const value = event.target.value;
+    setSelectedCountry(value);
+  };
+  useEffect(() => {
+    getCountries().then((countries2) => {
+      let defaultCountry = "US";
+      const transformedCountries = countries2.map((country) => {
+        if (country.isDefaultCountry) {
+          defaultCountry = country.id;
+        }
+        return {
+          text: country.label,
+          value: country.id
+        };
+      });
+      setCountries(transformedCountries);
+      setSelectedCountry(defaultCountry);
+    });
+  }, []);
+  useEffect(() => {
+    setRegionsLoading(true);
+    getRegions(selectedCountry).then((regions2) => {
+      const transformedRegions = regions2.map((region) => {
+        return {
+          text: region.name,
+          value: region.code
+        };
+      });
+      setRegions(transformedRegions);
+    }).finally(() => {
+      setRegionsLoading(false);
+    });
+  }, [selectedCountry, setRegionsLoading]);
+  return {
+    loading: priceSummaryLoading,
+    regionsLoading,
+    estimatedDestinationText,
+    countries,
+    selectedCountry,
+    selectedRegion,
+    selectedZip,
+    regions,
+    estimatedShippingPrice,
+    handleEstimateShipping,
+    handleCountrySelected
+  };
+};
+const Cart = ({
+  children,
+  initialData = null,
+  routeProduct,
+  routeEmptyCartCTA,
+  routeCheckout,
+  ...props
+}) => {
+  var _a, _b, _c, _d;
+  const [data, setData] = useState(initialData);
+  const [itemsLoading, setItemLoading] = useState(/* @__PURE__ */ new Set());
+  const {
+    loading: priceSummaryLoading,
+    regionsLoading,
+    countries,
+    regions,
+    selectedCountry,
+    selectedRegion,
+    selectedZip,
+    estimatedDestinationText,
+    estimatedShippingPrice,
+    handleCountrySelected,
+    handleEstimateShipping
+  } = useEstimatedShipping();
+  const handleItemsLoading = (state2, uid) => {
+    setItemLoading((prev) => {
+      state2 ? prev.add(uid) : prev.delete(uid);
+      return new Set(prev);
+    });
+  };
+  const handleItemQuantityUpdate = (uid, quantity) => {
+    handleItemsLoading(true, uid);
+    updateProductsFromCart([{
+      uid,
+      quantity
+    }]).finally(() => {
+      handleItemsLoading(false, uid);
+    });
+  };
+  const dictionary = useText({
+    applyButton: "Cart.PriceSummary.estimatedShippingForm.apply.label",
+    checkout: "Cart.PriceSummary.checkout",
+    countryField: "Cart.PriceSummary.estimatedShippingForm.country.placeholder",
+    discountedPrice: "Cart.CartItem.discountedPrice",
+    download: "Cart.CartItem.download",
+    freeShipping: "Cart.PriceSummary.freeShipping",
+    heading: "Cart.Cart.heading",
+    message: "Cart.CartItem.message",
+    regularPrice: "Cart.CartItem.regularPrice",
+    recipient: "Cart.CartItem.recipient",
+    sender: "Cart.CartItem.sender",
+    stateField: "Cart.PriceSummary.estimatedShippingForm.state.placeholder",
+    taxToBeDetermined: "Cart.PriceSummary.taxToBeDetermined",
+    zipField: "Cart.PriceSummary.estimatedShippingForm.zip.placeholder",
+    file: "Cart.CartItem.file",
+    files: "Cart.CartItem.files"
+  });
+  useEffect(() => {
+    const event = events.on("cart/data", (payload) => {
+      var _a2, _b2;
+      setData(payload);
+      const shippingAddress = (_b2 = (_a2 = payload == null ? void 0 : payload.addresses) == null ? void 0 : _a2.shipping) == null ? void 0 : _b2[0];
+      if (shippingAddress) {
+        const {
+          countryCode,
+          regionCode,
+          zipCode
+        } = shippingAddress;
+        handleEstimateShipping({
+          shippingCountry: countryCode,
+          shippingState: regionCode,
+          shippingZip: zipCode
+        });
+      }
+    }, {
+      eager: true
+    });
+    return () => {
+      event == null ? void 0 : event.off();
+    };
+  }, [handleEstimateShipping]);
+  useEffect(() => {
+    if (initialData && Object.keys(initialData).length > 0) {
+      publishShoppingCartViewEvent(initialData, state.locale || "en-US");
+    }
+  }, [initialData]);
+  const priceSummary = (data == null ? void 0 : data.totalQuantity) ?? 0 ? jsx(PriceSummary, {
+    "data-testid": "price-summary",
+    loading: priceSummaryLoading,
+    heading: "Order Summary",
+    total: {
+      price: jsx(Price, {
+        amount: data == null ? void 0 : data.total.value,
+        currency: data == null ? void 0 : data.total.currency
+      }),
+      estimated: true
+    },
+    subTotal: {
+      price: jsx(Price, {
+        "data-testid": "subtotal",
+        amount: (_a = data == null ? void 0 : data.subtotal.excludingTax) == null ? void 0 : _a.value,
+        currency: (_b = data == null ? void 0 : data.subtotal.excludingTax) == null ? void 0 : _b.currency
+      })
+    },
+    shipping: (data == null ? void 0 : data.isVirtual) ? void 0 : {
+      price: (estimatedShippingPrice == null ? void 0 : estimatedShippingPrice.amount) == 0 ? jsx("span", {
+        "data-testId": "free-shipping",
+        children: dictionary.freeShipping
+      }) : estimatedShippingPrice ? jsx(Price, {
+        ...estimatedShippingPrice
+      }) : jsx("span", {
+        children: dictionary.taxToBeDetermined
+      }),
+      estimated: true,
+      countryField: jsx(Picker, {
+        name: "shippingCountry",
+        placeholder: dictionary.countryField,
+        value: selectedCountry,
+        variant: "primary",
+        options: countries,
+        handleSelect: handleCountrySelected,
+        "data-testid": "estimate-shipping-country-selector"
+      }),
+      stateField: regions.length > 0 ? jsx(Picker, {
+        name: "shippingState",
+        placeholder: dictionary.stateField,
+        variant: "primary",
+        options: regions,
+        value: selectedRegion,
+        "data-testid": "estimate-shipping-state-selector",
+        disabled: regionsLoading
+      }) : jsx(Input, {
+        "aria-label": dictionary.stateField,
+        name: "shippingState",
+        placeholder: dictionary.stateField,
+        variant: "primary",
+        value: selectedRegion,
+        disabled: regionsLoading,
+        "data-testid": "estimate-shipping-state-input",
+        maxLength: 50
+      }),
+      zipField: jsx(Input, {
+        "aria-label": dictionary.zipField,
+        name: "shippingZip",
+        placeholder: dictionary.zipField,
+        variant: "primary",
+        "data-testid": "estimate-shipping-zip-input",
+        value: selectedZip,
+        maxLength: 12
+      }),
+      estimateButton: jsx(Button, {
+        variant: "secondary",
+        "data-testid": "estimate-shipping-apply-button",
+        "aria-label": dictionary.applyButton,
+        children: dictionary.applyButton
+      }),
+      destinationText: estimatedDestinationText || dictionary.taxToBeDetermined,
+      onEstimate: handleEstimateShipping
+    },
+    taxTotal: {
+      price: (data == null ? void 0 : data.totalTax) ? jsx(Price, {
+        "data-testid": "tax-total",
+        amount: (_c = data == null ? void 0 : data.totalTax) == null ? void 0 : _c.value,
+        currency: (_d = data == null ? void 0 : data.totalTax) == null ? void 0 : _d.currency
+      }) : jsx("span", {
+        "data-testid": "tax-total",
+        children: dictionary.taxToBeDetermined
+      }),
+      estimated: true
+    },
+    primaryAction: routeCheckout ? jsx(Button, {
+      "data-testid": "checkout-button",
+      variant: "primary",
+      href: routeCheckout({
+        cartId: data.id
+      }),
+      children: dictionary.checkout
+    }) : void 0,
+    discounts: data == null ? void 0 : data.appliedDiscounts.map((discount) => {
+      return {
+        label: discount.label,
+        price: jsx(Price, {
+          "data-testid": "summary-discount-total",
+          amount: -discount.amount.value,
+          currency: discount.amount.currency,
+          sale: true
+        })
+      };
+    })
+  }) : void 0;
+  return jsx(Cart$1, {
+    ...props,
+    heading: jsx("div", {
+      children: dictionary.heading
+    }),
+    emptyCart: jsx(EmptyCart, {
+      ctaLinkURL: routeEmptyCartCTA == null ? void 0 : routeEmptyCartCTA()
+    }),
+    priceSummary,
+    products: (data == null ? void 0 : data.totalQuantity) ?? 0 ? jsx(CartList, {
+      children: data == null ? void 0 : data.items.map((item, index) => {
+        var _a2, _b2, _c2, _d2;
+        const isLoading = itemsLoading.has(item.uid);
+        const configurations = {
+          ...item.selectedOptions ?? {},
+          ...item.recipient ? {
+            [dictionary.recipient]: item.recipient
+          } : {},
+          ...item.recipientEmail && item.recipient ? {
+            [dictionary.recipient]: `${item.recipient} (${item.recipientEmail})`
+          } : {},
+          ...item.sender ? {
+            [dictionary.sender]: item.sender
+          } : {},
+          ...item.senderEmail && item.sender ? {
+            [dictionary.sender]: `${item.sender} (${item.senderEmail})`
+          } : {},
+          ...item.message ? {
+            [dictionary.message]: item.message
+          } : {},
+          ...item.links && item.links.count ? item.links.count > 1 ? {
+            [dictionary.files.replace("{count}", item.links.count.toString())]: item.links.result
+          } : {
+            [dictionary.file.replace("{count}", item.links.count.toString())]: item.links.result
+          } : {}
+        };
+        return jsx(CartItem, {
+          "data-testid": "cart-item",
+          ariaLabel: item.name,
+          updating: isLoading,
+          image: routeProduct ? jsx("a", {
+            href: routeProduct(item),
+            children: jsx(Image, {
+              loading: index < 4 ? "eager" : "lazy",
+              src: item.image.src,
+              alt: item.image.alt,
+              width: "300",
+              height: "300",
+              params: {
+                width: 300
+              }
+            })
+          }) : jsx(Image, {
+            loading: index < 4 ? "eager" : "lazy",
+            src: item.image.src,
+            alt: item.image.alt,
+            width: "300",
+            height: "300",
+            params: {
+              width: 300
+            }
+          }),
+          title: jsx("span", {
+            children: routeProduct ? jsx("a", {
+              href: routeProduct(item),
+              children: item.name
+            }) : jsx(Fragment, {
+              children: item.name
+            })
+          }),
+          sku: jsx("span", {
+            children: item.sku
+          }),
+          configurations: Object.keys(configurations).length > 0 ? configurations : void 0,
+          quantity: item.quantity,
+          price: jsx(Price, {
+            amount: (_a2 = item.regularPrice) == null ? void 0 : _a2.value,
+            currency: (_b2 = item.regularPrice) == null ? void 0 : _b2.currency,
+            style: {
+              font: "inherit"
+            }
+          }),
+          total: jsxs(Fragment, {
+            children: [jsx(Price, {
+              amount: item.total.value,
+              currency: item.total.currency,
+              variant: item.discounted ? "strikethrough" : "default",
+              "data-testid": "regular-total",
+              "aria-label": dictionary.regularPrice
+            }), item.discounted && jsx(Price, {
+              amount: (_c2 = item.discountedTotal) == null ? void 0 : _c2.value,
+              currency: (_d2 = item.discountedTotal) == null ? void 0 : _d2.currency,
+              sale: item.discounted,
+              "data-testid": "discount-total",
+              "aria-label": dictionary.discountedPrice
+            })]
+          }),
+          onQuantity: (value) => {
+            handleItemQuantityUpdate(item.uid, value);
+          },
+          onRemove: () => {
+            handleItemQuantityUpdate(item.uid, 0);
+          }
+        }, item.uid);
+      })
+    }) : void 0
+  });
+};
+Cart.getInitialData = async function() {
+  return getPersistedData();
+};
+export {
+  Cart,
+  Cart as default
+};
 //# sourceMappingURL=Cart.js.map

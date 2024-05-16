@@ -1,2 +1,236 @@
-import{useState as N,useEffect as w}from"@dropins/tools/preact-compat.js";import{s as E,n as O}from"../chunks/getStoreConfig__D8pXAQ9VHy.js";import{events as Q}from"@dropins/tools/event-bus.js";import{E as U}from"../chunks/MiniCart__BNaTlGYlao.js";import{Divider as V,Price as g,Button as P,CartList as q,CartItem as z,Image as S}from"@dropins/tools/components/index.js";import{jsxs as i,jsx as r,Fragment as M}from"@dropins/tools/preact-jsx-runtime.js";import{useText as b}from"@dropins/tools/i18n.js";import{c as F,V as m}from"../chunks/vcomponent__7E94D35BBn.js";import{b as R,u as T}from"../chunks/updateProductsFromCart__BE6LbKXMc0.js";import"@dropins/tools/fetch-graphql.js";const B=({className:f,children:c,emptyCart:s,heading:d,products:l,estimatedTotal:o,ctas:h,...a})=>{const p=b({estimatedTotal:"Cart.MiniCart.estimatedTotal"});return i("div",{...a,className:F(["cart-mini-cart",f]),children:[l&&d&&i("div",{className:"cart-mini-cart__heading",children:[r(m,{node:d,className:"cart-mini-cart__heading-text"}),r(V,{variant:"primary",className:"cart-mini-cart__heading-divider"})]}),l?i(M,{children:[r("div",{className:"cart-mini-cart__products",children:l}),i("div",{className:"cart-mini-cart__footer",children:[o&&i("div",{className:"cart-mini-cart__footer__estimated-total",children:[p.estimatedTotal,r(m,{node:o})]}),h&&r(m,{node:h,className:"cart-mini-cart__footer__ctas"})]})]}):r(m,{node:s,className:"cart-mini-cart__empty-cart"})]})},D=({children:f,initialData:c=null,routeProduct:s,routeCart:d,routeCheckout:l,routeEmptyCartCTA:o,...h})=>{var C;const[a,p]=N(c),[x,$]=N(new Set),y=(e,n)=>{$(u=>(e?u.add(n):u.delete(n),new Set(u)))};w(()=>{const e=Q.on("cart/data",n=>{p(n)},{eager:!0});return()=>{e==null||e.off()}},[]);const t=b({cartLink:"Cart.MiniCart.cartLink",checkoutLink:"Cart.MiniCart.checkoutLink",discountedPrice:"Cart.CartItem.discountedPrice",heading:"Cart.MiniCart.heading",message:"Cart.CartItem.message",recipient:"Cart.CartItem.recipient",regularPrice:"Cart.CartItem.regularPrice",sender:"Cart.CartItem.sender",file:"Cart.CartItem.file",files:"Cart.CartItem.files"}),j=(e,n)=>{y(!0,e),T([{uid:e,quantity:n}]).finally(()=>{y(!1,e)})};return w(()=>{c&&Object.keys(c).length>0&&R(c,E.locale||"en-US")},[c]),r(B,{...h,heading:r("div",{children:t.heading.replace("{count}",((a==null?void 0:a.totalQuantity)??0).toString())}),emptyCart:r(U,{ctaLinkURL:o==null?void 0:o()}),estimatedTotal:(a==null?void 0:a.total)&&r(g,{amount:a==null?void 0:a.total.value,currency:a==null?void 0:a.total.currency,style:{font:"inherit"}}),ctas:i("div",{children:[l&&r(P,{variant:"primary",href:l(),children:t.checkoutLink}),d&&r(P,{variant:"tertiary",href:d(),children:t.cartLink})]}),products:(a==null?void 0:a.totalQuantity)??0?r(q,{children:(C=a==null?void 0:a.miniCartMaxItems)==null?void 0:C.map((e,n)=>{var _,v,I,L;const u=x.has(e.uid),k={...e.selectedOptions??{},...e.recipient?{[t.recipient]:e.recipient}:{},...e.recipientEmail&&e.recipient?{[t.recipient]:`${e.recipient} (${e.recipientEmail})`}:{},...e.sender?{[t.sender]:e.sender}:{},...e.senderEmail&&e.sender?{[t.sender]:`${e.sender} (${e.senderEmail})`}:{},...e.message?{[t.message]:e.message}:{},...e.links&&e.links.count?e.links.count>1?{[t.files.replace("{count}",e.links.count.toString())]:e.links.result}:{[t.file.replace("{count}",e.links.count.toString())]:e.links.result}:{}};return r(z,{"data-testid":"cart-item",updating:u,image:s?r("a",{href:s(e),children:r(S,{loading:n<4?"eager":"lazy",src:e.image.src,alt:e.image.alt,width:"300",height:"300",params:{width:300}})}):r(S,{loading:n<4?"eager":"lazy",src:e.image.src,alt:e.image.alt,width:"300",height:"300",params:{width:300}}),title:r("span",{children:s?r("a",{href:s(e),children:e.name}):e.name}),sku:r("span",{children:e.sku}),configurations:Object.keys(k).length>0?k:void 0,quantity:e.quantity,price:r(g,{amount:(_=e.regularPrice)==null?void 0:_.value,currency:(v=e.regularPrice)==null?void 0:v.currency,weight:"normal"}),total:i(M,{children:[r(g,{amount:e.total.value,currency:e.total.currency,variant:e.discounted?"strikethrough":"default","data-testid":"regular-total","aria-label":t.regularPrice}),e.discounted&&r(g,{amount:(I=e.discountedTotal)==null?void 0:I.value,currency:(L=e.discountedTotal)==null?void 0:L.currency,sale:e.discounted,"data-testid":"discount-total","aria-label":t.discountedPrice})]}),onRemove:()=>{j(e.uid,0)}},e.uid)})}):void 0})};D.getInitialData=async function(){return O()};export{D as MiniCart,D as default};
+import { useState, useEffect } from "@dropins/tools/preact-compat.js";
+import { s as state, n as getPersistedData } from "../chunks/getStoreConfig__D5TZNZKL7r.js";
+import { events } from "@dropins/tools/event-bus.js";
+import { E as EmptyCart } from "../chunks/MiniCart__Z0P62hxE1k.js";
+import { Divider, Price, Button, CartList, CartItem, Image } from "@dropins/tools/components/index.js";
+import { jsxs, jsx, Fragment } from "@dropins/tools/preact-jsx-runtime.js";
+import { useText } from "@dropins/tools/i18n.js";
+import { c as classes, V as VComponent } from "../chunks/vcomponent__DzjhryT0dc.js";
+import { b as publishShoppingCartViewEvent, u as updateProductsFromCart } from "../chunks/updateProductsFromCart__BgOPk2gVgl.js";
+import "@dropins/tools/fetch-graphql.js";
+const MiniCart$1 = ({
+  className,
+  children,
+  emptyCart,
+  heading,
+  products,
+  estimatedTotal,
+  ctas,
+  ...props
+}) => {
+  const dictionary = useText({
+    estimatedTotal: "Cart.MiniCart.estimatedTotal"
+  });
+  return jsxs("div", {
+    ...props,
+    className: classes(["cart-mini-cart", className]),
+    children: [products && heading && jsxs("div", {
+      className: "cart-mini-cart__heading",
+      children: [jsx(VComponent, {
+        node: heading,
+        className: "cart-mini-cart__heading-text"
+      }), jsx(Divider, {
+        variant: "primary",
+        className: "cart-mini-cart__heading-divider"
+      })]
+    }), products ? jsxs(Fragment, {
+      children: [jsx("div", {
+        className: "cart-mini-cart__products",
+        children: products
+      }), jsxs("div", {
+        className: "cart-mini-cart__footer",
+        children: [estimatedTotal && jsxs("div", {
+          className: "cart-mini-cart__footer__estimated-total",
+          children: [dictionary.estimatedTotal, jsx(VComponent, {
+            node: estimatedTotal
+          })]
+        }), ctas && jsx(VComponent, {
+          node: ctas,
+          className: "cart-mini-cart__footer__ctas"
+        })]
+      })]
+    }) : jsx(VComponent, {
+      node: emptyCart,
+      className: "cart-mini-cart__empty-cart"
+    })]
+  });
+};
+const MiniCart = ({
+  children,
+  initialData = null,
+  routeProduct,
+  routeCart,
+  routeCheckout,
+  routeEmptyCartCTA,
+  ...props
+}) => {
+  var _a;
+  const [data, setData] = useState(initialData);
+  const [itemsLoading, setItemLoading] = useState(/* @__PURE__ */ new Set());
+  const handleItemsLoading = (state2, uid) => {
+    setItemLoading((prev) => {
+      state2 ? prev.add(uid) : prev.delete(uid);
+      return new Set(prev);
+    });
+  };
+  useEffect(() => {
+    const event = events.on("cart/data", (payload) => {
+      setData(payload);
+    }, {
+      eager: true
+    });
+    return () => {
+      event == null ? void 0 : event.off();
+    };
+  }, []);
+  const dictionary = useText({
+    cartLink: "Cart.MiniCart.cartLink",
+    checkoutLink: "Cart.MiniCart.checkoutLink",
+    discountedPrice: "Cart.CartItem.discountedPrice",
+    heading: "Cart.MiniCart.heading",
+    message: "Cart.CartItem.message",
+    recipient: "Cart.CartItem.recipient",
+    regularPrice: "Cart.CartItem.regularPrice",
+    sender: "Cart.CartItem.sender",
+    file: "Cart.CartItem.file",
+    files: "Cart.CartItem.files"
+  });
+  const handleItemQuantityUpdate = (uid, quantity) => {
+    handleItemsLoading(true, uid);
+    updateProductsFromCart([{
+      uid,
+      quantity
+    }]).finally(() => {
+      handleItemsLoading(false, uid);
+    });
+  };
+  useEffect(() => {
+    if (initialData && Object.keys(initialData).length > 0) {
+      publishShoppingCartViewEvent(initialData, state.locale || "en-US");
+    }
+  }, [initialData]);
+  return jsx(MiniCart$1, {
+    ...props,
+    heading: jsx("div", {
+      children: dictionary.heading.replace("{count}", ((data == null ? void 0 : data.totalQuantity) ?? 0).toString())
+    }),
+    emptyCart: jsx(EmptyCart, {
+      ctaLinkURL: routeEmptyCartCTA == null ? void 0 : routeEmptyCartCTA()
+    }),
+    estimatedTotal: (data == null ? void 0 : data.total) && jsx(Price, {
+      amount: data == null ? void 0 : data.total.value,
+      currency: data == null ? void 0 : data.total.currency,
+      style: {
+        font: "inherit"
+      }
+    }),
+    ctas: jsxs("div", {
+      children: [routeCheckout && jsx(Button, {
+        variant: "primary",
+        href: routeCheckout(),
+        children: dictionary.checkoutLink
+      }), routeCart && jsx(Button, {
+        variant: "tertiary",
+        href: routeCart(),
+        children: dictionary.cartLink
+      })]
+    }),
+    products: (data == null ? void 0 : data.totalQuantity) ?? 0 ? jsx(CartList, {
+      children: (_a = data == null ? void 0 : data.miniCartMaxItems) == null ? void 0 : _a.map((item, index) => {
+        var _a2, _b, _c, _d;
+        const isLoading = itemsLoading.has(item.uid);
+        const configurations = {
+          ...item.selectedOptions ?? {},
+          ...item.recipient ? {
+            [dictionary.recipient]: item.recipient
+          } : {},
+          ...item.recipientEmail && item.recipient ? {
+            [dictionary.recipient]: `${item.recipient} (${item.recipientEmail})`
+          } : {},
+          ...item.sender ? {
+            [dictionary.sender]: item.sender
+          } : {},
+          ...item.senderEmail && item.sender ? {
+            [dictionary.sender]: `${item.sender} (${item.senderEmail})`
+          } : {},
+          ...item.message ? {
+            [dictionary.message]: item.message
+          } : {},
+          ...item.links && item.links.count ? item.links.count > 1 ? {
+            [dictionary.files.replace("{count}", item.links.count.toString())]: item.links.result
+          } : {
+            [dictionary.file.replace("{count}", item.links.count.toString())]: item.links.result
+          } : {}
+        };
+        return jsx(CartItem, {
+          "data-testid": "cart-item",
+          updating: isLoading,
+          image: routeProduct ? jsx("a", {
+            href: routeProduct(item),
+            children: jsx(Image, {
+              loading: index < 4 ? "eager" : "lazy",
+              src: item.image.src,
+              alt: item.image.alt,
+              width: "300",
+              height: "300",
+              params: {
+                width: 300
+              }
+            })
+          }) : jsx(Image, {
+            loading: index < 4 ? "eager" : "lazy",
+            src: item.image.src,
+            alt: item.image.alt,
+            width: "300",
+            height: "300",
+            params: {
+              width: 300
+            }
+          }),
+          title: jsx("span", {
+            children: routeProduct ? jsx("a", {
+              href: routeProduct(item),
+              children: item.name
+            }) : item.name
+          }),
+          sku: jsx("span", {
+            children: item.sku
+          }),
+          configurations: Object.keys(configurations).length > 0 ? configurations : void 0,
+          quantity: item.quantity,
+          price: jsx(Price, {
+            amount: (_a2 = item.regularPrice) == null ? void 0 : _a2.value,
+            currency: (_b = item.regularPrice) == null ? void 0 : _b.currency,
+            weight: "normal"
+          }),
+          total: jsxs(Fragment, {
+            children: [jsx(Price, {
+              amount: item.total.value,
+              currency: item.total.currency,
+              variant: item.discounted ? "strikethrough" : "default",
+              "data-testid": "regular-total",
+              "aria-label": dictionary.regularPrice
+            }), item.discounted && jsx(Price, {
+              amount: (_c = item.discountedTotal) == null ? void 0 : _c.value,
+              currency: (_d = item.discountedTotal) == null ? void 0 : _d.currency,
+              sale: item.discounted,
+              "data-testid": "discount-total",
+              "aria-label": dictionary.discountedPrice
+            })]
+          }),
+          onRemove: () => {
+            handleItemQuantityUpdate(item.uid, 0);
+          }
+        }, item.uid);
+      })
+    }) : void 0
+  });
+};
+MiniCart.getInitialData = async function() {
+  return getPersistedData();
+};
+export {
+  MiniCart,
+  MiniCart as default
+};
 //# sourceMappingURL=MiniCart.js.map
