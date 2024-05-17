@@ -48,11 +48,6 @@ const getConfigForEnvironment = async (environment) => {
  * @returns {Promise<string|undefined>} - The value of the configuration parameter, or undefined.
  */
 export const getConfigValue = async (configParam, environment) => {
-  // TODO: Override 'commerce-core-endpoint' for demo purposes
-  if (configParam === 'commerce-core-endpoint') {
-    return 'https://alpha.atwix.dev:1181/graphql';
-  }
-
   const env = environment || calcEnvironment();
   const configJSON = await getConfigForEnvironment(env);
   const configElements = JSON.parse(configJSON).data;
