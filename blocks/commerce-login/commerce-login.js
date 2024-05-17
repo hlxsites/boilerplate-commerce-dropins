@@ -15,19 +15,7 @@ export default function decorate(block) {
   } else {
     authRenderer.render(SignIn, {
       routeForgotPassword: () => '/customer/forgotpassword',
-      successNotificationForm: (userName) => h(SuccessNotification, {
-        headingText: `Welcome ${userName}`,
-        messageText: 'You have successfully logged in.',
-        primaryButtonText: 'My Account',
-        secondaryButtonText: 'Logout',
-        onPrimaryButtonClick: () => {
-          window.location.href = '/customer/account';
-        },
-        onSecondaryButtonClick: async () => {
-          await authApi.revokeCustomerToken();
-          window.location.href = '/';
-        },
-      }),
+      routeRedirectOnSignIn: () => '/customer/account',
     })(block);
   }
 }
