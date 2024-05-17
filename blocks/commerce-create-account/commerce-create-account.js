@@ -10,18 +10,11 @@ import { h } from '../../scripts/preact.js';
 export default function decorate(block) {
   const isAuthenticated = !!getCookie('auth_dropin_user_token');
 
-  // TODO - temporally code
-  if (window.location.href.includes('example')) {
-    authApi.setEndpoint('https://hotel.atwix.dev:1507/graphql');
-  }
-
   if (isAuthenticated) {
     window.location.href = '/customer/account';
   } else {
     authRenderer.render(SignUp, {
       hideCloseBtnOnEmailConfirmation: true,
-      // TODO - temporally code
-      apiVersion2: false,
       routeSignIn: () => '/customer/login',
       routeRedirectOnSignIn: () => '/customer/account',
       successNotificationForm: (userName) => h(SuccessNotification, {
