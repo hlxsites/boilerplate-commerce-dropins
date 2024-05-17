@@ -1,2 +1,0 @@
-import{Children as l}from"../preact-compat.js";import{c as m}from"../chunks/classes.js";import"../chunks/image-params-keymap.js";import"../preact.js";import{jsx as r}from"../preact-jsx-runtime.js";import"../preact-hooks.js";const f=({className:a,children:i,...t})=>r("div",{...t,className:m(["dropin-cart-list",a]),children:r("div",{className:"dropin-cart-list__wrapper","aria-live":"assertive","aria-relevant":"all",children:l.map(i,(s,e)=>r("div",{className:"dropin-cart-list__item",children:s},e))})});export{f as CartList,f as default};
-//# sourceMappingURL=CartList.js.map

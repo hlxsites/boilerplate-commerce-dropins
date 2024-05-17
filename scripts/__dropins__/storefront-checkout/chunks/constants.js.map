@@ -1,0 +1,1 @@
+{"version":3,"file":"constants.js","sources":["../../src/containers/ShippingForm/constants.ts"],"sourcesContent":["export const SHIPPING_FORM_NAME = 'shipping_address';\n"],"names":["SHIPPING_FORM_NAME"],"mappings":"AAAO,MAAMA,EAAqB"}

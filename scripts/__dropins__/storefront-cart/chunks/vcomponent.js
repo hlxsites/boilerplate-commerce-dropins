@@ -1,0 +1,2 @@
+import{jsx as e,Fragment as i}from"@dropins/tools/preact-jsx-runtime.js";const n=r=>r.reduce((c,s)=>{if(!s)return c;if(typeof s=="string"&&(c+=` ${s}`),Array.isArray(s)){const[t,f]=s;t&&f&&(c+=` ${t}`)}return c},"").trim();function l({node:r,...a}){return r?Array.isArray(r)?e(i,{children:r.map((c,s)=>e(l,{node:c,className:a.className,...a},s))}):(a.className=n([r.props.className,a.className]),e(r.type,{ref:r.ref,...r.props,...a},r.key)):null}export{l as V,n as c};
+//# sourceMappingURL=vcomponent.js.map
