@@ -1,0 +1,2 @@
+import"../preact-compat.js";import{createElement as t}from"../preact.js";import"../preact-hooks.js";const i=e=>t("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...e},t("path",{d:"M17.3332 11.75H6.6665",strokeWidth:1.5,strokeLinecap:"square",strokeLinejoin:"round",vectorEffect:"non-scaling-stroke",fill:"none",stroke:"currentColor"}));export{i as default};
+//# sourceMappingURL=Minus.js.map
