@@ -9,8 +9,8 @@ import MiniCart from '@dropins/storefront-cart/containers/MiniCart.js';
 // Drop-in Tools
 import { events } from '@dropins/tools/event-bus.js';
 
-import { loadFragment } from '../fragment/fragment.js';
 import { getMetadata } from '../../scripts/aem.js';
+import { loadFragment } from '../fragment/fragment.js';
 
 // TODO: Following two imports added for demo purpose (Auth Drop-In)
 import renderAuthCombine from './renderAuthCombine.js';
