@@ -19,6 +19,7 @@ export default function decorate(block) {
     window.location.href = '/customer/account';
   } else {
     authRenderer.render(SignUp, {
+      hideCloseBtnOnEmailConfirmation: true,
       // TODO - temporally code
       apiVersion2: false,
       routeSignIn: () => '/customer/login',

@@ -19,10 +19,10 @@ export default function decorate(block) {
         formSize: 'default',
         headingText: `Welcome ${userName}!`,
         messageText: 'Your password has been successfully updated.',
-        primaryButtonText: 'Sign In',
+        primaryButtonText: 'My Account',
         secondaryButtonText: 'Logout',
         onPrimaryButtonClick: () => {
-          window.location.href = '/customer/login';
+          window.location.href = '/customer/account';
         },
         onSecondaryButtonClick: async () => {
           await authApi.revokeCustomerToken();
