@@ -1,4 +1,4 @@
-import{a as r,M as s,f as e}from"./transform-shipping-methods.js";import{f as l,j as m,k as n}from"./countries.js";import"@dropins/tools/event-bus.js";import{C as o,a as c,t as E}from"./transform-cart.js";const u=a=>!!(a!=null&&a.is_email_available),h=`
+import{a as r,M as s,f as e}from"./dispatchApiCall.js";import{f as l,k as m,l as n}from"./countries.js";import"@dropins/tools/event-bus.js";import{C as o,a as c,t as E}from"./getCheckoutData.graphql.js";const u=a=>!!(a!=null&&a.is_email_available),h=`
   query isEmailAvailable($email: String!) {
     isEmailAvailable(email: $email) {
       is_email_available
