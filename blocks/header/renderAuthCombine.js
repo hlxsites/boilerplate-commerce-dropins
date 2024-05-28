@@ -1,11 +1,11 @@
-// TODO - This module supposed to add link to trigger authCombine container in header for demo purposes
+// TODO - This module supposed to add link to authCombine container for demo purposes
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
 import { render as authRenderer } from '@dropins/storefront-auth/render.js';
 import { AuthCombine } from '@dropins/storefront-auth/containers/AuthCombine.js';
 import { SuccessNotification } from '@dropins/storefront-auth/containers/SuccessNotification.js';
 import * as authApi from '@dropins/storefront-auth/api.js';
-import { h } from "../../scripts/preact.js";
+import { h } from '../../scripts/preact.js';
 
 const signInFormConfig = {
   renderSignUpLink: true,
@@ -23,7 +23,7 @@ const signInFormConfig = {
       window.location.href = '/';
     },
   }),
-}
+};
 
 const signUpFormConfig = {
   routeSignIn: () => '/customer/login',
@@ -41,7 +41,7 @@ const signUpFormConfig = {
       window.location.href = '/';
     },
   }),
-}
+};
 
 const resetPasswordFormConfig = {
   routeSignIn: () => '/customer/login',
@@ -68,7 +68,7 @@ const onHeaderLinkClick = () => {
     signUpFormConfig,
     resetPasswordFormConfig,
   })(signInForm);
-}
+};
 
 const renderAuthCombine = (navSections) => {
   const navListEl = navSections.querySelector('.default-content-wrapper > ul');

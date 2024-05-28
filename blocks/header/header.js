@@ -282,7 +282,7 @@ export default async function decorate(block) {
   navWrapper.append(nav);
   block.append(navWrapper);
 
-  // TODO: Following statements added for demo purpose (Auth Drop-In), initialize additional elements in header
+  // TODO: Following statements added for demo purpose (Auth Drop-In)
   renderAuthCombine(navSections);
   renderAuthDropdown(navSections);
 }

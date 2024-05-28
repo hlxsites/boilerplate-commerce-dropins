@@ -16,7 +16,8 @@ const resetForm = () => {
 };
 
 function checkAndRedirect(checkUrl, redirectUrl) {
-  // If the user is on the dashboard page and initiates logout, they will be redirected to the login page.
+  // If the user is on the dashboard page and initiates logout,
+  // they will be redirected to the login page.
   const currentUrl = window.location.pathname;
 
   if (currentUrl.includes(checkUrl)) {
@@ -24,7 +25,7 @@ function checkAndRedirect(checkUrl, redirectUrl) {
   }
 }
 
-const renderSignIn = (element) => {
+function renderSignIn(element) {
   const wrapperBlock = document.createElement('div');
 
   authRenderer.render(SignIn, {
@@ -52,12 +53,12 @@ const renderSignIn = (element) => {
   })(wrapperBlock);
 
   element.appendChild(wrapperBlock);
-};
+}
 
-const getPopupElements = () => {
+function getPopupElements() {
   const headerBlock = document.querySelector('.header.block');
-  const headerLoginButton = document.querySelector('#headerLoginButton');
-  const popupElement = document.querySelector('#popupMenu');
+  const headerLoginButton = document.querySelector('#header-login-button');
+  const popupElement = document.querySelector('#popup-menu');
   const popupMenuContainer = document.querySelector('.popupMenuContainer');
 
   return {
@@ -66,9 +67,9 @@ const getPopupElements = () => {
     popupElement,
     popupMenuContainer,
   };
-};
+}
 
-const renderPopupContent = (isAuthenticated, popupElements) => {
+function renderPopupContent(isAuthenticated, popupElements) {
   const { headerLoginButton, popupElement, popupMenuContainer } = popupElements;
 
   popupMenuContainer.innerHTML = '';
@@ -91,7 +92,7 @@ const renderPopupContent = (isAuthenticated, popupElements) => {
   } else {
     renderSignIn(popupMenuContainer);
   }
-};
+}
 
 const initPopupEventListeners = (popupElements) => {
   const { headerBlock, popupElement } = popupElements;
@@ -106,7 +107,7 @@ const initPopupEventListeners = (popupElements) => {
   });
 
   headerBlock.addEventListener('click', (event) => {
-    const headerLoginButton = event.target.closest('#headerLoginButton');
+    const headerLoginButton = event.target.closest('#header-login-button');
 
     if (headerLoginButton) {
       headerLoginButton.classList.toggle('backgroundColor');
@@ -124,7 +125,7 @@ const initPopupEventListeners = (popupElements) => {
   });
 
   document.addEventListener('keydown', (event) => {
-    const headerLoginButton = document.querySelector('#headerLoginButton');
+    const headerLoginButton = document.querySelector('#header-login-button');
 
     if (event.key === 'Escape') {
       resetForm();
@@ -140,8 +141,8 @@ export const renderAuthDropdown = (navSectionsEl) => {
 
   navSectionsEl.insertAdjacentHTML(
     'afterend',
-    `<div class="wrapperPopUpButton" id="wrapperPopUpButton">
-      <button type="button" id="headerLoginButton">
+    `<div class="wrapperPopUpButton" id="wrapper-pop-up-button">
+      <button type="button" id="header-login-button">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path vector-effect="non-scaling-stroke" d="M11.8052 14.4968C10.8552 14.4968 9.9752 14.0268 9.4452 13.2368L9.4152 13.1868L9.3852 13.1268C8.1352 11.2268 7.5352 8.96681 7.6852 6.68681C7.7552 4.42681 9.6052 2.61681 11.8652 2.60681H12.0052C14.2752 2.47681 16.2152 4.21681 16.3452 6.47681C16.3452 6.55681 16.3452 6.62681 16.3452 6.70681C16.4852 8.94681 15.9052 11.1768 14.6852 13.0568L14.6052 13.1768C14.0552 13.9868 13.1352 14.4668 12.1652 14.4768H12.0052C11.9352 14.4768 11.8652 14.4868 11.7952 14.4868L11.8052 14.4968Z" stroke="currentColor"/>
         <path vector-effect="non-scaling-stroke" d="M4.3252 21.5469C4.3552 20.4169 4.4752 19.2869 4.6752 18.1769C4.8952 17.1669 6.4752 16.0269 8.9052 15.1569C9.2352 15.0369 9.4852 14.7869 9.5952 14.4569L9.8052 14.0269" stroke="currentColor"/>
@@ -150,7 +151,7 @@ export const renderAuthDropdown = (navSectionsEl) => {
       <span>Sign in</span>
       </button>
       <div id="modalHeaderContainer">
-        <div class="popupMenu" id="popupMenu">
+        <div class="popupMenu" id="popup-menu">
           <div class="popupMenuContent">
             <div class="popupMenuContainer">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="iconClosePopUp ${
@@ -180,7 +181,7 @@ events.on(
   'authenticated',
   (isAuthenticated) => {
     if (!isAuthenticated) {
-      const headerLoginButton = document.getElementById('headerLoginButton');
+      const headerLoginButton = document.getElementById('header-login-button');
       const popupMenu = document.querySelector('.popupMenu');
       const popupMenuUrlList = document.querySelector('.popupMenuUrlList');
       const popupMenuContainer = document.querySelector(

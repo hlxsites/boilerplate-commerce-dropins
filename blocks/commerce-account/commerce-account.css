@@ -43,12 +43,6 @@
   border-left: 1px solid #e0e0e06b;
 }
 
-.admin-panel .account-info {
-}
-
-.admin-panel .account-info > div {
-}
-
 .admin-panel h2 {
   margin-top: 0;
 }
@@ -62,12 +56,12 @@
   margin-bottom: 1em;
 }
 
-.orders_list {
+.orders-list {
   list-style: none;
   padding: 0;
 }
 
-.orders_list li {
+.orders-list li {
   display: flex;
   gap: 0 10px;
   margin: 10px;

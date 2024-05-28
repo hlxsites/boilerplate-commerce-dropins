@@ -393,7 +393,7 @@ header .nav-search-input .search_autocomplete .popover-container {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0 0 0 / 50%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -410,35 +410,40 @@ header {
   position: relative;
 }
 
-#popupMenu {
+#popup-menu {
   display: none;
   position: absolute;
   min-width: 330px;
   max-width: 330px;
   top: 39px;
-  right: 0px;
+  right: 0;
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 4px;
   z-index: 5;
 }
 
-@media screen and (max-width: 900px) {
-  #popupMenu {
+@media screen and (width <= 900px) {
+  #popup-menu {
     right: -200px;
   }
 }
 
-#popupMenu.showPopUp {
+#popup-menu.showPopUp {
   display: block;
 }
 
-#wrapperPopUpButton {
+#wrapper-pop-up-button {
   position: relative;
   margin-right: 4px;
 }
 
-#wrapperPopUpButton #headerLoginButton {
+.wrapperPopUpButton #header-login-button {
+  font: var(--type-body-1-default-font) !important;
+  letter-spacing: var(--type-body-1-default-letter-spacing) !important;
+}
+
+#wrapper-pop-up-button #header-login-button {
   background-color: transparent;
   color: black;
   border-radius: 4px;
@@ -451,16 +456,17 @@ header {
   gap: 0 8px;
   position: relative;
 }
-#wrapperPopUpButton #headerLoginButton.backgroundColor {
+
+#wrapper-pop-up-button #header-login-button.backgroundColor {
   background-color: #f5f5f5;
 }
 
-#wrapperPopUpButton #headerLoginButton:hover {
+#wrapper-pop-up-button #header-login-button:hover {
   background-color: #f5f5f5;
   cursor: pointer;
 }
 
-#wrapperPopUpButton #headerLoginButton span {
+#wrapper-pop-up-button #header-login-button span {
   position: relative;
   top: 57%;
   left: 50%;
@@ -473,6 +479,27 @@ header {
   position: relative;
 }
 
+.logoutButton {
+  background-color: transparent !important;
+  color: currentcolor !important;
+  padding: 12px 15px !important;
+  display: inline-block !important;
+  width: 100% !important;
+  text-decoration: none !important;
+  font: var(--type-body-1-strong-font) !important;
+  letter-spacing: var(--type-body-1-strong-letter-spacing) !important;
+  margin: 0 !important;
+  text-align: start !important;
+  box-sizing: border-box !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.logoutButton:hover {
+  background-color: lightgray !important;
+  border-radius: 0 !important;
+}
+
 .popupMenuUrlList {
   list-style: none;
   cursor: pointer;
@@ -480,14 +507,14 @@ header {
   margin: 0;
   overflow: hidden;
 }
-.popupMenuUrlList li {
+
+.popupMenuContent .popupMenuUrlList li {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.popupMenuUrlList li > a {
-  font-size: 16px;
+.popupMenuContent .popupMenuUrlList li > a {
   padding: 12px 15px;
   display: inline-block;
   width: 100%;
@@ -527,31 +554,9 @@ header {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(170, 170, 170, 0.65);
+  background-color: rgba(170 170 170 / 65%);
   z-index: 4;
   display: none;
-}
-
-.logoutButton {
-  background-color: transparent !important;
-  color: currentcolor !important;
-  font-size: 16px !important;
-  padding: 12px 15px !important;
-  display: inline-block !important;
-  width: 100% !important;
-  text-decoration: none !important;
-  font: var(--type-body-1-strong-font) !important;
-  letter-spacing: var(--type-body-1-strong-letter-spacing) !important;
-  margin: 0 !important;
-  text-align: start !important;
-  box-sizing: border-box !important;
-  border: none !important;
-  border-radius: 0 !important;
-}
-
-.logoutButton:hover {
-  background-color: lightgray !important;
-  border-radius: 0 !important;
 }
 
 .header-wrapper {
@@ -580,20 +585,14 @@ header {
   padding: 0 !important;
 }
 
-.wrapperPopUpButton #headerLoginButton {
+.popupMenuContent .popupMenuUrlList > li > a {
   font: var(--type-body-1-default-font) !important;
   letter-spacing: var(--type-body-1-default-letter-spacing) !important;
-  font-size: 14px !important;
+  font-size: 16px !important;
 }
 
-.popupMenuUrlList > li > a {
+.popupMenuContent .popupMenuUrlList > li > button {
   font: var(--type-body-1-default-font) !important;
   letter-spacing: var(--type-body-1-default-letter-spacing) !important;
-  font-size: 14px !important;
-}
-
-.popupMenuUrlList > li > button {
-  font: var(--type-body-1-default-font) !important;
-  letter-spacing: var(--type-body-1-default-letter-spacing) !important;
-  font-size: 14px !important;
+  font-size: 16px !important;
 }

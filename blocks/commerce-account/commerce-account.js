@@ -133,7 +133,7 @@ export default async function decorate(block) {
       </div>
       <div>
       <h4>Orders List</h4>
-      <ul class="orders_list">
+      <ul class="orders-list">
       ${renderOrdersList}
       </ul>
     </div>
