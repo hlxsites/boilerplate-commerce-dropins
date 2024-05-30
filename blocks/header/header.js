@@ -168,7 +168,7 @@ export default async function decorate(block) {
 
   const minicart = document.createRange().createContextualFragment(`
      <div class="minicart-wrapper nav-tools-wrapper">
-       <button type="button" class="button nav-cart-button" aria-label="Cart"></button>
+       <button type="button" class="nav-cart-button" aria-label="Cart"></button>
        <div class="minicart-panel nav-tools-panel"></div>
      </div>
    `);
@@ -220,7 +220,7 @@ export default async function decorate(block) {
   // TODO
   const search = document.createRange().createContextualFragment(`
   <div class="search-wrapper nav-tools-wrapper">
-    <button type="button" class="button nav-search-button">Search</button>
+    <button type="button" class="nav-search-button">Search</button>
     <div class="nav-search-input nav-search-panel nav-tools-panel">
       <form action="/search" method="GET">
         <input id="search" type="search" name="q" placeholder="Search" />

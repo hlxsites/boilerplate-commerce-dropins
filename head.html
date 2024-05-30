@@ -1,6 +1,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-<!-- Import Mapping -->
+<script type="speculationrules">
+    {
+        "prerender": [{
+            "where": {
+                "href_matches": "/*"
+            },
+            "eagerness": "moderate"
+        }]
+    }
+</script>
 <script type="importmap">
   {
     "imports": {
@@ -18,4 +26,14 @@
 <script src="/scripts/scripts.js" type="module"></script>
 <script src="/scripts/configs.js" type="module"></script>
 <script src="/scripts/commerce.js" type="module"></script>
+
+<link rel="modulepreload" href="/scripts/dropins.js" />
+<link rel="modulepreload" href="/scripts/__dropins__/tools/event-bus.js" />
+<link rel="modulepreload" href="/scripts/__dropins__/tools/fetch-graphql.js" />
+<link rel="modulepreload" href="/scripts/__dropins__/tools/initializer.js" />
+<link rel="modulepreload" href="/scripts/__dropins__/tools/runtime.js" />
+
 <link rel="stylesheet" href="/styles/styles.css" />
+
+<link rel="preconnect" href="https://catalog-service-sandbox.adobe.io" crossorigin="" />
+<link rel="preconnect" href="https://catalog-service.adobe.io" crossorigin="" />

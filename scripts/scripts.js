@@ -1,3 +1,5 @@
+/* eslint-disable import/no-cycle */
+import { events } from '@dropins/tools/event-bus.js';
 import {
   buildBlock,
   decorateBlocks,
@@ -11,7 +13,13 @@ import {
   loadHeader,
   sampleRUM,
   waitForLCP,
+  getMetadata,
+  loadScript,
+  toCamelCase,
+  toClassName,
+  readBlockConfig,
 } from './aem.js';
+import { getProduct, getSkuFromUrl, trackHistory } from './commerce.js';
 import initializeDropins from './dropins.js';
 
 const LCP_BLOCKS = [
@@ -23,6 +31,39 @@ const LCP_BLOCKS = [
   'commerce-account',
   'commerce-login',
 ]; // add your LCP blocks to the list
+
+const AUDIENCES = {
+  mobile: () => window.innerWidth < 600,
+  desktop: () => window.innerWidth >= 600,
+  // define your custom audiences here as needed
+};
+
+/**
+ * Gets all the metadata elements that are in the given scope.
+ * @param {String} scope The scope/prefix for the metadata
+ * @returns an array of HTMLElement nodes that match the given scope
+ */
+export function getAllMetadata(scope) {
+  return [...document.head.querySelectorAll(`meta[property^="${scope}:"],meta[name^="${scope}-"]`)]
+    .reduce((res, meta) => {
+      const id = toClassName(meta.name
+        ? meta.name.substring(scope.length + 1)
+        : meta.getAttribute('property').split(':')[1]);
+      res[id] = meta.getAttribute('content');
+      return res;
+    }, {});
+}
+
+// Define an execution context
+const pluginContext = {
+  getAllMetadata,
+  getMetadata,
+  loadCSS,
+  loadScript,
+  sampleRUM,
+  toCamelCase,
+  toClassName,
+};
 
 /**
  * Builds hero block and prepends to main in a new section.
@@ -78,6 +119,15 @@ export function decorateMain(main) {
   decorateBlocks(main);
 }
 
+function preloadFile(href, as) {
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = as;
+  link.crossOrigin = 'anonymous';
+  link.href = href;
+  document.head.appendChild(link);
+}
+
 /**
  * Loads everything needed to get to LCP.
  * @param {Element} doc The container element
@@ -87,18 +137,63 @@ async function loadEager(doc) {
   await initializeDropins();
   decorateTemplateAndTheme();
 
+  // Instrument experimentation plugin
+  if (getMetadata('experiment')
+    || Object.keys(getAllMetadata('campaign')).length
+    || Object.keys(getAllMetadata('audience')).length) {
+    // eslint-disable-next-line import/no-relative-packages
+    const { loadEager: runEager } = await import('../plugins/experimentation/src/index.js');
+    await runEager(document, { audiences: AUDIENCES }, pluginContext);
+  }
+
   window.adobeDataLayer = window.adobeDataLayer || [];
 
   let pageType = 'CMS';
   if (document.body.querySelector('main .product-details')) {
     pageType = 'Product';
+    const sku = getSkuFromUrl();
+    window.getProductPromise = getProduct(sku);
+
+    preloadFile('/scripts/__dropins__/storefront-pdp/containers/ProductDetails.js', 'script');
+    preloadFile('/scripts/__dropins__/storefront-pdp/api.js', 'script');
+    preloadFile('/scripts/__dropins__/storefront-pdp/render.js', 'script');
+    preloadFile('/scripts/__dropins__/storefront-pdp/runtime.js', 'script');
+    preloadFile('/scripts/__dropins__/storefront-pdp/713.js', 'script');
+    preloadFile('/scripts/__dropins__/storefront-pdp/275.js', 'script');
+    preloadFile('/scripts/__dropins__/storefront-pdp/918.js', 'script');
+    preloadFile('/scripts/__dropins__/storefront-pdp/148.js', 'script');
+  } else if (document.body.querySelector('main .product-details-custom')) {
+    pageType = 'Product';
+    preloadFile('/scripts/preact.js', 'script');
+    preloadFile('/scripts/htm.js', 'script');
+    preloadFile('/blocks/product-details-custom/ProductDetailsCarousel.js', 'script');
+    preloadFile('/blocks/product-details-custom/ProductDetailsSidebar.js', 'script');
+    preloadFile('/blocks/product-details-custom/ProductDetailsShimmer.js', 'script');
+    preloadFile('/blocks/product-details-custom/Icon.js', 'script');
+
+    const blockConfig = readBlockConfig(document.body.querySelector('main .product-details-custom'));
+    const sku = getSkuFromUrl() || blockConfig.sku;
+    window.getProductPromise = getProduct(sku);
   } else if (document.body.querySelector('main .product-list-page')) {
     pageType = 'Category';
+    preloadFile('/scripts/widgets/search.js', 'script');
+  } else if (document.body.querySelector('main .product-list-page-custom')) {
+    // TODO Remove this bracket if not using custom PLP
+    pageType = 'Category';
+    const plpBlock = document.body.querySelector('main .product-list-page-custom');
+    const { category, urlpath } = readBlockConfig(plpBlock);
+
+    if (category && urlpath) {
+      // eslint-disable-next-line import/no-unresolved, import/no-absolute-path
+      const { preloadCategory } = await import('/blocks/product-list-page-custom/product-list-page-custom.js');
+      preloadCategory({ id: category, urlPath: urlpath });
+    }
   } else if (document.body.querySelector('main .commerce-cart')) {
     pageType = 'Cart';
   } else if (document.body.querySelector('main .commerce-checkout')) {
     pageType = 'Checkout';
   }
+
   window.adobeDataLayer.push({
     pageContext: {
       pageType,
@@ -110,9 +205,11 @@ async function loadEager(doc) {
       minYOffset: 0,
     },
   });
-  window.adobeDataLayer.push((dl) => {
-    dl.push({ event: 'page-view', eventInfo: { ...dl.getState() } });
-  });
+  if (pageType !== 'Product') {
+    window.adobeDataLayer.push((dl) => {
+      dl.push({ event: 'page-view', eventInfo: { ...dl.getState() } });
+    });
+  }
 
   const main = doc.querySelector('main');
   if (main) {
@@ -120,6 +217,8 @@ async function loadEager(doc) {
     document.body.classList.add('appear');
     await waitForLCP(LCP_BLOCKS);
   }
+
+  events.emit('eds/lcp', true);
 
   try {
     /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
@@ -143,20 +242,32 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
-  loadHeader(doc.querySelector('header'));
-  loadFooter(doc.querySelector('footer'));
-
-  loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
-  loadFonts();
+  await Promise.all([
+    loadHeader(doc.querySelector('header')),
+    loadFooter(doc.querySelector('footer')),
+    loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`),
+    loadFonts(),
+  ]);
 
   await import('./acdl/adobe-client-data-layer.min.js');
   if (sessionStorage.getItem('acdl:debug')) {
     import('./acdl/validate.js');
   }
 
+  trackHistory();
+
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
+
+  // Implement experimentation preview pill
+  if ((getMetadata('experiment')
+    || Object.keys(getAllMetadata('campaign')).length
+    || Object.keys(getAllMetadata('audience')).length)) {
+    // eslint-disable-next-line import/no-relative-packages
+    const { loadLazy: runLazy } = await import('../plugins/experimentation/src/index.js');
+    await runLazy(document, { audiences: AUDIENCES }, pluginContext);
+  }
 }
 
 /**
@@ -164,7 +275,6 @@ async function loadLazy(doc) {
  * without impacting the user experience.
  */
 function loadDelayed() {
-  // eslint-disable-next-line import/no-cycle
   window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
 }
@@ -210,22 +320,14 @@ export async function fetchIndex(indexFile, pageSize = 500) {
 }
 
 /**
- * Loads a fragment.
- * @param {string} path The path to the fragment
- * @returns {HTMLElement} The root element of the fragment
+ * Check if consent was given for a specific topic.
+ * @param {*} topic Topic identifier
+ * @returns {boolean} True if consent was given
  */
-export async function loadFragment(path) {
-  if (path && path.startsWith('/')) {
-    const resp = await fetch(`${path}.plain.html`);
-    if (resp.ok) {
-      const main = document.createElement('main');
-      main.innerHTML = await resp.text();
-      decorateMain(main);
-      await loadBlocks(main);
-      return main;
-    }
-  }
-  return null;
+// eslint-disable-next-line no-unused-vars
+export function getConsent(topic) {
+  console.warn('getConsent not implemented');
+  return true;
 }
 
 async function loadPage() {

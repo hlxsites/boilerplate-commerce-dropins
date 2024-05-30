@@ -12,8 +12,7 @@
  * governing permissions and limitations under the License.
  */
 
-:root,
-.dropin-design.dropin-design {
+:root {
   /* Adobe Commerce Dropin design tokens */
   --color-brand-300: #6d6d6d;
   --color-brand-500: #454545;
@@ -287,7 +286,7 @@ button.button > u {
 
 /* buttons */
 main a.button:any-link,
-main button.button {
+button.button {
   font: var(--type-button-2-font);
   letter-spacing: var(--type-button-2-letter-spacing);
   display: inline-block;
@@ -308,29 +307,29 @@ main button.button {
 
 main a.button:hover,
 main a.button:focus,
-main button.button:hover,
-main button.button:focus {
+button.button:hover,
+button.button:focus {
   background-color: var(--color-brand-600);
   cursor: pointer;
 }
 
 main a.button.disabled,
-main button.button:disabled,
-main button.button:disabled:hover {
+button.button:disabled,
+button.button:disabled:hover {
   background-color: var(--color-neutral-300);
   cursor: unset;
 }
 
 main a.button.secondary,
-main button.button.secondary {
+button.button.secondary {
   background-color: unset;
   border: var(--shape-border-width-3) solid currentcolor;
   color: var(--color-brand-500);
 }
 
 main a.button.secondary:hover,
-main button.button.secondary:hover {
-  color: var(--color-brand-600);
+button.button.secondary:hover {
+  color: var(--color-brand-600)
 }
 
 main input:hover {

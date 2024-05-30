@@ -1,8 +1,10 @@
 /* eslint-disable import/prefer-default-export, import/no-cycle */
 import { getConfigValue } from './configs.js';
+import { getConsent } from './scripts.js';
 
 /* Common query fragments */
 export const priceFieldsFragment = `fragment priceFields on ProductViewPrice {
+  roles
   regular {
       amount {
           currency
@@ -30,23 +32,13 @@ export const refineProductQuery = `query RefineProductQuery($sku: String!, $vari
     }
     ... on SimpleProductView {
       price {
-        final {
-          amount {
-            currency
-            value
-          }
-        }
-        regular {
-          amount {
-            currency
-            value
-          }
-        }
+        ...priceFields
       }
     }
     addToCartAllowed
   }
-}`;
+}
+${priceFieldsFragment}`;
 
 export const productDetailQuery = `query ProductQuery($sku: String!) {
   products(skus: [$sku]) {
@@ -58,6 +50,9 @@ export const productDetailQuery = `query ProductQuery($sku: String!) {
     shortDescription
     urlKey
     inStock
+    metaTitle
+    metaKeyword
+    metaDescription
     images(roles: []) {
       url
       label
@@ -250,8 +245,11 @@ export async function getProduct(sku) {
   return productPromise;
 }
 
-// Store product view history in session storage
-(async () => {
+export async function trackHistory() {
+  if (!getConsent('commerce-recommendations')) {
+    return;
+  }
+  // Store product view history in session storage
   const storeViewCode = await getConfigValue('commerce-store-view-code');
   window.adobeDataLayer.push((dl) => {
     dl.addEventListener('adobeDataLayer:change', (event) => {
@@ -273,7 +271,7 @@ export async function getProduct(sku) {
       window.localStorage.setItem(key, JSON.stringify(purchaseHistory.slice(-5)));
     });
   });
-})();
+}
 
 export function setJsonLd(data, name) {
   const existingScript = document.head.querySelector(`script[data-name="${name}"]`);
