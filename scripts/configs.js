@@ -54,10 +54,16 @@ export const getConfigValue = async (configParam, environment) => {
   return configElements.find((c) => c.key === configParam)?.value;
 };
 
-export const getCookie = (expectedCookieName) => {
-  const matches = document.cookie.match(
-    /* eslint-disable-next-line */
-    new RegExp(`(?:^|; )${expectedCookieName.replace(/([.$?*|{}()\[\]\\\/+^])/g, '\\$1')}=([^;]*)`),
-  );
-  return matches ? decodeURIComponent(matches[1]) : undefined;
+export const getCookie = (cookieName) => {
+  const cookies = document.cookie.split(';');
+  let foundValue;
+
+  cookies.forEach((cookie) => {
+    const [name, value] = cookie.trim().split('=');
+    if (name === cookieName) {
+      foundValue = decodeURIComponent(value);
+    }
+  });
+
+  return foundValue;
 };
