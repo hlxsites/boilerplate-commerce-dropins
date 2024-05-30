@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 /* eslint-disable class-methods-use-this */
 import {
   Component, Fragment, h, render,
@@ -15,6 +14,7 @@ import {
   refineProductQuery,
   setJsonLd,
 } from '../../scripts/commerce.js';
+import { readBlockConfig } from '../../scripts/aem.js';
 
 const html = htm.bind(h);
 
@@ -92,9 +92,16 @@ class ProductDetailPage extends Component {
   }
 
   async componentDidMount() {
-    const product = await getProduct(this.props.sku);
-
-    if (!product) {
+    let product;
+    try {
+      if (!window.getProductPromise) {
+        window.getProductPromise = getProduct(this.props.sku);
+      }
+      product = await window.getProductPromise;
+      if (!product) {
+        throw new Error("Couldn't get product");
+      }
+    } catch (e) {
       errorGettingProduct();
     }
 
@@ -154,8 +161,17 @@ class ProductDetailPage extends Component {
     const { loading, product } = this.state;
     if (!loading && product) {
       setJsonLdProduct(product);
-      // TODO: productId not exposed by catalog service as number
-      window.adobeDataLayer.push({ productContext: { productId: 0, ...product } }, { event: 'product-page-view' });
+      document.title = product.name;
+      window.adobeDataLayer.push((dl) => {
+        dl.push({
+          productContext: {
+            productId: parseInt(product.externalId, 10) || 0,
+            ...product,
+          },
+        });
+        // TODO: Remove eventInfo once collector is updated
+        dl.push({ event: 'product-page-view', eventInfo: { ...dl.getState() } });
+      });
     }
   }
 
@@ -166,7 +182,7 @@ class ProductDetailPage extends Component {
 
     return html`
       <${Fragment} >
-        <${Carousel} product=${this.state.product} />
+        <${Carousel} product=${this.state.product} sku=${this.props.sku} />
         <${Sidebar}
           product=${this.state.product}
           selection=${this.state.selection}
@@ -185,9 +201,10 @@ class ProductDetailPage extends Component {
 }
 
 export default async function decorate($block) {
+  const blockConfig = readBlockConfig($block);
   $block.innerHTML = '<div class="full-height"></div>';
 
-  const skuFromUrl = getSkuFromUrl();
+  const skuFromUrl = getSkuFromUrl() || blockConfig.sku;
   if (!skuFromUrl) {
     errorGettingProduct();
   }

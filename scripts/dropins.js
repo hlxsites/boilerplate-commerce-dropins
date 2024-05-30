@@ -1,10 +1,10 @@
 /* eslint-disable import/no-unresolved */
-// Drop-in Tools
+// Dropin Tools
 import { events } from '@dropins/tools/event-bus.js';
 import { setEndpoint } from '@dropins/tools/fetch-graphql.js';
 import { initializers } from '@dropins/tools/initializer.js';
 
-// Drop-ins
+// Dropins
 import * as cart from '@dropins/storefront-cart/api.js';
 
 // Libs
