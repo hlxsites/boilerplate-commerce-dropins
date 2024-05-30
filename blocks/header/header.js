@@ -12,6 +12,10 @@ import { events } from '@dropins/tools/event-bus.js';
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
+// TODO: Following two imports added for demo purpose (Auth Drop-In)
+import renderAuthCombine from './renderAuthCombine.js';
+import { renderAuthDropdown } from './renderAuthDropdown.js';
+
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
 
@@ -277,4 +281,8 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  // TODO: Following statements added for demo purpose (Auth Drop-In)
+  renderAuthCombine(navSections);
+  renderAuthDropdown(navSections);
 }

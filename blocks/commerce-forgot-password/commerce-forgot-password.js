@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
-import { SignIn } from '@dropins/storefront-auth/containers/SignIn.js';
+import { ResetPassword } from '@dropins/storefront-auth/containers/ResetPassword.js';
 import { render as authRenderer } from '@dropins/storefront-auth/render.js';
 import { getCookie } from '../../scripts/configs.js';
 
@@ -10,9 +10,8 @@ export default function decorate(block) {
   if (isAuthenticated) {
     window.location.href = '/customer/account';
   } else {
-    authRenderer.render(SignIn, {
-      routeForgotPassword: () => '/customer/forgotpassword',
-      routeRedirectOnSignIn: () => '/customer/account',
+    authRenderer.render(ResetPassword, {
+      routeSignIn: () => '/customer/login',
     })(block);
   }
 }

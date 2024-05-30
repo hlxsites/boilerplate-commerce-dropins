@@ -17,5 +17,12 @@ module.exports = {
     'import/extensions': ['error', {
       js: 'always',
     }],
+    'no-use-before-define': [2, { functions: false }],
+    'no-console': [
+      'error',
+      {
+        allow: ['warn', 'error', 'info', 'debug'],
+      },
+    ],
   },
 };
