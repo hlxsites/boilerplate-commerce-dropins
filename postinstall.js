@@ -56,7 +56,7 @@ function checkPackageLockForArtifactory() {
 checkPackageLockForArtifactory()
   .then((found) => {
     if (!found) {
-      console.info('🫡 Drop-ins installed successfully!');
+      console.log('🫡 Drop-ins installed successfully!');
       process.exit(0);
     } else {
       console.error('🚨 Fix artifactory references before committing! 🚨');

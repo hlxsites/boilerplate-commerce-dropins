@@ -1,18 +1,13 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/no-extraneous-dependencies */
-import { SignIn } from '@dropins/storefront-auth/containers/SignIn.js';
-import { render as authRenderer } from '@dropins/storefront-auth/render.js';
-import { getCookie } from '../../scripts/configs.js';
+import { readBlockConfig } from '../../scripts/aem.js';
 
 export default function decorate(block) {
-  const isAuthenticated = !!getCookie('auth_dropin_user_token');
+  const config = readBlockConfig(block);
 
-  if (isAuthenticated) {
-    window.location.href = '/customer/account';
-  } else {
-    authRenderer.render(SignIn, {
-      routeForgotPassword: () => '/customer/forgotpassword',
-      routeRedirectOnSignIn: () => '/customer/account',
-    })(block);
-  }
+  const content = document.createRange().createContextualFragment(`<div>
+    Commerce Account drop-in (Login)
+    <pre>${JSON.stringify(config, null, 2)}</pre>
+  </div>`);
+
+  block.textContent = '';
+  block.append(content);
 }
