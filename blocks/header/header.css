@@ -399,7 +399,7 @@ header .nav-search-input .search_autocomplete .popover-container {
   background-color: white;
   border-radius: var(--shape-border-radius-2);
   width: 800px;
-  min-height: 400px;
+  min-height: max-content;
   margin: 0 10px;
 }
 
