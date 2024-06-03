@@ -1,3 +1,5 @@
+/* eslint-disable indent */
+/* eslint-disable implicit-arrow-linebreak */
 // TODO - This module supposed to add link to trigger auth dropdown in header for demo purposes
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */

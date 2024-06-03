@@ -423,7 +423,7 @@ header {
 
 @media screen and (width <= 900px) {
   #popup-menu {
-    right: 0px;
+    right: 0;
     top: 50px;
   }
 }
@@ -470,7 +470,7 @@ header {
   }
 }
 
-@media (max-width: 900px) {
+@media (width>= 900px) {
   header nav[aria-expanded='true'] > .wrapperPopUpButton {
     display: none;
   }
