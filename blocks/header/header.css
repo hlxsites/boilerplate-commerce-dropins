@@ -470,7 +470,7 @@ header {
   }
 }
 
-@media (width>= 900px) {
+@media (width <= 900px) {
   header nav[aria-expanded='true'] > .wrapperPopUpButton {
     display: none;
   }
