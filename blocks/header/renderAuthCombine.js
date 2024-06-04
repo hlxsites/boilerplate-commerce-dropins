@@ -90,9 +90,12 @@ const onHeaderLinkClick = () => {
 };
 
 const renderAuthCombine = (navSections) => {
+  if (getCookie('auth_dropin_firstname')) return;
+
   const navListEl = navSections.querySelector('.default-content-wrapper > ul');
 
   const test = document.createElement('li');
+  test.classList.add('authCombineNavElement');
   test.innerText = 'Combined Auth';
   test.addEventListener('click', () => {
     onHeaderLinkClick();
@@ -112,9 +115,11 @@ const renderAuthCombine = (navSections) => {
     }
 
     events.on('authenticated', (isAuthenticated) => {
+      const authCombineNavElement = document.querySelector('.authCombineNavElement');
       if (isAuthenticated) {
         const { headerLoginButton, popupElement, popupMenuContainer } = getPopupElements();
 
+        authCombineNavElement.style.display = 'none';
         popupMenuContainer.innerHTML = '';
         popupElement.style.minWidth = '250px';
         if (headerLoginButton) {
