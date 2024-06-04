@@ -178,6 +178,7 @@ export const renderAuthDropdown = (navSectionsEl) => {
 };
 
 events.on('authenticated', (isAuthenticated) => {
+  const authCombineNavElement = document.querySelector('.authCombineNavElement');
   if (!isAuthenticated) {
     const headerLoginButton = document.getElementById('header-login-button');
     const popupMenu = document.querySelector('.popupMenu');
@@ -187,7 +188,7 @@ events.on('authenticated', (isAuthenticated) => {
     );
 
     popupMenuContainer.innerHTML = '';
-
+    authCombineNavElement.style.display = 'block';
     headerLoginButton.innerHTML = `
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path vector-effect="non-scaling-stroke" d="M11.8052 14.4968C10.8552 14.4968 9.9752 14.0268 9.4452 13.2368L9.4152 13.1868L9.3852 13.1268C8.1352 11.2268 7.5352 8.96681 7.6852 6.68681C7.7552 4.42681 9.6052 2.61681 11.8652 2.60681H12.0052C14.2752 2.47681 16.2152 4.21681 16.3452 6.47681C16.3452 6.55681 16.3452 6.62681 16.3452 6.70681C16.4852 8.94681 15.9052 11.1768 14.6852 13.0568L14.6052 13.1768C14.0552 13.9868 13.1352 14.4668 12.1652 14.4768H12.0052C11.9352 14.4768 11.8652 14.4868 11.7952 14.4868L11.8052 14.4968Z" stroke="currentColor"/>
@@ -202,5 +203,7 @@ events.on('authenticated', (isAuthenticated) => {
     popupMenu.style.minWidth = '330px';
 
     renderSignIn(popupMenuContainer);
+  } else {
+    authCombineNavElement.style.display = 'none';
   }
 });
