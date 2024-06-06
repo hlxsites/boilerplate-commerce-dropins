@@ -1,11 +1,11 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
+import { addProductsToCart } from '@dropins/storefront-cart/api.js';
+import * as productApi from '@dropins/storefront-pdp/api.js';
+import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js';
+import { render as productRenderer } from '@dropins/storefront-pdp/render.js';
 import { events } from '@dropins/tools/event-bus.js';
 import { initializers } from '@dropins/tools/initializer.js';
-import * as productApi from '@dropins/storefront-pdp/api.js';
-import { render as productRenderer } from '@dropins/storefront-pdp/render.js';
-import { addProductsToCart } from '@dropins/storefront-cart/api.js';
-import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js';
 
 // Libs
 import { getProduct, getSkuFromUrl, setJsonLd } from '../../scripts/commerce.js';
@@ -184,9 +184,9 @@ export default async function decorate(block) {
           slots: {
             Actions: (ctx) => {
               ctx.appendButton((next) => ({
-                text: "ADD TO CART",
-                icon: "Cart",
-                variant: "primary",
+                text: 'ADD TO CART',
+                icon: 'Cart',
+                variant: 'primary',
                 disabled: !next.data?.inStock || !next.valid,
                 onClick: async () => {
                   await addProductsToCart([
@@ -194,7 +194,6 @@ export default async function decorate(block) {
                       ...next.values,
                     },
                   ]);
-                  console.log('finished adding to cart')
                 },
               }));
             },
