@@ -1,0 +1,21 @@
+{
+"data": {
+    "countries": [
+      {
+        "label": "United States",
+        "id": "US"
+      },
+      {
+        "label": "Canada",
+        "id": "CA"
+      },
+      {
+        "label": "Mexico",
+        "id": "MX"
+      }
+    ],
+    "storeConfig": {
+      "defaultCountry": "MX"
+    }
+  }
+}

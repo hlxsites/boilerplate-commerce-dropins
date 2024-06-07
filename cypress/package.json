@@ -1,0 +1,33 @@
+{
+  "name": "boilerplate-e2e-tests",
+  "version": "1.0.0",
+  "description": "Boilerplate E2E tests",
+  "scripts": {
+    "test": "cypress open --browser chrome --config-file cypress.config.js",
+    "test:cli": "CYPRESS_baseUrl=http://127.0.0.1:3000/ cross-env TZ=utc yarn cypress run --headed --browser chrome"
+  },
+  "author": "Adobe Commerce",
+  "license": "MIT",
+  "devDependencies": {
+    "@cypress/browserify-preprocessor": "^3.0.0",
+    "@cypress/code-coverage": "^3.9.12",
+    "cross-env": "^7.0.0",
+    "cypress": "^13.0.0",
+    "cypress-dotenv": "2.0.0",
+    "cypress-grep": "~2.14.0",
+    "cypress-log-to-output": "^1.1.2",
+    "cypress-multi-reporters": "^1.5.0",
+    "cypress-plugin-tab": "^1.0.5",
+    "danger": "^10.7.1",
+    "eslint-plugin-cypress": "^2.15.1",
+    "franc-min": "~6.2.0",
+    "glob": "~7.2.0",
+    "jimp": "~0.22.0",
+    "mocha": "^9.2.1",
+    "mocha-junit-reporter": "^2.0.2",
+    "mochawesome": "~7.1.0",
+    "mochawesome-merge": "~4.3.0",
+    "moment": "^2.23.0",
+    "yargs": "~17.7.0"
+  }
+}

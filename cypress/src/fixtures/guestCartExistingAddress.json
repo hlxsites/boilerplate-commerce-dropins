@@ -1,0 +1,170 @@
+{
+  "data": {
+    "cart": {
+      "id": "MG6eqpYwZANKDSr0me7RjwLO6JaDTqGD",
+      "total_quantity": 2,
+      "is_virtual": false,
+      "prices": {
+        "subtotal_with_discount_excluding_tax": {
+          "currency": "USD",
+          "value": 42.4
+        },
+        "subtotal_including_tax": {
+          "currency": "USD",
+          "value": 53
+        },
+        "subtotal_excluding_tax": {
+          "currency": "USD",
+          "value": 53
+        },
+        "grand_total": {
+          "currency": "USD",
+          "value": 42.4
+        },
+        "applied_taxes": [],
+        "discounts": [
+          {
+            "amount": {
+              "value": 10.6,
+              "currency": "USD"
+            },
+            "label": "20% off over $50"
+          }
+        ]
+      },
+      "itemsV2": {
+        "items": [
+          {
+            "uid": "NDI5Nw==",
+            "__typename": "SimpleCartItem",
+            "quantity": 1,
+            "errors": null,
+            "prices": {
+              "price": {
+                "value": 38,
+                "currency": "USD"
+              },
+              "total_item_discount": {
+                "value": 7.6,
+                "currency": "USD"
+              },
+              "row_total": {
+                "value": 38,
+                "currency": "USD"
+              },
+              "original_row_total": {
+                "value": 48,
+                "currency": "USD"
+              }
+            },
+            "product": {
+              "name": "Gold Sol Earrings",
+              "sku": "VA16-GO-NA",
+              "thumbnail": {
+                "url": "https://cartmfe.dummycachetest.com/media/catalog/product/cache/677f3fb1e37ad20f07277ff6f781582d/v/a/va16-go_main.jpg",
+                "label": "Gold Sol Earrings"
+              },
+              "url_key": "gold-sol-earrings",
+              "url_suffix": ".html",
+              "categories": [
+                {
+                  "url_path": "venia-accessories",
+                  "url_key": "venia-accessories"
+                },
+                {
+                  "url_path": "venia-accessories/venia-jewelry",
+                  "url_key": "venia-jewelry"
+                }
+              ],
+              "price_range": {
+                "maximum_price": {
+                  "regular_price": {
+                    "value": 48,
+                    "currency": "USD"
+                  },
+                  "final_price": {
+                    "value": 38,
+                    "currency": "USD"
+                  },
+                  "discount": {
+                    "amount_off": 10,
+                    "percent_off": 10
+                  }
+                }
+              }
+            },
+            "customizable_options": []
+          },
+          {
+            "uid": "Mzk5Ng==",
+            "__typename": "VirtualCartItem",
+            "quantity": 1,
+            "errors": null,
+            "prices": {
+              "price": {
+                "value": 15,
+                "currency": "USD"
+              },
+              "total_item_discount": {
+                "value": 3,
+                "currency": "USD"
+              },
+              "row_total": {
+                "value": 15,
+                "currency": "USD"
+              },
+              "original_row_total": {
+                "value": 15,
+                "currency": "USD"
+              }
+            },
+            "product": {
+              "name": "Venia Stylist Consultation",
+              "sku": "VVP01",
+              "thumbnail": {
+                "url": "https://cartmfe.dummycachetest.com/media/catalog/product/cache/677f3fb1e37ad20f07277ff6f781582d/v/v/vvp01_main.jpg",
+                "label": "Venia Stylist Consultation"
+              },
+              "url_key": "venia-stylist-consultation",
+              "url_suffix": ".html",
+              "categories": [
+                {
+                  "url_path": "new-products3",
+                  "url_key": "new-products3"
+                }
+              ],
+              "price_range": {
+                "maximum_price": {
+                  "regular_price": {
+                    "value": 15,
+                    "currency": "USD"
+                  },
+                  "final_price": {
+                    "value": 15,
+                    "currency": "USD"
+                  },
+                  "discount": {
+                    "amount_off": 0,
+                    "percent_off": 0
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "shipping_addresses": [
+        {
+          "country": {
+            "code": "GB"
+          },
+          "region": {
+            "code": "TX"
+          },
+          "postcode": "78758"
+        }
+      ]
+    }
+  },
+  "extensions": {}
+}

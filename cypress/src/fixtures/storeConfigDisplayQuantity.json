@@ -1,0 +1,11 @@
+{
+  "data": {
+    "storeConfig": {
+      "minicart_display": true,
+      "minicart_max_items": 2,
+      "cart_expires_in_days": 1,
+      "cart_summary_display_quantity": 1,
+      "default_country": "US"
+    }
+  }
+}

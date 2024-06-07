@@ -1,0 +1,395 @@
+{
+  "data": {
+    "cart": {
+      "id": "9d0jQy1NNu6PSJp6H5QCJRbWTgLvblfC",
+      "total_quantity": 40,
+      "prices": {
+        "subtotal_with_discount_excluding_tax": {
+          "currency": "USD",
+          "value": 1744.6
+        },
+        "subtotal_including_tax": {
+          "currency": "USD",
+          "value": 1744.6
+        },
+        "grand_total": {
+          "currency": "USD",
+          "value": 1744.6
+        }
+      },
+      "itemsV2": {
+        "items": [
+          {
+            "uid": "Mzk4",
+            "__typename": "SimpleCartItem",
+            "quantity": 2,
+            "errors": null,
+            "prices": {
+              "price": {
+                "value": 15,
+                "currency": "USD"
+              },
+              "total_item_discount": {
+                "value": 0,
+                "currency": "USD"
+              },
+              "row_total": {
+                "value": 30,
+                "currency": "USD"
+              },
+              "original_row_total": {
+                "value": 50,
+                "currency": "USD"
+              }
+            },
+            "product": {
+              "name": "Carmina Earrings",
+              "sku": "VA11-GO-NA",
+              "thumbnail": {
+                "url": "https://cartmfe.dummycachetest.com/media/catalog/product/cache/677f3fb1e37ad20f07277ff6f781582d/v/a/va11-sg_main.jpg",
+                "label": "Image"
+              },
+              "url_key": "carmina-earrings",
+              "url_suffix": ".html",
+              "categories": [
+                {
+                  "url_path": "venia-accessories",
+                  "url_key": "venia-accessories"
+                },
+                {
+                  "url_path": "venia-accessories/venia-jewelry",
+                  "url_key": "venia-jewelry"
+                }
+              ],
+              "price_range": {
+                "maximum_price": {
+                  "regular_price": {
+                    "value": 25,
+                    "currency": "USD"
+                  },
+                  "final_price": {
+                    "value": 15,
+                    "currency": "USD"
+                  },
+                  "discount": {
+                    "amount_off": 10,
+                    "percent_off": 3
+                  }
+                }
+              }
+            },
+            "customizable_options": []
+          },
+          {
+            "uid": "Mzk5",
+            "__typename": "SimpleCartItem",
+            "quantity": 12,
+            "errors": null,
+            "prices": {
+              "price": {
+                "value": 78,
+                "currency": "USD"
+              },
+              "total_item_discount": {
+                "value": 0,
+                "currency": "USD"
+              },
+              "row_total": {
+                "value": 936,
+                "currency": "USD"
+              },
+              "original_row_total": {
+                "value": 1176,
+                "currency": "USD"
+              }
+            },
+            "product": {
+              "name": "Carmina Necklace",
+              "sku": "VA13-GO-NA",
+              "thumbnail": {
+                "url": "https://cartmfe.dummycachetest.com/media/catalog/product/cache/677f3fb1e37ad20f07277ff6f781582d/v/a/va13-sg_main.jpg",
+                "label": "Carmina Necklace"
+              },
+              "url_key": "carmina-necklace",
+              "url_suffix": ".html",
+              "categories": [
+                {
+                  "url_path": "venia-accessories",
+                  "url_key": "venia-accessories"
+                },
+                {
+                  "url_path": "venia-accessories/venia-jewelry",
+                  "url_key": "venia-jewelry"
+                }
+              ],
+              "price_range": {
+                "maximum_price": {
+                  "regular_price": {
+                    "value": 98,
+                    "currency": "USD"
+                  },
+                  "final_price": {
+                    "value": 78,
+                    "currency": "USD"
+                  },
+                  "discount": {
+                    "amount_off": 20,
+                    "percent_off": 10
+                  }
+                }
+              }
+            },
+            "customizable_options": []
+          },
+          {
+            "uid": "NDAw",
+            "__typename": "SimpleCartItem",
+            "quantity": 1,
+            "errors": null,
+            "prices": {
+              "price": {
+                "value": 78,
+                "currency": "USD"
+              },
+              "total_item_discount": {
+                "value": 0,
+                "currency": "USD"
+              },
+              "row_total": {
+                "value": 78,
+                "currency": "USD"
+              },
+              "original_row_total": {
+                "value": 98,
+                "currency": "USD"
+              }
+            },
+            "product": {
+              "name": "Gold Omni Bangle Set",
+              "sku": "VA19-GO-NA",
+              "thumbnail": {
+                "url": "https://cartmfe.dummycachetest.com/media/catalog/product/cache/677f3fb1e37ad20f07277ff6f781582d/v/a/va19-go_main.jpg",
+                "label": "Image"
+              },
+              "url_key": "gold-omni-bangle-set",
+              "url_suffix": ".html",
+              "categories": [
+                {
+                  "url_path": "venia-accessories",
+                  "url_key": "venia-accessories"
+                },
+                {
+                  "url_path": "venia-accessories/venia-jewelry",
+                  "url_key": "venia-jewelry"
+                }
+              ],
+              "price_range": {
+                "maximum_price": {
+                  "regular_price": {
+                    "value": 98,
+                    "currency": "USD"
+                  },
+                  "final_price": {
+                    "value": 78,
+                    "currency": "USD"
+                  },
+                  "discount": {
+                    "amount_off": 20,
+                    "percent_off": 10
+                  }
+                }
+              }
+            },
+            "customizable_options": []
+          },
+          {
+            "uid": "NDAx",
+            "__typename": "SimpleCartItem",
+            "quantity": 25,
+            "errors": null,
+            "prices": {
+              "price": {
+                "value": 25,
+                "currency": "USD"
+              },
+              "total_item_discount": {
+                "value": 0,
+                "currency": "USD"
+              },
+              "row_total": {
+                "value": 625,
+                "currency": "USD"
+              },
+              "original_row_total": {
+                "value": 1200,
+                "currency": "USD"
+              }
+            },
+            "product": {
+              "name": "Silver Sol Earrings",
+              "sku": "VA15-SI-NA",
+              "thumbnail": {
+                "url": "https://cartmfe.dummycachetest.com/media/catalog/product/cache/677f3fb1e37ad20f07277ff6f781582d/v/a/va15-si_main.jpg",
+                "label": "Image"
+              },
+              "url_key": "silver-sol-earrings",
+              "url_suffix": ".html",
+              "categories": [
+                {
+                  "url_path": "venia-accessories",
+                  "url_key": "venia-accessories"
+                },
+                {
+                  "url_path": "venia-accessories/venia-jewelry",
+                  "url_key": "venia-jewelry"
+                }
+              ],
+              "price_range": {
+                "maximum_price": {
+                  "regular_price": {
+                    "value": 48,
+                    "currency": "USD"
+                  },
+                  "final_price": {
+                    "value": 25,
+                    "currency": "USD"
+                  },
+                  "discount": {
+                    "amount_off": 23,
+                    "percent_off": 10
+                  }
+                }
+              }
+            },
+            "customizable_options": []
+          },
+          {
+            "uid": "NTIyNw==",
+            "__typename": "GiftCardCartItem",
+            "quantity": 1,
+            "errors": null,
+            "prices": {
+              "price": {
+                "value": 25,
+                "currency": "USD"
+              },
+              "total_item_discount": {
+                "value": 0,
+                "currency": "USD"
+              },
+              "row_total": {
+                "value": 25,
+                "currency": "USD"
+              },
+              "original_row_total": {
+                "value": 25,
+                "currency": "USD"
+              }
+            },
+            "product": {
+              "name": "Gift Card physical",
+              "sku": "Gift Card physical",
+              "thumbnail": {
+                "url": "https://cartmfe.dummycachetest.com/static/version1711378130/frontend/Magento/luma/en_US/Magento_Catalog/images/product/placeholder/thumbnail.jpg",
+                "label": "Image"
+              },
+              "url_key": "gift-card-physical",
+              "url_suffix": ".html",
+              "categories": [
+                {
+                  "url_path": "new-products3",
+                  "url_key": "new-products3"
+                }
+              ],
+              "price_range": {
+                "maximum_price": {
+                  "regular_price": {
+                    "value": 25,
+                    "currency": "USD"
+                  },
+                  "final_price": {
+                    "value": 25,
+                    "currency": "USD"
+                  },
+                  "discount": {
+                    "amount_off": 0,
+                    "percent_off": 0
+                  }
+                }
+              }
+            },
+            "customizable_options": []
+          },
+          {
+            "uid": "NTc4NA==",
+            "__typename": "DownloadableCartItem",
+            "quantity": 1,
+            "errors": null,
+            "prices": {
+              "price": {
+                "value": 30,
+                "currency": "USD"
+              },
+              "total_item_discount": {
+                "value": 0,
+                "currency": "USD"
+              },
+              "row_total": {
+                "value": 30,
+                "currency": "USD"
+              },
+              "original_row_total": {
+                "value": 35,
+                "currency": "USD"
+              }
+            },
+            "links": [
+              {
+                "sort_order": 1,
+                "title": "File One"
+              },
+              {
+                "sort_order": 2,
+                "title": "File Two"
+              }
+            ],
+            "product": {
+              "name": "Downloadable Product Multple",
+              "sku": "VDL03",
+              "thumbnail": {
+                "url": "https://cartmfe.dummycachetest.com/media/catalog/product/cache/677f3fb1e37ad20f07277ff6f781582d/s/c/vdl03-sg_main.jpg",
+                "label": "Image"
+              },
+              "url_key": "downloadble-product-multple",
+              "url_suffix": ".html",
+              "categories": [
+                {
+                  "url_path": "new-products3",
+                  "url_key": "new-products3"
+                }
+              ],
+              "price_range": {
+                "maximum_price": {
+                  "regular_price": {
+                    "value": 35,
+                    "currency": "USD"
+                  },
+                  "final_price": {
+                    "value": 30,
+                    "currency": "USD"
+                  },
+                  "discount": {
+                    "amount_off": 5,
+                    "percent_off": 5
+                  }
+                }
+              }
+            },
+            "customizable_options": []
+          }
+        ]
+      }
+    }
+  },
+  "extensions": {}
+}
