@@ -209,6 +209,20 @@ export default async function decorate(block) {
                 };
               });
             },
+            Quantity: (ctx) => {
+              const label = document.createElement('div');
+              label.classList.add('pdp-quantity-label');
+              label.innerText = 'Quantity';
+              ctx.prependChild(label);
+
+              const button = document.createElement('button');
+              button.classList.add('product-quantity-notification-button');
+              button.innerText = 'Get notified when in stock!';
+              button.addEventListener('click', () => {
+                window.alert('open subscribe modal?');
+              });
+              ctx.appendChild(button);
+            },
           },
         })(block);
       } catch (e) {
