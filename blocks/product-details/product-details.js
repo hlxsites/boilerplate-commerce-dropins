@@ -170,7 +170,7 @@ export default async function decorate(block) {
         await productRenderer.render(ProductDetails, {
           sku: getSkuFromUrl(),
           carousel: {
-            controls: 'thumbnailsColumn',
+            controls: 'thumbnailsRow',
             arrowsOnMainImage: true,
             mobile: true,
             peak: {
