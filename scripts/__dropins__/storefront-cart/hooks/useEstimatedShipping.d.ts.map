@@ -1,0 +1,1 @@
+{"version":3,"file":"useEstimatedShipping.d.ts","sourceRoot":"","sources":["../../src/hooks/useEstimatedShipping.ts"],"names":[],"mappings":"AAUA,eAAO,MAAM,oBAAoB;;;;;cAEoB,MAAM;eAAS,MAAM;;;;;;cAMzB,MAAM;eAAS,MAAM;;;;yCAWlB;QAChD,eAAe,EAAE,MAAM,CAAC;QACxB,aAAa,CAAC,EAAE,MAAM,CAAC;QACvB,WAAW,CAAC,EAAE,MAAM,CAAC;KACtB;mCAqDqC,KAAK;CA4D5C,CAAC"}

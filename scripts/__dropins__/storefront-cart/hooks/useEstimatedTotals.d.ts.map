@@ -1,0 +1,1 @@
+{"version":3,"file":"useEstimatedTotals.d.ts","sourceRoot":"","sources":["../../src/hooks/useEstimatedTotals.tsx"],"names":[],"mappings":"AAKA,eAAO,MAAM,kBAAkB;uCAIf;QACV,eAAe,EAAE,MAAM,CAAC;QACxB,aAAa,CAAC,EAAE,MAAM,CAAC;QACvB,WAAW,CAAC,EAAE,MAAM,CAAC;KACtB,oBACiB;QAChB,YAAY,EAAE,MAAM,CAAC;QACrB,WAAW,EAAE,MAAM,CAAC;KACrB;;CAkGJ,CAAC"}

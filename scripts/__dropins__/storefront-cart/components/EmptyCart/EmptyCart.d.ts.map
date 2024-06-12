@@ -1,0 +1,1 @@
+{"version":3,"file":"EmptyCart.d.ts","sourceRoot":"","sources":["../../../src/components/EmptyCart/EmptyCart.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAE,iBAAiB,EAAE,MAAM,QAAQ,CAAC;AAC3C,OAAO,EAAE,cAAc,EAAE,MAAM,eAAe,CAAC;AAM/C,OAAO,2CAA2C,CAAC;AAEnD,MAAM,WAAW,cAAe,SAAQ,cAAc,CAAC,cAAc,CAAC;IACpE,UAAU,CAAC,EAAE,MAAM,CAAC;CACrB;AAED,eAAO,MAAM,SAAS,EAAE,iBAAiB,CAAC,cAAc,CAmCvD,CAAC"}
