@@ -1,0 +1,1 @@
+{"version":3,"file":"api.js","sources":["../src/api/redirect/redirect.ts"],"sourcesContent":["// Function for redirecting the browser to a url\nexport const redirect = (url: string) => { \n  window?.location?.assign(url);\n}\n"],"names":["redirect","url","location","assign"],"mappings":"s7BACaA,MAAAA,EAAYC,GAAgB,QAC/BC,EAAAA,2BAAAA,WAAAA,MAAAA,EAAUC,OAAOF,EAC3B"}
