@@ -1,0 +1,1 @@
+{"version":3,"file":"fetch-error.d.ts","sourceRoot":"","sources":["../../src/lib/fetch-error.ts"],"names":[],"mappings":"AAEA,cAAc;AACd,eAAO,MAAM,gBAAgB,WACnB,MAAM;IAAE,OAAO,EAAE,MAAM,CAAC;IAAC,UAAU,EAAE;QAAE,QAAQ,EAAE,MAAM,CAAA;KAAE,CAAA;CAAE,CAAC,SAsBrE,CAAC"}
