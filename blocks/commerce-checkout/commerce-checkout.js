@@ -1,16 +1,16 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
 
-// Dropin Tools
+// Drop-in Tools
 import { events } from '@dropins/tools/event-bus.js';
 import { initializers } from '@dropins/tools/initializer.js';
 
-// Checkout Dropin Modules
+// Checkout Drop-in Modules
 import { render as checkoutProvider } from '@dropins/storefront-checkout/render.js';
 import * as checkoutApi from '@dropins/storefront-checkout/api.js';
 import Checkout from '@dropins/storefront-checkout/containers/Checkout.js';
 
-// Auth Dropin Modules
+// Auth Drop-in Modules
 import { render as authProvider } from '@dropins/storefront-auth/render.js';
 import * as authApi from '@dropins/storefront-auth/api.js';
 import AuthCombine from '@dropins/storefront-auth/containers/AuthCombine.js';

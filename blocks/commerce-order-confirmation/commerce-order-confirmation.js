@@ -2,26 +2,54 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 // Drop-in Tools
+import { events } from '@dropins/tools/event-bus.js';
 import { initializers } from '@dropins/tools/initializer.js';
 
-// Drop-in APIs
+// Order Confirmation Drop-in Modules
 import * as orderConfirmationApi from '@dropins/storefront-order-confirmation/api.js';
-
-// Drop-in Providers
 import { render as provider } from '@dropins/storefront-order-confirmation/render.js';
-
-// Drop-in Containers
 import OrderConfirmation from '@dropins/storefront-order-confirmation/containers/OrderConfirmation.js';
 
+// Auth Drop-in Modules
+import { render as authProvider } from '@dropins/storefront-auth/render.js';
+import SignUp from '@dropins/storefront-auth/containers/SignUp.js';
+
+import { createModal } from '../modal/modal.js';
+
 export default async function decorate(block) {
+  let signUpModal = null;
+
   // Initialize Drop-ins
   initializers.register(orderConfirmationApi.initialize, {});
+
+  events.on(
+    'authenticated',
+    (isAuthenticated) => {
+      if (isAuthenticated && signUpModal) {
+        signUpModal.removeModal();
+        signUpModal = null;
+      }
+    },
+  );
+
+  const onSignUpClick = async (inputsDefaultValueSet) => {
+    const signUpForm = document.createElement('div');
+
+    authProvider.render(SignUp, {
+      routeSignIn: () => '/customer/login',
+      inputsDefaultValueSet,
+    })(signUpForm);
+
+    signUpModal = await createModal([signUpForm]);
+    signUpModal.showModal();
+  };
 
   const params = new URLSearchParams(window.location.search);
   const orderRef = params.get('orderRef');
 
   return provider.render(OrderConfirmation, {
     orderRef,
+    onSignUpClick,
     routeHome: () => '/',
     routeSupport: () => '/support',
   })(block);
