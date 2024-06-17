@@ -37,6 +37,7 @@ export default async function decorate(block) {
 
     authProvider.render(SignUp, {
       routeSignIn: () => '/customer/login',
+      routeRedirectOnEmailConfirmationClose: () => '/customer/account',
       inputsDefaultValueSet,
     })(signUpForm);
 
