@@ -47,23 +47,23 @@ export function renderAuthDropdown(navTools) {
   const loginButton = navTools.querySelector('.nav-dropdown-button');
   const logoutButtonElement = navTools.querySelector('.authenticated-user-menu > li > button');
 
-  const toggleDropDownAuthMenu = (event) => {
-    if (event.type === 'click') {
-      authDropDownPanel.classList.add('nav-tools-panel--show');
+  async function toggleDropDownAuthMenu(state) {
+    const show = state ?? !authDropDownPanel.classList.contains('nav-tools-panel--show');
+
+    authDropDownPanel.classList.toggle('nav-tools-panel--show', show);
+  }
+
+  loginButton.addEventListener('click', () => toggleDropDownAuthMenu());
+  document.addEventListener('click', (e) => {
+    if (!authDropDownPanel.contains(e.target) && !loginButton.contains(e.target)) {
+      toggleDropDownAuthMenu(false);
     }
 
-    if (event.code === 'Escape' || event.code === 27) {
-      authDropDownPanel.classList.remove('nav-tools-panel--show');
-    }
-  };
-
-  loginButton.addEventListener('click', toggleDropDownAuthMenu);
-  window.addEventListener('keydown', toggleDropDownAuthMenu);
-  window.addEventListener('click', (event) => {
-    if (!authDropDownPanel.contains(event.target) && !loginButton.contains(event.target)) {
-      authDropDownPanel.classList.remove('nav-tools-panel--show');
+    if (!authDropDownPanel.contains(e.target) && !loginButton.contains(e.target)) {
+      toggleDropDownAuthMenu(false);
     }
   });
+
   logoutButtonElement.addEventListener('click', async () => {
     await authApi.revokeCustomerToken();
     checkAndRedirect('/customer/account', '/customer/login');
