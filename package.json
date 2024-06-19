@@ -39,7 +39,7 @@
     "@dropins/storefront-cart": "0.2.0",
     "@dropins/storefront-checkout": "0.1.0-alpha33",
     "@dropins/storefront-auth": "0.0.1-alpha2",
-    "@dropins/storefront-order-confirmation": "0.1.0-alpha22",
+    "@dropins/storefront-order-confirmation": "0.1.0-alpha23",
     "@dropins/storefront-pdp": "0.2.2-alpha24",
     "@dropins/tools": "0.24.1"
   }
