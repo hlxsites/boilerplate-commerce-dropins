@@ -1,16 +1,16 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
 
-// Drop-in Tools
+// Dropin Tools
 import { events } from '@dropins/tools/event-bus.js';
 import { initializers } from '@dropins/tools/initializer.js';
 
-// Checkout Drop-in Modules
+// Checkout Dropin Modules
 import { render as checkoutProvider } from '@dropins/storefront-checkout/render.js';
 import * as checkoutApi from '@dropins/storefront-checkout/api.js';
 import Checkout from '@dropins/storefront-checkout/containers/Checkout.js';
 
-// Auth Drop-in Modules
+// Auth Dropin Modules
 import { render as authProvider } from '@dropins/storefront-auth/render.js';
 import * as authApi from '@dropins/storefront-auth/api.js';
 import AuthCombine from '@dropins/storefront-auth/containers/AuthCombine.js';
@@ -20,7 +20,7 @@ import { createModal } from '../modal/modal.js';
 export default async function decorate(block) {
   let signInModal = null;
 
-  // Initialize Drop-ins
+  // Initialize Dropins
   initializers.register(checkoutApi.initialize, {});
 
   events.on(
