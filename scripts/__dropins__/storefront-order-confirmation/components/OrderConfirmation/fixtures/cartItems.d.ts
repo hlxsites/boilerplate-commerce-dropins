@@ -8,6 +8,7 @@ export declare const itemsFixture: ({
     gift_message?: import('../../../__generated__/types').Maybe<import('../../../__generated__/types').GiftMessage> | undefined;
     gift_wrapping?: import('../../../__generated__/types').Maybe<import('../../../__generated__/types').GiftWrapping> | undefined;
     id: string;
+    prices?: import('../../../__generated__/types').Maybe<import('../../../__generated__/types').OrderItemPrices> | undefined;
     product?: import('../../../__generated__/types').Maybe<import('../../../__generated__/types').ProductInterface> | undefined;
     product_name?: import('../../../__generated__/types').Maybe<string> | undefined;
     product_sale_price: import('../../../__generated__/types').Money;

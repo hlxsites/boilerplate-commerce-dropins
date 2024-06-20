@@ -852,6 +852,8 @@ export type BundleOrderItem = OrderItemInterface & {
     gift_wrapping?: Maybe<GiftWrapping>;
     /** The unique ID for an `OrderItemInterface` object. */
     id: Scalars['ID']['output'];
+    /** Contains details about the price of the item, including taxes and discounts. */
+    prices?: Maybe<OrderItemPrices>;
     /** The ProductInterface object, which contains details about the base product */
     product?: Maybe<ProductInterface>;
     /** The name of the base product. */
@@ -4261,6 +4263,8 @@ export type DownloadableOrderItem = OrderItemInterface & {
     gift_wrapping?: Maybe<GiftWrapping>;
     /** The unique ID for an `OrderItemInterface` object. */
     id: Scalars['ID']['output'];
+    /** Contains details about the price of the item, including taxes and discounts. */
+    prices?: Maybe<OrderItemPrices>;
     /** The ProductInterface object, which contains details about the base product */
     product?: Maybe<ProductInterface>;
     /** The name of the base product. */
@@ -4968,6 +4972,8 @@ export type GiftCardOrderItem = OrderItemInterface & {
     gift_wrapping?: Maybe<GiftWrapping>;
     /** The unique ID for an `OrderItemInterface` object. */
     id: Scalars['ID']['output'];
+    /** Contains details about the price of the item, including taxes and discounts. */
+    prices?: Maybe<OrderItemPrices>;
     /** The ProductInterface object, which contains details about the base product */
     product?: Maybe<ProductInterface>;
     /** The name of the base product. */
@@ -6966,6 +6972,8 @@ export type OrderItem = OrderItemInterface & {
     gift_wrapping?: Maybe<GiftWrapping>;
     /** The unique ID for an `OrderItemInterface` object. */
     id: Scalars['ID']['output'];
+    /** Contains details about the price of the item, including taxes and discounts. */
+    prices?: Maybe<OrderItemPrices>;
     /** The ProductInterface object, which contains details about the base product */
     product?: Maybe<ProductInterface>;
     /** The name of the base product. */
@@ -7009,6 +7017,8 @@ export type OrderItemInterface = {
     gift_wrapping?: Maybe<GiftWrapping>;
     /** The unique ID for an `OrderItemInterface` object. */
     id: Scalars['ID']['output'];
+    /** Contains details about the price of the item, including taxes and discounts. */
+    prices?: Maybe<OrderItemPrices>;
     /** The ProductInterface object, which contains details about the base product */
     product?: Maybe<ProductInterface>;
     /** The name of the base product. */
@@ -7045,6 +7055,29 @@ export type OrderItemOption = {
     label: Scalars['String']['output'];
     /** The value of the option. */
     value: Scalars['String']['output'];
+};
+export type OrderItemPrices = {
+    __typename?: 'OrderItemPrices';
+    /** An array of discounts to be applied to the cart item. */
+    discounts?: Maybe<Array<Maybe<Discount>>>;
+    /** The original price of the item. */
+    original_price?: Maybe<Money>;
+    /** The original price of the item including tax. */
+    original_price_including_tax?: Maybe<Money>;
+    /** The value of the original price multiplied by the quantity of the item. */
+    original_row_total: Money;
+    /** The value of the original price multiplied by the quantity of the item including tax. */
+    original_row_total_including_tax: Money;
+    /** The price of the item before any discounts were applied. The price that might include tax, depending on the configured display settings for cart. */
+    price: Money;
+    /** The price of the item before any discounts were applied. The price that might include tax, depending on the configured display settings for cart. */
+    price_including_tax: Money;
+    /** The value of the price multiplied by the quantity of the item. */
+    row_total: Money;
+    /** The value of `row_total` plus the tax applied to the item. */
+    row_total_including_tax: Money;
+    /** The total of all discounts applied to the item. */
+    total_item_discount: Money;
 };
 /** Contains details about the payment method used to pay for the order. */
 export type OrderPaymentMethod = {
@@ -9404,8 +9437,12 @@ export type SelectedBundleOptionValue = {
     id: Scalars['Int']['output'];
     /** The display name of the value for the selected bundle product option. */
     label: Scalars['String']['output'];
+    /** The original price of the value for the selected bundle product option. */
+    original_price: Money;
     /** The price of the value for the selected bundle product option. */
     price: Scalars['Float']['output'];
+    /** The price of the value for the selected bundle product option. */
+    priceV2: Money;
     /** The quantity of the value for the selected bundle product option. */
     quantity: Scalars['Float']['output'];
     /** The unique ID for a `SelectedBundleOptionValue` object */
@@ -13182,6 +13219,7 @@ export type CustomerOrderQuery = {
                 billing_address?: {
                     __typename?: 'OrderAddress';
                     firstname: string;
+                    middlename?: string | null;
                     lastname: string;
                     street: Array<string | null>;
                     city: string;
@@ -13190,10 +13228,12 @@ export type CustomerOrderQuery = {
                     country_code?: CountryCodeEnum | null;
                     region?: string | null;
                     region_id?: string | null;
+                    company?: string | null;
                 } | null;
                 shipping_address?: {
                     __typename?: 'OrderAddress';
                     firstname: string;
+                    middlename?: string | null;
                     lastname: string;
                     street: Array<string | null>;
                     city: string;
@@ -13202,6 +13242,7 @@ export type CustomerOrderQuery = {
                     country_code?: CountryCodeEnum | null;
                     region?: string | null;
                     region_id?: string | null;
+                    company?: string | null;
                 } | null;
                 items?: Array<{
                     __typename: 'BundleOrderItem';
@@ -13874,6 +13915,7 @@ export type GuestOrderDataFragment = {
     billing_address?: {
         __typename?: 'OrderAddress';
         firstname: string;
+        middlename?: string | null;
         lastname: string;
         street: Array<string | null>;
         city: string;
@@ -13882,10 +13924,12 @@ export type GuestOrderDataFragment = {
         country_code?: CountryCodeEnum | null;
         region?: string | null;
         region_id?: string | null;
+        company?: string | null;
     } | null;
     shipping_address?: {
         __typename?: 'OrderAddress';
         firstname: string;
+        middlename?: string | null;
         lastname: string;
         street: Array<string | null>;
         city: string;
@@ -13894,6 +13938,7 @@ export type GuestOrderDataFragment = {
         country_code?: CountryCodeEnum | null;
         region?: string | null;
         region_id?: string | null;
+        company?: string | null;
     } | null;
     items?: Array<{
         __typename: 'BundleOrderItem';
@@ -14570,6 +14615,7 @@ export type GuestOrderQuery = {
         billing_address?: {
             __typename?: 'OrderAddress';
             firstname: string;
+            middlename?: string | null;
             lastname: string;
             street: Array<string | null>;
             city: string;
@@ -14578,10 +14624,12 @@ export type GuestOrderQuery = {
             country_code?: CountryCodeEnum | null;
             region?: string | null;
             region_id?: string | null;
+            company?: string | null;
         } | null;
         shipping_address?: {
             __typename?: 'OrderAddress';
             firstname: string;
+            middlename?: string | null;
             lastname: string;
             street: Array<string | null>;
             city: string;
@@ -14590,6 +14638,7 @@ export type GuestOrderQuery = {
             country_code?: CountryCodeEnum | null;
             region?: string | null;
             region_id?: string | null;
+            company?: string | null;
         } | null;
         items?: Array<{
             __typename: 'BundleOrderItem';
@@ -15265,6 +15314,7 @@ export type GuestOrderByTokenQuery = {
         billing_address?: {
             __typename?: 'OrderAddress';
             firstname: string;
+            middlename?: string | null;
             lastname: string;
             street: Array<string | null>;
             city: string;
@@ -15273,10 +15323,12 @@ export type GuestOrderByTokenQuery = {
             country_code?: CountryCodeEnum | null;
             region?: string | null;
             region_id?: string | null;
+            company?: string | null;
         } | null;
         shipping_address?: {
             __typename?: 'OrderAddress';
             firstname: string;
+            middlename?: string | null;
             lastname: string;
             street: Array<string | null>;
             city: string;
@@ -15285,6 +15337,7 @@ export type GuestOrderByTokenQuery = {
             country_code?: CountryCodeEnum | null;
             region?: string | null;
             region_id?: string | null;
+            company?: string | null;
         } | null;
         items?: Array<{
             __typename: 'BundleOrderItem';

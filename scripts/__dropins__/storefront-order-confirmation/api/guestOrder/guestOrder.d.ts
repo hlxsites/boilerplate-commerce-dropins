@@ -41,6 +41,7 @@ export declare const guestOrder: (input: GuestOrderInput) => Promise<{
     billing_address?: {
         __typename?: "OrderAddress" | undefined;
         firstname: string;
+        middlename?: string | null | undefined;
         lastname: string;
         street: (string | null)[];
         city: string;
@@ -49,10 +50,12 @@ export declare const guestOrder: (input: GuestOrderInput) => Promise<{
         country_code?: import('../../__generated__/types').CountryCodeEnum | null | undefined;
         region?: string | null | undefined;
         region_id?: string | null | undefined;
+        company?: string | null | undefined;
     } | null | undefined;
     shipping_address?: {
         __typename?: "OrderAddress" | undefined;
         firstname: string;
+        middlename?: string | null | undefined;
         lastname: string;
         street: (string | null)[];
         city: string;
@@ -61,6 +64,7 @@ export declare const guestOrder: (input: GuestOrderInput) => Promise<{
         country_code?: import('../../__generated__/types').CountryCodeEnum | null | undefined;
         region?: string | null | undefined;
         region_id?: string | null | undefined;
+        company?: string | null | undefined;
     } | null | undefined;
     items?: ({
         __typename: "BundleOrderItem";

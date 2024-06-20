@@ -29,13 +29,14 @@ export default async function decorate(block) {
     }
   });
 
-  const onSignUpClick = async (inputsDefaultValueSet) => {
+  const onSignUpClick = async ({ inputsDefaultValueSet, addressesData }) => {
     const signUpForm = document.createElement('div');
 
     authProvider.render(SignUp, {
       routeSignIn: () => '/customer/login',
       routeRedirectOnEmailConfirmationClose: () => '/customer/account',
       inputsDefaultValueSet,
+      addressesData,
     })(signUpForm);
 
     signUpModal = await createModal([signUpForm]);
