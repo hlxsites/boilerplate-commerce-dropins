@@ -29,5 +29,4 @@ export const customerShippingAddress = {
     countryFull: 'United States',
     countryCode: 'US',
     paymentMethod: 'Check / Money order',
-  };
-  
+  }

@@ -2,13 +2,12 @@ const { defineConfig } = require('cypress')
 
 
 module.exports = defineConfig({
-  defaultCommandTimeout: 60000,
+  defaultCommandTimeout: 30000,
   screenshotsFolder: 'screenshots',
   downloadsFolder: 'downloads',
-  fixturesFolder: 'src/fixtures',
   video: false,
-  pageLoadTimeout: 60000,
-  requestTimeout: 60000,
+  pageLoadTimeout: 30000,
+  requestTimeout: 30000,
   viewportHeight: 900,
   viewportWidth: 1440,
   scrollBehavior: 'nearest',
@@ -18,12 +17,6 @@ module.exports = defineConfig({
     runMode: 2,
   },
   e2e: {
-    // We've imported your old cypress plugins here.
-    // You may want to clean this up later by importing these.
-    // setupNodeEvents(on, config) {
-    //   config = dotenvPlugin(config);
-    //   return excPlugin({ config, on });
-    // },
     baseUrl: 'https://main--boilerplate-commerce-dropins--hlxsites.hlx.page/',
     supportFile: 'src/support/index.js',
     specPattern: 'src/tests/**/*.spec.js',

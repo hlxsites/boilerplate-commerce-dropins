@@ -1,34 +1,5 @@
 export const checkoutButton = '[data-testid="checkout-button"]';
 
-/* Estimated shipping fields */
-export const estimatedShippingForm = '[data-testid="shipping-estimate-form"]';
-
-export const estimatedShippingSubmit =
-  '[data-testid="estimate-shipping-apply-button"]';
-
-export const estimatedShippingDestinationLink =
-  '[data-testid="shipping-destination-link"]';
-
-export const estimatedShippingZipField =
-  '[data-testid="estimate-shipping-zip-input"]';
-
-export const estimatedShippingStateSelector =
-  '[data-testid="estimate-shipping-state-selector"]';
-
-export const estimatedShippingStateInput =
-  '[data-testid="estimate-shipping-state-input"]';
-
-export const estimatedShippingAlternativeFieldLink =
-  '[data-testid="shipping-alternate-field-link"]';
-
-export const estimatedShippingCountrySelector =
-  '[data-testid="estimate-shipping-country-selector"]';
-
-// Auth fields
-export const authSignInEmailField = 'input[name="email"]';
-export const authSignInPasswordField = 'input[name="password"]';
-export const authSignInSubmitButton = '.auth-signInForm__button--submit';
-
 // Shipping Form
 export const shippingFormGuestEmail = 'input[name="customer-email"]';
 
@@ -102,17 +73,3 @@ export const shippingMethods = 'div[class*="checkout-shipping-methods"]';
 // Place Order
 export const placeOrderButton = 'button[class*="checkout-place-order__button"]';
 
-// Empty Cart Start shopping button
-export const startShoppingButton = 'a[class*="checkout-empty-cart__button"]';
-
-// Sign In Link
-export const signInLink = 'a[class*="checkout-login-form__link"]';
-// Sign Out Link
-export const signOutLink = 'a[class*="checkout-login-form__link"]';
-
-// Auth Sign In Form
-export const signInFormEmail = 'form[name="signIn_form"] input[name="email"]';
-export const signInFormPassword =
-  'form[name="signIn_form"] input[name="password"]';
-export const signInFormSignInButton =
-  'button[class*="auth-signInForm__button--submit"]';
