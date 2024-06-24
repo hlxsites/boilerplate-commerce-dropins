@@ -31,6 +31,8 @@ export default async function decorate(block) {
     window.location.href = '/customer/login';
   }
 
+  document.body.classList.add('my-account-element');
+
   getCustomer(token).then((response) => {
     if (!response?.data?.customer) {
       window.location.href = '/';
@@ -78,16 +80,19 @@ export default async function decorate(block) {
       return acc + addressHTML;
     }, '');
 
-    const renderOrdersList = items.reduce((acc, el, i) => {
-      const orderHTML = `
+    const renderOrdersList = items.reduce(
+      (acc, el, i) => {
+        const orderHTML = `
         <li class="mb-4">
           <div>${i + 1}.</div>
           <div>Order ${el.order_number || el.number}</div>
           <div class="is-size-6">${convertDateFormat(el.created_at || el.order_date)}</div>
           <span class="tag ${validateOrdersStatus(el.status)}">${el.status}</span>
         </li>`;
-      return acc + orderHTML;
-    }, items.length ? '' : '<div></div>');
+        return acc + orderHTML;
+      },
+      items.length ? '' : '<div></div>',
+    );
 
     block.insertAdjacentHTML(
       'afterbegin',

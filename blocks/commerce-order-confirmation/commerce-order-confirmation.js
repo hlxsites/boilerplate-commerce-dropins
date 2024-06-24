@@ -5,7 +5,7 @@
 import { initializers } from '@dropins/tools/initializer.js';
 
 // Drop-in APIs
-import * as orderConfirmation from '@dropins/storefront-order-confirmation/api.js';
+import * as orderConfirmationApi from '@dropins/storefront-order-confirmation/api.js';
 
 // Drop-in Providers
 import { render as provider } from '@dropins/storefront-order-confirmation/render.js';
@@ -15,13 +15,13 @@ import OrderConfirmation from '@dropins/storefront-order-confirmation/containers
 
 export default async function decorate(block) {
   // Initialize Drop-ins
-  initializers.register(orderConfirmation.initialize, {});
+  initializers.register(orderConfirmationApi.initialize, {});
 
   const params = new URLSearchParams(window.location.search);
-  const token = params.get('orderRef');
+  const orderRef = params.get('orderRef');
 
   return provider.render(OrderConfirmation, {
-    token,
+    orderRef,
     routeHome: () => '/',
     routeSupport: () => '/support',
   })(block);

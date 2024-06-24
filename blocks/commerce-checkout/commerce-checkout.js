@@ -2,34 +2,56 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 // Dropin Tools
-import { initializers } from '@dropins/tools/initializer.js';
 import { events } from '@dropins/tools/event-bus.js';
+import { initializers } from '@dropins/tools/initializer.js';
 
-// Dropin APIs
-import * as checkout from '@dropins/storefront-checkout/api.js';
-
-// Dropin Providers
-import { render as provider } from '@dropins/storefront-checkout/render.js';
-
-// Dropin Containers
+// Checkout Dropin Modules
+import { render as checkoutProvider } from '@dropins/storefront-checkout/render.js';
+import * as checkoutApi from '@dropins/storefront-checkout/api.js';
 import Checkout from '@dropins/storefront-checkout/containers/Checkout.js';
 
+// Auth Dropin Modules
+import { render as authProvider } from '@dropins/storefront-auth/render.js';
+import * as authApi from '@dropins/storefront-auth/api.js';
+import AuthCombine from '@dropins/storefront-auth/containers/AuthCombine.js';
+
+import { createModal } from '../modal/modal.js';
+
 export default async function decorate(block) {
-  // If cartId is cached in session storage, use
-  // otherwise, checkout dropin will look for one in the event-bus
-  const cartId = sessionStorage.getItem('DROPINS_CART_ID') || '';
+  let signInModal = null;
 
-  // Initialize Dropins
-  initializers.register(checkout.initialize, {});
+  // Initialize Drop-ins
+  initializers.register(checkoutApi.initialize, {});
 
-  // Listen for order confirmation and redirect to order confirmation page
-  events.on('checkout/order', (data) => {
-    const orderRef = encodeURIComponent(data.token);
-    window.location.replace(`/order-confirmation?orderRef=${orderRef}`);
-  });
+  events.on(
+    'authenticated',
+    (isAuthenticated) => {
+      if (isAuthenticated && signInModal) {
+        signInModal.removeModal();
+        signInModal = null;
+      }
+    },
+    { eager: true },
+  );
 
-  return provider.render(Checkout, {
-    cartId,
+  const onSignInClick = async (initialEmailValue) => {
+    const signInForm = document.createElement('div');
+
+    authProvider.render(AuthCombine, {
+      signInFormConfig: { renderSignUpLink: true, initialEmailValue },
+      signUpFormConfig: {},
+      resetPasswordFormConfig: {},
+    })(signInForm);
+
+    signInModal = await createModal([signInForm]);
+    signInModal.showModal();
+  };
+
+  return checkoutProvider.render(Checkout, {
+    onSignInClick,
+    onSignOutClick: () => {
+      authApi.revokeCustomerToken();
+    },
     routeHome: () => '/',
     routeCart: () => '/cart',
     slots: {

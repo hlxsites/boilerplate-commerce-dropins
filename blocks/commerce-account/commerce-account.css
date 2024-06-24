@@ -2,9 +2,13 @@
   box-sizing: border-box;
 }
 
+.my-account-element {
+  overflow: hidden;
+}
+
 .admin-panel {
   display: flex;
-  align-items: flex-start
+  align-items: flex-start;
 }
 
 .admin-panel .sidebar {
@@ -17,7 +21,6 @@
   padding: 10px;
   text-align: center;
 }
-
 
 .admin-panel .menu ul {
   list-style: none;
