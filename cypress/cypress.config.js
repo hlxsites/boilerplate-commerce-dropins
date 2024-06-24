@@ -1,6 +1,5 @@
-import { defineConfig } from 'cypress';
-import dotenvPlugin from 'cypress-dotenv';
-import { excPlugin } from '@exc/cypress-automation-tools';
+const { defineConfig } = require('cypress')
+
 
 module.exports = defineConfig({
   defaultCommandTimeout: 60000,
@@ -21,10 +20,10 @@ module.exports = defineConfig({
   e2e: {
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
-    setupNodeEvents(on, config) {
-      config = dotenvPlugin(config);
-      return excPlugin({ config, on });
-    },
+    // setupNodeEvents(on, config) {
+    //   config = dotenvPlugin(config);
+    //   return excPlugin({ config, on });
+    // },
     baseUrl: 'https://main--boilerplate-commerce-dropins--hlxsites.hlx.page/',
     supportFile: 'src/support/index.js',
     specPattern: 'src/tests/**/*.spec.js',

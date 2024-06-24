@@ -7,8 +7,27 @@ export const customerShippingAddress = {
     postCode: '78758',
     telephone: '1234567890',
     email: 'test@example.com',
-    region: 'Texas',
+    region: '169',
+    regionFull: 'Texas',
     countryFull: 'United States',
     countryCode: 'US',
-    shippingMethod: 'United States Postal Service - Media Mail Parcel'
-};
+    shippingMethod: 'United States Postal Service - Media Mail Parcel',
+  };
+  
+  export const customerBillingAddress = {
+    firstName: 'Jane',
+    lastName: 'Smith',
+    street: '5th Ave',
+    street1: 'Suite 20',
+    // Intentional string to distinguish between state and city during assertion
+    city: 'NewYork City',
+    postCode: '12345',
+    telephone: '0987654321',
+    email: 'test-jane@example.com',
+    region: '43',
+    regionFull: 'New York',
+    countryFull: 'United States',
+    countryCode: 'US',
+    paymentMethod: 'Check / Money order',
+  };
+  
