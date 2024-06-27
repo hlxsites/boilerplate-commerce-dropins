@@ -26,7 +26,6 @@ export interface CartModel {
             regionCode?: string;
         }[];
     };
-    isGuestCart?: boolean;
 }
 interface TotalPriceModifier {
     amount: Price;
