@@ -1,4 +1,4 @@
-import{s as l,f as d,h as u,C as m,a as T,t as E}from"./getStoreConfig.js";import"@dropins/tools/event-bus.js";const I=`
+import{s as l,f as d,h as u,C as m,a as T,t as E}from"./resetCart.js";import"@dropins/tools/event-bus.js";const I=`
   mutation ESTIMATE_SHIPPING_METHODS_MUTATION(
     $cartId: String!
     $address: EstimateAddressInput!
@@ -67,4 +67,3 @@ query REGIONS_QUERY($id: String) {
     }
   ${T}
   `,$=async r=>{var c,a;const t=l.cartId;if(!t)throw new Error("No cart ID found");if(!r)throw new Error("No address parameter found");const{countryCode:o,postcode:n,region:e}=r,i=(c=r.shipping_method)==null?void 0:c.carrier_code,s=(a=r.shipping_method)==null?void 0:a.method_code;return d(S,{variables:{cartId:t,address:{country_code:o||"US",postcode:n||"00000",region:{region:(e==null?void 0:e.region)||"region",region_code:(e==null?void 0:e.code)||"regionCode",region_id:(e==null?void 0:e.id)||0}},shipping_method:{carrier_code:i||"",method_code:s||""}}}).then(({errors:_,data:h})=>{if(_)return u(_);const p=h.estimateTotals;return p?E(p.cart):null})};export{M as a,U as b,$ as c,N as g};
-//# sourceMappingURL=getEstimatedTotals.js.map
