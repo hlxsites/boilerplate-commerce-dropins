@@ -17,6 +17,7 @@ declare const _default: {
     "PriceSummary": {
       "taxToBeDetermined": "TBD",
       "checkout": "Checkout",
+      "orderSummary": "Order Summary",
       "estimatedShippingForm": {
         "country": {
           "placeholder": "Country"

@@ -8,5 +8,6 @@ export declare const useEstimatedTotals: () => {
         method_code: string;
     }) => void;
     estimatedTotals: any;
+    loading: boolean;
 };
 //# sourceMappingURL=useEstimatedTotals.d.ts.map
