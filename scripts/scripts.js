@@ -169,11 +169,8 @@ async function loadEager(doc) {
     preloadFile('/scripts/__dropins__/storefront-pdp/containers/ProductDetails.js', 'script');
     preloadFile('/scripts/__dropins__/storefront-pdp/api.js', 'script');
     preloadFile('/scripts/__dropins__/storefront-pdp/render.js', 'script');
-    preloadFile('/scripts/__dropins__/storefront-pdp/runtime.js', 'script');
-    preloadFile('/scripts/__dropins__/storefront-pdp/713.js', 'script');
-    preloadFile('/scripts/__dropins__/storefront-pdp/275.js', 'script');
-    preloadFile('/scripts/__dropins__/storefront-pdp/918.js', 'script');
-    preloadFile('/scripts/__dropins__/storefront-pdp/148.js', 'script');
+    preloadFile('/scripts/__dropins__/storefront-pdp/chunks/initialize.js', 'script');
+    preloadFile('/scripts/__dropins__/storefront-pdp/chunks/getRefinedProduct.js', 'script');
   } else if (document.body.querySelector('main .product-details-custom')) {
     pageType = 'Product';
     preloadFile('/scripts/preact.js', 'script');
@@ -261,9 +258,9 @@ async function loadLazy(doc) {
     loadFooter(doc.querySelector('footer')),
     loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`),
     loadFonts(),
+    import('./acdl/adobe-client-data-layer.min.js'),
   ]);
 
-  await import('./acdl/adobe-client-data-layer.min.js');
   if (sessionStorage.getItem('acdl:debug')) {
     import('./acdl/validate.js');
   }

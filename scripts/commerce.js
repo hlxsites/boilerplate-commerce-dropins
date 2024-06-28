@@ -43,16 +43,19 @@ ${priceFieldsFragment}`;
 export const productDetailQuery = `query ProductQuery($sku: String!) {
   products(skus: [$sku]) {
     __typename
+    id
     externalId
     sku
     name
     description
     shortDescription
+    url
     urlKey
     inStock
     metaTitle
     metaKeyword
     metaDescription
+    addToCartAllowed
     images(roles: []) {
       url
       label
@@ -253,6 +256,9 @@ export async function trackHistory() {
   const storeViewCode = await getConfigValue('commerce-store-view-code');
   window.adobeDataLayer.push((dl) => {
     dl.addEventListener('adobeDataLayer:change', (event) => {
+      if (!event.productContext) {
+        return;
+      }
       const key = `${storeViewCode}:productViewHistory`;
       let viewHistory = JSON.parse(window.localStorage.getItem(key) || '[]');
       viewHistory = viewHistory.filter((item) => item.sku !== event.productContext.sku);
