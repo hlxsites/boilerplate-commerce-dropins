@@ -22,3 +22,25 @@ export const setGuestShippingAddress = (customerAddress, isSelectableState) => {
 export const placeOrder = () => {
   cy.get(fields.placeOrderButton).click();
 };
+
+export const createAccount = () => {
+  cy.contains("Create account").click();
+};
+
+export const signUpUser = (sign_up, isValid = true) => {
+  if (sign_up.email) {
+    cy.get(fields.authFormUserEmail).clear().type(sign_up.email);
+  }
+
+  cy.get(fields.authFormUserFirstName).clear().type(sign_up.firstName);
+  cy.get(fields.authFormUserLastName).clear().type(sign_up.lastName);
+  cy.get(fields.authFormUserPassword).eq(1).clear().type(sign_up.password);
+
+  if (isValid) {
+    cy.get(fields.authFormUserPassword).eq(1).clear().type(sign_up.password);
+  } else {
+    cy.get(fields.authFormUserPassword).eq(1).clear().type(sign_up.shortPassword);
+  }
+
+  createAccount();
+};

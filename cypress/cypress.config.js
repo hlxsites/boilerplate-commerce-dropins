@@ -5,6 +5,7 @@ module.exports = defineConfig({
   defaultCommandTimeout: 30000,
   screenshotsFolder: 'screenshots',
   downloadsFolder: 'downloads',
+  fixturesFolder: 'src/fixtures',
   video: false,
   pageLoadTimeout: 30000,
   requestTimeout: 30000,

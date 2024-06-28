@@ -1,0 +1,17 @@
+{
+    "sign_in": {
+      "email": "test_cypresstest@mail.com",
+      "password": "qwertyui1qwertyui1!",
+      "shortPassword": "world"
+    },
+    "recovery": {
+      "email": "test_cypresstest@mail.com"
+    },
+    "sign_up": {
+      "email": "test_cypresstest@mail.com",
+      "firstName": "firstname",
+      "lastName": "lastname",
+      "password": "qwertyui1qwertyui1!",
+      "shortPassword": "world"
+    }
+  }

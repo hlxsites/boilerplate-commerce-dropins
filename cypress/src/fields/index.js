@@ -98,3 +98,8 @@ export const estimatedShippingCountrySelector =
   '[data-testid="estimate-shipping-country-selector"]';
 
 export const estimatedTaxTotal = '[data-testid="tax-total"]';
+
+export const authFormUserEmail = 'input[name="email"]';
+export const authFormUserFirstName = 'input[name="firstname"]';
+export const authFormUserLastName = 'input[name="lastname"]';
+export const authFormUserPassword = 'input[name="password"]';

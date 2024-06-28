@@ -2,6 +2,8 @@ import {
     setGuestEmail,
     setGuestShippingAddress,
     placeOrder,
+    signUpUser,
+    createAccount,
 } from '../../actions';
 import {
     assertCartSummaryProduct,
@@ -62,7 +64,11 @@ describe('Verify auth user can place order', () => {
             '/products/hollister-backyard-sweatshirt/MH05'
         )('.cart-cart');
         assertProductImage('/mh05-white_main_1.jpg')('.cart-cart');
-        cy.visit("/customer/create")
+        cy.visit("/customer/create");
+        cy.fixture('userInfo').then(({ sign_up }) => {
+            signUpUser(sign_up);
+        });
+
         // cy.wait(2000)
         // cy.get('.dropin-button--primary')
         //     .contains('Checkout')
