@@ -20,7 +20,6 @@ import {
     assertSelectedPaymentMethod,
 } from '../../assertions';
 import {
-    customerBillingAddress,
     customerShippingAddress,
 } from '../../fixtures/index';
 
