@@ -11,7 +11,8 @@ export const customerShippingAddress = {
     regionFull: 'Texas',
     countryFull: 'United States',
     countryCode: 'US',
-    shippingMethod: 'United States Postal Service - Media Mail Parcel',
+    shippingMethod: 'Flat Rate - Fixed',
+    paymentMethod: 'Check / Money order',
   };
   
   export const customerBillingAddress = {
