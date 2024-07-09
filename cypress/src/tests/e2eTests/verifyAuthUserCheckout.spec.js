@@ -176,5 +176,6 @@ describe('Verify auth user can place order', () => {
         assertOrderConfirmationShippingDetails(customerShippingAddress);
         assertOrderConfirmationBillingDetails(customerBillingAddress);
         assertOrderConfirmationShippingMethod(customerShippingAddress);
+        cy.deleteCustomer();
     });
 });

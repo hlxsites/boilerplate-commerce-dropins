@@ -1,17 +1,17 @@
 {
     "sign_in": {
-      "email": "test_cypresstest@mail.com",
-      "password": "qwertyui1qwertyui1!",
+      "email": "test_cypresstest@example.com",
+      "password": "testTest123!",
       "shortPassword": "world"
     },
     "recovery": {
-      "email": "test_cypresstest@mail.com"
+      "email": "test_cypresstest@example.com"
     },
     "sign_up": {
-      "email": "test_cypresstest@mail.com",
-      "firstName": "firstname",
-      "lastName": "lastname",
-      "password": "qwertyui1qwertyui1!",
+      "email": "test_cypresstest@example.com",
+      "firstName": "John",
+      "lastName": "Doe",
+      "password": "testTest123!",
       "shortPassword": "world"
     }
   }

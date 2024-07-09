@@ -2,7 +2,6 @@ export const checkoutButton = '[data-testid="checkout-button"]';
 
 // Shipping Form
 export const shippingFormGuestEmail = 'input[name="customer-email"]';
-
 export const shippingFormFirstName =
   'form[name="shipping_address"] input[name="firstname"]';
 export const shippingFormLastName =

@@ -24,7 +24,7 @@ export const customerShippingAddress = {
     city: 'NewYork City',
     postCode: '12345',
     telephone: '0987654321',
-    email: 'test_cypresstest@mail.com',
+    email: 'test_cypresstest@example.com',
     region: '127',
     regionFull: 'New York',
     countryFull: 'United States',
