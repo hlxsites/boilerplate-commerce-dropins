@@ -159,3 +159,10 @@ export const assertOrderConfirmationShippingMethod = (
     .should('contain', 'Shipping method')
     .and('contain', customerDelievryMethod.shippingMethod);
 }
+
+export const assertAuthUser = (sign_up) => {
+  cy.url().should('include', '/customer/account');
+  cy.contains(sign_up.firstName).should("be.visible");
+  cy.contains(sign_up.lastName).should("be.visible");
+  cy.contains(sign_up.email).should("be.visible");
+};

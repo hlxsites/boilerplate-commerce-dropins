@@ -16,6 +16,7 @@ import {
     assertOrderConfirmationShippingDetails,
     assertOrderConfirmationBillingDetails,
     assertOrderConfirmationShippingMethod,
+    assertAuthUser,
 } from '../../assertions';
 import {
 
@@ -67,7 +68,9 @@ describe('Verify auth user can place order', () => {
         cy.visit("/customer/create");
         cy.fixture('userInfo').then(({ sign_up }) => {
             signUpUser(sign_up);
+            assertAuthUser(sign_up);
         });
+      
 
         // cy.wait(2000)
         // cy.get('.dropin-button--primary')
