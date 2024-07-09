@@ -19,7 +19,6 @@
     "cypress-multi-reporters": "^1.5.0",
     "cypress-plugin-tab": "^1.0.5",
     "danger": "^10.7.1",
-    "eslint-plugin-cypress": "^2.15.1",
     "franc-min": "~6.2.0",
     "glob": "~7.2.0",
     "jimp": "~0.22.0",
