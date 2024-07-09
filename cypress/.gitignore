@@ -7,3 +7,4 @@ cypress-test-results.html
 src/snapshots/*/**
 screenshots/*
 yarn-error.log
+downloads

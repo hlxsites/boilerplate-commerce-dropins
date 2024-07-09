@@ -19,6 +19,25 @@ export const setGuestShippingAddress = (customerAddress, isSelectableState) => {
   cy.get(fields.shippingFormTelephone).clear().type(customerAddress.telephone);
 };
 
+export const setGuestBillingAddress = (customerAddress, isSelectableState) => {
+  cy.get(fields.billingFormFirstName).clear().type(customerAddress.firstName);
+  cy.get(fields.billingFormLastName).clear().type(customerAddress.lastName);
+  cy.get(fields.billingFormStreet).clear().type(customerAddress.street);
+  cy.get(fields.billingFormStreet1).clear().type(customerAddress.street1);
+  if (isSelectableState) {
+    cy.get(fields.billingFormState).select(customerAddress.region);
+  } else {
+    cy.get(fields.billingFormInputState).type(customerAddress.region);
+  }
+  cy.get(fields.billingFormCity).clear().type(customerAddress.city);
+  cy.get(fields.billingFormPostCode).clear().type(customerAddress.postCode);
+  cy.get(fields.billingFormTelephone).clear().type(customerAddress.telephone);
+};
+
+export const uncheckBillToShippingAddress = () => {
+  cy.get(fields.billToShippingAddress).uncheck({ force: true });
+};
+
 export const placeOrder = () => {
   cy.get(fields.placeOrderButton).click();
 };
