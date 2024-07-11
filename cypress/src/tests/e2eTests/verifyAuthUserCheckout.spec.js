@@ -74,10 +74,10 @@ describe('Verify auth user can place order', () => {
         // Remove this block once https://jira.corp.adobe.com/browse/USF-1389 is fixed.
         // Block Start
         cy.visit('/products/hollister-backyard-sweatshirt/MH05');
-        cy.get('[id="Y29uZmlndXJhYmxlLzU1Ni81MjM="]').click({
+        cy.get('[id="Y29uZmlndXJhYmxlLzE4Ni8xNzY="]').click({
             force: true,
           });
-          cy.get('[id="Y29uZmlndXJhYmxlLzI3Ny8xODQ="]').click({
+          cy.get('[id="Y29uZmlndXJhYmxlLzkzLzYy"]').click({
             force: true,
           });
         cy.wait(5000);
@@ -210,7 +210,7 @@ describe('Verify auth user can place order', () => {
         setGuestShippingAddress(customerShippingAddress, true);
         uncheckBillToShippingAddress();
         setGuestBillingAddress(customerBillingAddress, true);
-        assertOrderSummaryMisc('$90.00', '$10.00', '$100.00');
+        assertOrderSummaryMisc('$90.00', '$10.00', '$86.50');
         assertSelectedPaymentMethod('checkmo', 0);
         cy.wait(5000);
         placeOrder();

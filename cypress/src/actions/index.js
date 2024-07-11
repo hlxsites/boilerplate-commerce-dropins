@@ -49,8 +49,9 @@ export const createAccount = () => {
 export const signUpUser = (sign_up, isValid = true) => {
   const random = Cypress._.random(0, 10000000);
   const username = `${random}${sign_up.email}`;
+  cy.wait(5000);
   if (sign_up.email) {
-    cy.get(fields.authFormUserEmail).clear({force: true}).type(username);
+    cy.get(fields.authFormUserEmail).eq(1).clear({force: true}).type(username);
   }
   cy.get(fields.authFormUserFirstName).clear().type(sign_up.firstName);
   cy.get(fields.authFormUserLastName).clear().type(sign_up.lastName);

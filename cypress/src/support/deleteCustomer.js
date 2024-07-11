@@ -6,7 +6,7 @@ const deleteCustomer = () => {
     const queryDeleteCustomer = `mutation {deleteCustomer}`;
     cy.request({
       method: 'POST',
-      url: 'https://mcstaging.aemshop.net/graphql',
+      url: 'https://integration-5ojmyuq-7yvbzwvtkgerq.us-4.magentosite.cloud/graphql',
       auth: {
         bearer: userToken,
       },
