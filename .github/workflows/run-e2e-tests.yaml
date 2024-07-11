@@ -5,9 +5,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: cypress-io/github-action@v6
+      - name: Install root dependencies
+        run: npm ci
+      - name: Start server in the background
+        run: npm start &
+
+      - name: Install Cypress and run tests    
+        uses: cypress-io/github-action@v6
         with:
-          start: npm run start
+          working-directory: cypress
           browser: chrome
           wait-on: 'http://localhost:3000'
           config: baseUrl=http://localhost:3000
