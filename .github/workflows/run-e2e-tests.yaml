@@ -9,3 +9,4 @@ jobs:
         with:
           start: npm run cypress:run
           working-directory: cypress
+          browser: chrome
