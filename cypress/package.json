@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Boilerplate E2E tests",
   "scripts": {
-    "test": "cypress open --browser chrome --config-file cypress.config.js",
-    "test:cli": "CYPRESS_baseUrl=http://127.0.0.1:3000/ cross-env TZ=utc yarn cypress run --headed --browser chrome"
+    "cypress:open": "cypress open --browser chrome --config-file cypress.config.js",
+    "cypress:run": "cypress run --browser chrome --config-file cypress.config.js"
   },
   "author": "Adobe Commerce",
   "license": "MIT",

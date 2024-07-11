@@ -10,7 +10,8 @@
     "start": "aem up --print-index",
     "install:dropins": "node postinstall.js",
     "postinstall": "npm run install:dropins",
-    "postupdate": "npm run install:dropins"
+    "postupdate": "npm run install:dropins",
+    "test": "cd cypress && npm run cypress:run"
   },
   "repository": {
     "type": "git",
