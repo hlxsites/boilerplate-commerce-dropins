@@ -8,7 +8,6 @@ jobs:
       - uses: cypress-io/github-action@v6
         with:
           start: npm run start
-          working-directory: cypress
           browser: chrome
           wait-on: 'http://localhost:3000'
           config: baseUrl=http://localhost:3000
