@@ -1,18 +1,11 @@
 name: Cypress E2E Tests
 on: push
 jobs:
-  test:
+  cypress-run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install dependencies
-        uses: cypress-io/github-action@v6
+      - uses: cypress-io/github-action@v6
         with:
-          runTests: false
-          working-directory: cypress
-      - name: Run e2e tests
-        uses: cypress-io/github-action@v6
-        with:
-          install: false
           start: npm run cypress:run
           working-directory: cypress
