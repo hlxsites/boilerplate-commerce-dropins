@@ -15,7 +15,7 @@ module.exports = defineConfig({
   trashAssetsBeforeRuns: false,
   chromeWebSecurity: false,
   retries: {
-    runMode: 0,
+    runMode: 2,
   },
   e2e: {
     baseUrl: 'https://main--boilerplate-commerce-dropins--hlxsites.hlx.page/',
