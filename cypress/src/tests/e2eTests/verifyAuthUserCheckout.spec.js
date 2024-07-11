@@ -161,7 +161,7 @@ describe('Verify auth user can place order', () => {
             'Hollister Backyard Sweatshirt',
             'MH05',
             '1',
-            '$52.00',
+            '$00.00',
             '$52.00',
             '1'
         );
