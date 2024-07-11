@@ -18,4 +18,3 @@ import{C as P,a as A,s as f,f as I,h as v,t as D}from"./resetCart.js";import{eve
   }
   ${A}
 `,M=async r=>{const e=f.cartId;if(!e)throw Error("Cart ID is not set");return I(y,{variables:{cartId:e,cartItems:r.map(({uid:t,quantity:a})=>({cart_item_uid:t,quantity:a}))}}).then(({errors:t,data:a})=>{if(t)return v(t);const n=D(a.updateCartItems.cart);return g.emit("cart/updated",n),g.emit("cart/data",n),n&&N(n,r,f.locale||"en-US"),n})};export{N as a,x as b,b as p,M as u};
-//# sourceMappingURL=updateProductsFromCart.js.map

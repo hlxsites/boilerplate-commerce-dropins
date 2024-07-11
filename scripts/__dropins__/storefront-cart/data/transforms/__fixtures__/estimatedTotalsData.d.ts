@@ -1,11 +1,13 @@
 declare const mockEstimatedTotalsData: {
     estimatedAppliedTaxes: {
-        amount: {
-            currency: string;
-            value: number;
-        };
-        label: string;
-    }[];
+        taxes: {
+            amount: {
+                currency: string;
+                value: number;
+            };
+            label: string;
+        }[];
+    };
     estimatedGrandTotalPrice: {
         currency: string;
         value: number;
