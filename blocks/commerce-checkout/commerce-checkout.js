@@ -20,7 +20,7 @@ import { createModal } from '../modal/modal.js';
 export default async function decorate(block) {
   let signInModal = null;
 
-  // Initialize Drop-ins
+  // Initialize Dropins
   initializers.register(checkoutApi.initialize, {});
 
   events.on(
