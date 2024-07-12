@@ -67,6 +67,7 @@ describe('Verify auth user can place order', () => {
         //     '/products/hollister-backyard-sweatshirt/MH05'
         // )('.cart-cart');
         cy.visit("/customer/create");
+        cy.get('.minicart-wrapper').should('be.visible')
         cy.fixture('userInfo').then(({ sign_up }) => {
             signUpUser(sign_up);
             assertAuthUser(sign_up);
@@ -82,7 +83,7 @@ describe('Verify auth user can place order', () => {
         cy.get('[id="Y29uZmlndXJhYmxlLzkzLzYy"]').click({
             force: true,
         });
-        cy.wait(5000);
+        cy.wait(2000);
         cy.contains('Add to Cart').click();
         cy.get('.minicart-wrapper').click();
         assertCartSummaryProduct(
@@ -187,8 +188,7 @@ describe('Verify auth user can place order', () => {
             '/products/hollister-backyard-sweatshirt/MH05'
         )('.cart-cart');
         assertProductImage('/mh05-white_main_1.jpg')('.cart-cart');
-
-        cy.wait(2000)
+        cy.contains('Estimated Shipping').should('be.visible');
         cy.get('.dropin-button--primary')
             .contains('Checkout')
             .click();
@@ -211,10 +211,20 @@ describe('Verify auth user can place order', () => {
         );
         setGuestShippingAddress(customerShippingAddress, true);
         uncheckBillToShippingAddress();
+        const apiMethodBilling = 'setBillingAddress';
+        const urlTest = Cypress.env('graphqlEndPoint');
+        cy.intercept('POST', urlTest, (req) => {
+            let data = req.body.query;
+            if (data && typeof data == 'string') {
+                if (data.includes(apiMethodBilling)) {
+                    req.alias = 'setBillingAddress';
+                }
+            }
+        });
         setGuestBillingAddress(customerBillingAddress, true);
+        cy.wait('@setBillingAddress');
         assertOrderSummaryMisc('$90.00', '$10.00', '$86.50');
         assertSelectedPaymentMethod('checkmo', 0);
-        cy.wait(5000);
         placeOrder();
         assertOrderConfirmationCommonDetails(customerBillingAddress);
         assertOrderConfirmationShippingDetails(customerShippingAddress);

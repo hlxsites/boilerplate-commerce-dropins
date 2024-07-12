@@ -31,7 +31,9 @@ describe('Verify guest user can place order', () => {
             .click();
         cy.contains('Crown Summit Backpack').click();
         cy.get('.dropin-incrementer__increase-button').click();
-        cy.wait(5000);
+        cy.get('.dropin-incrementer__input').should('have.value', '2');
+        // cypress fails intermittently as it takes old value 1, this is needed for tests to be stable
+        cy.wait(1000);
         cy.contains('Add to Cart').click();
         cy.get('.minicart-wrapper').click();
         assertCartSummaryProduct(
@@ -61,7 +63,7 @@ describe('Verify guest user can place order', () => {
             '/products/crown-summit-backpack/24-MB03'
         )('.cart-cart');
         assertProductImage('/mb03-black-0.jpg')('.cart-cart');
-        cy.wait(2000)
+        cy.contains('Estimated Shipping').should('be.visible');
         cy.get('.dropin-button--primary')
             .contains('Checkout')
             .click();
@@ -74,12 +76,32 @@ describe('Verify guest user can place order', () => {
             '$76.00',
             '0'
         );
+        cy.contains('Estimated shipping').should('be.visible')
+        const apiMethod = 'setGuestEmailOnCart';
+        const urlTest = Cypress.env('graphqlEndPoint');
+        cy.intercept('POST', urlTest, (req) => {
+            let data = req.body.query;
+            if (data && typeof data == 'string') {
+                if (data.includes(apiMethod)) {
+                    req.alias = 'setEmailOnCart';
+                }
+            }
+        });
         setGuestEmail(customerShippingAddress.email);
-        cy.wait(5000);
+        cy.wait('@setEmailOnCart');
+        const apiMethodBilling = 'setBillingAddress';
+        cy.intercept('POST', urlTest, (req) => {
+            let data = req.body.query;
+            if (data && typeof data == 'string') {
+                if (data.includes(apiMethodBilling)) {
+                    req.alias = 'setBillingAddress';
+                }
+            }
+        });
         setGuestShippingAddress(customerShippingAddress, true);
+        cy.wait('@setBillingAddress');
         assertOrderSummaryMisc('$76.00', '$10.00', '$86.00');
         assertSelectedPaymentMethod('checkmo', 0);
-        cy.wait(5000);
         placeOrder();
         assertOrderConfirmationCommonDetails(customerShippingAddress);
         assertOrderConfirmationShippingDetails(customerShippingAddress);
