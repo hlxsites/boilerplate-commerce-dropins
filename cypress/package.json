@@ -7,7 +7,7 @@
     "cypress:run": "cypress run --config-file cypress.config.js"
   },
   "author": "Adobe Commerce",
-  "license": "MIT",
+  "license": "Apache License 2.0",
   "devDependencies": {
     "@cypress/browserify-preprocessor": "^3.0.0",
     "@cypress/code-coverage": "^3.9.12",

@@ -74,12 +74,14 @@ describe('Verify auth user can place order', () => {
         // Remove this block once https://jira.corp.adobe.com/browse/USF-1389 is fixed.
         // Block Start
         cy.visit('/products/hollister-backyard-sweatshirt/MH05');
+        // select size S for configurablle product
         cy.get('[id="Y29uZmlndXJhYmxlLzE4Ni8xNzY="]').click({
             force: true,
-          });
-          cy.get('[id="Y29uZmlndXJhYmxlLzkzLzYy"]').click({
+        });
+        // select color Green for configurablle product
+        cy.get('[id="Y29uZmlndXJhYmxlLzkzLzYy"]').click({
             force: true,
-          });
+        });
         cy.wait(5000);
         cy.contains('Add to Cart').click();
         cy.get('.minicart-wrapper').click();
@@ -143,7 +145,7 @@ describe('Verify auth user can place order', () => {
             '/products/crown-summit-backpack/24-MB03'
         )('.cart-mini-cart');
         assertProductImage('/mb03-black-0.jpg')('.cart-mini-cart');
-        
+
         assertCartSummaryProduct(
             'Hollister Backyard Sweatshirt',
             'MH05',

@@ -22,6 +22,9 @@ module.exports = defineConfig({
     supportFile: 'src/support/index.js',
     specPattern: 'src/tests/**/*.spec.js',
   },
+  env: {
+    graphqlEndPoint: 'https://integration-5ojmyuq-7yvbzwvtkgerq.us-4.magentosite.cloud/graphql',
+  },
   reporter: 'cypress-multi-reporters',
   reporterOptions: {
     configFile: 'reporter-config.json',
