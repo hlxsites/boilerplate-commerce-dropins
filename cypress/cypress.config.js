@@ -15,7 +15,7 @@ module.exports = defineConfig({
   trashAssetsBeforeRuns: false,
   chromeWebSecurity: false,
   retries: {
-    runMode: 2,
+    runMode: 0,
   },
   e2e: {
     baseUrl: 'http://localhost:3000/',
