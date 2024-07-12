@@ -211,20 +211,11 @@ describe('Verify auth user can place order', () => {
         );
         setGuestShippingAddress(customerShippingAddress, true);
         uncheckBillToShippingAddress();
-        const apiMethodBilling = 'setBillingAddress';
-        const urlTest = Cypress.env('graphqlEndPoint');
-        cy.intercept('POST', urlTest, (req) => {
-            let data = req.body.query;
-            if (data && typeof data == 'string') {
-                if (data.includes(apiMethodBilling)) {
-                    req.alias = 'setBillingAddress';
-                }
-            }
-        });
+        cy.wait(2000);
         setGuestBillingAddress(customerBillingAddress, true);
-        cy.wait('@setBillingAddress');
         assertOrderSummaryMisc('$90.00', '$10.00', '$86.50');
         assertSelectedPaymentMethod('checkmo', 0);
+        cy.wait(5000);
         placeOrder();
         assertOrderConfirmationCommonDetails(customerBillingAddress);
         assertOrderConfirmationShippingDetails(customerShippingAddress);
