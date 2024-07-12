@@ -89,17 +89,17 @@ describe('Verify guest user can place order', () => {
         });
         setGuestEmail(customerShippingAddress.email);
         cy.wait('@setEmailOnCart');
-        const apiMethodBilling = 'setBillingAddress';
+        const apiMethodBilling = 'setShippingAddress';
         cy.intercept('POST', urlTest, (req) => {
             let data = req.body.query;
             if (data && typeof data == 'string') {
                 if (data.includes(apiMethodBilling)) {
-                    req.alias = 'setBillingAddress';
+                    req.alias = 'setShippingAddress';
                 }
             }
         });
         setGuestShippingAddress(customerShippingAddress, true);
-        cy.wait('@setBillingAddress');
+        cy.wait('@setShippingAddress');
         assertOrderSummaryMisc('$76.00', '$10.00', '$86.00');
         assertSelectedPaymentMethod('checkmo', 0);
         placeOrder();
