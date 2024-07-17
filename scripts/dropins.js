@@ -14,7 +14,7 @@ import { initializers } from '@dropins/tools/initializer.js';
 import * as cartApi from '@dropins/storefront-cart/api.js';
 import * as authApi from '@dropins/storefront-auth/api.js';
 
-/** Recaptcha **/
+// Recaptcha
 import * as recaptcha from '@dropins/tools/recaptcha.js';
 
 // Libs
@@ -28,7 +28,7 @@ export default async function initializeDropins() {
   // Set Fetch Endpoint (Global)
   setEndpoint(await getConfigValue('commerce-core-endpoint'));
 
-  /** Recaptcha **/
+  // Recaptcha
   recaptcha.setEndpoint(await getConfigValue('commerce-core-endpoint'));
   recaptcha.setConfig();
 
