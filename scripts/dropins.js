@@ -29,7 +29,6 @@ export default async function initializeDropins() {
   setEndpoint(await getConfigValue('commerce-core-endpoint'));
 
   // Recaptcha
-  recaptcha.setEndpoint(await getConfigValue('commerce-core-endpoint'));
   recaptcha.setConfig();
 
   // Initializers (Global)
