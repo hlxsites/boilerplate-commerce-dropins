@@ -23,8 +23,11 @@ export default async function initializeDropins() {
   events.enableLogger(true);
 
   // Set Fetch Endpoint (Global)
-  setEndpoint(await getConfigValue('commerce-core-endpoint'));
-
+  // setEndpoint(await getConfigValue('commerce-core-endpoint'));
+  // const endpoint = 'https://checkout-stg-phpgo3q-ktefqhpptmkrc.eu-4.magentosite.cloud/graphql';
+  const endpoint = 'https://citisignal-commerce.adobedemo.com/graphql';
+  setEndpoint(endpoint);
+  setFetchGraphQlHeader('store', 'citisignal_us');
   // Initializers (Global)
   initializers.register(authApi.initialize, {});
   initializers.register(cartApi.initialize, {});
