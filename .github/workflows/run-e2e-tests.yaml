@@ -1,11 +1,10 @@
 name: Cypress E2E Tests
 on:
   push:
-    branches:
+    branches-ignore:
     - main
   pull_request:
-    branches:
-    - main
+    types: [opened, reopened]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
