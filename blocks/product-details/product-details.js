@@ -232,7 +232,7 @@ export default async function decorate(block) {
                         return;
                       }
 
-                      await addProductsToCart([{ ...next.values }]);
+                      await addProductsToCart([{ ...next.values, sku: 'sim-starter-kit' }]);
                     } catch (error) {
                       // eslint-disable-next-line no-console
                       console.warn('Error adding product to cart', error);

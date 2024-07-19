@@ -1,0 +1,2 @@
+export declare const SET_PAYMENT_METHOD_AND_PLACE_ORDER = "\nmutation SET_PAYMENT_METHOD_AND_PLACE_ORDER($cartId: String!, $paymentMethod: PaymentMethodInput!) {\n  setPaymentMethodOnCart(\n  input: {\n      cart_id: $cartId\n      payment_method: $paymentMethod\n  }) {\n    cart  {\n      selected_payment_method {\n        code\n        title\n      }\n    }\n  }\n  \n  placeOrder(input: {cart_id: $cartId}) {\n    orderV2 {\n      number\n      token\n    }\n  }\n}\n";
+//# sourceMappingURL=setPaymentMethod.graphql.d.ts.map
