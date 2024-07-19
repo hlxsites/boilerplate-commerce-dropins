@@ -40,7 +40,6 @@
     "@dropins/adyen-checkout-extension": "0.1.0-alpha6",
     "@dropins/storefront-order-confirmation": "0.1.0-alpha24",
     "@dropins/storefront-pdp": "0.2.3-alpha7",
-    "@dropins/tools": "0.25.0",
-    "yarn": "^1.22.22"
+    "@dropins/tools": "0.25.0"
   }
 }
