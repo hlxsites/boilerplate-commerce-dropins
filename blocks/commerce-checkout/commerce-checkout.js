@@ -36,19 +36,18 @@ export default async function decorate(block) {
 
   const onSignInClick = async (initialEmailValue) => {
     const signInForm = document.createElement('div');
+    signInModal = await createModal([signInForm]);
+    signInModal.showModal();
 
     authProvider.render(AuthCombine, {
       signInFormConfig: { renderSignUpLink: true, initialEmailValue },
       signUpFormConfig: {},
       resetPasswordFormConfig: {},
     })(signInForm);
-
-    signInModal = await createModal([signInForm]);
-    signInModal.showModal();
   };
 
   return checkoutProvider.render(Checkout, {
-    onSignInClick,
+    onSignInClick: async () => onSignInClick(),
     onSignOutClick: () => {
       authApi.revokeCustomerToken();
     },
