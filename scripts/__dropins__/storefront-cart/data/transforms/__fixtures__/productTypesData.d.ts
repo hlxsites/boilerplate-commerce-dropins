@@ -323,7 +323,7 @@ declare const simple: {
 };
 declare const simpleCustomizable: {
     __typename: string;
-    customizable_options: {
+    customizable_options: ({
         type: string;
         customizable_option_uid: string;
         label: string;
@@ -332,7 +332,15 @@ declare const simpleCustomizable: {
             label: string;
             value: string;
         }[];
-    }[];
+    } | {
+        type: string;
+        customizable_option_uid: string;
+        label: string;
+        values: {
+            label: string;
+            value: string;
+        }[];
+    })[];
     uid: string;
     quantity: number;
     errors: null;
@@ -482,7 +490,7 @@ declare const configurable: {
     };
 };
 declare const configurableCustomizable: {
-    customizable_options: {
+    customizable_options: ({
         type: string;
         customizable_option_uid: string;
         label: string;
@@ -491,7 +499,15 @@ declare const configurableCustomizable: {
             label: string;
             value: string;
         }[];
-    }[];
+    } | {
+        type: string;
+        customizable_option_uid: string;
+        label: string;
+        values: {
+            label: string;
+            value: string;
+        }[];
+    })[];
     __typename: string;
     configurable_options: {
         configurable_product_option_uid: string;
