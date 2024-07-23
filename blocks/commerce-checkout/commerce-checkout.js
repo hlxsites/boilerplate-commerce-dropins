@@ -46,9 +46,6 @@ export default async function decorate(block) {
     const orderRef = token ? orderData.number : orderData.token;
     const encodedOrderRef = encodeURIComponent(orderRef);
 
-    // Fetch page for analytics
-    fetch(`/order-confirmation?orderRef=${encodedOrderRef}`);
-
     window.history.pushState(
       {},
       '',
@@ -59,7 +56,10 @@ export default async function decorate(block) {
 
     initializers.register(orderConfirmationApi.initialize, {});
 
-    const onSignUpClick = async ({ inputsDefaultValueSet, addressesData }) => {
+    const onSignUpClick = async ({
+      inputsDefaultValueSet,
+      addressesData,
+    }) => {
       const signUpForm = document.createElement('div');
 
       authProvider.render(SignUp, {
@@ -84,8 +84,6 @@ export default async function decorate(block) {
 
   const onSignInClick = async (initialEmailValue) => {
     const signInForm = document.createElement('div');
-    signInModal = await createModal([signInForm]);
-    signInModal.showModal();
 
     authProvider.render(AuthCombine, {
       signInFormConfig: { renderSignUpLink: true, initialEmailValue },
