@@ -21,9 +21,7 @@ export interface CheckoutProps extends HTMLAttributes<HTMLDivElement> {
     slots?: {
         BillingForm?: SlotProps;
         BillToShipping?: SlotProps;
-        CartSummary?: SlotProps;
         Login?: SlotProps;
-        OrderSummary?: SlotProps;
         PaymentMethods?: SlotProps<PaymentMethodSlotContext>;
         PlaceOrder?: SlotProps;
         ShippingForm?: SlotProps;
