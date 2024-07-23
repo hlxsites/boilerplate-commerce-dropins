@@ -192,28 +192,30 @@ describe('Verify auth user can place order', () => {
         cy.get('.dropin-button--primary')
             .contains('Checkout')
             .click();
-        assertCartSummaryMisc(2);
-        assertCartSummaryProductsOnCheckout(
-            'Crown Summit Backpack',
-            '24-MB03',
-            '1',
-            '$38.00',
-            '$38.00',
-            '0'
-        );
-        assertCartSummaryProductsOnCheckout(
-            'Hollister Backyard Sweatshirt',
-            'MH05',
-            '1',
-            '$52.00',
-            '$52.00',
-            '1'
-        );
+        // Uncomment when shared cart container is implemented on checkout
+        // assertCartSummaryMisc(2);
+        // assertCartSummaryProductsOnCheckout(
+        //     'Crown Summit Backpack',
+        //     '24-MB03',
+        //     '1',
+        //     '$38.00',
+        //     '$38.00',
+        //     '0'
+        // );
+        // assertCartSummaryProductsOnCheckout(
+        //     'Hollister Backyard Sweatshirt',
+        //     'MH05',
+        //     '1',
+        //     '$52.00',
+        //     '$52.00',
+        //     '1'
+        // );
         setGuestShippingAddress(customerShippingAddress, true);
         uncheckBillToShippingAddress();
         cy.wait(2000);
         setGuestBillingAddress(customerBillingAddress, true);
-        assertOrderSummaryMisc('$90.00', '$10.00', '$86.50');
+        // Uncomment when shared cart container is implemented on checkout
+        // assertOrderSummaryMisc('$90.00', '$10.00', '$86.50');
         assertSelectedPaymentMethod('checkmo', 0);
         cy.wait(5000);
         placeOrder();
