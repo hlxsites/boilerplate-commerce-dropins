@@ -56,6 +56,12 @@ declare const _default: {
         "technicalErrorSendEmail": "A technical error occurred while trying to send the email. Please try again later."
       }
     },
+    "SuccessNotification": {
+      "headingText":"Welcome!",
+      "messageText":"We are glad to see you!",
+      "primaryButtonText":"Continue shopping",
+      "secondaryButtonText":"Logout"
+    },
     "Api": {
       "customerTokenErrorMessage": "Unable to log in. Please try again later or contact support if the issue persists."
     }

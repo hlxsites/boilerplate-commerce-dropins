@@ -1,6 +1,6 @@
 import { UseSingUpFormProps } from '../../types';
 
-export declare const useSignUpForm: ({ addressesData, translations, isEmailConfirmationRequired, apiVersion2, passwordConfigs, routeRedirectOnSignIn, routeSignIn, onErrorCallback, onSuccessCallback, setActiveComponent, handleSetInLineAlertProps, routeRedirectOnEmailConfirmationClose, }: UseSingUpFormProps) => {
+export declare const useSignUpForm: ({ addressesData, translations, isEmailConfirmationRequired, apiVersion2, passwordConfigs, isAutoSignInEnabled, routeRedirectOnSignIn, routeSignIn, onErrorCallback, onSuccessCallback, setActiveComponent, handleSetInLineAlertProps, routeRedirectOnEmailConfirmationClose, }: UseSingUpFormProps) => {
     isKeepMeLogged: boolean;
     userEmail: string;
     showEmailConfirmationForm: boolean;

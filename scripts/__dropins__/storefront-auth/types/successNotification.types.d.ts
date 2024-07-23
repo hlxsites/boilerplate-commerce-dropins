@@ -1,12 +1,13 @@
+import { SlotProps } from '@dropins/tools/types/elsie/src/lib';
+
 export interface SuccessNotificationProps {
+    slots?: {
+        SuccessNotificationActions?: SlotProps;
+    };
     formSize?: 'default' | 'small';
-    headingText?: string;
     className?: string;
+    headingText?: string;
     messageText?: string;
-    primaryButtonText?: string;
-    secondaryButtonText?: string;
-    onPrimaryButtonClick?: () => void;
-    onSecondaryButtonClick?: () => void;
 }
 export interface SuccessNotificationFormProps extends SuccessNotificationProps {
 }

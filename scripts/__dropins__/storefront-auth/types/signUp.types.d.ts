@@ -1,12 +1,18 @@
-import { VNode } from 'preact';
 import { activeComponentType } from './authCombine.types';
 import { inLineAlertInterface } from './notification.types';
 import { AddressFormProps } from './api/createCustomerAddress.types';
+import { SlotProps } from '@dropins/tools/types/elsie/src/lib';
 
 export interface inputsDefaultValueSetProps {
     code: string;
     defaultValue: string;
 }
+type DefaultSlotContext = {
+    isSuccessful: {
+        userName: string;
+        status: boolean;
+    };
+};
 export interface SignUpProps {
     addressesData?: AddressFormProps[];
     inputsDefaultValueSet?: inputsDefaultValueSetProps[];
@@ -14,10 +20,13 @@ export interface SignUpProps {
     apiVersion2?: boolean;
     displayTermsOfUseCheckbox?: boolean;
     displayNewsletterCheckbox?: boolean;
+    isAutoSignInEnabled?: boolean;
     formSize?: 'default' | 'small';
     hideCloseBtnOnEmailConfirmation?: boolean;
     routeRedirectOnEmailConfirmationClose?: () => string;
-    successNotificationForm?: (userName: string) => VNode<any>;
+    slots?: {
+        SuccessNotification?: SlotProps<DefaultSlotContext>;
+    };
     routeSignIn?: () => string;
     routeRedirectOnSignIn?: () => string;
     onErrorCallback?: (value?: unknown) => void;
@@ -29,7 +38,7 @@ export interface SignUpProps {
 export interface SignUpFormProps extends SignUpProps {
     setActiveComponent?: (componentName: activeComponentType) => void;
 }
-export interface UseSingUpFormProps extends Omit<SignUpFormProps, 'formSize' | 'displayTermsOfUseCheckbox' | 'displayNewsletterCheckbox' | 'inputsDefaultValueSet' | 'successNotificationForm'> {
+export interface UseSingUpFormProps extends Omit<SignUpFormProps, 'formSize' | 'displayTermsOfUseCheckbox' | 'displayNewsletterCheckbox' | 'inputsDefaultValueSet' | 'slots'> {
     passwordConfigs?: {
         minLength: number;
         requiredCharacterClasses: number;
@@ -38,4 +47,5 @@ export interface UseSingUpFormProps extends Omit<SignUpFormProps, 'formSize' | '
     isEmailConfirmationRequired?: boolean;
     translations: Record<string, string>;
 }
+export {};
 //# sourceMappingURL=signUp.types.d.ts.map

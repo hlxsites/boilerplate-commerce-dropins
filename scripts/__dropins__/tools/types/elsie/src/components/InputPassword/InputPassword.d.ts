@@ -7,8 +7,10 @@ export interface InputPasswordProps extends PasswordStatusIndicatorProps, Omit<H
     error?: boolean;
     className?: string;
     name?: string;
+    autoComplete?: string;
     required?: boolean;
-    onValue?: (event: Event) => void;
+    hideStatusIndicator?: boolean;
+    onValue?: (value: any) => void;
     onBlur?: (event: Event) => void;
 }
 export declare const InputPassword: FunctionComponent<InputPasswordProps>;

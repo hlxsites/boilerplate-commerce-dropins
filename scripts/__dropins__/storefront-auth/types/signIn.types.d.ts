@@ -1,8 +1,17 @@
-import { VNode } from 'preact';
+import { SlotProps } from '@dropins/tools/types/elsie/src/lib';
 import { activeComponentType } from './authCombine.types';
 import { inLineAlertInterface } from './notification.types';
 
+type DefaultSlotContext = {
+    isSuccessful: {
+        userName: string;
+        status: boolean;
+    };
+};
 export interface SignInProps {
+    slots?: {
+        SuccessNotification?: SlotProps<DefaultSlotContext>;
+    };
     formSize?: 'default' | 'small';
     renderSignUpLink?: boolean;
     initialEmailValue?: string;
@@ -12,7 +21,6 @@ export interface SignInProps {
     routeForgotPassword?: () => string;
     routeSignUp?: () => string;
     routeRedirectOnSignIn?: () => string;
-    successNotificationForm?: (userName: string) => VNode<any>;
     onSuccessCallback?: (value?: {
         userName: string;
         status: boolean;
@@ -23,7 +31,7 @@ export interface SignInProps {
 export interface SignInFormProps extends SignInProps {
     setActiveComponent?: (componentName: activeComponentType) => void;
 }
-export interface useSignInFormProps extends Omit<SignInFormProps, 'formSize' | 'successNotificationForm'> {
+export interface useSignInFormProps extends Omit<SignInFormProps, 'formSize' | 'slots'> {
     handleSetInLineAlertProps: (value?: inLineAlertInterface) => void;
     emailConfirmationStatusMessage?: {
         text: string;
@@ -31,4 +39,5 @@ export interface useSignInFormProps extends Omit<SignInFormProps, 'formSize' | '
     };
     translations: any;
 }
+export {};
 //# sourceMappingURL=signIn.types.d.ts.map

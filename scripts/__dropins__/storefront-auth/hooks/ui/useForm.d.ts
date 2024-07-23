@@ -1,11 +1,11 @@
 import { useFormProps } from '../../types';
 
-export declare const useForm: ({ submitCallback, isLoading, fieldsConfig, }: useFormProps) => {
-    formData: Record<string, string>;
+export declare const useForm: ({ fieldsConfig, submitCallback }: useFormProps) => {
+    formData: Record<string, unknown>;
     errors: Record<string, string>;
     formRef: import('preact').RefObject<HTMLFormElement>;
-    handleChange: ({ target: { name, value, type, checked } }: any) => void;
-    handleBlur: (event: any) => void;
-    handleSubmit: (event: any) => void;
+    handleChange: (event: Event) => void;
+    handleBlur: (event: Event) => void;
+    handleSubmit: (event: SubmitEvent) => void;
 };
 //# sourceMappingURL=useForm.d.ts.map
