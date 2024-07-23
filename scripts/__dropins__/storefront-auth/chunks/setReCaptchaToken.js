@@ -1,1 +1,1 @@
-import{verifyReCaptcha as a}from"@dropins/tools/recaptcha.js";import"@dropins/tools/event-bus.js";import{a as t}from"./network-error.js";const s=async()=>{const e=await a();e?t("X-ReCaptcha",e):console.error("ReCaptcha Token not received")};export{s};
+import{verifyReCaptcha as t}from"@dropins/tools/recaptcha.js";import"@dropins/tools/event-bus.js";import{a as e}from"./network-error.js";const s=async()=>{const a=await t();a&&e("X-ReCaptcha",a)};export{s};
