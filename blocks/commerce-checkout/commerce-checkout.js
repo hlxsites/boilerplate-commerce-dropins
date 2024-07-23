@@ -14,11 +14,17 @@ import Checkout from '@dropins/storefront-checkout/containers/Checkout.js';
 import { render as authProvider } from '@dropins/storefront-auth/render.js';
 import * as authApi from '@dropins/storefront-auth/api.js';
 import AuthCombine from '@dropins/storefront-auth/containers/AuthCombine.js';
+import SignUp from '@dropins/storefront-auth/containers/SignUp.js';
 
+import { render as orderConfirmationProvider } from '@dropins/storefront-order-confirmation/render.js';
+import * as orderConfirmationApi from '@dropins/storefront-order-confirmation/api.js';
+import OrderConfirmation from '@dropins/storefront-order-confirmation/containers/OrderConfirmation.js';
+
+import { getUserTokenCookie } from '../../scripts/dropins.js';
 import { createModal } from '../modal/modal.js';
 
 export default async function decorate(block) {
-  let signInModal = null;
+  let modal = null;
 
   // Initialize Dropins
   initializers.register(checkoutApi.initialize, {});
@@ -26,13 +32,55 @@ export default async function decorate(block) {
   events.on(
     'authenticated',
     (isAuthenticated) => {
-      if (isAuthenticated && signInModal) {
-        signInModal.removeModal();
-        signInModal = null;
+      if (isAuthenticated && modal) {
+        modal.removeModal();
+        modal = null;
       }
     },
     { eager: true },
   );
+
+  // Display order confirmation
+  events.on('checkout/order', (orderData) => {
+    const token = getUserTokenCookie();
+    const orderRef = token ? orderData.number : orderData.token;
+    const encodedOrderRef = encodeURIComponent(orderRef);
+
+    // Fetch page for analytics
+    fetch(`/order-confirmation?orderRef=${encodedOrderRef}`);
+
+    window.history.pushState(
+      {},
+      '',
+      `/order-confirmation?orderRef=${encodedOrderRef}`,
+    );
+
+    checkoutProvider.unmount(block);
+
+    initializers.register(orderConfirmationApi.initialize, {});
+
+    const onSignUpClick = async ({ inputsDefaultValueSet, addressesData }) => {
+      const signUpForm = document.createElement('div');
+
+      authProvider.render(SignUp, {
+        routeSignIn: () => '/customer/login',
+        routeRedirectOnEmailConfirmationClose: () => '/customer/account',
+        inputsDefaultValueSet,
+        addressesData,
+      })(signUpForm);
+
+      modal = await createModal([signUpForm]);
+      modal.showModal();
+    };
+
+    orderConfirmationProvider.render(OrderConfirmation, {
+      orderRef,
+      orderData,
+      onSignUpClick,
+      routeHome: () => '/',
+      routeSupport: () => '/support',
+    })(block);
+  });
 
   const onSignInClick = async (initialEmailValue) => {
     const signInForm = document.createElement('div');
@@ -44,6 +92,9 @@ export default async function decorate(block) {
       signUpFormConfig: {},
       resetPasswordFormConfig: {},
     })(signInForm);
+
+    modal = await createModal([signInForm]);
+    modal.showModal();
   };
 
   return checkoutProvider.render(Checkout, {
