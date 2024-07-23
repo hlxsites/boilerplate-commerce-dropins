@@ -17,7 +17,7 @@ import * as authApi from '@dropins/storefront-auth/api.js';
 // Libs
 import { getConfigValue, getCookie } from './configs.js';
 
-const getUserTokenCookie = () => getCookie('auth_dropin_user_token');
+export const getUserTokenCookie = () => getCookie('auth_dropin_user_token');
 
 export default async function initializeDropins() {
   events.enableLogger(true);
@@ -38,16 +38,6 @@ export default async function initializeDropins() {
     } else {
       removeFetchGraphQlHeader('Authorization');
     }
-  });
-
-  // Redirect to order confirmation page
-  events.on('checkout/order', (data) => {
-    const token = getUserTokenCookie();
-    const orderRef = token ? data.number : data.token;
-
-    window.location.replace(
-      `/order-confirmation?orderRef=${encodeURIComponent(orderRef)}`,
-    );
   });
 
   // Cache cartId in session storage
