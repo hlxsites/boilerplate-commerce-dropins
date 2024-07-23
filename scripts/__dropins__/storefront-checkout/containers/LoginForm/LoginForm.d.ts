@@ -1,5 +1,5 @@
-import { HTMLAttributes } from 'preact/compat';
 import { FunctionComponent } from 'preact';
+import { HTMLAttributes } from 'preact/compat';
 
 export interface LoginFormProps extends HTMLAttributes<HTMLDivElement> {
     email?: string;

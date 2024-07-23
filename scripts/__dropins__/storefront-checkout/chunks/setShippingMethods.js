@@ -1,4 +1,4 @@
-import{M as s,e as a}from"./transform-shipping-methods.js";import{C as p,a as r,t as n}from"./getCart.graphql.js";import"./getStoreConfig.js";import"@dropins/tools/event-bus.js";const o=`
+import{o as s,M as a,p}from"./fixtures.js";import{C as r,t as n}from"./getCart.graphql.js";import"@dropins/tools/event-bus.js";const o=`
   mutation setShippingMethods(
     $cartId: String!
     $shippingMethods: [ShippingMethodInput]!
@@ -8,12 +8,9 @@ import{M as s,e as a}from"./transform-shipping-methods.js";import{C as p,a as r,
     ) {
       cart {
         id
-        ...CartData
-        ...CartSummaryItems
+        ...CheckoutData
       }
     }
   }
-  ${p}
   ${r}
-`,d=async({cartId:t,shippingMethods:i})=>{if(!t)throw new s;return a({type:"mutation",query:o,options:{variables:{cartId:t,shippingMethods:i}},path:"setShippingMethodsOnCart.cart",signalType:"cart",transformer:n})};export{d as s};
-//# sourceMappingURL=setShippingMethods.js.map
+`,c=async i=>{const t=s.cartId;if(!t)throw new a;return p({type:"mutation",query:o,options:{variables:{cartId:t,shippingMethods:i}},path:"setShippingMethodsOnCart.cart",signalType:"cart",transformer:n})};export{c as s};

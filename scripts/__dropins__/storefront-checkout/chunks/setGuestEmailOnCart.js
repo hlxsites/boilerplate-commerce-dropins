@@ -1,20 +1,17 @@
-import{a as r,M as s,e}from"./transform-shipping-methods.js";import{f as l,o as m,p as n}from"./getStoreConfig.js";import"@dropins/tools/event-bus.js";import{C as o,a as c,t as E}from"./getCart.graphql.js";const u=a=>!!(a!=null&&a.is_email_available),p=`
+import{a as r,g as s,v as e,w as l,o as n,M as o,p as m}from"./fixtures.js";import"@dropins/tools/event-bus.js";import{C as c,t as E}from"./getCart.graphql.js";const u=a=>!!(a!=null&&a.is_email_available),h=`
   query isEmailAvailable($email: String!) {
     isEmailAvailable(email: $email) {
       is_email_available
     }
   }
-`,v=async a=>{if(!a)throw new r;const{data:i,errors:t}=await l(p,{method:"GET",cache:"no-cache",variables:{email:a}}).catch(m);return t&&n(t),u(i.isEmailAvailable)},A=`
+`,C=async a=>{if(!a)throw new r;const{data:t,errors:i}=await s(h,{method:"GET",cache:"no-cache",variables:{email:a}}).catch(e);return i&&l(i),u(t.isEmailAvailable)},p=`
   mutation setGuestEmail($cartId: String!, $email: String!) {
     setGuestEmailOnCart(input: { cart_id: $cartId, email: $email }) {
       cart {
         id
-        ...CartData
-        ...CartSummaryItems
+        ...CheckoutData
       }
     }
   }
-  ${o}
   ${c}
-`,y=async({cartId:a,email:i})=>{if(!a)throw new s;return await e({type:"mutation",query:A,options:{variables:{cartId:a,email:i}},path:"setGuestEmailOnCart.cart",signalType:"cart",transformer:E})};export{v as i,y as s};
-//# sourceMappingURL=setGuestEmailOnCart.js.map
+`,f=async a=>{const t=n.cartId;if(!t)throw new o;return await m({type:"mutation",query:p,options:{variables:{cartId:t,email:a}},path:"setGuestEmailOnCart.cart",signalType:"cart",transformer:E})};export{C as i,f as s};
