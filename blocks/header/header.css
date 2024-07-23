@@ -415,6 +415,8 @@ header .nav-search-input .search_autocomplete .popover-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: auto;
+  min-width: 40px;
 }
 
 .dropdown-wrapper.nav-tools-wrapper .nav-auth-menu-panel {
