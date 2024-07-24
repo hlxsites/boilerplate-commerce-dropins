@@ -70,14 +70,19 @@ export default async function initializeDropins() {
   // After load or reload page we check token
   const token = getUserTokenCookie();
 
-  // Mount all registered drop-ins
-  if (document.readyState === 'complete') {
+  // Handle page load
+  const mount = () => {
     initializers.mount();
     events.emit('authenticated', !!token);
+  };
+
+  // Mount all registered drop-ins
+  if (document.readyState === 'complete') {
+    mount();
   } else {
-    window.addEventListener('load', () => {
-      initializers.mount();
-      events.emit('authenticated', !!token);
-    });
+    // Handle on prerendering document activated
+    document.addEventListener('prerenderingchange', mount);
+    // Handle on page load
+    window.addEventListener('load', mount);
   }
 }
