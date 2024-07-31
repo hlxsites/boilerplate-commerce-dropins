@@ -8,6 +8,7 @@ export interface MiniCartProps extends HTMLAttributes<HTMLDivElement> {
     subtotal?: VNode;
     subtotalExcludingTaxes?: VNode;
     ctas?: VNode;
+    outOfStockMessage?: VNode;
 }
 export declare const MiniCart: FunctionComponent<MiniCartProps>;
 //# sourceMappingURL=MiniCart.d.ts.map

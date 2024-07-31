@@ -1,8 +1,8 @@
-import{C,a as T,s as n,f as m,h as u,t as l}from"./chunks/resetCart.js";import{g as b,r as D,e as F,b as y,c as $,d as v}from"./chunks/resetCart.js";import{events as d}from"@dropins/tools/event-bus.js";import{p as I,a as f}from"./chunks/updateProductsFromCart.js";import{u as x}from"./chunks/updateProductsFromCart.js";import{c as g}from"./chunks/getStoreConfig.js";import{g as H,b as k,i as z,a as Y}from"./chunks/getStoreConfig.js";import{a as q,g as B,c as J,b as K}from"./chunks/getEstimatedTotals.js";import"@dropins/tools/fetch-graphql.js";import"@dropins/tools/lib.js";const E=`
+import{s as c,f as d,h as u}from"./chunks/resetCart.js";import{g as x,r as y,d as $,a as v,b as w,c as Q}from"./chunks/resetCart.js";import{C as f,a as l,t as g}from"./chunks/CartFragment.js";import{events as p}from"@dropins/tools/event-bus.js";import{p as I,a as _}from"./chunks/updateProductsFromCart.js";import{u as k}from"./chunks/updateProductsFromCart.js";import{c as h}from"./chunks/getStoreConfig.js";import{g as Y,b as j,i as q,a as B}from"./chunks/getStoreConfig.js";import{a as K,g as L,b as V}from"./chunks/getEstimateShipping.js";import{g as X}from"./chunks/getEstimatedTotals.js";import"@dropins/tools/fetch-graphql.js";import"@dropins/tools/lib.js";const E=`
   mutation ADD_PRODUCTS_TO_CART_MUTATION(
       $cartId: String!, 
       $cartItems: [CartItemInput!]!,
-      ${C}
+      ${f}
     ) {
     addProductsToCart(
       cartId: $cartId
@@ -17,9 +17,9 @@ import{C,a as T,s as n,f as m,h as u,t as l}from"./chunks/resetCart.js";import{g
       }
     }
   }
-  ${T}
-`,M=async r=>{let e=!1;const s=n.cartId||await h().then(a=>(e=!0,a));return m(E,{variables:{cartId:s,cartItems:r.map(({sku:a,parentSku:i,quantity:t,optionsUIDs:o,enteredOptions:c})=>({sku:a,parent_sku:i,quantity:t,selected_options:o,entered_options:c}))}}).then(({errors:a,data:i})=>{if(a)return u(a);const t=l(i.addProductsToCart.cart);if(d.emit("cart/updated",t),d.emit("cart/data",t),t){const o=t.items.filter(c=>r.some(({sku:p})=>p===c.sku));e?I(t,o,n.locale||"en-US"):f(t,o,n.locale||"en-US")}return t})},_=`
+  ${l}
+`,b=async a=>{let s=!1;const o=c.cartId||await R().then(e=>(s=!0,e));return d(E,{variables:{cartId:o,cartItems:a.map(({sku:e,parentSku:r,quantity:n,optionsUIDs:t,enteredOptions:i})=>({sku:e,parent_sku:r,quantity:n,selected_options:t,entered_options:i}))}}).then(({errors:e,data:r})=>{var i;const n=[...((i=r==null?void 0:r.addProductsToCart)==null?void 0:i.user_errors)??[],...e??[]];if(n.length>0)return u(n);const t=g(r.addProductsToCart.cart);if(p.emit("cart/updated",t),p.emit("cart/data",t),t){const m=t.items.filter(C=>a.some(({sku:T})=>T===C.sku));s?I(t,m,c.locale??"en-US"):_(t,m,c.locale??"en-US")}return t})},A=`
     mutation CREATE_EMPTY_CART_MUTATION {
         createEmptyCart
     }
-`,h=async()=>{const{disableGuestCart:r}=g.getConfig();if(r)throw new Error("Guest cart is disabled");return await m(_).then(({data:e})=>{const s=e.createEmptyCart;return n.cartId=s,s})};export{M as addProductsToCart,g as config,h as createEmptyCart,m as fetchGraphQl,H as getCartData,b as getConfig,q as getCountries,B as getEstimateShipping,J as getEstimatedTotals,K as getRegions,k as getStoreConfig,z as initialize,Y as initializeCart,D as removeFetchGraphQlHeader,F as resetCart,y as setEndpoint,$ as setFetchGraphQlHeader,v as setFetchGraphQlHeaders,x as updateProductsFromCart};
+`,R=async()=>{const{disableGuestCart:a}=h.getConfig();if(a)throw new Error("Guest cart is disabled");return await d(A).then(({data:s})=>{const o=s.createEmptyCart;return c.cartId=o,o})};export{b as addProductsToCart,h as config,R as createEmptyCart,d as fetchGraphQl,Y as getCartData,x as getConfig,K as getCountries,L as getEstimateShipping,X as getEstimatedTotals,V as getRegions,j as getStoreConfig,q as initialize,B as initializeCart,y as removeFetchGraphQlHeader,$ as resetCart,v as setEndpoint,w as setFetchGraphQlHeader,Q as setFetchGraphQlHeaders,k as updateProductsFromCart};
