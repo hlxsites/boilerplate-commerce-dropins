@@ -8,22 +8,21 @@ import { addProductsToCart } from '@dropins/storefront-cart/api.js';
 import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js';
 
 // Libs
-import { getProduct, getSkuFromUrl, setJsonLd } from '../../scripts/commerce.js';
+import {
+  getProduct,
+  getSkuFromUrl,
+  setJsonLd,
+  loadErrorPage,
+} from '../../scripts/commerce.js';
 import { getConfigValue } from '../../scripts/configs.js';
 import { fetchPlaceholders } from '../../scripts/aem.js';
 
-// Error Handling (404)
-async function errorGettingProduct(code = 404) {
-  const htmlText = await fetch(`/${code}.html`).then((response) => {
-    if (response.ok) {
-      return response.text();
-    }
-    throw new Error(`Error getting ${code} page`);
-  });
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(htmlText, 'text/html');
-  document.body.innerHTML = doc.body.innerHTML;
-  document.head.innerHTML = doc.head.innerHTML;
+async function addToCart({
+  sku, quantity, optionsUIDs, product,
+}) {
+  const { cartApi } = await import('../../../scripts/minicart/api.js');
+
+  return cartApi.addToCart(sku, optionsUIDs, quantity, product);
 }
 
 async function setJsonLdProduct(product) {
@@ -50,9 +49,9 @@ async function setJsonLdProduct(product) {
       '@type': 'Brand',
       name: brand?.value,
     },
-    url: new URL(`/products/${urlKey}/${sku.toLowerCase()}`, window.location),
+    url: new URL(`/products/${urlKey}/${sku}`, window.location),
     sku,
-    '@id': new URL(`/products/${urlKey}/${sku.toLowerCase()}`, window.location),
+    '@id': new URL(`/products/${urlKey}/${sku}`, window.location),
   }, 'product');
 }
 
@@ -101,10 +100,6 @@ function setMetaTags(product) {
   createMetaTag('og:image:secure_url', metaImage, 'property');
   createMetaTag('og:product:price:amount', price.value, 'property');
   createMetaTag('og:product:price:currency', price.currency, 'property');
-
-  createMetaTag('twitter:card', product.shortDescription, 'name');
-  createMetaTag('twitter:title', product.metaTitle, 'name');
-  createMetaTag('twitter:image', metaImage, 'name');
 }
 
 export default async function decorate(block) {
@@ -116,7 +111,7 @@ export default async function decorate(block) {
     window.getProductPromise, fetchPlaceholders()]);
 
   if (!product) {
-    await errorGettingProduct();
+    await loadErrorPage();
     return Promise.reject();
   }
 
@@ -202,9 +197,11 @@ export default async function decorate(block) {
         await productRenderer.render(ProductDetails, {
           sku: getSkuFromUrl(),
           carousel: {
-            controls: 'thumbnailsColumn',
+            controls: {
+              desktop: 'thumbnailsColumn',
+              mobile: 'thumbnailsRow',
+            },
             arrowsOnMainImage: true,
-            mobile: true,
             peak: {
               mobile: true,
               desktop: false,
@@ -242,13 +239,31 @@ export default async function decorate(block) {
                   },
                 };
               });
+
+              ctx.appendButton((next, state) => {
+                const adding = state.get('adding');
+                return ({
+                  disabled: adding,
+                  icon: 'Heart',
+                  variant: 'secondary',
+                  onClick: async () => {
+                    try {
+                      state.set('adding', true);
+                      const { addToWishlist } = await import('../../scripts/wishlist/api.js');
+                      await addToWishlist(next.values.sku);
+                    } finally {
+                      state.set('adding', false);
+                    }
+                  },
+                });
+              });
             },
           },
           useACDL: true,
         })(block);
       } catch (e) {
         console.error(e);
-        await errorGettingProduct();
+        await loadErrorPage();
       } finally {
         resolve();
       }
