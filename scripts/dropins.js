@@ -26,7 +26,7 @@ export default async function initializeDropins() {
   events.enableLogger(true);
 
   // Set Fetch Endpoint (Global)
-  setEndpoint(await getConfigValue('commerce-core-endpoint'));
+  setEndpoint('https://hotel.atwix.dev:1133/graphql');
 
   // Recaptcha
   recaptcha.setConfig();
