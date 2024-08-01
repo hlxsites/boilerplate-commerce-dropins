@@ -17,14 +17,6 @@ import {
 import { getConfigValue } from '../../scripts/configs.js';
 import { fetchPlaceholders } from '../../scripts/aem.js';
 
-async function addToCart({
-  sku, quantity, optionsUIDs, product,
-}) {
-  const { cartApi } = await import('../../../scripts/minicart/api.js');
-
-  return cartApi.addToCart(sku, optionsUIDs, quantity, product);
-}
-
 async function setJsonLdProduct(product) {
   const {
     name, inStock, description, sku, urlKey, price, priceRange, images, attributes,
