@@ -387,21 +387,26 @@ header .nav-search-input .search_autocomplete .popover-container {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0 0 0 / 50%);
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 5;
+  overflow-y: auto;
+  padding: 10px 0;
+  box-sizing: border-box;
 }
 
 #auth-combine-wrapper {
   background-color: white;
   border-radius: var(--shape-border-radius-2);
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   min-height: max-content;
   margin: 0 10px;
-  max-height: 100vh;
+  box-sizing: border-box;
+  max-height: 90vh;
   overflow-y: auto;
 }
 
