@@ -5,10 +5,15 @@
 import { events } from '@dropins/tools/event-bus.js';
 import { initializers } from '@dropins/tools/initializer.js';
 
+// Cart Dropin Modules
+import { render as cartProvider } from '@dropins/storefront-cart/render.js';
+import { OrderSummary } from '@dropins/storefront-cart/containers/OrderSummary.js';
+
 // Checkout Dropin Modules
 import { render as checkoutProvider } from '@dropins/storefront-checkout/render.js';
 import * as checkoutApi from '@dropins/storefront-checkout/api.js';
 import Checkout from '@dropins/storefront-checkout/containers/Checkout.js';
+import EstimateShipping from '@dropins/storefront-checkout/containers/EstimateShipping.js';
 
 // Auth Dropin Modules
 import { render as authProvider } from '@dropins/storefront-auth/render.js';
@@ -103,6 +108,23 @@ export default async function decorate(block) {
     routeHome: () => '/',
     routeCart: () => '/cart',
     slots: {
+      OrderSummary: (ctx) => {
+        const orderSummary = document.createElement('div');
+
+        cartProvider.render(OrderSummary, {
+          slots: {
+            EstimateShipping: (esCtx) => {
+              const estimateShippingForm = document.createElement('div');
+
+              checkoutProvider.render(EstimateShipping)(estimateShippingForm);
+
+              esCtx.appendChild(estimateShippingForm);
+            },
+          },
+        })(orderSummary);
+
+        ctx.appendChild(orderSummary);
+      },
       PaymentMethods: async (context) => {
         context.addPaymentMethodHandler('checkmo', {
           render: (ctx, element) => {

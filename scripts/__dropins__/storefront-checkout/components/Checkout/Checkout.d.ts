@@ -1,6 +1,12 @@
 import { FunctionComponent, VNode } from 'preact';
 import { HTMLAttributes } from 'preact/compat';
 
+export type AsideSections = {
+    orderSummary?: VNode;
+};
+declare const Aside: FunctionComponent<{
+    sections: AsideSections;
+}>;
 export type MainSections = {
     outOfStock?: VNode;
     billingAddress: VNode;
@@ -19,6 +25,7 @@ export interface CheckoutProps extends HTMLAttributes<HTMLDivElement> {
 }
 interface CheckoutComponent extends FunctionComponent<CheckoutProps> {
     Main: typeof Main;
+    Aside: typeof Aside;
 }
 export declare const Checkout: CheckoutComponent;
 export {};
