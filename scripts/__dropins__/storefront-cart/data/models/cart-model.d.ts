@@ -27,6 +27,8 @@ export interface CartModel {
         }[];
     };
     isGuestCart?: boolean;
+    hasOutOfStockItems?: boolean;
+    hasFullyOutOfStockItems?: boolean;
 }
 interface TotalPriceModifier {
     amount: Price;
@@ -64,6 +66,12 @@ export interface Item {
     recipientEmail?: string;
     sender?: string;
     senderEmail?: string;
+    lowInventory?: boolean;
+    insufficientQuantity?: boolean;
+    onlyXLeftInStock?: number | null;
+    outOfStock?: boolean;
+    notAvailableMessage?: string;
+    stockLevel?: String;
 }
 interface ItemError {
     id: string;
@@ -73,7 +81,7 @@ interface ItemImage {
     src: string;
     alt: string;
 }
-interface Price {
+export interface Price {
     value: number;
     currency: string;
 }

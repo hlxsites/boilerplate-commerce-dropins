@@ -14,6 +14,9 @@ import { initializers } from '@dropins/tools/initializer.js';
 import * as cartApi from '@dropins/storefront-cart/api.js';
 import * as authApi from '@dropins/storefront-auth/api.js';
 
+// Recaptcha
+import * as recaptcha from '@dropins/tools/recaptcha.js';
+
 // Libs
 import { getConfigValue, getCookie } from './configs.js';
 
@@ -24,6 +27,9 @@ export default async function initializeDropins() {
 
   // Set Fetch Endpoint (Global)
   setEndpoint(await getConfigValue('commerce-core-endpoint'));
+
+  // Recaptcha
+  recaptcha.setConfig();
 
   // Initializers (Global)
   initializers.register(authApi.initialize, {});
@@ -56,14 +62,19 @@ export default async function initializeDropins() {
   // After load or reload page we check token
   const token = getUserTokenCookie();
 
-  // Mount all registered drop-ins
-  if (document.readyState === 'complete') {
+  // Handle page load
+  const mount = () => {
     initializers.mount();
     events.emit('authenticated', !!token);
+  };
+
+  // Mount all registered drop-ins
+  if (document.readyState === 'complete') {
+    mount();
   } else {
-    window.addEventListener('load', () => {
-      initializers.mount();
-      events.emit('authenticated', !!token);
-    });
+    // Handle on prerendering document activated
+    document.addEventListener('prerenderingchange', mount);
+    // Handle on page load
+    window.addEventListener('load', mount);
   }
 }

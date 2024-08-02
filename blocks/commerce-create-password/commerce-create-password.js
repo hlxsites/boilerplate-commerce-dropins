@@ -1,11 +1,11 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
 import { UpdatePassword } from '@dropins/storefront-auth/containers/UpdatePassword.js';
-import { SuccessNotification } from '@dropins/storefront-auth/containers/SuccessNotification.js';
-import * as authApi from '@dropins/storefront-auth/api.js';
 import { render as authRenderer } from '@dropins/storefront-auth/render.js';
+import { SuccessNotification } from '@dropins/storefront-auth/containers/SuccessNotification.js';
+import { Button } from '@dropins/tools/components.js';
+import * as authApi from '@dropins/storefront-auth/api.js';
 import { getCookie } from '../../scripts/configs.js';
-import { h } from '../../scripts/preact.js';
 
 export default function decorate(block) {
   const isAuthenticated = !!getCookie('auth_dropin_user_token');
@@ -15,20 +15,51 @@ export default function decorate(block) {
   } else {
     authRenderer.render(UpdatePassword, {
       routeWrongUrlRedirect: () => '/customer/login',
-      successNotificationForm: (userName) => h(SuccessNotification, {
-        formSize: 'default',
-        headingText: `Welcome ${userName}!`,
-        messageText: 'Your password has been successfully updated.',
-        primaryButtonText: 'My Account',
-        secondaryButtonText: 'Logout',
-        onPrimaryButtonClick: () => {
-          window.location.href = '/customer/account';
+      slots: {
+        SuccessNotification: (ctx) => {
+          const userName = ctx?.isSuccessful?.userName || '';
+
+          const elem = document.createElement('div');
+
+          authRenderer.render(SuccessNotification, {
+            headingText: `Welcome ${userName}!`,
+            messageText: 'Your password has been successfully updated.',
+            slots: {
+              SuccessNotificationActions: (innerCtx) => {
+                const primaryBtn = document.createElement('div');
+
+                authRenderer.render(Button, {
+                  children: 'My Account',
+
+                  onClick: () => {
+                    window.location.href = '/customer/account';
+                  },
+                })(primaryBtn);
+
+                innerCtx.appendChild(primaryBtn);
+
+                const secondaryButton = document.createElement('div');
+                secondaryButton.style.display = 'flex';
+                secondaryButton.style.justifyContent = 'center';
+                secondaryButton.style.marginTop = 'var(--spacing-xsmall)';
+
+                authRenderer.render(Button, {
+                  children: 'Logout',
+                  variant: 'tertiary',
+                  onClick: async () => {
+                    await authApi.revokeCustomerToken();
+                    window.location.href = '/';
+                  },
+                })(secondaryButton);
+
+                innerCtx.appendChild(secondaryButton);
+              },
+            },
+          })(elem);
+
+          ctx.appendChild(elem);
         },
-        onSecondaryButtonClick: async () => {
-          await authApi.revokeCustomerToken();
-          window.location.href = '/';
-        },
-      }),
+      },
     })(block);
   }
 }

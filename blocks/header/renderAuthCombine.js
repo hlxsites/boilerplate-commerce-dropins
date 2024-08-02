@@ -7,45 +7,105 @@ import { AuthCombine } from '@dropins/storefront-auth/containers/AuthCombine.js'
 import { SuccessNotification } from '@dropins/storefront-auth/containers/SuccessNotification.js';
 import * as authApi from '@dropins/storefront-auth/api.js';
 import { events } from '@dropins/tools/event-bus.js';
-import { h } from '../../scripts/preact.js';
+import { Button } from '@dropins/tools/components.js';
 import { getCookie } from '../../scripts/configs.js';
 
 const signInFormConfig = {
   renderSignUpLink: true,
   routeForgotPassword: () => '/customer/forgotpassword',
-  successNotificationForm: (userName) =>
-    h(SuccessNotification, {
-      headingText: `Welcome ${userName}`,
-      messageText: 'You have successfully logged in.',
-      primaryButtonText: 'My Account',
-      secondaryButtonText: 'Logout',
-      onPrimaryButtonClick: () => {
-        window.location.href = '/customer/account';
-      },
-      onSecondaryButtonClick: async () => {
-        await authApi.revokeCustomerToken();
-        window.location.href = '/';
-      },
-    }),
+  slots: {
+    SuccessNotification: (ctx) => {
+      const userName = ctx?.isSuccessful?.userName || '';
+
+      const elem = document.createElement('div');
+
+      authRenderer.render(SuccessNotification, {
+        headingText: `Welcome ${userName}!`,
+        messageText: 'You have successfully logged in.',
+        slots: {
+          SuccessNotificationActions: (innerCtx) => {
+            const primaryBtn = document.createElement('div');
+
+            authRenderer.render(Button, {
+              children: 'My Account',
+
+              onClick: () => {
+                window.location.href = '/customer/account';
+              },
+            })(primaryBtn);
+
+            innerCtx.appendChild(primaryBtn);
+
+            const secondaryButton = document.createElement('div');
+            secondaryButton.style.display = 'flex';
+            secondaryButton.style.justifyContent = 'center';
+            secondaryButton.style.marginTop = 'var(--spacing-xsmall)';
+
+            authRenderer.render(Button, {
+              children: 'Logout',
+              variant: 'tertiary',
+              onClick: async () => {
+                await authApi.revokeCustomerToken();
+                window.location.href = '/';
+              },
+            })(secondaryButton);
+
+            innerCtx.appendChild(secondaryButton);
+          },
+        },
+      })(elem);
+
+      ctx.appendChild(elem);
+    },
+  },
 };
 
 const signUpFormConfig = {
   routeSignIn: () => '/customer/login',
   routeRedirectOnSignIn: () => '/customer/account',
-  successNotificationForm: (userName) =>
-    h(SuccessNotification, {
-      headingText: `Welcome ${userName}!`,
-      messageText: 'Your account has been successfully created.',
-      primaryButtonText: 'My Account',
-      secondaryButtonText: 'Logout',
-      onPrimaryButtonClick: () => {
-        window.location.href = '/customer/account';
-      },
-      onSecondaryButtonClick: async () => {
-        await authApi.revokeCustomerToken();
-        window.location.href = '/';
-      },
-    }),
+  isAutoSignInEnabled: false,
+  slots: {
+    SuccessNotification: (ctx) => {
+      const elem = document.createElement('div');
+
+      authRenderer.render(SuccessNotification, {
+        headingText: 'Your account has been successfully created!',
+        messageText: 'You can login using sign-in page now.',
+        slots: {
+          SuccessNotificationActions: (innerCtx) => {
+            const primaryBtn = document.createElement('div');
+
+            authRenderer.render(Button, {
+              children: 'Sign in',
+
+              onClick: () => {
+                window.location.href = '/customer/login';
+              },
+            })(primaryBtn);
+
+            innerCtx.appendChild(primaryBtn);
+
+            const secondaryButton = document.createElement('div');
+            secondaryButton.style.display = 'flex';
+            secondaryButton.style.justifyContent = 'center';
+            secondaryButton.style.marginTop = 'var(--spacing-xsmall)';
+
+            authRenderer.render(Button, {
+              children: 'Home',
+              variant: 'tertiary',
+              onClick: () => {
+                window.location.href = '/';
+              },
+            })(secondaryButton);
+
+            innerCtx.appendChild(secondaryButton);
+          },
+        },
+      })(elem);
+
+      ctx.appendChild(elem);
+    },
+  },
 };
 
 const resetPasswordFormConfig = {

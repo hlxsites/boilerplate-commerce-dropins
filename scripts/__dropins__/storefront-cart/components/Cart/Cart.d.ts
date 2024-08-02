@@ -5,7 +5,8 @@ export interface CartProps extends HTMLAttributes<HTMLDivElement> {
     emptyCart: VNode;
     heading?: VNode;
     products?: VNode;
-    priceSummary?: VNode<HTMLAttributes<HTMLElement>>;
+    orderSummary?: VNode<HTMLAttributes<HTMLElement>>;
+    outOfStockMessage?: VNode;
 }
 export declare const Cart: FunctionComponent<CartProps>;
 //# sourceMappingURL=Cart.d.ts.map

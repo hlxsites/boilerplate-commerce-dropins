@@ -1,6 +1,5 @@
-import{f as i,h as l}from"./network-error.js";const R=a=>{var r,E,m;let t="";return(r=a==null?void 0:a.errors)!=null&&r.length&&(t=(E=a==null?void 0:a.errors[0])==null?void 0:E.message),{message:t,success:!!((m=a==null?void 0:a.data)!=null&&m.requestPasswordResetEmail)}},S=`
+import{f as E,h as l}from"./network-error.js";import{s as e}from"./setReCaptchaToken.js";const R=a=>{var r,m,i;let t="";return(r=a==null?void 0:a.errors)!=null&&r.length&&(t=(m=a==null?void 0:a.errors[0])==null?void 0:m.message),{message:t,success:!!((i=a==null?void 0:a.data)!=null&&i.requestPasswordResetEmail)}},c=`
   mutation REQUEST_PASSWORD_RESET_EMAIL($email: String!) {
     requestPasswordResetEmail(email: $email)
   }
-`,e=async a=>await i(S,{method:"POST",variables:{email:a}}).then(t=>R(t)).catch(l);export{e as r};
-//# sourceMappingURL=requestPasswordResetEmail.js.map
+`,o=async a=>(await e(),await E(c,{method:"POST",variables:{email:a}}).then(t=>R(t)).catch(l));export{o as r};

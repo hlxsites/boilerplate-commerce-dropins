@@ -34,4 +34,5 @@ export * from './PriceRange';
 export * from './Breadcrumbs';
 export * from './AlertBanner';
 export * from './IllustratedMessage';
+export * from './ToggleButton';
 //# sourceMappingURL=index.d.ts.map

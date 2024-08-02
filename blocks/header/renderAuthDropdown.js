@@ -47,6 +47,8 @@ export function renderAuthDropdown(navTools) {
   const loginButton = navTools.querySelector('.nav-dropdown-button');
   const logoutButtonElement = navTools.querySelector('.authenticated-user-menu > li > button');
 
+  authDropDownPanel.addEventListener('click', (e) => e.stopPropagation());
+
   async function toggleDropDownAuthMenu(state) {
     const show = state ?? !authDropDownPanel.classList.contains('nav-tools-panel--show');
 
@@ -54,13 +56,12 @@ export function renderAuthDropdown(navTools) {
   }
 
   loginButton.addEventListener('click', () => toggleDropDownAuthMenu());
-  document.addEventListener('click', (e) => {
-    if (!authDropDownPanel.contains(e.target) && !loginButton.contains(e.target)) {
-      toggleDropDownAuthMenu(false);
-    }
+  document.addEventListener('click', async (e) => {
+    const clickOnDropDownPanel = authDropDownPanel.contains(e.target);
+    const clickOnLoginButton = loginButton.contains(e.target);
 
-    if (!authDropDownPanel.contains(e.target) && !loginButton.contains(e.target)) {
-      toggleDropDownAuthMenu(false);
+    if (!clickOnDropDownPanel && !clickOnLoginButton) {
+      await toggleDropDownAuthMenu(false);
     }
   });
 

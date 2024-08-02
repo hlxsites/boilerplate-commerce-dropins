@@ -16,7 +16,7 @@ header nav {
     'hamburger brand tools wrapperPopUpButton' var(--nav-height)
     'sections sections sections ...' 1fr / auto 1fr auto auto;
   align-items: center;
-  gap: 0 8px;
+  gap: 0 16px;
   margin: auto;
   max-width: 1264px;
   height: var(--nav-height);
@@ -415,6 +415,8 @@ header .nav-search-input .search_autocomplete .popover-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: auto;
+  min-width: 40px;
 }
 
 .dropdown-wrapper.nav-tools-wrapper .nav-auth-menu-panel {
@@ -479,4 +481,8 @@ header .nav-search-input .search_autocomplete .popover-container {
 .dropdown-wrapper.nav-tools-wrapper .nav-auth-menu-panel .authenticated-user-menu li button:hover {
   background-color: lightgray !important;
   border-radius: 0 !important;
+}
+
+.grecaptcha-badge {
+  margin-top: 20px;
 }

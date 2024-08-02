@@ -1,4 +1,4 @@
-import{f as s,h as a}from"./network-error.js";import{t as o}from"./transform-attributes-form.js";import{h as n}from"./getStoreConfig.js";const i=`
+import{f as s,h as a}from"./network-error.js";import{s as n}from"./setReCaptchaToken.js";import{t as i}from"./transform-attributes-form.js";import{h as o}from"./getStoreConfig.js";const u=`
   mutation CREATE_CUSTOMER($input: CustomerInput!) {
     createCustomer(input: $input) {
       customer {
@@ -9,7 +9,7 @@ import{f as s,h as a}from"./network-error.js";import{t as o}from"./transform-att
       }
     }
   }
-`,u=`
+`,m=`
   mutation CREATE_CUSTOMER_V2($input: CustomerCreateInput!) {
     createCustomerV2(input: $input) {
       customer {
@@ -20,7 +20,7 @@ import{f as s,h as a}from"./network-error.js";import{t as o}from"./transform-att
       }
     }
   }
-`,T=async(r,t)=>await s(t?u:i,{method:"POST",variables:{input:{...r}}}).catch(a),m=`
+`,_=async(r,t)=>(await n(),await s(t?m:u,{method:"POST",variables:{input:{...r}}}).catch(a)),c=`
   query GET_ATTRIBUTES_FORM($formCode: String!) {
     attributesForm(formCode: $formCode) {
       items {
@@ -44,11 +44,10 @@ import{f as s,h as a}from"./network-error.js";import{t as o}from"./transform-att
       }
     }
   }
-`,_=async r=>await s(m.replace(/\s+/g," ").trim(),{method:"GET",cache:"force-cache",variables:{formCode:r}}).then(t=>{var e;return(e=t.errors)!=null&&e.length?n(t.errors):o(t)}).catch(a),c=`
+`,l=async r=>await s(c.replace(/\s+/g," ").trim(),{method:"GET",cache:"force-cache",variables:{formCode:r}}).then(t=>{var e;return(e=t.errors)!=null&&e.length?o(t.errors):i(t)}).catch(a),E=`
   mutation CREATE_CUSTOMER_ADDRESS($input: CustomerAddressInput!) {
     createCustomerAddress(input:$input) {
       firstname
    }
   }
-`,l=async r=>await s(c,{method:"POST",variables:{input:r}}).then(t=>{var e;return(e=t.errors)!=null&&e.length?n(t.errors):t.data.createCustomerAddress.firstname||""}).catch(a);export{l as a,T as c,_ as g};
-//# sourceMappingURL=createCustomerAddress.js.map
+`,f=async r=>await s(E,{method:"POST",variables:{input:r}}).then(t=>{var e;return(e=t.errors)!=null&&e.length?o(t.errors):t.data.createCustomerAddress.firstname||""}).catch(a);export{f as a,_ as c,l as g};
