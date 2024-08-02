@@ -1,4 +1,4 @@
-import{o as s,M as a,p}from"./fixtures.js";import{C as r,t as n}from"./getCart.graphql.js";import"@dropins/tools/event-bus.js";const o=`
+import{o as i,M as r,p}from"./fixtures.js";import{C as n,t as o}from"./getCart.graphql.js";import{events as e}from"@dropins/tools/event-bus.js";const h=`
   mutation setShippingMethods(
     $cartId: String!
     $shippingMethods: [ShippingMethodInput]!
@@ -12,5 +12,5 @@ import{o as s,M as a,p}from"./fixtures.js";import{C as r,t as n}from"./getCart.g
       }
     }
   }
-  ${r}
-`,c=async i=>{const t=s.cartId;if(!t)throw new a;return p({type:"mutation",query:o,options:{variables:{cartId:t,shippingMethods:i}},path:"setShippingMethodsOnCart.cart",signalType:"cart",transformer:n})};export{c as s};
+  ${n}
+`,m=async s=>{const t=i.cartId;if(!t)throw new r;const a=await p({type:"mutation",query:h,options:{variables:{cartId:t,shippingMethods:s}},path:"setShippingMethodsOnCart.cart",signalType:"cart",transformer:o});return e.emit("cart/update",t),a};export{m as s};

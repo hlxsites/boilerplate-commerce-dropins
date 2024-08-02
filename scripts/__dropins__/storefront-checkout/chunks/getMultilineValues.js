@@ -1,4 +1,4 @@
-import{o as _,M as y,d as h,p as g,t as l,z as I}from"./fixtures.js";import"@dropins/tools/event-bus.js";const m=`
+import{o as _,M as y,d as h,p as g,t as l,y as I}from"./fixtures.js";import"@dropins/tools/event-bus.js";const m=`
 mutation estimateShippingMethods(
 	$cartId: String!
   $address: EstimateAddressInput!
