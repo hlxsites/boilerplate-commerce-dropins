@@ -18,6 +18,7 @@ declare const _default: {
     "InputPassword": {
       "requiredFieldError": "This is a required field.",
       "placeholder": "Password",
+      "floatingLabel": "Password",
       "buttonTitle": "Click to show or hide password"
     },
     "PasswordStatusIndicator": {

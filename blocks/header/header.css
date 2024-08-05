@@ -496,4 +496,5 @@ header .nav-search-input .search_autocomplete .popover-container {
 
 .grecaptcha-badge {
   margin-top: 20px;
+  z-index: 3;
 }

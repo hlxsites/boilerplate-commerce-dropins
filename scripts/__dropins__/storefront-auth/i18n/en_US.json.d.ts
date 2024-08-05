@@ -64,6 +64,10 @@ declare const _default: {
     },
     "Api": {
       "customerTokenErrorMessage": "Unable to log in. Please try again later or contact support if the issue persists."
+    },
+    "InputPassword": {
+      "placeholder": "Password",
+      "floatingLabel": "Password *"
     }
   }
 }

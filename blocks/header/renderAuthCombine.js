@@ -190,6 +190,10 @@ const renderAuthCombine = (navSections) => {
       if (isAuthenticated) {
         const { headerLoginButton, popupElement, popupMenuContainer } = getPopupElements();
 
+        if (!authCombineNavElement || !headerLoginButton || !popupElement || !popupMenuContainer) {
+          return null;
+        }
+
         authCombineNavElement.style.display = 'none';
         popupMenuContainer.innerHTML = '';
         popupElement.style.minWidth = '250px';

@@ -20,6 +20,7 @@ export declare const definition: {
             InputPassword: {
                 requiredFieldError: string;
                 placeholder: string;
+                floatingLabel: string;
                 buttonTitle: string;
             };
             PasswordStatusIndicator: {
@@ -151,6 +152,7 @@ export declare const definition: {
             InputPassword: {
                 requiredFieldError: string;
                 placeholder: string;
+                floatingLabel: string;
                 buttonTitle: string;
             };
             PasswordStatusIndicator: {
@@ -284,6 +286,7 @@ export declare const getDefinitionByLanguage: (lang: Lang) => {
         InputPassword: {
             requiredFieldError: string;
             placeholder: string;
+            floatingLabel: string;
             buttonTitle: string;
         };
         PasswordStatusIndicator: {
