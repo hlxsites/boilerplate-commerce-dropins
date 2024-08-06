@@ -8,10 +8,10 @@ declare const Aside: FunctionComponent<{
     sections: AsideSections;
 }>;
 export type MainSections = {
-    outOfStock?: VNode;
     billingAddress: VNode;
     billToShippingAddress?: VNode;
     login: VNode;
+    outOfStock: VNode;
     paymentMethods: VNode;
     placeOrder: VNode;
     shippingAddress?: VNode;

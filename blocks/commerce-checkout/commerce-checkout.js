@@ -8,6 +8,7 @@ import { initializers } from '@dropins/tools/initializer.js';
 // Cart Dropin Modules
 import { render as cartProvider } from '@dropins/storefront-cart/render.js';
 import { OrderSummary } from '@dropins/storefront-cart/containers/OrderSummary.js';
+import * as cartApi from '@dropins/storefront-cart/api.js';
 
 // Checkout Dropin Modules
 import { render as checkoutProvider } from '@dropins/storefront-checkout/render.js';
@@ -106,6 +107,9 @@ export default async function decorate(block) {
     onSignInClick: async () => onSignInClick(),
     onSignOutClick: () => {
       authApi.revokeCustomerToken();
+    },
+    onCheckoutDataUpdate: () => {
+      cartApi.refreshCart().catch(console.error);
     },
     routeHome: () => '/',
     routeCart: () => '/cart',

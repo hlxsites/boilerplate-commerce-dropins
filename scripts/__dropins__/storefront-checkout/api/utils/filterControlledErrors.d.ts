@@ -1,4 +1,4 @@
-import { FetchQueryError } from '@adobe/fetch-graphql';
+import { FetchQueryError } from '../fetch-graphql';
 
 type ErrorPath = (string | number)[];
 export type ErrorWithPath = FetchQueryError[number] & {

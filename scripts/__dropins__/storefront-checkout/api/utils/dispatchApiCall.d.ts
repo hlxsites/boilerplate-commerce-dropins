@@ -1,4 +1,4 @@
-import { FetchOptions } from '@adobe/fetch-graphql';
+import { FetchOptions } from '..';
 
 declare const signalTypes: {
     cart: import('@preact/signals-core').Signal<{

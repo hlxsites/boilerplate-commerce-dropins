@@ -37,7 +37,7 @@ import{events as e}from"@dropins/tools/event-bus.js";import{s as a,d as y,e as f
   }
 
   ${l}
-`,c=async()=>{if(a.initializing)return null;a.initializing=!0,a.config=await A();const t=a.authenticated?await S():await R();return e.emit("cart/initialized",t),e.emit("cart/data",t),a.initializing=!1,t};async function S(){const t=a.cartId,r=await _();return r?(a.cartId=r.id,!t||r.id===t?r:await s(E,{variables:{guestCartId:t,customerCartId:r.id}}).then(()=>_()).then(i=>{const n={oldCartItems:r.items,newCart:i};return e.emit("cart/merged",n),i}).catch(()=>(console.error("Could not merge carts"),r))):null}async function R(){if(h.getConfig().disableGuestCart===!0||!a.cartId)return null;try{return await _()}catch(t){return console.error(t),null}}const G=`
+`,c=async()=>{if(a.initializing)return null;a.initializing=!0,a.config||(a.config=await A());const t=a.authenticated?await S():await R();return e.emit("cart/initialized",t),e.emit("cart/data",t),a.initializing=!1,t};async function S(){const t=a.cartId,r=await _();return r?(a.cartId=r.id,!t||r.id===t?r:await s(E,{variables:{guestCartId:t,customerCartId:r.id}}).then(()=>_()).then(i=>{const n={oldCartItems:r.items,newCart:i};return e.emit("cart/merged",n),i}).catch(()=>(console.error("Could not merge carts"),r))):null}async function R(){if(h.getConfig().disableGuestCart===!0||!a.cartId)return null;try{return await _()}catch(t){return console.error(t),null}}const G=`
 query STORE_CONFIG_QUERY {
   storeConfig {
     minicart_display 
@@ -58,4 +58,4 @@ query STORE_CONFIG_QUERY {
     configurable_thumbnail_source
   }
 }
-`,A=async()=>s(G,{method:"GET",cache:"force-cache"}).then(({errors:t,data:r})=>t?o(t):T(r.storeConfig));export{c as a,A as b,h as c,_ as g,d as i};
+`,A=async()=>s(G,{method:"GET",cache:"force-cache"}).then(({errors:t,data:r})=>t?o(t):T(r.storeConfig));export{R as a,_ as b,h as c,c as d,A as e,S as g,d as i};

@@ -48,9 +48,12 @@ declare const _default: {
       "emptyState": "No payment methods available"
     },
     "OutOfStock": {
-      "title": "Out of stock",
-      "message": "Your cart contains items that are out of stock or have limited availability. Please review your cart before placing the order.",
-      "button": "Review cart",
+      "title": "Your cart contains items that are out of stock",
+      "message": "The following items are out of stock:",
+      "actions": {
+        "reviewCart": "Review cart",
+        "removeOutOfStock": "Remove out of stock items"
+      },
       "lowInventory": {
         "one": "Last item!",
         "many": "Only {{count}} left!"
