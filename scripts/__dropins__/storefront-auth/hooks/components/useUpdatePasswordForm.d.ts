@@ -1,6 +1,7 @@
 import { UseUpdatePasswordFormProps } from '../../types';
 
 export declare const useUpdatePasswordForm: ({ isEmailConfirmationRequired, signInOnSuccess, passwordConfigs, routeRedirectOnSignIn, routeWrongUrlRedirect, onErrorCallback, onSuccessCallback, handleSetInLineAlertProps, routeRedirectOnPasswordUpdate, }: UseUpdatePasswordFormProps) => {
+    passwordError: boolean;
     isSuccessful: {
         userName: string;
         status: boolean;
