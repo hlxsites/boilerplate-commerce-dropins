@@ -9,4 +9,6 @@ export * from './api/getRegions.types';
 export * from './api/updateCustomerAddress.types';
 export * from './api/getCustomer.types';
 export * from './api/removeCustomerAddress.types';
+export * from './api/getOrderHistoryList.types';
+export * from './ordersList.types';
 //# sourceMappingURL=index.d.ts.map

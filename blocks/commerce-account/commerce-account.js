@@ -22,6 +22,9 @@ import * as authApi from '@dropins/storefront-auth/api.js';
 import convertDateFormat from './helpers/convertDateFormat.js';
 import validateOrdersStatus from './helpers/validateOrdersStatus.js';
 
+import { OrdersList } from '@dropins/storefront-account/containers/OrdersList.js';
+import { render as accountRendered } from '@dropins/storefront-account/render.js';
+
 export default async function decorate(block) {
   block.innerHTML = '';
 
@@ -103,7 +106,7 @@ export default async function decorate(block) {
     <nav class="menu">
       <ul>
         <li><a href="#">My Account</a></li>
-        <li><a href="#">My Orders</a></li>
+        <li><a href="/customer/orders">My Orders</a></li>
         <li><a href="#">My Downloadable Products</a></li>
         <li><a href="#">My Wish List</a></li>
       </ul>
@@ -136,17 +139,19 @@ export default async function decorate(block) {
       ${userBillAddresses}
         </div>
       </div>
-      <div>
-      <h4>Orders List</h4>
-      <ul class="orders-list">
-      ${renderOrdersList}
-      </ul>
-    </div>
+      <div class="orders-list"></div>
   </div>
     </section>
   </main>
   </div>`,
     );
+
+    const ordersListBlock = block.querySelector('.orders-list')
+    accountRendered.render(OrdersList, {
+      minifiedView: true,
+      withThumbnails: true,
+      routeOrdersList: () => '/customer/orders',
+    })(ordersListBlock);
 
     const logoutDashboard = document.querySelector('.logoutDashboard');
 

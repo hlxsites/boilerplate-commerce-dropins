@@ -3,7 +3,6 @@
 }
 
 .my-account-element {
-  overflow: hidden;
 }
 
 .admin-panel {
@@ -60,12 +59,7 @@
 }
 
 .orders-list {
-  list-style: none;
-  padding: 0;
-}
-
-.orders-list li {
-  display: flex;
-  gap: 0 10px;
-  margin: 10px;
+  margin-top: 50px;
+  padding: 2rem;
+  border: 2px dotted red;
 }

@@ -8,4 +8,5 @@ export * from './getRegions';
 export * from './updateCustomerAddress';
 export * from './getCustomer';
 export * from './removeCustomerAddress';
+export * from './getOrderHistoryList';
 //# sourceMappingURL=index.d.ts.map
