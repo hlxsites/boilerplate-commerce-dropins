@@ -1,0 +1,2 @@
+export declare const ORDER_ITEMS = "\nfragment OrderItems on OrderItem {\n  status\n  product_name\n  id\n  quantity_ordered\n  product_sale_price {\n    value\n    currency\n  }\n  selected_options {\n    label\n    value\n  }\n  product {\n    name\n    sku\n    small_image {\n      url\n    }\n    thumbnail {\n      label\n      url\n    }\n    price_range {\n      maximum_price {\n        regular_price {\n          currency\n          value\n        }\n      }\n    }\n  }\n}";
+//# sourceMappingURL=orderItemsFragment.graphql.d.ts.map

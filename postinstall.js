@@ -24,6 +24,34 @@ fs.readdirSync('node_modules/@dropins', { withFileTypes: true }).forEach((file) 
   });
 });
 
+// TODO - block added temporally, to integrate account and order dropins
+const accountDropinSource = './scripts/@dropins/storefront-account';
+const accountDestDir = './scripts/__dropins__/storefront-account';
+
+// Ensure the destination directory exists
+if (!fs.existsSync(accountDestDir)) {
+  fs.mkdirSync(accountDestDir, { recursive: true });
+}
+
+fs.cpSync(accountDropinSource, accountDestDir, {
+  recursive: true,
+  filter: (src) => !src.endsWith('package.json'),
+});
+
+const orderDropinSource = './scripts/@dropins/storefront-order';
+const orderDestDir = './scripts/__dropins__/storefront-order';
+
+// Ensure the destination directory exists
+if (!fs.existsSync(orderDestDir)) {
+  fs.mkdirSync(orderDestDir, { recursive: true });
+}
+
+fs.cpSync(orderDropinSource, orderDestDir, {
+  recursive: true,
+  filter: (src) => !src.endsWith('package.json'),
+});
+// TODO - end
+
 // Copy eventing specific files
 fs.copyFileSync(path.resolve(__dirname, './node_modules/@adobe/magento-storefront-event-collector/dist/index.js'), path.resolve(__dirname, './scripts/commerce-events-collector.js'));
 fs.copyFileSync(path.resolve(__dirname, './node_modules/@adobe/magento-storefront-events-sdk/dist/index.js'), path.resolve(__dirname, './scripts/commerce-events-sdk.js'));
