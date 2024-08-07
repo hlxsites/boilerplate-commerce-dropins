@@ -173,15 +173,17 @@ export default async function decorate(block) {
   async function toggleMiniCart(state) {
     const show = state ?? !minicartPanel.classList.contains('nav-tools-panel--show');
 
-    if (show) {
-      await cartProvider.render(MiniCart, {
-        routeEmptyCartCTA: () => '/',
-        routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
-        routeCart: () => '/cart',
-        routeCheckout: () => '/checkout',
-      })(minicartPanel);
-    } else {
-      cartProvider.unmount(minicartPanel);
+    // render mini cart if toggling to show
+    const miniCart = show ? await cartProvider.render(MiniCart, {
+      routeEmptyCartCTA: () => '/',
+      routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
+      routeCart: () => '/cart',
+      routeCheckout: () => '/checkout',
+    })(minicartPanel) : null;
+
+    // remove mini cart if toggling to hide
+    if (!show && miniCart) {
+      miniCart.remove();
     }
 
     minicartPanel.classList.toggle('nav-tools-panel--show', show);
