@@ -8,6 +8,7 @@ export declare const useEstimatedTotals: () => {
         method_code: string;
     }) => void;
     estimatedTotals: any;
+    setEstimatedTotals: import('preact/hooks').Dispatch<any>;
     loading: boolean;
 };
 //# sourceMappingURL=useEstimatedTotals.d.ts.map
