@@ -108,7 +108,7 @@ export default async function decorate(block) {
         <li><a href="#">My Wish List</a></li>
       </ul>
       <ul>
-      <li><a href="#">Address Book</a></li>
+      <li><a href="/ccustomer/address">Address Book</a></li>
       <li><a href="#">Account Information</a></li>
       <li><a href="#">Stored Payment Methods</a></li>
     </ul>
