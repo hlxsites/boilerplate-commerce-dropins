@@ -35,4 +35,6 @@ export * from './Breadcrumbs';
 export * from './AlertBanner';
 export * from './IllustratedMessage';
 export * from './ToggleButton';
+export * from './Header';
+export * from './Tag';
 //# sourceMappingURL=index.d.ts.map
