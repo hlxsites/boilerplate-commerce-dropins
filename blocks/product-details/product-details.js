@@ -196,62 +196,56 @@ export default async function decorate(block) {
   }, { eager: true });
 
   // Render Containers
-  return new Promise((resolve) => {
-    setTimeout(async () => {
-      try {
-        await productRenderer.render(ProductDetails, {
-          sku: getSkuFromUrl(),
-          carousel: {
-            controls: 'thumbnailsColumn',
-            arrowsOnMainImage: true,
-            mobile: true,
-            peak: {
-              mobile: true,
-              desktop: false,
-            },
-            gap: 'small',
-          },
-          slots: {
-            Actions: (ctx) => {
-              // Add to Cart Button
-              ctx.appendButton((next, state) => {
-                const adding = state.get('adding');
-                return {
-                  text: adding
-                    ? next.dictionary.Custom.AddingToCart?.label
-                    : next.dictionary.PDP.Product.AddToCart?.label,
-                  icon: 'Cart',
-                  variant: 'primary',
-                  disabled: adding || !next.data.inStock,
-                  onClick: async () => {
-                    try {
-                      state.set('adding', true);
-                      if (!next.valid) {
-                        // eslint-disable-next-line no-console
-                        console.warn('Invalid product', next.values);
-                        return;
-                      }
+  try {
+    return await productRenderer.render(ProductDetails, {
+      sku: getSkuFromUrl(),
+      carousel: {
+        controls: 'thumbnailsColumn',
+        arrowsOnMainImage: true,
+        mobile: true,
+        peak: {
+          mobile: true,
+          desktop: false,
+        },
+        gap: 'small',
+      },
+      slots: {
+        Actions: (ctx) => {
+          // Add to Cart Button
+          ctx.appendButton((next, state) => {
+            const adding = state.get('adding');
+            return {
+              text: adding
+                ? next.dictionary.Custom.AddingToCart?.label
+                : next.dictionary.PDP.Product.AddToCart?.label,
+              icon: 'Cart',
+              variant: 'primary',
+              disabled: adding || !next.data.inStock,
+              onClick: async () => {
+                try {
+                  state.set('adding', true);
+                  if (!next.valid) {
+                    // eslint-disable-next-line no-console
+                    console.warn('Invalid product', next.values);
+                    return;
+                  }
 
-                      await addProductsToCart([{ ...next.values }]);
-                    } catch (error) {
-                      // eslint-disable-next-line no-console
-                      console.warn('Error adding product to cart', error);
-                    } finally {
-                      state.set('adding', false);
-                    }
-                  },
-                };
-              });
-            },
-          },
-          useACDL: true,
-        })(block);
-      } catch (e) {
-        console.error(e);
-        await errorGettingProduct();
-      } finally {
-        resolve();
-      }
-    }, 0);
-  });
+                  await addProductsToCart([{ ...next.values }]);
+                } catch (error) {
+                  // eslint-disable-next-line no-console
+                  console.warn('Error adding product to cart', error);
+                } finally {
+                  state.set('adding', false);
+                }
+              },
+            };
+          });
+        },
+      },
+      useACDL: true,
+    })(block);
+  } catch (e) {
+    console.error(e);
+    return errorGettingProduct();
+  }
 }
