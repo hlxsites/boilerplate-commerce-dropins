@@ -3,7 +3,6 @@
 }
 
 .my-account-element {
-  overflow: hidden;
 }
 
 .admin-panel {
@@ -68,4 +67,10 @@
   display: flex;
   gap: 0 10px;
   margin: 10px;
+}
+
+.address-info {
+  margin-top: 50px;
+  padding: 2rem;
+  border: 2px dotted red;
 }

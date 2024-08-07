@@ -22,6 +22,9 @@ import * as authApi from '@dropins/storefront-auth/api.js';
 import convertDateFormat from './helpers/convertDateFormat.js';
 import validateOrdersStatus from './helpers/validateOrdersStatus.js';
 
+import { Addresses } from '@dropins/storefront-account/containers/Addresses.js';
+import { render as accountRendered } from '@dropins/storefront-account/render.js';
+
 export default async function decorate(block) {
   block.innerHTML = '';
 
@@ -108,7 +111,7 @@ export default async function decorate(block) {
         <li><a href="#">My Wish List</a></li>
       </ul>
       <ul>
-      <li><a href="/ccustomer/address">Address Book</a></li>
+      <li><a href="/customer/address">Address Book</a></li>
       <li><a href="#">Account Information</a></li>
       <li><a href="#">Stored Payment Methods</a></li>
     </ul>
@@ -121,32 +124,31 @@ export default async function decorate(block) {
     </ul>
     </nav>
   </aside>
-  <main class="content">
-    <h2>My Account</h2>
-    <section class="account-info">
-      <div class="contact-info">
-        <h4>Contact Information</h4>
-        <p>${customer.firstname} ${customer.lastname}</p>
-        <p>${customer.email}</p>
-        <a href="#">Edit</a> | <a href="#">Change Password</a>
-      </div>
-      <div class="address-info">
-      ${userAddresses}
-        <div>
-      ${userBillAddresses}
+    <main class="content">
+      <h2>My Account</h2>
+      <section class="account-info">
+        <div class="contact-info">
+          <h4>Contact Information</h4>
+          <p>${customer.firstname} ${customer.lastname}</p>
+          <p>${customer.email}</p>
+          <a href="#">Edit</a> | <a href="#">Change Password</a>
         </div>
-      </div>
-      <div>
-      <h4>Orders List</h4>
-      <ul class="orders-list">
-      ${renderOrdersList}
-      </ul>
-    </div>
-  </div>
-    </section>
-  </main>
+        <div class="address-info"></div>
+        <div>
+          <h4>Orders List</h4>
+          <ul class="orders-list">
+            ${renderOrdersList}
+          </ul>
+        </div>
+      </section>
+    </main>
   </div>`,
     );
+    const addressesBlock = block.querySelector('.address-info')
+    accountRendered.render(Addresses, {
+      minifiedView: true,
+      routeAddressesPage: () => '/customer/address',
+    })(addressesBlock);
 
     const logoutDashboard = document.querySelector('.logoutDashboard');
 
