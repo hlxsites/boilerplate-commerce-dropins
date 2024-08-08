@@ -4,11 +4,11 @@ import { readBlockConfig } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
   const {
-    'checkout-url': checkoutURL = '/checkout',
+    'checkout-url': checkoutURL = '',
   } = readBlockConfig(block);
 
   return provider.render(OrderSummary, {
     routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
-    routeCheckout: () => checkoutURL,
+    routeCheckout: checkoutURL ? () => checkoutURL : undefined,
   })(block);
 }
