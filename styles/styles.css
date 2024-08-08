@@ -413,11 +413,11 @@ body.columns main {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1264px;
   margin: 0 auto;
   padding: var(--spacing-large) var(--spacing-small);
   box-sizing: border-box;
-  gap: var(--grid-3-gutters);
+  gap: var(--grid-4-gutters);
 }
 
 body.columns main > .section {
