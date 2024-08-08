@@ -6,26 +6,31 @@ import { events } from '@dropins/tools/event-bus.js';
 import { initializers } from '@dropins/tools/initializer.js';
 
 // Cart Dropin Modules
-import { render as cartProvider } from '@dropins/storefront-cart/render.js';
-import { OrderSummary } from '@dropins/storefront-cart/containers/OrderSummary.js';
 import * as cartApi from '@dropins/storefront-cart/api.js';
 import CartSummaryList from '@dropins/storefront-cart/containers/CartSummaryList.js';
+import { OrderSummary } from '@dropins/storefront-cart/containers/OrderSummary.js';
+import { render as cartProvider } from '@dropins/storefront-cart/render.js';
 
 // Checkout Dropin Modules
-import { render as checkoutProvider } from '@dropins/storefront-checkout/render.js';
 import * as checkoutApi from '@dropins/storefront-checkout/api.js';
 import Checkout from '@dropins/storefront-checkout/containers/Checkout.js';
 import EstimateShipping from '@dropins/storefront-checkout/containers/EstimateShipping.js';
+import { render as checkoutProvider } from '@dropins/storefront-checkout/render.js';
 
 // Auth Dropin Modules
-import { render as authProvider } from '@dropins/storefront-auth/render.js';
 import * as authApi from '@dropins/storefront-auth/api.js';
 import AuthCombine from '@dropins/storefront-auth/containers/AuthCombine.js';
 import SignUp from '@dropins/storefront-auth/containers/SignUp.js';
+import { render as authProvider } from '@dropins/storefront-auth/render.js';
 
-import { render as orderConfirmationProvider } from '@dropins/storefront-order-confirmation/render.js';
+// Adyen Dropin Modules
+import * as adyenApi from '@dropins/adyen-checkout-extension/api.js';
+import AdyenPaymentMethod from '@dropins/adyen-checkout-extension/containers/AdyenPaymentMethod.js';
+import { render as adyenProvider } from '@dropins/adyen-checkout-extension/render.js';
+
 import * as orderConfirmationApi from '@dropins/storefront-order-confirmation/api.js';
 import OrderConfirmation from '@dropins/storefront-order-confirmation/containers/OrderConfirmation.js';
+import { render as orderConfirmationProvider } from '@dropins/storefront-order-confirmation/render.js';
 
 import { getUserTokenCookie } from '../../scripts/dropins.js';
 import { createModal } from '../modal/modal.js';
@@ -35,6 +40,7 @@ export default async function decorate(block) {
 
   // Initialize Dropins
   initializers.register(checkoutApi.initialize, {});
+  initializers.register(adyenApi.initialize, {});
 
   events.on(
     'authenticated',
@@ -137,8 +143,8 @@ export default async function decorate(block) {
         cartProvider.render(CartSummaryList, {
           slots: {
             Heading: (headingCtx) => {
-              const { title, editLink } =
-                checkoutCtx.dictionary.Checkout.Slots.CartSummaryList.Heading;
+              // eslint-disable-next-line max-len
+              const { title, editLink } = checkoutCtx.dictionary.Checkout.Slots.CartSummaryList.Heading;
 
               const cartSummaryListHeading = document.createElement('div');
               cartSummaryListHeading.classList.add(
@@ -183,6 +189,15 @@ export default async function decorate(block) {
             // const $content = document.createElement('div');
             // $content.innerText = 'Custom Check / Money order handler';
             // ctx.appendHTMLElement($content);
+          },
+        });
+        context.addPaymentMethodHandler('adyen_cc', {
+          render: (ctx, element) => {
+            if (element) {
+              // clear the element first
+              element.innerHTML = '';
+              adyenProvider.render(AdyenPaymentMethod, ctx)(element);
+            }
           },
         });
       },
