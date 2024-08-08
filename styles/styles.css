@@ -398,3 +398,7 @@ main .section.highlight {
 .dropin-design.dropin-design {
   --background-none: none 0 0% no-repeat padding-box;
 }
+
+.dropin-input-date__icon {
+  z-index: 2;
+}
