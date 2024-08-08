@@ -118,6 +118,22 @@ function buildAutoBlocks(main) {
 }
 
 /**
+ * Decorate columns to the main element.
+ * @param {Element} main The container element
+ */
+function decorateColumns(main) {
+  const columns = main.querySelectorAll('div.section[data-column-width]');
+
+  columns.forEach((column) => {
+    const width = column.dataset.columnWidth;
+
+    if (width) {
+      column.style.setProperty('--column-width', width);
+    }
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -128,6 +144,7 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateColumns(main);
   decorateBlocks(main);
 }
 
