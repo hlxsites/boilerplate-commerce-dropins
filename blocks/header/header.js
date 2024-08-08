@@ -177,7 +177,7 @@ export default async function decorate(block) {
     const miniCart = show ? await cartProvider.render(MiniCart, {
       routeEmptyCartCTA: () => '/',
       routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
-      routeCart: () => '/cart',
+      routeCart: () => '/shopping-cart',
       routeCheckout: () => '/checkout',
     })(minicartPanel) : null;
 

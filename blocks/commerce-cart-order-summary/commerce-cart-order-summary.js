@@ -1,14 +1,14 @@
 import { render as provider } from '@dropins/storefront-cart/render.js';
-import Cart from '@dropins/storefront-cart/containers/Cart.js';
+import OrderSummary from '@dropins/storefront-cart/containers/OrderSummary.js';
 import { readBlockConfig } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
   const {
-    'empty-cart-url': emptyCartURL = '/',
+    'checkout-url': checkoutURL = '/checkout',
   } = readBlockConfig(block);
 
-  return provider.render(Cart, {
-    routeEmptyCartCTA: () => emptyCartURL,
+  return provider.render(OrderSummary, {
     routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
+    routeCheckout: () => checkoutURL,
   })(block);
 }

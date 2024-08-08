@@ -443,7 +443,7 @@ body.columns main > .section:empty {
   }
 }
 
-@media only screen and (min-width: 1024px) { 
+@media (width >= 900px) {
   body.columns main {
     flex-direction: row;
   }
