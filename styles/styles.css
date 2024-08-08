@@ -180,7 +180,16 @@ body:not(.appear) {
 }
 
 header {
+  grid-row: 1;
   height: var(--nav-height);
+}
+
+main {
+  grid-row: 2;
+}
+
+footer {
+  grid-row: 3;
 }
 
 h1 {
