@@ -1,6 +1,7 @@
-import { UseUpdatePasswordFormProps } from '../../types';
+import { AdditionalActionsAlertProps, UseUpdatePasswordFormProps } from '../../types';
 
 export declare const useUpdatePasswordForm: ({ isEmailConfirmationRequired, signInOnSuccess, passwordConfigs, routeRedirectOnSignIn, routeWrongUrlRedirect, onErrorCallback, onSuccessCallback, handleSetInLineAlertProps, routeRedirectOnPasswordUpdate, }: UseUpdatePasswordFormProps) => {
+    additionalActionsAlert: AdditionalActionsAlertProps;
     passwordError: boolean;
     isSuccessful: {
         userName: string;

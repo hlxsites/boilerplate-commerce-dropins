@@ -1,6 +1,7 @@
-import { useSignInFormProps } from '../../types';
+import { AdditionalActionsAlertProps, useSignInFormProps } from '../../types';
 
 export declare const useSignInForm: ({ emailConfirmationStatusMessage, translations, initialEmailValue, routeSignUp, routeForgotPassword, routeRedirectOnSignIn, onErrorCallback, setActiveComponent, onSuccessCallback, onSignUpLinkClick, handleSetInLineAlertProps, routeRedirectOnEmailConfirmationClose, }: useSignInFormProps) => {
+    additionalActionsAlert: AdditionalActionsAlertProps;
     userEmail: string;
     defaultEnhancedEmailFields: any;
     passwordError: boolean;
