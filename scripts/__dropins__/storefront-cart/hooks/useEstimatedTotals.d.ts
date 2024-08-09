@@ -2,6 +2,7 @@ export declare const useEstimatedTotals: () => {
     handleEstimateTotals: (formValues: {
         shippingCountry: string;
         shippingState?: string;
+        shippingStateId?: number;
         shippingZip?: string;
     }, shippingMethods?: {
         carrier_code: string;
