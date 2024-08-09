@@ -12,6 +12,7 @@ export interface UpdatePasswordProps {
     formSize?: 'default' | 'small';
     routeRedirectOnPasswordUpdate?: () => string;
     routeRedirectOnSignIn?: () => string;
+    routeSignInPage?: () => string;
     routeWrongUrlRedirect?: () => string;
     onErrorCallback?: (value: unknown) => void;
     onSuccessCallback?: (value?: string) => void;

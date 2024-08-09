@@ -18,5 +18,6 @@ export declare const useSignInForm: ({ emailConfirmationStatusMessage, translati
     forgotPasswordCallback: () => void;
     onSignUpLinkClickCallback: () => void;
     handledOnPrimaryButtonClick: () => void;
+    handleSetPassword: (value: string) => void;
 };
 //# sourceMappingURL=useSignInForm.d.ts.map
