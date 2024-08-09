@@ -125,10 +125,17 @@ function decorateColumns(main) {
   const columns = main.querySelectorAll('div.section[data-column-width]');
 
   columns.forEach((column) => {
-    const width = column.dataset.columnWidth;
+    const columnWidth = column.getAttribute('data-column-width');
+    const gap = column.getAttribute('data-gap');
 
-    if (width) {
-      column.style.setProperty('--column-width', width);
+    if (columnWidth) {
+      column.style.setProperty('--column-width', columnWidth);
+      column.removeAttribute('data-column-width');
+    }
+
+    if (gap) {
+      column.style.setProperty('--gap', `var(--spacing-${gap.toLocaleLowerCase()})`);
+      column.removeAttribute('data-gap');
     }
   });
 }

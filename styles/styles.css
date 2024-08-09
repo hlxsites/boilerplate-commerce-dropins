@@ -433,6 +433,10 @@ body.columns main > .section > div {
   padding: unset;
 }
 
+body.columns main > .section > div:not(:last-child) {
+  margin-bottom: var(--gap, unset);
+}
+
 body.columns main > .section:empty {
   display: none;
 }
