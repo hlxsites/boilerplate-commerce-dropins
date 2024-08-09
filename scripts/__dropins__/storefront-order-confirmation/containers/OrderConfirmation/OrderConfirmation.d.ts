@@ -1,6 +1,7 @@
+import { CustomerAddressInput } from '../../__generated__/types';
+import { Order as OrderModel } from '../../data/models';
 import { Container } from '@dropins/tools/types/elsie/src/lib';
 import { HTMLAttributes } from 'preact/compat';
-import { CustomerAddressInput } from '../../__generated__/types';
 
 export interface SignUpInputsDefaultValueSetProps {
     code: string;
@@ -8,6 +9,7 @@ export interface SignUpInputsDefaultValueSetProps {
 }
 export interface OrderConfirmationProps extends HTMLAttributes<HTMLDivElement> {
     orderRef?: string;
+    orderData?: OrderModel;
     routeHome?: () => string;
     routeSupport?: () => string;
     onSignUpClick?: ({ inputsDefaultValueSet, addressesData, }: {

@@ -46,6 +46,14 @@ export declare const guestOrderByToken: (token: string) => Promise<{
         region?: string | null | undefined;
         region_id?: string | null | undefined;
         company?: string | null | undefined;
+        custom_attributesV2: ({
+            __typename?: "AttributeSelectedOptions" | undefined;
+            code: string;
+        } | {
+            __typename?: "AttributeValue" | undefined;
+            value: string;
+            code: string;
+        } | null)[];
     } | null | undefined;
     shipping_address?: {
         __typename?: "OrderAddress" | undefined;
@@ -60,11 +68,24 @@ export declare const guestOrderByToken: (token: string) => Promise<{
         region?: string | null | undefined;
         region_id?: string | null | undefined;
         company?: string | null | undefined;
+        custom_attributesV2: ({
+            __typename?: "AttributeSelectedOptions" | undefined;
+            code: string;
+        } | {
+            __typename?: "AttributeValue" | undefined;
+            value: string;
+            code: string;
+        } | null)[];
     } | null | undefined;
     items?: ({
         __typename: "BundleOrderItem";
         id: string;
+        quantity_canceled?: number | null | undefined;
+        quantity_invoiced?: number | null | undefined;
         quantity_ordered?: number | null | undefined;
+        quantity_refunded?: number | null | undefined;
+        quantity_returned?: number | null | undefined;
+        quantity_shipped?: number | null | undefined;
         product_sale_price: {
             __typename?: "Money" | undefined;
             value?: number | null | undefined;
@@ -219,7 +240,12 @@ export declare const guestOrderByToken: (token: string) => Promise<{
     } | {
         __typename: "DownloadableOrderItem";
         id: string;
+        quantity_canceled?: number | null | undefined;
+        quantity_invoiced?: number | null | undefined;
         quantity_ordered?: number | null | undefined;
+        quantity_refunded?: number | null | undefined;
+        quantity_returned?: number | null | undefined;
+        quantity_shipped?: number | null | undefined;
         product_sale_price: {
             __typename?: "Money" | undefined;
             value?: number | null | undefined;
@@ -374,7 +400,12 @@ export declare const guestOrderByToken: (token: string) => Promise<{
     } | {
         __typename: "GiftCardOrderItem";
         id: string;
+        quantity_canceled?: number | null | undefined;
+        quantity_invoiced?: number | null | undefined;
         quantity_ordered?: number | null | undefined;
+        quantity_refunded?: number | null | undefined;
+        quantity_returned?: number | null | undefined;
+        quantity_shipped?: number | null | undefined;
         gift_card?: {
             __typename?: "GiftCardItem" | undefined;
             recipient_name?: string | null | undefined;
@@ -537,7 +568,12 @@ export declare const guestOrderByToken: (token: string) => Promise<{
     } | {
         __typename: "OrderItem";
         id: string;
+        quantity_canceled?: number | null | undefined;
+        quantity_invoiced?: number | null | undefined;
         quantity_ordered?: number | null | undefined;
+        quantity_refunded?: number | null | undefined;
+        quantity_returned?: number | null | undefined;
+        quantity_shipped?: number | null | undefined;
         product_sale_price: {
             __typename?: "Money" | undefined;
             value?: number | null | undefined;

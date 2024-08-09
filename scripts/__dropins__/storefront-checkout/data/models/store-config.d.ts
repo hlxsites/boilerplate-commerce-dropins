@@ -1,11 +1,7 @@
-export declare enum PriceDisplay {
-    ExcludingTax = 1,
-    IncludingTax = 2,
-    IncludingAndExcludingTax = 3
-}
-export declare enum TotalDisplay {
-    Rows = 0,
-    Quantity = 1
+export declare enum TaxDisplay {
+    EXCLUDING_TAX = "EXCLUDING_TAX",
+    INCLUDING_EXCLUDING_TAX = "INCLUDING_AND_EXCLUDING_TAX",
+    INCLUDING_TAX = "INCLUDING_TAX"
 }
 export interface StoreConfig {
     defaultCountry: string;
@@ -14,16 +10,8 @@ export interface StoreConfig {
     countriesWithOptionalZipCode: string[];
     isGuestCheckoutEnabled: boolean;
     isOnePageCheckoutEnabled: boolean;
-    taxCartDisplay: {
-        shoppingCartDisplayPrice: PriceDisplay;
-        shoppingCartDisplayShipping: PriceDisplay;
-        shoppingCartDisplaySubtotal: PriceDisplay;
-        shoppingCartDisplayGiftWrapping: PriceDisplay;
-        shoppingCartDisplayGrandTotal: boolean;
-        shoppingCartDisplayFullSummary: boolean;
-        shoppingCartDisplayZeroTax: boolean;
+    shoppingCartDisplaySetting: {
+        shipping: TaxDisplay;
     };
-    cartSummaryMaxItems: number;
-    cartSummaryTotalDisplay: TotalDisplay;
 }
 //# sourceMappingURL=store-config.d.ts.map

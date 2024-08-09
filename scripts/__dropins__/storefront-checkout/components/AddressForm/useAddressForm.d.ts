@@ -18,13 +18,14 @@ export type LoadAutoFillProps = {
     triggerAutoSave: boolean;
 };
 export type UseAddressFormProps = {
-    formRef: RefObject<HTMLFormElement>;
-    type: AddressFormType;
     defaultValues?: DefaultValues;
+    formRef: RefObject<HTMLFormElement>;
+    onCheckoutDataUpdate?: () => Promise<void>;
     preselection?: AddressFormValues;
     saveAddressHandler: (command: SaveAddressCommand) => Promise<typeof cartSignal.value.data>;
+    type: AddressFormType;
 };
-export declare const useAddressForm: ({ formRef, type, defaultValues, preselection, saveAddressHandler, }: UseAddressFormProps) => {
+export declare const useAddressForm: ({ defaultValues, formRef, onCheckoutDataUpdate, preselection, saveAddressHandler, type, }: UseAddressFormProps) => {
     address: AddressFormValues;
     errors: Record<string, string>;
     loadAutoFill: ({ values, triggerAutoSave, }: LoadAutoFillProps) => void;

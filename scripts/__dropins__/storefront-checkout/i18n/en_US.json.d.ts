@@ -47,42 +47,13 @@ declare const _default: {
       "title": "Payment",
       "emptyState": "No payment methods available"
     },
-    "OrderSummary": {
-      "title": "Order summary",
-      "total": "Total",
-      "totalExclTax": "Total excluding taxes",
-      "subtotal": "Subtotal",
-      "tax": "Tax",
-      "taxTotal": "Tax total",
-      "taxBreakdown": "Taxes",
-      "includingTaxes": "Including taxes",
-      "shipping": "Shipping",
-      "estimatedShipping": "Estimated shipping",
-      "freeShipping": "Free"
-    },
-    "CartSummary": {
-      "title": "Your cart",
-      "editCart": "Edit",
-      "viewAll": "View all in cart",
-      "viewMore": "View more",
-      "GiftCard": {
-        "sender": "From",
-        "recipient": "To",
-        "message": "Note"
-      },
-      "Downloadable": {
-        "download": "Download",
-        "files": {
-          "none": "No files",
-          "one": "1 file",
-          "many": "{{count}} files"
-        }
-      }
-    },
     "OutOfStock": {
-      "title": "Out of stock",
-      "message": "Your cart contains items that are out of stock or have limited availability. Please review your cart before placing the order.",
-      "button": "Review cart",
+      "title": "Your cart contains items that are out of stock",
+      "message": "The following items are out of stock:",
+      "actions": {
+        "reviewCart": "Review cart",
+        "removeOutOfStock": "Remove out of stock items"
+      },
       "lowInventory": {
         "one": "Last item!",
         "many": "Only {{count}} left!"
@@ -107,10 +78,25 @@ declare const _default: {
     },
     "MergedCartBanner": {
       "items": {
-        "one": "1 item from a previous session was added to your cart. ",
-        "many": "{{count}} items from a previous session were added to your cart. "
-      },
-      "genericMessage": "Please review your new subtotal."
+        "one": "1 item from a previous session was added to your cart. Please review your new subtotal.",
+        "many": "{{count}} items from a previous session were added to your cart. Please review your new subtotal."
+      }
+    },
+    "EstimateShipping": {
+      "estimated": "Estimated Shipping",
+      "freeShipping": "Free",
+      "label": "Shipping",
+      "taxToBeDetermined": "TBD",
+      "withTaxes": "Including taxes",
+      "withoutTaxes": "Excluding taxes"
+    },
+    "Slots": {
+      "CartSummaryList": {
+        "Heading": {
+          "title": "Your Cart ({count})",
+          "editLink": "Edit"
+        }
+      }
     }
   }
 }

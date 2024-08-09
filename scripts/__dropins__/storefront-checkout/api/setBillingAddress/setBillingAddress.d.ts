@@ -6,9 +6,8 @@ export interface BillingAddressInput {
     same_as_shipping?: boolean;
     use_for_shipping?: boolean;
 }
-export declare const setBillingAddress: ({ signal, cartId, input, }: {
+export declare const setBillingAddress: ({ signal, input, }: {
     signal?: AbortSignal | undefined;
-    cartId: string;
     input: BillingAddressInput;
 }) => Promise<import('../../data/models/cart').Cart | null | undefined>;
 //# sourceMappingURL=setBillingAddress.d.ts.map

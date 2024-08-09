@@ -1,5 +1,6 @@
-export declare function setupCheckout({ clearLocalStorage, dropinProps, }?: {
+export declare function setupCheckout({ clearLocalStorage, dropinProps, registerCheckoutListeners, }?: {
     clearLocalStorage?: boolean | undefined;
     dropinProps?: {} | undefined;
-}): void;
+    registerCheckoutListeners?: boolean | undefined;
+}): Promise<void>;
 //# sourceMappingURL=setup.d.ts.map

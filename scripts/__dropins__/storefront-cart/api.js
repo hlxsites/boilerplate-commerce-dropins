@@ -1,8 +1,8 @@
-import{s as c,f as d,h as u}from"./chunks/resetCart.js";import{g as x,r as y,d as $,a as v,b as w,c as Q}from"./chunks/resetCart.js";import{C as f,a as l,t as g}from"./chunks/CartFragment.js";import{events as p}from"@dropins/tools/event-bus.js";import{p as I,a as _}from"./chunks/updateProductsFromCart.js";import{u as k}from"./chunks/updateProductsFromCart.js";import{c as h}from"./chunks/getStoreConfig.js";import{g as Y,b as j,i as q,a as B}from"./chunks/getStoreConfig.js";import{a as K,g as L,b as V}from"./chunks/getEstimateShipping.js";import{g as X}from"./chunks/getEstimatedTotals.js";import"@dropins/tools/fetch-graphql.js";import"@dropins/tools/lib.js";const E=`
+import{s}from"./chunks/state.js";import{C as T,a as l,t as f}from"./chunks/CartFragment.js";import{events as m}from"@dropins/tools/event-bus.js";import{f as p,h as g}from"./chunks/resetCart.js";import{g as v,r as Q,c as H,s as k,a as z,b as Y}from"./chunks/resetCart.js";import{a as I,b as h}from"./chunks/updateProductsFromCart.js";import{u as q}from"./chunks/updateProductsFromCart.js";import{c as _,g as E,a as A}from"./chunks/getStoreConfig.js";import{b as J,e as K,i as L,d as V}from"./chunks/getStoreConfig.js";import{g as X,b as Z,a as tt}from"./chunks/getEstimateShipping.js";import{g as at}from"./chunks/getEstimatedTotals.js";import"@dropins/tools/fetch-graphql.js";import"@dropins/tools/lib.js";const R=`
   mutation ADD_PRODUCTS_TO_CART_MUTATION(
       $cartId: String!, 
       $cartItems: [CartItemInput!]!,
-      ${f}
+      ${T}
     ) {
     addProductsToCart(
       cartId: $cartId
@@ -18,8 +18,8 @@ import{s as c,f as d,h as u}from"./chunks/resetCart.js";import{g as x,r as y,d a
     }
   }
   ${l}
-`,b=async a=>{let s=!1;const o=c.cartId||await R().then(e=>(s=!0,e));return d(E,{variables:{cartId:o,cartItems:a.map(({sku:e,parentSku:r,quantity:n,optionsUIDs:t,enteredOptions:i})=>({sku:e,parent_sku:r,quantity:n,selected_options:t,entered_options:i}))}}).then(({errors:e,data:r})=>{var i;const n=[...((i=r==null?void 0:r.addProductsToCart)==null?void 0:i.user_errors)??[],...e??[]];if(n.length>0)return u(n);const t=g(r.addProductsToCart.cart);if(p.emit("cart/updated",t),p.emit("cart/data",t),t){const m=t.items.filter(C=>a.some(({sku:T})=>T===C.sku));s?I(t,m,c.locale??"en-US"):_(t,m,c.locale??"en-US")}return t})},A=`
+`,w=async r=>{let o=!1;const n=s.cartId||await O().then(e=>(o=!0,e));return p(R,{variables:{cartId:n,cartItems:r.map(({sku:e,parentSku:a,quantity:i,optionsUIDs:t,enteredOptions:c})=>({sku:e,parent_sku:a,quantity:i,selected_options:t,entered_options:c}))}}).then(({errors:e,data:a})=>{var c;const i=[...((c=a==null?void 0:a.addProductsToCart)==null?void 0:c.user_errors)??[],...e??[]];if(i.length>0)return g(i);const t=f(a.addProductsToCart.cart);if(m.emit("cart/updated",t),m.emit("cart/data",t),t){const d=t.items.filter(C=>r.some(({sku:u})=>u===C.sku));o?I(t,d,s.locale??"en-US"):h(t,d,s.locale??"en-US")}return t})},P=`
     mutation CREATE_EMPTY_CART_MUTATION {
         createEmptyCart
     }
-`,R=async()=>{const{disableGuestCart:a}=h.getConfig();if(a)throw new Error("Guest cart is disabled");return await d(A).then(({data:s})=>{const o=s.createEmptyCart;return c.cartId=o,o})};export{b as addProductsToCart,h as config,R as createEmptyCart,d as fetchGraphQl,Y as getCartData,x as getConfig,K as getCountries,L as getEstimateShipping,X as getEstimatedTotals,V as getRegions,j as getStoreConfig,q as initialize,B as initializeCart,y as removeFetchGraphQlHeader,$ as resetCart,v as setEndpoint,w as setFetchGraphQlHeader,Q as setFetchGraphQlHeaders,k as updateProductsFromCart};
+`,O=async()=>{const{disableGuestCart:r}=_.getConfig();if(r)throw new Error("Guest cart is disabled");return await p(P).then(({data:o})=>{const n=o.createEmptyCart;return s.cartId=n,n})},F=async()=>{const r=s.authenticated?await E():await A();return m.emit("cart/updated",r),m.emit("cart/data",r),r};export{w as addProductsToCart,_ as config,O as createEmptyCart,p as fetchGraphQl,J as getCartData,v as getConfig,X as getCountries,E as getCustomerCartPayload,Z as getEstimateShipping,at as getEstimatedTotals,A as getGuestCartPayload,tt as getRegions,K as getStoreConfig,L as initialize,V as initializeCart,F as refreshCart,Q as removeFetchGraphQlHeader,H as resetCart,k as setEndpoint,z as setFetchGraphQlHeader,Y as setFetchGraphQlHeaders,q as updateProductsFromCart};

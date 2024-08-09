@@ -5,4 +5,5 @@ export declare const setEndpoint: (endpoint: string) => void, setFetchGraphQlHea
     endpoint: string | undefined;
     fetchGraphQlHeaders: import('@adobe/fetch-graphql').Header | undefined;
 };
+export type { FetchOptions, FetchQueryError } from '@adobe/fetch-graphql';
 //# sourceMappingURL=fetch-graphql.d.ts.map

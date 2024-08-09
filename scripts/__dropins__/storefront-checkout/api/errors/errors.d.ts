@@ -1,4 +1,4 @@
-import { FetchQueryError } from '@adobe/fetch-graphql';
+import { FetchQueryError } from '../fetch-graphql';
 
 export declare class FetchError extends Error {
     constructor(reasons: FetchQueryError);
