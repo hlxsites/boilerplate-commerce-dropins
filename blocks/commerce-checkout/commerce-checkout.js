@@ -52,7 +52,7 @@ export default async function decorate(block) {
       authApi.revokeCustomerToken();
     },
     routeHome: () => '/',
-    routeCart: () => '/cart',
+    routeCart: () => '/shopping-cart',
     slots: {
       PaymentMethods: async (context) => {
         context.addPaymentMethodHandler('checkmo', {

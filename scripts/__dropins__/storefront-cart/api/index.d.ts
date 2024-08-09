@@ -9,4 +9,5 @@ export * from './createEmptyCart';
 export * from './getStoreConfig';
 export * from './getEstimateShipping';
 export * from './getEstimatedTotals';
+export * from './refreshCart';
 //# sourceMappingURL=index.d.ts.map
