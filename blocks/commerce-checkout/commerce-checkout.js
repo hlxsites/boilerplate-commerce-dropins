@@ -9,6 +9,7 @@ import { initializers } from '@dropins/tools/initializer.js';
 import { render as cartProvider } from '@dropins/storefront-cart/render.js';
 import { OrderSummary } from '@dropins/storefront-cart/containers/OrderSummary.js';
 import * as cartApi from '@dropins/storefront-cart/api.js';
+import CartSummaryList from '@dropins/storefront-cart/containers/CartSummaryList.js';
 
 // Checkout Dropin Modules
 import { render as checkoutProvider } from '@dropins/storefront-checkout/render.js';
@@ -128,6 +129,11 @@ export default async function decorate(block) {
         })(orderSummary);
 
         ctx.appendChild(orderSummary);
+      },
+      CartSummaryList: (ctx) => {
+        const cartSummaryList = document.createElement('div');
+        cartProvider.render(CartSummaryList)(cartSummaryList);
+        ctx.appendChild(cartSummaryList);
       },
       PaymentMethods: async (context) => {
         context.addPaymentMethodHandler('checkmo', {
