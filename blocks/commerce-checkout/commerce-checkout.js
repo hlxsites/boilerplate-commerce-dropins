@@ -130,10 +130,46 @@ export default async function decorate(block) {
 
         ctx.appendChild(orderSummary);
       },
-      CartSummaryList: (ctx) => {
+      CartSummaryList: (checkoutCtx) => {
         const cartSummaryList = document.createElement('div');
-        cartProvider.render(CartSummaryList)(cartSummaryList);
-        ctx.appendChild(cartSummaryList);
+        cartSummaryList.classList.add('cart-summary-list');
+
+        cartProvider.render(CartSummaryList, {
+          slots: {
+            Heading: (headingCtx) => {
+              console.log(headingCtx.dictionary);
+              const { title, editLink } = checkoutCtx?.dictionary?.Slots?.CartSummaryList?.Heading ?? { title: 'Cart Summary ({count})', editLink: 'Edit Cart' };
+
+              const cartSummaryListHeading = document.createElement('div');
+              cartSummaryListHeading.classList.add(
+                'cart-summary-list__heading',
+              );
+
+              const cartSummaryListHeadingText = document.createElement('div');
+              cartSummaryListHeadingText.classList.add(
+                'cart-summary-list__heading-text',
+              );
+
+              cartSummaryListHeadingText.innerText = title.replace(
+                '{count}',
+                headingCtx.count,
+              );
+              const editCartLink = document.createElement('a');
+              editCartLink.classList.add('cart-summary-list__edit');
+              editCartLink.href = '/cart';
+              editCartLink.rel = 'noreferrer';
+              editCartLink.innerText = editLink;
+
+              cartSummaryListHeading.appendChild(
+                cartSummaryListHeadingText,
+              );
+              cartSummaryListHeading.appendChild(editCartLink);
+              headingCtx.appendChild(cartSummaryListHeading);
+            },
+          },
+        })(cartSummaryList);
+
+        checkoutCtx.appendChild(cartSummaryList);
       },
       PaymentMethods: async (context) => {
         context.addPaymentMethodHandler('checkmo', {
