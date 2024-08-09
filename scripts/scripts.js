@@ -20,7 +20,8 @@ import {
   readBlockConfig,
 } from './aem.js';
 import { getProduct, getSkuFromUrl, trackHistory } from './commerce.js';
-import initializeDropins from './dropins.js';
+import initializeDropins, { getCartDataFromCache } from './dropins.js';
+import { loadFragment } from '../blocks/fragment/fragment.js';
 
 const LCP_BLOCKS = [
   'product-list-page',
@@ -118,11 +119,11 @@ function buildAutoBlocks(main) {
 }
 
 /**
- * Decorate columns to the main element.
+ * Decorate Columns Template to the main element.
  * @param {Element} main The container element
  */
-function decorateColumns(main) {
-  const columns = main.querySelectorAll('div.section[data-column-width]');
+function buildTemplateColumns(doc) {
+  const columns = doc.querySelectorAll('main > div.section[data-column-width]');
 
   columns.forEach((column) => {
     const columnWidth = column.getAttribute('data-column-width');
@@ -140,6 +141,56 @@ function decorateColumns(main) {
   });
 }
 
+async function buildTemplateCart(doc) {
+  const main = doc.querySelector('main');
+
+  // load fragment for empty cart
+  const emptyCartMeta = getMetadata('empty-cart');
+  const emptyCartPath = emptyCartMeta ? new URL(emptyCartMeta, window.location).pathname : '/empty-cart';
+  const emptyCartFragment = await loadFragment(emptyCartPath);
+
+  // append emptyCartFragment next to main
+  main.after(emptyCartFragment);
+
+  const isEmpty = getCartDataFromCache()?.totalQuantity === 0;
+
+  // toggle view based on cart data
+  function toggleView(next) {
+    if (next) {
+      main.setAttribute('hidden', 'hidden');
+      emptyCartFragment.removeAttribute('hidden');
+    } else {
+      emptyCartFragment.setAttribute('hidden', 'hidden');
+      main.removeAttribute('hidden');
+    }
+  }
+
+  // initial state (cached)
+  toggleView(isEmpty);
+
+  // update state on cart data event
+  let prev = isEmpty;
+
+  events.on('cart/data', ({ totalQuantity }) => {
+    const next = totalQuantity === 0;
+
+    if (next !== prev) {
+      prev = next;
+      toggleView(next);
+    }
+  }, { eager: true });
+}
+
+async function applyTemplates(doc) {
+  if (doc.body.classList.contains('columns')) {
+    buildTemplateColumns(doc);
+  }
+
+  if (doc.body.classList.contains('cart')) {
+    await buildTemplateCart(doc);
+  }
+}
+
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -151,7 +202,6 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
-  decorateColumns(main);
   decorateBlocks(main);
 }
 
@@ -246,8 +296,16 @@ async function loadEager(doc) {
 
   const main = doc.querySelector('main');
   if (main) {
+    // Main Decorations
     decorateMain(main);
+
+    // Template Decorations
+    await applyTemplates(doc);
+
+    // Load LCP blocks
     document.body.classList.add('appear');
+
+    // Wait for LCP
     await waitForLCP(LCP_BLOCKS);
   }
 

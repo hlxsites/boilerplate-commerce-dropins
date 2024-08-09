@@ -1,8 +1,5 @@
 /* eslint-disable import/no-unresolved */
 
-// Drop-in Providers
-import { render as cartProvider } from '@dropins/storefront-cart/render.js';
-
 // Drop-in Tools
 import { events } from '@dropins/tools/event-bus.js';
 
