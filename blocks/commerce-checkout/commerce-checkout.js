@@ -32,9 +32,12 @@ import * as orderConfirmationApi from '@dropins/storefront-order-confirmation/ap
 import OrderConfirmation from '@dropins/storefront-order-confirmation/containers/OrderConfirmation.js';
 import { render as orderConfirmationProvider } from '@dropins/storefront-order-confirmation/render.js';
 
+import { loadScript } from '../../scripts/aem.js';
+import { performMonolithGraphQLQuery } from '../../scripts/commerce.js';
 import { getUserTokenCookie } from '../../scripts/dropins.js';
-import { createModal } from '../modal/modal.js';
+import { MUTATION_PLACE_ORDER, MUTATION_SET_PAYMENT_METHOD, QUERY_GET_STRIPE_CONFIG } from '../../scripts/stripe.js';
 import { loadFragment } from '../fragment/fragment.js';
+import { createModal } from '../modal/modal.js';
 
 export default async function decorate(block) {
   let modal = null;
@@ -125,6 +128,8 @@ export default async function decorate(block) {
 
     return element;
   }
+  // TODO: Only load this when Stripe is on page.
+  loadScript('https://js.stripe.com/v3');
 
   return checkoutProvider.render(Checkout, {
     onSignInClick: async () => onSignInClick(),
@@ -230,6 +235,73 @@ export default async function decorate(block) {
                 ctx,
               )(element);
             }
+          },
+        });
+        context.addPaymentMethodHandler('stripe_payments', {
+          render: async (ctx, slotElement) => {
+            const cartId = sessionStorage.getItem('DROPINS_CART_ID');
+            // This implementation follows instructions here:
+            // https://docs.stripe.com/connectors/adobe-commerce/custom-storefront
+            const {
+              data: {
+                getStripeConfiguration: { apiKey, elementsOptions },
+              },
+            } = await performMonolithGraphQLQuery(
+              QUERY_GET_STRIPE_CONFIG,
+              null,
+              false,
+            );
+
+            // eslint-disable-next-line no-undef
+            const stripe = Stripe(apiKey);
+
+            const elements = stripe.elements({
+              ...JSON.parse(elementsOptions),
+              // TODO: get actual amount. localized ie grant_total.value * exchangeRate * 100?
+              amount: 4300,
+              // currency: 'usd' // TODO: get actual currency
+            });
+
+            const paymentElement = elements.create('payment');
+            paymentElement.mount(slotElement);
+            ctx.onPlaceOrder(async () => {
+              await elements.submit();
+              // 1. create Stripe payment method
+              const createPaymentMethodResult = await stripe.createPaymentMethod({
+                elements,
+              });
+              if (createPaymentMethodResult?.paymentMethod) {
+                // 2. set payment method in Commerce
+                await performMonolithGraphQLQuery(
+                  MUTATION_SET_PAYMENT_METHOD,
+                  {
+                    cartId,
+                    paymentMethodId: createPaymentMethodResult.paymentMethod.id,
+                  },
+                  false,
+                );
+
+                // 3. place order in Commerce
+                const placeOrderData = await performMonolithGraphQLQuery(
+                  MUTATION_PLACE_ORDER,
+                  { cartId },
+                  false,
+                );
+                const order = placeOrderData?.data?.placeOrder?.orderV2;
+                if (order) {
+                  // TODO: Impossible without "checkout signal"
+                  // completeCheckout(order!.order_number);
+
+                  // @ts-ignore
+                  events.emit('checkout/order', order);
+
+                  // @ts-ignore
+                  events.emit('cart/reset', undefined);
+                } else {
+                  // TODO: Something broke.
+                }
+              }
+            });
           },
         });
       },
