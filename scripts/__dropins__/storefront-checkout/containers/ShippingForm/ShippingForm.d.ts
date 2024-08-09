@@ -3,7 +3,6 @@ import { HTMLAttributes } from 'preact/compat';
 import { PreselectedAddressFields } from '..';
 
 export interface ShippingFormProps extends HTMLAttributes<HTMLDivElement> {
-    onCheckoutDataUpdate?: () => Promise<void>;
     preselectedFields?: PreselectedAddressFields;
 }
 export declare const ShippingForm: Container<ShippingFormProps>;

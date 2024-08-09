@@ -1,2 +1,2 @@
-export * from './useBreakpoint';
+export * from './render';
 //# sourceMappingURL=index.d.ts.map

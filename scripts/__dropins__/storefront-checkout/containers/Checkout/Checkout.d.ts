@@ -1,6 +1,5 @@
-import { UpdateProductsFromCart } from '../OutOfStock';
 import { PaymentMethodSlotContext } from '../PaymentMethods';
-import { Container, SlotProps } from '@dropins/tools/types/elsie/src/lib';
+import { SlotProps } from '@dropins/tools/types/elsie/src/lib';
 import { HTMLAttributes } from 'preact/compat';
 
 export type PreselectedAddressFields = {
@@ -19,8 +18,6 @@ export type PreselectedCartData = {
 export interface CheckoutProps extends HTMLAttributes<HTMLDivElement> {
     routeHome?: () => string;
     routeCart?: () => string;
-    onCheckoutDataUpdate?: () => Promise<void>;
-    onCartProductsUpdate?: (items: UpdateProductsFromCart) => void;
     slots?: {
         BillingForm?: SlotProps;
         BillToShipping?: SlotProps;
@@ -29,11 +26,10 @@ export interface CheckoutProps extends HTMLAttributes<HTMLDivElement> {
         PlaceOrder?: SlotProps;
         ShippingForm?: SlotProps;
         ShippingMethods?: SlotProps;
-        OrderSummary?: SlotProps;
     };
     preselectedCartData?: PreselectedCartData;
     onSignInClick?: () => void;
     onSignOutClick?: () => void;
 }
-export declare const Checkout: Container<CheckoutProps>;
+export declare const Checkout: (props: CheckoutProps) => import("preact/compat").JSX.Element | null;
 //# sourceMappingURL=Checkout.d.ts.map

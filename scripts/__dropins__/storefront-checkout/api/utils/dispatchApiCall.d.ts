@@ -1,4 +1,4 @@
-import { FetchOptions } from '..';
+import { FetchOptions } from '@adobe/fetch-graphql';
 
 declare const signalTypes: {
     cart: import('@preact/signals-core').Signal<{
@@ -27,10 +27,6 @@ declare const signalTypes: {
     }>;
     countryList: import('@preact/signals-core').Signal<{
         data?: import('../../data/models/country').Country[] | undefined;
-        pending: boolean;
-    }>;
-    addressFormFields: import('@preact/signals-core').Signal<{
-        data?: import('../../data/models/address-form-fields').AddressFormField[] | undefined;
         pending: boolean;
     }>;
 };

@@ -1,5 +1,5 @@
-import { Container } from '@dropins/tools/types/elsie/src/lib';
 import { HTMLAttributes } from 'preact/compat';
+import { Container } from '@dropins/tools/types/elsie/src/lib';
 
 export interface PlaceOrderProps extends HTMLAttributes<HTMLDivElement> {
     onClick: () => void;
