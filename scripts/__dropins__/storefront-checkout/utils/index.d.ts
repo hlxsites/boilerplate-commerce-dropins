@@ -1,4 +1,5 @@
 export * from './autocompleteFieldCodes';
+export * from './getDisplayName';
 export * from './getMultilineValues';
 export * from './isEmpty';
 export * from './parseRegionId';

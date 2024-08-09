@@ -1,4 +1,3 @@
-import { FunctionComponent } from 'preact';
 import { HTMLAttributes } from 'preact/compat';
 
 export interface LoginFormProps extends HTMLAttributes<HTMLDivElement> {
@@ -6,5 +5,8 @@ export interface LoginFormProps extends HTMLAttributes<HTMLDivElement> {
     onSignInClick?: (email: string | null) => void;
     onSignOutClick?: () => void;
 }
-export declare const LoginForm: FunctionComponent<LoginFormProps>;
+export declare const LoginForm: {
+    ({ hideOnEmptyCart, hideOnVirtualCart, ...props }: import('../../hocs/withConditionalRendering').ConditionalProps & LoginFormProps): import("preact/compat").JSX.Element | null;
+    displayName: string;
+};
 //# sourceMappingURL=LoginForm.d.ts.map
