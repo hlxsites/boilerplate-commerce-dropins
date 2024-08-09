@@ -1,6 +1,6 @@
 import { VNode } from 'preact';
-import { Signal } from '@preact/signals';
 import { Container } from '.';
+import { Signal } from './signals';
 
 export declare const SlotQueueContext: import('preact').Context<Signal<Set<string>> | null>;
 type RenderAPI = {
