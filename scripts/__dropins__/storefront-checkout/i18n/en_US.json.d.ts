@@ -81,7 +81,7 @@ declare const _default: {
     },
     "EstimateShipping": {
       "estimated": "Estimated Shipping",
-      "freeShipping": "Free",
+      "freeShipping": "free",
       "label": "Shipping",
       "taxToBeDetermined": "TBD",
       "withTaxes": "Including taxes",

@@ -29,10 +29,6 @@ declare const signalTypes: {
         data?: import('../../data/models/country').Country[] | undefined;
         pending: boolean;
     }>;
-    addressFormFields: import('@preact/signals-core').Signal<{
-        data?: import('../../data/models/address-form-fields').AddressFormField[] | undefined;
-        pending: boolean;
-    }>;
 };
 type SignalTypesType = typeof signalTypes;
 type SignalTypesKeys = keyof SignalTypesType;
