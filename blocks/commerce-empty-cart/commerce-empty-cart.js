@@ -7,6 +7,8 @@ export default async function decorate(block) {
     'empty-cart-url': emptyCartURL = '',
   } = readBlockConfig(block);
 
+  block.innerHTML = '';
+
   return provider.render(EmptyCart, {
     ctaLinkURL: emptyCartURL ? () => emptyCartURL : undefined,
   })(block);

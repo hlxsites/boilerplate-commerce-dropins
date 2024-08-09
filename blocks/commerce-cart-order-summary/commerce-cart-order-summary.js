@@ -7,6 +7,8 @@ export default async function decorate(block) {
     'checkout-url': checkoutURL = '',
   } = readBlockConfig(block);
 
+  block.innerHTML = '';
+
   return provider.render(OrderSummary, {
     routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
     routeCheckout: checkoutURL ? () => checkoutURL : undefined,

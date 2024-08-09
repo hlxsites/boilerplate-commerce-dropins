@@ -5,5 +5,7 @@ import EstimateShipping from '@dropins/storefront-cart/containers/EstimateShippi
 export default async function decorate(block) {
 // const {  } = readBlockConfig(block);
 
+  block.innerHTML = '';
+
   return provider.render(EstimateShipping, { })(block);
 }

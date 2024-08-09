@@ -9,6 +9,8 @@ export default async function decorate(block) {
     'checkout-url': checkoutURL = '',
   } = readBlockConfig(block);
 
+  block.innerHTML = '';
+
   return provider.render(MiniCart, {
     routeEmptyCartCTA: emptyCartURL ? () => emptyCartURL : undefined,
     routeCart: cartURL ? () => cartURL : undefined,

@@ -10,6 +10,8 @@ export default async function decorate(block) {
     'hide-attributes': hideAttributes = '',
   } = readBlockConfig(block);
 
+  block.innerHTML = '';
+
   return provider.render(CartSummaryList, {
     hideHeading: hideHeading === 'true',
     routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
