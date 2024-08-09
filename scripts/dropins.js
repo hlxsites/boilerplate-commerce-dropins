@@ -4,15 +4,15 @@
 // Drop-in Tools
 import { events } from '@dropins/tools/event-bus.js';
 import {
+  removeFetchGraphQlHeader,
   setEndpoint,
   setFetchGraphQlHeader,
-  removeFetchGraphQlHeader,
 } from '@dropins/tools/fetch-graphql.js';
 import { initializers } from '@dropins/tools/initializer.js';
 
 // Drop-ins
-import * as cartApi from '@dropins/storefront-cart/api.js';
 import * as authApi from '@dropins/storefront-auth/api.js';
+import * as cartApi from '@dropins/storefront-cart/api.js';
 
 // Recaptcha
 import * as recaptcha from '@dropins/tools/recaptcha.js';
