@@ -1,2 +1,2 @@
-export declare const simplifyTransformAttributesForm: (defaultSignUpFields: any) => import('../data/models').AttributesFormModel[];
+export declare const simplifyTransformAttributesForm: (defaultSignUpFields: any) => import('../data/models').AttributesFormItemsProps[] | undefined;
 //# sourceMappingURL=simplifyTransformAttributesForm.d.ts.map

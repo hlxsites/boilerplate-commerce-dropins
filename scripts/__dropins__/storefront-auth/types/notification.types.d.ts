@@ -1,11 +1,7 @@
 import { VNode } from 'preact';
 import { HTMLAttributes } from 'preact/compat';
 
-export type AdditionalActionsAlertProps = Array<{
-    label: string;
-    onClick: (event: Event) => void;
-}>;
-export interface InLineAlertInterface {
+export interface inLineAlertInterface {
     type?: 'success' | 'warning' | 'error';
     text?: string;
     icon?: VNode<HTMLAttributes<SVGSVGElement>> | undefined;

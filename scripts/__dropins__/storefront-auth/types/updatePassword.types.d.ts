@@ -1,5 +1,5 @@
 import { SlotProps } from '@dropins/tools/types/elsie/src/lib';
-import { InLineAlertInterface } from './notification.types';
+import { inLineAlertInterface } from './notification.types';
 
 type DefaultSlotContext = {
     isSuccessful: {
@@ -12,10 +12,9 @@ export interface UpdatePasswordProps {
     formSize?: 'default' | 'small';
     routeRedirectOnPasswordUpdate?: () => string;
     routeRedirectOnSignIn?: () => string;
-    routeSignInPage?: () => string;
     routeWrongUrlRedirect?: () => string;
     onErrorCallback?: (value: unknown) => void;
-    onSuccessCallback?: (value?: string) => void;
+    onSuccessCallback?: (value: string) => void;
     slots?: {
         SuccessNotification?: SlotProps<DefaultSlotContext>;
     };
@@ -28,7 +27,7 @@ export interface UseUpdatePasswordFormProps extends Omit<UpdatePasswordFormProps
         minLength: number;
         requiredCharacterClasses: number;
     } | null;
-    handleSetInLineAlertProps: (value?: InLineAlertInterface) => void;
+    handleSetInLineAlertProps: (value?: inLineAlertInterface) => void;
 }
 export {};
 //# sourceMappingURL=updatePassword.types.d.ts.map
