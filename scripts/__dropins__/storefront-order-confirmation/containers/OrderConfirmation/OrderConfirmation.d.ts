@@ -1,7 +1,7 @@
-import { Container } from '@dropins/tools/types/elsie/src/lib';
-import { HTMLAttributes } from 'preact/compat';
 import { CustomerAddressInput } from '../../__generated__/types';
 import { Order as OrderModel } from '../../data/models';
+import { Container } from '@dropins/tools/types/elsie/src/lib';
+import { HTMLAttributes } from 'preact/compat';
 
 export interface SignUpInputsDefaultValueSetProps {
     code: string;
