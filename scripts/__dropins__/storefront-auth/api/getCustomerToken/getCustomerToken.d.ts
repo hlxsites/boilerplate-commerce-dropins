@@ -1,9 +1,9 @@
-import { inLineAlertInterface } from '../../types';
+import { InLineAlertInterface } from '../../types';
 
 interface getCustomerTokenProps {
     email: string;
     password: string;
-    handleSetInLineAlertProps: (value?: inLineAlertInterface) => void;
+    handleSetInLineAlertProps: (value?: InLineAlertInterface) => void;
     translations: Record<string, string>;
     onErrorCallback?: (value?: unknown) => void;
 }

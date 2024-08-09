@@ -1,6 +1,6 @@
 import { SlotProps } from '@dropins/tools/types/elsie/src/lib';
 import { activeComponentType } from './authCombine.types';
-import { inLineAlertInterface } from './notification.types';
+import { InLineAlertInterface } from './notification.types';
 
 type DefaultSlotContext = {
     isSuccessful: {
@@ -32,7 +32,7 @@ export interface SignInFormProps extends SignInProps {
     setActiveComponent?: (componentName: activeComponentType) => void;
 }
 export interface useSignInFormProps extends Omit<SignInFormProps, 'formSize' | 'slots'> {
-    handleSetInLineAlertProps: (value?: inLineAlertInterface) => void;
+    handleSetInLineAlertProps: (value?: InLineAlertInterface) => void;
     emailConfirmationStatusMessage?: {
         text: string;
         status: '' | 'success' | 'error';

@@ -1,7 +1,7 @@
-import { inLineAlertInterface } from '../types';
+import { InLineAlertInterface } from '../types';
 
 export declare const useInLineAlert: () => {
-    inLineAlertProps: inLineAlertInterface;
-    handleSetInLineAlertProps: (notification: inLineAlertInterface | undefined) => void;
+    inLineAlertProps: InLineAlertInterface;
+    handleSetInLineAlertProps: (notification: InLineAlertInterface | undefined) => void;
 };
 //# sourceMappingURL=useInLineAlert.d.ts.map

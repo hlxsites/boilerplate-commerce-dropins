@@ -15,6 +15,7 @@ export default function decorate(block) {
   } else {
     authRenderer.render(UpdatePassword, {
       routeWrongUrlRedirect: () => '/customer/login',
+      routeSignInPage: () => '/customer/login',
       slots: {
         SuccessNotification: (ctx) => {
           const userName = ctx?.isSuccessful?.userName || '';

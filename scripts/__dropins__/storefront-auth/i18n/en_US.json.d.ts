@@ -44,12 +44,12 @@ declare const _default: {
     },
     "Notification": {
       "errorNotification": "Your password update failed due to validation errors. Please check your information and try again.",
-      "updatePasswordMessage": "The password has been updated. Now you can log in with the new password.",
+      "updatePasswordMessage": "The password has been updated.",
+      "updatePasswordActionMessage": "Sign in",
       "successPasswordResetEmailNotification": "If there is an account associated with {email} you will receive an email with a link to reset your password.",
       "resendEmailNotification": {
         "informationText": "This account is not confirmed.",
-        "buttonText": "Click here",
-        "additionalText": "to resend confirmation email."
+        "buttonText": "Resend confirmation email"
       },
       "emailConfirmationMessage": "Please check your email for confirmation link.",
       "technicalErrors": {
@@ -64,6 +64,10 @@ declare const _default: {
     },
     "Api": {
       "customerTokenErrorMessage": "Unable to log in. Please try again later or contact support if the issue persists."
+    },
+    "InputPassword": {
+      "placeholder": "Password",
+      "floatingLabel": "Password *"
     }
   }
 }
