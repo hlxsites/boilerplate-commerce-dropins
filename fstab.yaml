@@ -3,3 +3,4 @@ mountpoints:
 
 folders:
   /products/: /products/default
+  
