@@ -137,8 +137,8 @@ export default async function decorate(block) {
         cartProvider.render(CartSummaryList, {
           slots: {
             Heading: (headingCtx) => {
-              console.log(headingCtx.dictionary);
-              const { title, editLink } = checkoutCtx?.dictionary?.Slots?.CartSummaryList?.Heading ?? { title: 'Cart Summary ({count})', editLink: 'Edit Cart' };
+              const { title, editLink } =
+                checkoutCtx.dictionary.Checkout.Slots.CartSummaryList.Heading;
 
               const cartSummaryListHeading = document.createElement('div');
               cartSummaryListHeading.classList.add(
