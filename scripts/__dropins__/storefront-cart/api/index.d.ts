@@ -10,4 +10,5 @@ export * from './getStoreConfig';
 export * from './getEstimateShipping';
 export * from './getEstimatedTotals';
 export * from './refreshCart';
+export { getPersistedCartData as getCartDataFromCache } from '../lib/persisted-data';
 //# sourceMappingURL=index.d.ts.map

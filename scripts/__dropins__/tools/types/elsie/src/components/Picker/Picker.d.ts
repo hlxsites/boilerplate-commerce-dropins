@@ -1,9 +1,8 @@
 import { FunctionComponent, VNode } from 'preact';
 import { HTMLAttributes } from 'preact/compat';
 
-type PickerValue = string | null;
 export interface PickerOption {
-    value: PickerValue;
+    value: string | null;
     text?: string;
     icon?: VNode<HTMLAttributes<SVGSVGElement>>;
     disabled?: boolean;
@@ -11,7 +10,7 @@ export interface PickerOption {
 export interface PickerProps extends Omit<HTMLAttributes<HTMLSelectElement>, 'value' | 'size' | 'icon'> {
     id?: string;
     name?: string;
-    value?: PickerValue;
+    value?: string | null;
     placeholder?: string;
     variant?: 'primary' | 'secondary';
     size?: 'medium' | 'large';
@@ -24,5 +23,4 @@ export interface PickerProps extends Omit<HTMLAttributes<HTMLSelectElement>, 'va
     handleSelect?: (event: Event) => void;
 }
 export declare const Picker: FunctionComponent<PickerProps>;
-export {};
 //# sourceMappingURL=Picker.d.ts.map

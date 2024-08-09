@@ -8,10 +8,7 @@ declare const _default: {
     "Incrementer": {
       "decreaseLabel": "Decrease Quantity",
       "increaseLabel": "Increase Quantity",
-      "label": "Quantity",
-      "errorMessage": "Enter a valid quantity",
-      "minQuantityMessage": "Enter at least {{minQuantity}}",
-      "maxQuantityMessage": "Maximum quantity is {{maxQuantity}}"
+      "label": "Quantity"
     },
     "Modal": {
       "Close": {
@@ -21,7 +18,6 @@ declare const _default: {
     "InputPassword": {
       "requiredFieldError": "This is a required field.",
       "placeholder": "Password",
-      "floatingLabel": "Password",
       "buttonTitle": "Click to show or hide password"
     },
     "PasswordStatusIndicator": {
