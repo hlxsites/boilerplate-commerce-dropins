@@ -5,7 +5,6 @@ export interface EstimateAddressShippingInput {
     postcode?: string;
     region?: {
         region?: string;
-        code?: string;
         id?: number;
     };
     shipping_method?: {

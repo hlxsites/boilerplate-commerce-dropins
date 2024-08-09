@@ -1,6 +1,6 @@
+import { ShippingMethod } from '../../data/models';
 import { FunctionComponent } from 'preact';
 import { HTMLAttributes } from 'preact/compat';
-import { ShippingMethod } from '../../data/models';
 
 export interface ShippingMethodsProps extends HTMLAttributes<HTMLDivElement> {
     isLoading?: boolean;
