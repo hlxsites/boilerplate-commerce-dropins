@@ -152,28 +152,27 @@ async function buildTemplateCart(doc) {
   // append emptyCartFragment next to main
   main.after(emptyCartFragment);
 
-  const isEmpty = getCartDataFromCache()?.totalQuantity === 0 ?? true;
+  const hasProducts = getCartDataFromCache()?.totalQuantity > 0 || false;
 
   // toggle view based on cart data
   function toggleView(next) {
     if (next) {
-      main.setAttribute('hidden', 'hidden');
-      emptyCartFragment.removeAttribute('hidden');
-    } else {
       emptyCartFragment.setAttribute('hidden', 'hidden');
       main.removeAttribute('hidden');
+    } else {
+      main.setAttribute('hidden', 'hidden');
+      emptyCartFragment.removeAttribute('hidden');
     }
   }
 
   // initial state (cached)
-  debugger
-  toggleView(isEmpty);
+  toggleView(hasProducts);
 
   // update state on cart data event
-  let prev = isEmpty;
+  let prev = hasProducts;
 
   events.on('cart/data', (payload) => {
-    const next = payload?.totalQuantity === 0 ?? true;
+    const next = payload?.totalQuantity > 0 || false;
 
     if (next !== prev) {
       prev = next;
