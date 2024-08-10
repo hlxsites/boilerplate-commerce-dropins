@@ -172,7 +172,7 @@ async function buildTemplateCart(doc) {
   let prev = isEmpty;
 
   events.on('cart/data', (payload) => {
-    const next = payload ? true : payload.totalQuantity === 0;
+    const next = payload?.totalQuantity === 0 ?? true;
 
     if (next !== prev) {
       prev = next;
