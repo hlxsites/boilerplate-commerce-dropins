@@ -152,11 +152,10 @@ async function buildTemplateCart(doc) {
   // append emptyCartFragment next to main
   main.after(emptyCartFragment);
 
-  const isEmpty = getCartDataFromCache()?.totalQuantity === 0;
+  const isEmpty = getCartDataFromCache()?.totalQuantity === 0 ?? true;
 
   // toggle view based on cart data
   function toggleView(next) {
-    console.log('💥', { next })
     if (next) {
       main.setAttribute('hidden', 'hidden');
       emptyCartFragment.removeAttribute('hidden');
