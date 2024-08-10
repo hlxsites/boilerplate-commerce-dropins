@@ -171,8 +171,8 @@ async function buildTemplateCart(doc) {
   // update state on cart data event
   let prev = isEmpty;
 
-  events.on('cart/data', ({ totalQuantity }) => {
-    const next = totalQuantity === 0;
+  events.on('cart/data', (payload) => {
+    const next = payload?.totalQuantity === 0;
 
     if (next !== prev) {
       prev = next;
