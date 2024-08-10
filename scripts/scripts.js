@@ -157,6 +157,7 @@ async function buildTemplateCart(doc) {
   // toggle view based on cart data
   function toggleView(next) {
     if (next) {
+      debugger
       main.setAttribute('hidden', 'hidden');
       emptyCartFragment.removeAttribute('hidden');
     } else {
