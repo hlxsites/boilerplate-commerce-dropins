@@ -166,6 +166,7 @@ async function buildTemplateCart(doc) {
   }
 
   // initial state (cached)
+  debugger
   toggleView(isEmpty);
 
   // update state on cart data event
