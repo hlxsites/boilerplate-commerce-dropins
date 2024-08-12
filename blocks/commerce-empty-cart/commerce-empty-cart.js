@@ -4,12 +4,12 @@ import { readBlockConfig } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
   const {
-    'empty-cart-url': emptyCartURL = '',
+    'start-shopping-url': startShoppingURL = '',
   } = readBlockConfig(block);
 
   block.innerHTML = '';
 
   return provider.render(EmptyCart, {
-    ctaLinkURL: emptyCartURL ? () => emptyCartURL : undefined,
+    ctaLinkURL: startShoppingURL ? () => startShoppingURL : undefined,
   })(block);
 }

@@ -6,12 +6,12 @@ import { readBlockConfig } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
   const {
-    'empty-cart-url': emptyCartURL = '',
+    'start-shopping-url': startShoppingURL = '',
     'checkout-url': checkoutURL = '',
   } = readBlockConfig(block);
 
   return provider.render(Cart, {
-    routeEmptyCartCTA: emptyCartURL ? () => emptyCartURL : undefined,
+    routeEmptyCartCTA: startShoppingURL ? () => startShoppingURL : undefined,
     routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
 
     slots: {

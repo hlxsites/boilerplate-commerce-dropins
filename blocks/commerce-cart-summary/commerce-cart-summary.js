@@ -5,7 +5,7 @@ import { readBlockConfig } from '../../scripts/aem.js';
 export default async function decorate(block) {
   const {
     'hide-heading': hideHeading = 'false',
-    'empty-cart-url': emptyCartURL = '',
+    'start-shopping-url': startShoppingURL = '',
     'max-items': maxItems,
     'hide-attributes': hideAttributes = '',
   } = readBlockConfig(block);
@@ -15,7 +15,7 @@ export default async function decorate(block) {
   return provider.render(CartSummaryList, {
     hideHeading: hideHeading === 'true',
     routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
-    routeEmptyCartCTA: emptyCartURL ? () => emptyCartURL : undefined,
+    routeEmptyCartCTA: startShoppingURL ? () => startShoppingURL : undefined,
     maxItems: parseInt(maxItems, 10) || undefined,
     attributesToHide: hideAttributes.split(',').map((attr) => attr.trim().toLowerCase()),
   })(block);

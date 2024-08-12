@@ -4,7 +4,7 @@ import { readBlockConfig } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
   const {
-    'empty-cart-url': emptyCartURL = '',
+    'start-shopping-url': startShoppingURL = '',
     'cart-url': cartURL = '',
     'checkout-url': checkoutURL = '',
   } = readBlockConfig(block);
@@ -12,7 +12,7 @@ export default async function decorate(block) {
   block.innerHTML = '';
 
   return provider.render(MiniCart, {
-    routeEmptyCartCTA: emptyCartURL ? () => emptyCartURL : undefined,
+    routeEmptyCartCTA: startShoppingURL ? () => startShoppingURL : undefined,
     routeCart: cartURL ? () => cartURL : undefined,
     routeCheckout: checkoutURL ? () => checkoutURL : undefined,
     routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
