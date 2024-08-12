@@ -2,31 +2,34 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 // Drop-in Tools
-import { events } from '@dropins/tools/event-bus.js';
+import { events } from "@dropins/tools/event-bus.js";
 import {
   removeFetchGraphQlHeader,
   setEndpoint,
   setFetchGraphQlHeader,
-} from '@dropins/tools/fetch-graphql.js';
-import { initializers } from '@dropins/tools/initializer.js';
+} from "@dropins/tools/fetch-graphql.js";
+import { initializers } from "@dropins/tools/initializer.js";
 
 // Drop-ins
-import * as authApi from '@dropins/storefront-auth/api.js';
-import * as cartApi from '@dropins/storefront-cart/api.js';
+import * as authApi from "@dropins/storefront-auth/api.js";
+import * as cartApi from "@dropins/storefront-cart/api.js";
 
 // Recaptcha
-import * as recaptcha from '@dropins/tools/recaptcha.js';
+import * as recaptcha from "@dropins/tools/recaptcha.js";
 
 // Libs
-import { getConfigValue, getCookie } from './configs.js';
+import { getConfigValue, getCookie } from "./configs.js";
 
-export const getUserTokenCookie = () => getCookie('auth_dropin_user_token');
+export const getUserTokenCookie = () => getCookie("auth_dropin_user_token");
 
 export default async function initializeDropins() {
   events.enableLogger(true);
 
   // Set Fetch Endpoint (Global)
-  setEndpoint(await getConfigValue('commerce-core-endpoint'));
+  // setEndpoint(await getConfigValue('commerce-core-endpoint'));
+  const endpoint = "https://mcstaging.aemshop.net/graphql";
+
+  setEndpoint(endpoint);
 
   // Recaptcha
   recaptcha.setConfig();
@@ -36,27 +39,27 @@ export default async function initializeDropins() {
   initializers.register(cartApi.initialize, {});
 
   // Set auth headers
-  events.on('authenticated', (isAuthenticated) => {
+  events.on("authenticated", (isAuthenticated) => {
     if (isAuthenticated) {
       const token = getUserTokenCookie();
 
-      setFetchGraphQlHeader('Authorization', `Bearer ${token}`);
+      setFetchGraphQlHeader("Authorization", `Bearer ${token}`);
     } else {
-      removeFetchGraphQlHeader('Authorization');
+      removeFetchGraphQlHeader("Authorization");
     }
   });
 
   // Cache cartId in session storage
   events.on(
-    'cart/data',
+    "cart/data",
     (data) => {
       if (data?.id) {
-        sessionStorage.setItem('DROPINS_CART_ID', data.id);
+        sessionStorage.setItem("DROPINS_CART_ID", data.id);
       } else {
-        sessionStorage.removeItem('DROPINS_CART_ID');
+        sessionStorage.removeItem("DROPINS_CART_ID");
       }
     },
-    { eager: true },
+    { eager: true }
   );
 
   // After load or reload page we check token
@@ -65,16 +68,16 @@ export default async function initializeDropins() {
   // Handle page load
   const mount = () => {
     initializers.mount();
-    events.emit('authenticated', !!token);
+    events.emit("authenticated", !!token);
   };
 
   // Mount all registered drop-ins
-  if (document.readyState === 'complete') {
+  if (document.readyState === "complete") {
     mount();
   } else {
     // Handle on prerendering document activated
-    document.addEventListener('prerenderingchange', mount);
+    document.addEventListener("prerenderingchange", mount);
     // Handle on page load
-    window.addEventListener('load', mount);
+    window.addEventListener("load", mount);
   }
 }
