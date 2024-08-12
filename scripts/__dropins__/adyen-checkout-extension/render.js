@@ -1,0 +1,1 @@
+import{jsx as r}from"@dropins/tools/preact-jsx-runtime.js";import{Render as o}from"@dropins/tools/lib.js";import{P as m}from"./chunks/Provider.js";import"@dropins/tools/preact.js";import"@dropins/tools/preact-hooks.js";import"@dropins/tools/components.js";import"@dropins/tools/event-bus.js";const s=new o(r(m,{}));export{s as render};
