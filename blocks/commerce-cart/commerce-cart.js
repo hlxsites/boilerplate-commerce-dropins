@@ -1,40 +1,37 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/no-extraneous-dependencies */
-
-// Dropin Providers
 import { render as provider } from '@dropins/storefront-cart/render.js';
-
-// Dropin Containers
 import Cart from '@dropins/storefront-cart/containers/Cart.js';
 import OrderSummary from '@dropins/storefront-cart/containers/OrderSummary.js';
 import EstimateShipping from '@dropins/storefront-cart/containers/EstimateShipping.js';
+import { readBlockConfig } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
-  // Initialize Dropins – already initialized in scripts/dropins.js
+  const {
+    'empty-cart-url': emptyCartURL = '',
+    'checkout-url': checkoutURL = '',
+  } = readBlockConfig(block);
 
-  // Render Containers
   return provider.render(Cart, {
-    routeEmptyCartCTA: () => '/',
+    routeEmptyCartCTA: emptyCartURL ? () => emptyCartURL : undefined,
     routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
-    routeCheckout: () => '/checkout',
+
     slots: {
-      OrderSummary: (ctx) => {
+      OrderSummary: (OrderSummaryContext) => {
         const orderSummary = document.createElement('div');
 
         provider.render(OrderSummary, {
-          routeCheckout: () => '/checkout',
+          routeCheckout: checkoutURL ? () => checkoutURL : undefined,
           slots: {
-            EstimateShipping: (orderSummaryContext) => {
+            EstimateShipping: (estimateShippingContext) => {
               const estimateShippingForm = document.createElement('div');
 
               provider.render(EstimateShipping)(estimateShippingForm);
 
-              orderSummaryContext.appendChild(estimateShippingForm);
+              estimateShippingContext.appendChild(estimateShippingForm);
             },
           },
         })(orderSummary);
 
-        ctx.appendChild(orderSummary);
+        OrderSummaryContext.appendChild(orderSummary);
       },
     },
   })(block);

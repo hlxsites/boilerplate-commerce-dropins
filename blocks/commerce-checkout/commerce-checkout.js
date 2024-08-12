@@ -117,7 +117,7 @@ export default async function decorate(block) {
       cartApi.refreshCart().catch(console.error);
     },
     routeHome: () => '/',
-    routeCart: () => '/cart',
+    routeCart: () => '/shopping-cart',
     slots: {
       OrderSummary: (ctx) => {
         const orderSummary = document.createElement('div');
@@ -143,8 +143,8 @@ export default async function decorate(block) {
         cartProvider.render(CartSummaryList, {
           slots: {
             Heading: (headingCtx) => {
-              // eslint-disable-next-line max-len
-              const { title, editLink } = checkoutCtx.dictionary.Checkout.Slots.CartSummaryList.Heading;
+              const { dictionary } = checkoutCtx;
+              const { title, editLink } = dictionary.Checkout.Slots.CartSummaryList.Heading;
 
               const cartSummaryListHeading = document.createElement('div');
               cartSummaryListHeading.classList.add(

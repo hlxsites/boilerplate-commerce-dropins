@@ -78,3 +78,7 @@ export default async function initializeDropins() {
     window.addEventListener('load', mount);
   }
 }
+
+export function getCartDataFromCache() {
+  return cartApi.getCartDataFromCache();
+}

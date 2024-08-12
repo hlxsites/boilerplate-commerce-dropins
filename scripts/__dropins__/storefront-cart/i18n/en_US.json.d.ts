@@ -77,7 +77,8 @@ declare const _default: {
       "files": "{count} files",
       "lowInventory": "Only {count} left!",
       "insufficientQuantity": "Only {inventory} of {count} in stock",
-      "insufficientQuantityGeneral": "Not enough items for sale"
+      "insufficientQuantityGeneral": "Not enough items for sale",
+      "notAvailableMessage": "Requested qty. not available"
     },
     "EstimateShipping": {
       "label": "Shipping",
