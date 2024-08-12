@@ -1,11 +1,5 @@
 /* eslint-disable import/no-unresolved */
 
-// Drop-in Providers
-import { render as cartProvider } from '@dropins/storefront-cart/render.js';
-
-// Drop-in Containers
-import MiniCart from '@dropins/storefront-cart/containers/MiniCart.js';
-
 // Drop-in Tools
 import { events } from '@dropins/tools/event-bus.js';
 
@@ -170,20 +164,15 @@ export default async function decorate(block) {
     cartButton.style.display = 'none';
   }
 
+  // load nav as fragment
+  const miniCartMeta = getMetadata('mini-cart');
+  const miniCartPath = miniCartMeta ? new URL(miniCartMeta, window.location).pathname : '/mini-cart';
+  loadFragment(miniCartPath).then((miniCartFragment) => {
+    minicartPanel.append(miniCartFragment.firstElementChild);
+  });
+
   async function toggleMiniCart(state) {
     const show = state ?? !minicartPanel.classList.contains('nav-tools-panel--show');
-
-    if (show) {
-      await cartProvider.render(MiniCart, {
-        routeEmptyCartCTA: () => '/',
-        routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
-        routeCart: () => '/cart',
-        routeCheckout: () => '/checkout',
-      })(minicartPanel);
-    } else {
-      cartProvider.unmount(minicartPanel);
-    }
-
     minicartPanel.classList.toggle('nav-tools-panel--show', show);
   }
 

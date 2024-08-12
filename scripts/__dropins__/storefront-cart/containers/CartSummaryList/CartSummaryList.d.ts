@@ -14,6 +14,7 @@ export interface CartSummaryListProps extends HTMLAttributes<HTMLDivElement> {
         Heading?: SlotProps;
         EmptyCart?: SlotProps;
     };
+    onItemsErrorsChange?: (errors: Map<string, string>) => void;
 }
 export type SwitchableAttributes = 'name' | 'image' | 'configurations' | 'warning' | 'alert';
 export declare const CartSummaryList: Container<CartSummaryListProps, CartModel | null>;
