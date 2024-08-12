@@ -8,6 +8,8 @@ export default async function decorate(block) {
     'start-shopping-url': startShoppingURL = '',
     'max-items': maxItems,
     'hide-attributes': hideAttributes = '',
+    'enable-item-quantity-update': enableUpdateItemQuantity = 'false',
+    'enable-item-remove': enableRemoveItem = 'true',
   } = readBlockConfig(block);
 
   block.innerHTML = '';
@@ -18,5 +20,7 @@ export default async function decorate(block) {
     routeEmptyCartCTA: startShoppingURL ? () => startShoppingURL : undefined,
     maxItems: parseInt(maxItems, 10) || undefined,
     attributesToHide: hideAttributes.split(',').map((attr) => attr.trim().toLowerCase()),
+    enableUpdateItemQuantity: enableUpdateItemQuantity === 'true',
+    enableRemoveItem: enableRemoveItem === 'true',
   })(block);
 }
