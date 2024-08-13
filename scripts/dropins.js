@@ -35,35 +35,34 @@ export default async function initializeDropins() {
   initializers.register(authApi.initialize, {});
   initializers.register(cartApi.initialize, {});
 
-  // Set auth headers
-  events.on('authenticated', (isAuthenticated) => {
-    if (isAuthenticated) {
-      const token = getUserTokenCookie();
-
-      setFetchGraphQlHeader('Authorization', `Bearer ${token}`);
-    } else {
-      removeFetchGraphQlHeader('Authorization');
-    }
-  });
-
-  // Cache cartId in session storage
-  events.on(
-    'cart/data',
-    (data) => {
-      if (data?.id) {
-        sessionStorage.setItem('DROPINS_CART_ID', data.id);
-      } else {
-        sessionStorage.removeItem('DROPINS_CART_ID');
-      }
-    },
-    { eager: true },
-  );
-
-  // After load or reload page we check token
-  const token = getUserTokenCookie();
-
   // Handle page load
   const mount = () => {
+    // Set auth headers
+    events.on('authenticated', (isAuthenticated) => {
+      if (isAuthenticated) {
+        const token = getUserTokenCookie();
+        setFetchGraphQlHeader('Authorization', `Bearer ${token}`);
+      } else {
+        removeFetchGraphQlHeader('Authorization');
+      }
+    });
+
+    // Cache cartId in session storage
+    events.on(
+      'cart/data',
+      (data) => {
+        if (data?.id) {
+          sessionStorage.setItem('DROPINS_CART_ID', data.id);
+        } else {
+          sessionStorage.removeItem('DROPINS_CART_ID');
+        }
+      },
+      { eager: true },
+    );
+
+    // After load or reload page we check token
+    const token = getUserTokenCookie();
+
     initializers.mount();
     events.emit('authenticated', !!token);
   };
