@@ -246,12 +246,9 @@ export default async function decorate(block) {
                     heading: 'Error',
                     description: error.message,
                     icon: Icon({ source: 'Warning' }),
-                    additionalActions: [{
-                      label: 'Close',
-                      onClick: () => {
-                        inlineAlert.remove();
-                      },
-                    }],
+                    onDismiss: () => {
+                      inlineAlert.remove();
+                    },
                   })(alertWrapper);
                 } finally {
                   state.set('adding', false);
