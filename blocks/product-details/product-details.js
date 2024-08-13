@@ -243,7 +243,8 @@ export default async function decorate(block) {
                 } catch (error) {
                   // add alert message
                   inlineAlert = await UI.render(InLineAlert, {
-                    heading: error.message,
+                    heading: 'Error',
+                    description: error.message,
                     icon: Icon({ source: 'Warning' }),
                     additionalActions: [{
                       label: 'Close',
