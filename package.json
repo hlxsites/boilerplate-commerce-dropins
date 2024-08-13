@@ -35,7 +35,7 @@
     "@adobe/magento-storefront-event-collector": "^1.8.0",
     "@adobe/magento-storefront-events-sdk": "^1.8.0",
     "@dropins/adyen-checkout-extension": "^0.1.0-alpha7",
-    "@dropins/storefront-auth": "0.0.1-alpha10",
+    "@dropins/storefront-auth": "0.0.1-alpha15",
     "@dropins/storefront-cart": "0.4.0-alpha168",
     "@dropins/storefront-checkout": "0.1.0-alpha42",
     "@dropins/storefront-order-confirmation": "0.1.0-alpha32",
