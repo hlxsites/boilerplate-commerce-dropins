@@ -1,14 +1,14 @@
-import { inLineAlertInterface } from './notification.types';
+import { InLineAlertInterface } from './notification.types';
 
 export interface EmailConfirmationFormProps {
     userEmail: string;
     formSize: 'default' | 'small';
-    inLineAlertProps: inLineAlertInterface;
+    inLineAlertProps: InLineAlertInterface;
     hideCloseBtnOnEmailConfirmation?: boolean;
-    handleSetInLineAlertProps: (value: inLineAlertInterface) => void;
+    handleSetInLineAlertProps: (value: InLineAlertInterface) => void;
     onPrimaryButtonClick: () => void;
 }
 export interface useEmailConfirmationFormProps extends Omit<EmailConfirmationFormProps, 'formSize' | 'inLineAlertProps' | 'onPrimaryButtonClick'> {
-    handleSetInLineAlertProps: (value: inLineAlertInterface) => void;
+    handleSetInLineAlertProps: (value: InLineAlertInterface) => void;
 }
 //# sourceMappingURL=emailConfirmationForm.types.d.ts.map
