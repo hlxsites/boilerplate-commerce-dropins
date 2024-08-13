@@ -11,6 +11,9 @@ export declare const definition: {
                 decreaseLabel: string;
                 increaseLabel: string;
                 label: string;
+                errorMessage: string;
+                minQuantityMessage: string;
+                maxQuantityMessage: string;
             };
             Modal: {
                 Close: {
@@ -143,6 +146,9 @@ export declare const definition: {
                 decreaseLabel: string;
                 increaseLabel: string;
                 label: string;
+                errorMessage: string;
+                minQuantityMessage: string;
+                maxQuantityMessage: string;
             };
             Modal: {
                 Close: {
@@ -277,6 +283,9 @@ export declare const getDefinitionByLanguage: (lang: Lang) => {
             decreaseLabel: string;
             increaseLabel: string;
             label: string;
+            errorMessage: string;
+            minQuantityMessage: string;
+            maxQuantityMessage: string;
         };
         Modal: {
             Close: {
