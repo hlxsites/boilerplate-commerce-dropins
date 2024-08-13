@@ -35,6 +35,7 @@ export default async function decorate(block) {
         additionalActions: [{
           label: 'Yes',
           onClick: () => {
+            // eslint-disable-next-line no-console
             console.log('Saved as Favorite', item);
           },
         },
