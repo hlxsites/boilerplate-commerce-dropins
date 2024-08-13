@@ -1,7 +1,7 @@
 /**
  * ADOBE CONFIDENTIAL
  * __________________
- * Copyright 2023 Adobe
+ * Copyright 2024 Adobe
  * All Rights Reserved.
  * __________________
  * NOTICE: All information contained herein is, and remains
@@ -13,6 +13,6 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe.
  */
-export * from './ProductDetails';
-export { ProductDetails as default } from './ProductDetails';
+export * from './Zoom';
+export { Zoom as default } from './Zoom';
 //# sourceMappingURL=index.d.ts.map

@@ -1,1 +1,5 @@
 /* stylelint-disable no-empty-source */
+
+.product-details__alert {
+  margin-bottom: var(--spacing-small);
+}
