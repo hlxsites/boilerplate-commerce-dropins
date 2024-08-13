@@ -232,7 +232,7 @@ export default async function decorate(block) {
                 : next.dictionary.PDP.Product.AddToCart?.label,
               icon: 'Cart',
               variant: 'primary',
-              disabled: adding || !next.data.inStock,
+              disabled: adding || !next.data.inStock || !next.valid,
               onClick: async () => {
                 try {
                   state.set('adding', true);
