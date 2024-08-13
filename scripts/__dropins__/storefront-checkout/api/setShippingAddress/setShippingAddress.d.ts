@@ -22,10 +22,9 @@ export interface AddressInput {
     vat_id?: string;
 }
 export interface setShippingAddressParams {
-    cartId: string;
     address: AddressInput;
     signal?: AbortSignal;
 }
 export declare const prepareAddress: (formFields: Record<string, any>) => AddressInput;
-export declare const setShippingAddress: ({ signal, cartId, address, }: setShippingAddressParams) => Promise<import('../../data/models').Cart | null | undefined>;
+export declare const setShippingAddress: ({ signal, address, }: setShippingAddressParams) => Promise<import('../../data/models').Cart | null | undefined>;
 //# sourceMappingURL=setShippingAddress.d.ts.map
