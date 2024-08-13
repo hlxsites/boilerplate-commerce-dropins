@@ -34,6 +34,7 @@ import { render as orderConfirmationProvider } from '@dropins/storefront-order-c
 
 import { getUserTokenCookie } from '../../scripts/dropins.js';
 import { createModal } from '../modal/modal.js';
+import { loadFragment } from '../fragment/fragment.js';
 
 export default async function decorate(block) {
   let modal = null;
@@ -108,6 +109,15 @@ export default async function decorate(block) {
     modal.showModal();
   };
 
+  // Function to load the fragment and return the shipping message
+  async function getShippingMessage() {
+    const fragment = await loadFragment('/drafts/capdevil/shipping');
+    return fragment.querySelector('p').textContent;
+  }
+
+  // Extract the shipping message before rendering the provider
+  const shippingMessage = await getShippingMessage();
+
   return checkoutProvider.render(Checkout, {
     onSignInClick: async () => onSignInClick(),
     onSignOutClick: () => {
@@ -119,6 +129,12 @@ export default async function decorate(block) {
     routeHome: () => '/',
     routeCart: () => '/shopping-cart',
     slots: {
+      ShippingMethods: async (ctx) => {
+        const element = document.createElement('p');
+        element.textContent = shippingMessage;
+        element.style.marginBottom = '0';
+        ctx.appendChild(element);
+      },
       OrderSummary: (ctx) => {
         const orderSummary = document.createElement('div');
 
