@@ -465,3 +465,12 @@ body.columns main > .section:empty {
 main[hidden] {
   display: none !important; 
 }
+
+/* Demo */
+/* .dropin-design {
+  outline: 2px solid teal;
+}
+
+.modal dialog  .modal-content {
+  padding: 2px;
+} */
