@@ -26,17 +26,17 @@ export declare class RecaptchaModule {
     _loadConfig(): Promise<ReCaptchaV3ModifyProps | null>;
     setEndpoint(url: string): void;
     setConfig(configList: PropsFormTypes[]): Promise<void>;
-    initReCaptcha(): Promise<void>;
+    initReCaptcha(lazyLoadTimeout?: number): Promise<void>;
     verifyReCaptcha(): Promise<string | undefined>;
     enableLogger(logger: boolean): void;
     getMethods(): {
         enableLogger: (logger: boolean) => void;
         setEndpoint: (url: string) => void;
         setConfig: (configList: PropsFormTypes[]) => Promise<void>;
-        initReCaptcha: () => Promise<void>;
+        initReCaptcha: (lazyLoadTimeout?: number) => Promise<void>;
         verifyReCaptcha: () => Promise<string | undefined>;
     };
 }
-declare const initReCaptcha: () => Promise<void>, verifyReCaptcha: () => Promise<string | undefined>, setEndpoint: (url: string) => void, setConfig: (configList: PropsFormTypes[]) => Promise<void>, enableLogger: (logger: boolean) => void;
+declare const initReCaptcha: (lazyLoadTimeout?: number) => Promise<void>, verifyReCaptcha: () => Promise<string | undefined>, setEndpoint: (url: string) => void, setConfig: (configList: PropsFormTypes[]) => Promise<void>, enableLogger: (logger: boolean) => void;
 export { setEndpoint, setConfig, initReCaptcha, verifyReCaptcha, enableLogger };
 //# sourceMappingURL=index.d.ts.map
