@@ -1,6 +1,6 @@
 import { render as provider } from '@dropins/storefront-cart/render.js';
 import CartSummaryList from '@dropins/storefront-cart/containers/CartSummaryList.js';
-import { InLineAlert, Icon } from '@dropins/tools/components.js';
+import { InLineAlert, Icon, provider as UI } from '@dropins/tools/components.js';
 import { readBlockConfig } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
@@ -24,20 +24,18 @@ export default async function decorate(block) {
     enableUpdateItemQuantity: enableUpdateItemQuantity === 'true',
     enableRemoveItem: enableRemoveItem === 'true',
 
-    onItemRemove: (product) => {
+    onItemRemove: ({ item }) => {
       const alert = document.createElement('div');
       alert.classList.add('alert-banner');
 
-      const name = product.name || 'item';
-
-      provider.render(InLineAlert, {
-        heading: `Do you want to move this "${name}" to favorite?`,
+      UI.render(InLineAlert, {
+        heading: `Do you want to move "${item.name}" to favorite?`,
         variant: 'secondary',
         icon: Icon({ source: 'Heart' }),
         additionalActions: [{
           label: 'Yes',
           onClick: () => {
-            console.log('Saved as Favorite', product);
+            console.log('Saved as Favorite', item);
           },
         },
         {

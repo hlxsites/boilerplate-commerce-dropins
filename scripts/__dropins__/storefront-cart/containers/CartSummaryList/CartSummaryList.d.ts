@@ -6,12 +6,11 @@ export interface CartSummaryListProps extends HTMLAttributes<HTMLDivElement> {
     hideHeading?: boolean;
     routeProduct?: (item: CartModel['items'][0]) => string;
     routeEmptyCartCTA?: () => string;
-    onItemUpdate?: ({ uid, quantity }: {
-        uid: string;
-        quantity: number;
+    onItemUpdate?: ({ item }: {
+        item: CartModel['items'][0];
     }) => void;
-    onItemRemove?: ({ uid }: {
-        uid: string;
+    onItemRemove?: ({ item }: {
+        item: CartModel['items'][0];
     }) => void;
     maxItems?: number;
     attributesToHide?: SwitchableAttributes[];
