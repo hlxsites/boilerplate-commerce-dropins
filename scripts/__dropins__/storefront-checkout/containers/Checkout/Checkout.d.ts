@@ -25,6 +25,7 @@ export interface CheckoutProps extends HTMLAttributes<HTMLDivElement> {
         CartSummaryList?: SlotProps;
         OrderSummary?: SlotProps;
         PaymentMethods?: SlotProps<PaymentMethodSlotContext>;
+        ShippingMethods?: SlotProps;
     };
     preselectedCartData?: PreselectedCartData;
     onSignInClick?: () => void;

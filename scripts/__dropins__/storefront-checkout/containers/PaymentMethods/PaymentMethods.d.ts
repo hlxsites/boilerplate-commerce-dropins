@@ -15,7 +15,7 @@ export interface PaymentMethodContentSlotContext {
 }
 export interface PaymentMethodsProps extends HTMLAttributes<HTMLDivElement> {
     paymentMethodsSlot?: SlotProps<PaymentMethodSlotContext>;
-    onPlaceOrder: (fn: () => Promise<void>) => void;
+    onPlaceOrder: (fn?: () => Promise<void>) => void;
     handleServerError: (error: any) => void;
 }
 export declare const PaymentMethods: {
