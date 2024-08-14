@@ -187,7 +187,7 @@ export default async function decorate(block) {
               );
               const editCartLink = document.createElement('a');
               editCartLink.classList.add('cart-summary-list__edit');
-              editCartLink.href = '/cart';
+              editCartLink.href = '/shopping-cart';
               editCartLink.rel = 'noreferrer';
               editCartLink.innerText = editLink;
 
