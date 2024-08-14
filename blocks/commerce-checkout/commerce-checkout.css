@@ -48,3 +48,7 @@ header .nav-tools {
 [data-testid='default-cart-heading'] {
   display: none;
 }
+
+.cart-cart-summary-list__heading {
+  padding-top: 0;
+}
