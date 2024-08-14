@@ -43,3 +43,7 @@ header .nav-tools {
 [data-testid='default-cart-heading'] {
   display: none;
 }
+
+.checkout__main {
+  grid-column: 1 / span 12;
+}

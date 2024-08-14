@@ -7,14 +7,10 @@ import { initializers } from '@dropins/tools/initializer.js';
 
 // Cart Dropin Modules
 import * as cartApi from '@dropins/storefront-cart/api.js';
-import CartSummaryList from '@dropins/storefront-cart/containers/CartSummaryList.js';
-import { OrderSummary } from '@dropins/storefront-cart/containers/OrderSummary.js';
-import { render as cartProvider } from '@dropins/storefront-cart/render.js';
 
 // Checkout Dropin Modules
 import * as checkoutApi from '@dropins/storefront-checkout/api.js';
 import Checkout from '@dropins/storefront-checkout/containers/Checkout.js';
-import EstimateShipping from '@dropins/storefront-checkout/containers/EstimateShipping.js';
 import { render as checkoutProvider } from '@dropins/storefront-checkout/render.js';
 
 // Auth Dropin Modules
@@ -143,64 +139,6 @@ export default async function decorate(block) {
         const element = prepareShippingMessageElement();
 
         ctx.appendChild(element);
-      },
-      OrderSummary: (ctx) => {
-        const orderSummary = document.createElement('div');
-
-        cartProvider.render(OrderSummary, {
-          slots: {
-            EstimateShipping: (esCtx) => {
-              const estimateShippingForm = document.createElement('div');
-
-              checkoutProvider.render(EstimateShipping)(estimateShippingForm);
-
-              esCtx.appendChild(estimateShippingForm);
-            },
-          },
-        })(orderSummary);
-
-        ctx.appendChild(orderSummary);
-      },
-      CartSummaryList: (checkoutCtx) => {
-        const cartSummaryList = document.createElement('div');
-        cartSummaryList.classList.add('cart-summary-list');
-
-        cartProvider.render(CartSummaryList, {
-          slots: {
-            Heading: (headingCtx) => {
-              const { dictionary } = checkoutCtx;
-              const { title, editLink } = dictionary.Checkout.Slots.CartSummaryList.Heading;
-
-              const cartSummaryListHeading = document.createElement('div');
-              cartSummaryListHeading.classList.add(
-                'cart-summary-list__heading',
-              );
-
-              const cartSummaryListHeadingText = document.createElement('div');
-              cartSummaryListHeadingText.classList.add(
-                'cart-summary-list__heading-text',
-              );
-
-              cartSummaryListHeadingText.innerText = title.replace(
-                '{count}',
-                headingCtx.count,
-              );
-              const editCartLink = document.createElement('a');
-              editCartLink.classList.add('cart-summary-list__edit');
-              editCartLink.href = '/cart';
-              editCartLink.rel = 'noreferrer';
-              editCartLink.innerText = editLink;
-
-              cartSummaryListHeading.appendChild(
-                cartSummaryListHeadingText,
-              );
-              cartSummaryListHeading.appendChild(editCartLink);
-              headingCtx.appendChild(cartSummaryListHeading);
-            },
-          },
-        })(cartSummaryList);
-
-        checkoutCtx.appendChild(cartSummaryList);
       },
       PaymentMethods: async (context) => {
         context.addPaymentMethodHandler('checkmo', {
