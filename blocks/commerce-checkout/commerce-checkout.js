@@ -20,9 +20,9 @@ import SignUp from '@dropins/storefront-auth/containers/SignUp.js';
 import { render as authProvider } from '@dropins/storefront-auth/render.js';
 
 // Adyen Dropin Modules
-import * as adyenApi from '@dropins/adyen-checkout-extension/api.js';
-import AdyenPaymentMethod from '@dropins/adyen-checkout-extension/containers/AdyenPaymentMethod.js';
-import { render as adyenProvider } from '@dropins/adyen-checkout-extension/render.js';
+import * as adyenApi from '@dropins/adyen-extension/api.js';
+import AdyenPaymentMethod from '@dropins/adyen-extension/containers/AdyenPaymentMethod.js';
+import { render as adyenProvider } from '@dropins/adyen-extension/render.js';
 
 import * as orderConfirmationApi from '@dropins/storefront-order-confirmation/api.js';
 import OrderConfirmation from '@dropins/storefront-order-confirmation/containers/OrderConfirmation.js';
