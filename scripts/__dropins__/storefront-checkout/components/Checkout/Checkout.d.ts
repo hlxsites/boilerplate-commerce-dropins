@@ -12,7 +12,7 @@ export type CheckoutBlocks = {
     paymentMethods: VNode;
     placeOrder: VNode;
     shippingAddress: VNode;
-    shippingMethods: VNode;
+    shippingMethods?: VNode;
 };
 declare const Main: FunctionComponent<{
     blocks: CheckoutBlocks;

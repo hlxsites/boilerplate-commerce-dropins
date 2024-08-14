@@ -111,12 +111,22 @@ export default async function decorate(block) {
 
   // Function to load the fragment and return the shipping message
   async function getShippingMessage() {
-    const fragment = await loadFragment('/drafts/capdevil/shipping');
+    const fragment = await loadFragment('/drafts/cabre/shipping');
     return fragment.querySelector('p').textContent;
   }
 
   // Extract the shipping message before rendering the provider
   const shippingMessage = await getShippingMessage();
+
+  function prepareShippingMessageElement() {
+    const element = document.createElement('p');
+
+    element.textContent = shippingMessage;
+    element.style.marginBottom = '0';
+    element.style.font = 'var(--type-body-2-default-font)';
+    element.style.letterSpacing = 'var(--type-body-2-default-letter-spacing)';
+    return element;
+  }
 
   return checkoutProvider.render(Checkout, {
     onSignInClick: async () => onSignInClick(),
@@ -130,9 +140,8 @@ export default async function decorate(block) {
     routeCart: () => '/shopping-cart',
     slots: {
       ShippingMethods: async (ctx) => {
-        const element = document.createElement('p');
-        element.textContent = shippingMessage;
-        element.style.marginBottom = '0';
+        const element = prepareShippingMessageElement();
+
         ctx.appendChild(element);
       },
       OrderSummary: (ctx) => {
