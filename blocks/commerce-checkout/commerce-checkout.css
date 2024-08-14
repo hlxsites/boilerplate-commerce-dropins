@@ -41,14 +41,11 @@ header .nav-tools {
 
 .cart-cart-summary-list__heading {
   row-gap: var(--spacing-small);
+  padding-top: 0;
 }
 
 /* temporary fix to hide the default cart heading */
 
 [data-testid='default-cart-heading'] {
   display: none;
-}
-
-.cart-cart-summary-list__heading {
-  padding-top: 0;
 }

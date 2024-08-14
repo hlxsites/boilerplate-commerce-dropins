@@ -1,4 +1,4 @@
-import { Button, Icon } from '@dropins/tools/components.js';
+import { Button, Icon, provider as UI } from '@dropins/tools/components.js';
 import { render as provider } from '@dropins/storefront-cart/render.js';
 import EstimateShipping from '@dropins/storefront-cart/containers/EstimateShipping.js';
 import { createModal } from '../modal/modal.js';
@@ -9,7 +9,7 @@ export default async function decorate(block) {
   // Create new Button
   const cta = document.createElement('div');
 
-  await provider.render(Button, {
+  await UI.render(Button, {
     children: 'Estimate Shipping',
     variant: 'tertiary',
     icon: Icon({
