@@ -1,2 +1,0 @@
-export declare const getRegionsQuery = "\nquery getRegions($countryCode: String!) {\n    country(id: $countryCode) {\n        id\n        available_regions {\n            id\n            code\n            name\n        }\n    }\n}";
-//# sourceMappingURL=getRegions.graphql.d.ts.map
