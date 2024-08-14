@@ -7,8 +7,13 @@ header .nav-tools {
   display: none !important;
 }
 
-/* CartSummaryList */
+.checkout-shipping-fragment-message {
+  margin: 0;
+  font: var(--type-body-2-default-font);
+  letter-spacing: var(--type-body-2-default-letter-spacing);
+}
 
+/* CartSummaryList */
 .cart-summary-list {
   padding: var(--spacing-medium);
   background-color: var(--color-neutral-200);
@@ -40,4 +45,8 @@ header .nav-tools {
 
 .checkout__main {
   grid-column: 1 / span 12;
+}
+
+.cart-cart-summary-list__heading {
+  padding-top: 0;
 }

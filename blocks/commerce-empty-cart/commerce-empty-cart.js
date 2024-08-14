@@ -10,6 +10,6 @@ export default async function decorate(block) {
   block.innerHTML = '';
 
   return provider.render(EmptyCart, {
-    ctaLinkURL: startShoppingURL ? () => startShoppingURL : undefined,
+    routeCTA: startShoppingURL ? () => startShoppingURL : undefined,
   })(block);
 }
