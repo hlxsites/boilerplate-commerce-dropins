@@ -38,12 +38,6 @@ header .nav-tools {
   row-gap: var(--spacing-small);
 }
 
-/* temporary fix to hide the default cart heading */
-
-[data-testid='default-cart-heading'] {
-  display: none;
-}
-
 .checkout__main {
   grid-column: 1 / span 12;
 }
