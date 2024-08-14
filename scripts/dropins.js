@@ -81,3 +81,5 @@ export default async function initializeDropins() {
 export function getCartDataFromCache() {
   return cartApi.getCartDataFromCache();
 }
+
+// test
