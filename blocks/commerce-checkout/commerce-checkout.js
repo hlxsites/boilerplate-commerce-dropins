@@ -120,11 +120,9 @@ export default async function decorate(block) {
 
   function prepareShippingMessageElement() {
     const element = document.createElement('p');
-
+    element.classList.add('checkout-shipping-fragment-message');
     element.textContent = shippingMessage;
-    element.style.marginBottom = '0';
-    element.style.font = 'var(--type-body-2-default-font)';
-    element.style.letterSpacing = 'var(--type-body-2-default-letter-spacing)';
+
     return element;
   }
 
@@ -152,7 +150,9 @@ export default async function decorate(block) {
             EstimateShipping: (esCtx) => {
               const estimateShippingForm = document.createElement('div');
 
-              checkoutProvider.render(EstimateShipping)(estimateShippingForm);
+              checkoutProvider.render(EstimateShipping)(
+                estimateShippingForm,
+              );
 
               esCtx.appendChild(estimateShippingForm);
             },
@@ -169,7 +169,8 @@ export default async function decorate(block) {
           slots: {
             Heading: (headingCtx) => {
               const { dictionary } = checkoutCtx;
-              const { title, editLink } = dictionary.Checkout.Slots.CartSummaryList.Heading;
+              const { title, editLink } = dictionary.Checkout.Slots.CartSummaryList
+                .Heading;
 
               const cartSummaryListHeading = document.createElement('div');
               cartSummaryListHeading.classList.add(
@@ -181,12 +182,11 @@ export default async function decorate(block) {
                 'cart-summary-list__heading-text',
               );
 
-              cartSummaryListHeadingText.innerText = title.replace(
-                '{count}',
-                headingCtx.count,
-              );
+              cartSummaryListHeadingText.innerText = title.replace('{count}', headingCtx.count);
               const editCartLink = document.createElement('a');
-              editCartLink.classList.add('cart-summary-list__edit');
+              editCartLink.classList.add(
+                'cart-summary-list__edit',
+              );
               editCartLink.href = '/shopping-cart';
               editCartLink.rel = 'noreferrer';
               editCartLink.innerText = editLink;
@@ -196,6 +196,10 @@ export default async function decorate(block) {
               );
               cartSummaryListHeading.appendChild(editCartLink);
               headingCtx.appendChild(cartSummaryListHeading);
+
+              headingCtx.onChange((nextHeadingCtx) => {
+                cartSummaryListHeadingText.innerText = title.replace('{count}', nextHeadingCtx.count);
+              });
             },
           },
         })(cartSummaryList);
@@ -221,7 +225,10 @@ export default async function decorate(block) {
             if (element) {
               // clear the element first
               element.innerHTML = '';
-              adyenProvider.render(AdyenPaymentMethod, ctx)(element);
+              adyenProvider.render(
+                AdyenPaymentMethod,
+                ctx,
+              )(element);
             }
           },
         });
