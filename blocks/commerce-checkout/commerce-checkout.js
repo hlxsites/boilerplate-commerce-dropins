@@ -120,11 +120,9 @@ export default async function decorate(block) {
 
   function prepareShippingMessageElement() {
     const element = document.createElement('p');
-
+    element.classList.add('checkout-shipping-fragment-message');
     element.textContent = shippingMessage;
-    element.style.marginBottom = '0';
-    element.style.font = 'var(--type-body-2-default-font)';
-    element.style.letterSpacing = 'var(--type-body-2-default-letter-spacing)';
+
     return element;
   }
 
