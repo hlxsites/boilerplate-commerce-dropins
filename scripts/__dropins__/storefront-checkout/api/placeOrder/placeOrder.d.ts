@@ -1,2 +1,2 @@
-export declare const placeOrder: () => Promise<import('../../data/models/order').Order>;
+export declare const placeOrder: (cartId: string) => Promise<void>;
 //# sourceMappingURL=placeOrder.d.ts.map

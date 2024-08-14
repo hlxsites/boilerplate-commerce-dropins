@@ -1,27 +1,32 @@
 import { FunctionComponent, VNode } from 'preact';
 import { HTMLAttributes } from 'preact/compat';
 
-export type CheckoutBlocks = {
+export type AsideSections = {
+    cartSummary: VNode;
+    orderSummary: VNode;
+};
+declare const Aside: FunctionComponent<{
+    sections: AsideSections;
+}>;
+export type MainSections = {
     billingAddress: VNode;
-    billToShippingAddress: VNode;
-    cartSummaryList?: VNode;
-    emptyCart: VNode;
+    billToShippingAddress?: VNode;
     login: VNode;
-    orderSummary?: VNode;
-    outOfStock: VNode;
     paymentMethods: VNode;
     placeOrder: VNode;
-    shippingAddress: VNode;
-    shippingMethods: VNode;
+    shippingAddress?: VNode;
+    shippingMethods?: VNode;
 };
 declare const Main: FunctionComponent<{
-    blocks: CheckoutBlocks;
+    outOfStock?: VNode;
+    sections?: MainSections;
 }>;
 export interface CheckoutProps extends HTMLAttributes<HTMLDivElement> {
     isLoading?: boolean;
 }
 interface CheckoutComponent extends FunctionComponent<CheckoutProps> {
     Main: typeof Main;
+    Aside: typeof Aside;
 }
 export declare const Checkout: CheckoutComponent;
 export {};

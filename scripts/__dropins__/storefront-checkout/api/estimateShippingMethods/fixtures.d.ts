@@ -4,5 +4,5 @@ declare const flatRate: ShippingMethod;
 declare const freeShipping: ShippingMethod;
 declare const standardShipping: ShippingMethod;
 declare const expressShipping: ShippingMethod;
-export { expressShipping, flatRate, freeShipping, standardShipping };
+export { flatRate, freeShipping, standardShipping, expressShipping };
 //# sourceMappingURL=fixtures.d.ts.map

@@ -2,7 +2,7 @@ import { AddressFormType, AddressFormValues } from '../../data/models/address-fo
 
 export declare function useAddressBackup(addressType: AddressFormType): {
     addressBackup: AddressFormValues | null;
-    backupAddress: (address: AddressFormValues) => NodeJS.Timeout;
-    removeAddressBackup: () => void;
+    backup: (address: AddressFormValues) => NodeJS.Timeout;
+    removeBackup: () => void;
 };
 //# sourceMappingURL=useAddressBackup.d.ts.map
