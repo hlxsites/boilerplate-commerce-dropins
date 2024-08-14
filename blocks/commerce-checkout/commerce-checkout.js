@@ -135,7 +135,7 @@ export default async function decorate(block) {
       cartApi.refreshCart().catch(console.error);
     },
     routeHome: () => '/',
-    routeCart: () => '/shopping-cart',
+    routeCart: () => '/cart',
     slots: {
       ShippingMethods: async (ctx) => {
         const element = prepareShippingMessageElement();
@@ -187,7 +187,7 @@ export default async function decorate(block) {
               editCartLink.classList.add(
                 'cart-summary-list__edit',
               );
-              editCartLink.href = '/shopping-cart';
+              editCartLink.href = '/cart';
               editCartLink.rel = 'noreferrer';
               editCartLink.innerText = editLink;
 

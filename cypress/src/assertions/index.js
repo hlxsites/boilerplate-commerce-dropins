@@ -59,7 +59,7 @@ export const assertCartSummaryMisc = (itemCount) => {
   cy.get('.cart-summary-list__heading-text')
     .should('contain', 'Your Cart')
     .and('contain', itemCount);
-  cy.contains('Edit').should('have.attr', 'href', '/shopping-cart');
+  cy.contains('Edit').should('have.attr', 'href', '/cart');
 };
 
 export const assertOrderSummaryMisc = (subtotal, shipping, total) => {
