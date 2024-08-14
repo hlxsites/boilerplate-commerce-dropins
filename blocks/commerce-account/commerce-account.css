@@ -2,9 +2,6 @@
   box-sizing: border-box;
 }
 
-.my-account-element {
-}
-
 .admin-panel {
   display: flex;
   align-items: flex-start;
