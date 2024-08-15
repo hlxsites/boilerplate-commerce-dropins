@@ -17,4 +17,4 @@ import{s as g,f as R,h as A}from"./resetCart.js";import{C as I,a as v,t as D}fro
     }
   }
   ${v}
-`,w=async a=>{const r=g.cartId;if(!r)throw Error("Cart ID is not set");return R(y,{variables:{cartId:r,cartItems:a.map(({uid:t,quantity:e})=>({cart_item_uid:t,quantity:e}))}}).then(({errors:t,data:e})=>{var C;const i=[...((C=e==null?void 0:e.addProductsToCart)==null?void 0:C.user_errors)??[],...t??[]];if(i.length>0)return A(i);const o=D(e.updateCartItems.cart);return m.emit("cart/updated",o),m.emit("cart/data",o),o&&N(o,a,g.locale??"en-US"),o})};export{N as a,M as b,x as p,w as u};
+`,w=async a=>{const r=g.cartId;if(!r)throw Error("Cart ID is not set");return R(y,{variables:{cartId:r,cartItems:a.map(({uid:t,quantity:e})=>({cart_item_uid:t,quantity:e}))}}).then(({errors:t,data:e})=>{var C;const i=[...((C=e==null?void 0:e.addProductsToCart)==null?void 0:C.user_errors)??[],...t??[]];if(i.length>0)return A(i);const o=D(e.updateCartItems.cart);return m.emit("cart/updated",o),m.emit("cart/data",o),o&&N(o,a,g.locale??"en-US"),o})};export{x as a,N as b,M as p,w as u};

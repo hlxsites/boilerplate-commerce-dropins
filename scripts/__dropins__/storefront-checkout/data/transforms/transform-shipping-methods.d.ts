@@ -1,5 +1,5 @@
-import { ShippingMethod } from '../models/shipping-method';
 import { GetCartQuery } from '../../__generated__/types';
+import { ShippingMethod } from '../models/shipping-method';
 
 type Cart = NonNullable<GetCartQuery['cart']>;
 type ShippingAddresses = Cart['shipping_addresses'];

@@ -10,6 +10,7 @@ export interface OrderSummaryProps extends HTMLAttributes<HTMLDivElement> {
     slots?: {
         EstimateShipping?: SlotProps;
     };
+    errors: boolean;
 }
 export declare const OrderSummary: Container<OrderSummaryProps, CartModel | null>;
 export {};
