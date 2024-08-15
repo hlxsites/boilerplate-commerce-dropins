@@ -16,11 +16,11 @@ export default async function decorate(block) {
     routeCheckout: checkoutURL ? () => checkoutURL : undefined,
     slots: {
       EstimateShipping: async (ctx) => {
-        if (enableEstimateShipping === 'false') return;
-
-        const wrapper = document.createElement('div');
-        await provider.render(EstimateShipping, {})(wrapper);
-        ctx.replaceWith(wrapper);
+        if (enableEstimateShipping === 'true') {
+          const wrapper = document.createElement('div');
+          await provider.render(EstimateShipping, {})(wrapper);
+          ctx.replaceWith(wrapper);
+        }
       },
     },
   })(block);
