@@ -465,6 +465,7 @@ body.columns main > .section:empty {
 /**
 * Reset main element visibility
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden
+*
 */
 main[hidden] {
   display: none !important;
