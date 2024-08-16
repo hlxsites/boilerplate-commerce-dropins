@@ -2,6 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { events } from '@dropins/tools/event-bus.js';
 import { initializers } from '@dropins/tools/initializer.js';
+import { InLineAlert, Icon, provider as UI } from '@dropins/tools/components.js';
 import * as productApi from '@dropins/storefront-pdp/api.js';
 import { render as productRenderer } from '@dropins/storefront-pdp/render.js';
 import { addProductsToCart } from '@dropins/storefront-cart/api.js';
@@ -195,63 +196,72 @@ export default async function decorate(block) {
     document.title = product.name;
   }, { eager: true });
 
-  // Render Containers
-  return new Promise((resolve) => {
-    setTimeout(async () => {
-      try {
-        await productRenderer.render(ProductDetails, {
-          sku: getSkuFromUrl(),
-          carousel: {
-            controls: 'thumbnailsColumn',
-            arrowsOnMainImage: true,
-            mobile: true,
-            peak: {
-              mobile: true,
-              desktop: false,
-            },
-            gap: 'small',
-          },
-          slots: {
-            Actions: (ctx) => {
-              // Add to Cart Button
-              ctx.appendButton((next, state) => {
-                const adding = state.get('adding');
-                return {
-                  text: adding
-                    ? next.dictionary.Custom.AddingToCart?.label
-                    : next.dictionary.PDP.Product.AddToCart?.label,
-                  icon: 'Cart',
-                  variant: 'primary',
-                  disabled: adding || !next.data.inStock,
-                  onClick: async () => {
-                    try {
-                      state.set('adding', true);
-                      if (!next.valid) {
-                        // eslint-disable-next-line no-console
-                        console.warn('Invalid product', next.values);
-                        return;
-                      }
+  // Alert Message Wrapper
+  const alertWrapper = document.createElement('div');
+  alertWrapper.classList.add('product-details__alert');
+  block.appendChild(alertWrapper);
+  let inlineAlert;
 
-                      await addProductsToCart([{ ...next.values }]);
-                    } catch (error) {
-                      // eslint-disable-next-line no-console
-                      console.warn('Error adding product to cart', error);
-                    } finally {
-                      state.set('adding', false);
-                    }
-                  },
-                };
-              });
-            },
-          },
-          useACDL: true,
-        })(block);
-      } catch (e) {
-        console.error(e);
-        await errorGettingProduct();
-      } finally {
-        resolve();
-      }
-    }, 0);
-  });
+  // PDP Wrapper
+  const pdpWrapper = document.createElement('div');
+  block.appendChild(pdpWrapper);
+
+  // Render Containers
+  try {
+    return await productRenderer.render(ProductDetails, {
+      sku: getSkuFromUrl(),
+      carousel: {
+        controls: 'thumbnailsColumn',
+        arrowsOnMainImage: true,
+        mobile: true,
+        peak: {
+          mobile: true,
+          desktop: false,
+        },
+        gap: 'small',
+      },
+      slots: {
+        Actions: (ctx) => {
+          // Add to Cart Button
+          ctx.appendButton((next, state) => {
+            const adding = state.get('adding');
+
+            return {
+              text: adding
+                ? next.dictionary.Custom.AddingToCart?.label
+                : next.dictionary.PDP.Product.AddToCart?.label,
+              icon: 'Cart',
+              variant: 'primary',
+              disabled: adding || !next.data.inStock || !next.valid,
+              onClick: async () => {
+                try {
+                  state.set('adding', true);
+
+                  await addProductsToCart([{ ...next.values }]);
+                  // reset any previous alerts if successful
+                  inlineAlert?.remove();
+                } catch (error) {
+                  // add alert message
+                  inlineAlert = await UI.render(InLineAlert, {
+                    heading: 'Error',
+                    description: error.message,
+                    icon: Icon({ source: 'Warning' }),
+                    onDismiss: () => {
+                      inlineAlert.remove();
+                    },
+                  })(alertWrapper);
+                } finally {
+                  state.set('adding', false);
+                }
+              },
+            };
+          });
+        },
+      },
+      useACDL: true,
+    })(pdpWrapper);
+  } catch (e) {
+    console.error(e);
+    return errorGettingProduct();
+  }
 }

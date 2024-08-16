@@ -4,15 +4,15 @@
 // Drop-in Tools
 import { events } from '@dropins/tools/event-bus.js';
 import {
+  removeFetchGraphQlHeader,
   setEndpoint,
   setFetchGraphQlHeader,
-  removeFetchGraphQlHeader,
 } from '@dropins/tools/fetch-graphql.js';
 import { initializers } from '@dropins/tools/initializer.js';
 
 // Drop-ins
-import * as cartApi from '@dropins/storefront-cart/api.js';
 import * as authApi from '@dropins/storefront-auth/api.js';
+import * as cartApi from '@dropins/storefront-cart/api.js';
 
 // Recaptcha
 import * as recaptcha from '@dropins/tools/recaptcha.js';
@@ -20,60 +20,56 @@ import * as recaptcha from '@dropins/tools/recaptcha.js';
 // Libs
 import { getConfigValue, getCookie } from './configs.js';
 
-const getUserTokenCookie = () => getCookie('auth_dropin_user_token');
+export const getUserTokenCookie = () => getCookie('auth_dropin_user_token');
+
+// Update auth headers
+const setAuthHeaders = (state) => {
+  if (state) {
+    const token = getUserTokenCookie();
+    setFetchGraphQlHeader('Authorization', `Bearer ${token}`);
+  } else {
+    removeFetchGraphQlHeader('Authorization');
+  }
+};
+
+const persistCartDataInSession = (data) => {
+  if (data?.id) {
+    sessionStorage.setItem('DROPINS_CART_ID', data.id);
+  } else {
+    sessionStorage.removeItem('DROPINS_CART_ID');
+  }
+};
 
 export default async function initializeDropins() {
-  events.enableLogger(true);
+  // Mount all registered drop-ins
+  const mount = async () => {
+    events.enableLogger(true);
 
-  // Set Fetch Endpoint (Global)
-  setEndpoint(await getConfigValue('commerce-core-endpoint'));
+    // Set Fetch Endpoint (Global)
+    setEndpoint(await getConfigValue('commerce-core-endpoint'));
 
-  // Recaptcha
-  recaptcha.setConfig();
+    // Recaptcha
+    recaptcha.setConfig();
 
-  // Initializers (Global)
-  initializers.register(authApi.initialize, {});
-  initializers.register(cartApi.initialize, {});
+    // Initializers (Global)
+    initializers.register(authApi.initialize, {});
+    initializers.register(cartApi.initialize, {});
 
-  // Set auth headers
-  events.on('authenticated', (isAuthenticated) => {
-    if (isAuthenticated) {
-      const token = getUserTokenCookie();
+    // Set auth headers on authenticated event
+    events.on('authenticated', setAuthHeaders);
 
-      setFetchGraphQlHeader('Authorization', `Bearer ${token}`);
-    } else {
-      removeFetchGraphQlHeader('Authorization');
-    }
-  });
+    // Cache cart data in session storage
+    events.on('cart/data', persistCartDataInSession, { eager: true });
 
-  // Redirect to order confirmation page
-  events.on('checkout/order', (data) => {
+    // on page load, check if user is authenticated
     const token = getUserTokenCookie();
-    const orderRef = token ? data.number : data.token;
-
-    window.location.replace(`/order-confirmation?orderRef=${encodeURIComponent(orderRef)}`);
-  });
-
-  // Cache cartId in session storage
-  events.on(
-    'cart/data',
-    (data) => {
-      if (data?.id) {
-        sessionStorage.setItem('DROPINS_CART_ID', data.id);
-      } else {
-        sessionStorage.removeItem('DROPINS_CART_ID');
-      }
-    },
-    { eager: true },
-  );
-
-  // After load or reload page we check token
-  const token = getUserTokenCookie();
-
-  // Handle page load
-  const mount = () => {
-    initializers.mount();
+    // set auth headers
+    setAuthHeaders(!!token);
+    // emit authenticated event if token has changed
     events.emit('authenticated', !!token);
+
+    // Mount all registered initial
+    initializers.mount();
   };
 
   // Mount all registered drop-ins
@@ -81,8 +77,12 @@ export default async function initializeDropins() {
     mount();
   } else {
     // Handle on prerendering document activated
-    document.addEventListener('prerenderingchange', mount);
+    document.addEventListener('prerenderingchange', mount, { once: true });
     // Handle on page load
-    window.addEventListener('load', mount);
+    window.addEventListener('load', mount, { once: true });
   }
+}
+
+export function getCartDataFromCache() {
+  return cartApi.getCartDataFromCache();
 }

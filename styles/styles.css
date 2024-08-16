@@ -180,7 +180,16 @@ body:not(.appear) {
 }
 
 header {
+  grid-row: 1;
   height: var(--nav-height);
+}
+
+main {
+  grid-row: 2;
+}
+
+footer {
+  grid-row: 3;
 }
 
 h1 {
@@ -329,7 +338,7 @@ button.button.secondary {
 
 main a.button.secondary:hover,
 button.button.secondary:hover {
-  color: var(--color-brand-600)
+  color: var(--color-brand-600);
 }
 
 main input:hover {
@@ -397,4 +406,66 @@ main .section.highlight {
 /* Base Design System Tokens */
 .dropin-design.dropin-design {
   --background-none: none 0 0% no-repeat padding-box;
+}
+
+.dropin-input-date__icon {
+  z-index: 2;
+}
+
+/* Layout: Columns */
+body.columns main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: var(--spacing-large) var(--spacing-small);
+  box-sizing: border-box;
+  gap: var(--grid-4-gutters);
+}
+
+body.columns main > .section {
+  flex: 1;
+  flex-basis: 100%;
+  max-width: unset;
+  margin: unset;
+  padding: unset;
+}
+
+body.columns main > .section > div {
+  max-width: unset;
+  padding: unset;
+}
+
+body.columns main > .section > div:not(:last-child) {
+  margin-bottom: var(--gap, unset);
+}
+
+body.columns main > .section:empty {
+  display: none;
+}
+
+@media (width >= 600px) {
+  body.columns main {
+      padding: var(--spacing-large) var(--spacing-big);
+  }
+}
+
+@media (width >= 900px) {
+  body.columns main {
+    flex-direction: row;
+  }
+
+  body.columns main > .section {
+    flex: 1;
+    flex-basis: var(--column-width, auto);
+  }
+}
+
+/**
+* Reset main element visibility
+* https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden
+*/
+main[hidden] {
+  display: none !important;
 }
