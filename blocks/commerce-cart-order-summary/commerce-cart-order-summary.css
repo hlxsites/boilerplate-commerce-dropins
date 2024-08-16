@@ -1,1 +1,9 @@
 /* stylelint-disable no-empty-source */
+
+.estimate-shipping-wrapper {
+    padding: var(--spacing-small) 0;
+}
+
+.estimate-shipping-wrapper button {
+    width: 100%;
+}

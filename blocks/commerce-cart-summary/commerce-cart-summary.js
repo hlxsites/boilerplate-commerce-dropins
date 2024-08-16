@@ -1,5 +1,6 @@
 import { render as provider } from '@dropins/storefront-cart/render.js';
 import CartSummaryList from '@dropins/storefront-cart/containers/CartSummaryList.js';
+import { InLineAlert, Icon, provider as UI } from '@dropins/tools/components.js';
 import { readBlockConfig } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
@@ -10,6 +11,7 @@ export default async function decorate(block) {
     'hide-attributes': hideAttributes = '',
     'enable-item-quantity-update': enableUpdateItemQuantity = 'false',
     'enable-item-remove': enableRemoveItem = 'true',
+    'item-removal-prompt': itemRemovalPrompt = 'false',
   } = readBlockConfig(block);
 
   block.innerHTML = '';
@@ -22,5 +24,33 @@ export default async function decorate(block) {
     attributesToHide: hideAttributes.split(',').map((attr) => attr.trim().toLowerCase()),
     enableUpdateItemQuantity: enableUpdateItemQuantity === 'true',
     enableRemoveItem: enableRemoveItem === 'true',
+
+    onItemRemove: ({ item }) => {
+      if (itemRemovalPrompt === 'false') return;
+
+      const alert = document.createElement('div');
+      alert.classList.add('alert-banner');
+
+      UI.render(InLineAlert, {
+        heading: `Do you want to move "${item.name}" to favorite?`,
+        variant: 'secondary',
+        icon: Icon({ source: 'Heart' }),
+        additionalActions: [{
+          label: 'Yes',
+          onClick: () => {
+            // eslint-disable-next-line no-console
+            console.log('Saved as Favorite', item);
+          },
+        },
+        {
+          label: 'No',
+          onClick: () => {
+            alert.remove();
+          },
+        }],
+      })(alert);
+
+      block.prepend(alert);
+    },
   })(block);
 }
