@@ -11,6 +11,9 @@ export declare const definition: {
                 decreaseLabel: string;
                 increaseLabel: string;
                 label: string;
+                errorMessage: string;
+                minQuantityMessage: string;
+                maxQuantityMessage: string;
             };
             Modal: {
                 Close: {
@@ -20,6 +23,7 @@ export declare const definition: {
             InputPassword: {
                 requiredFieldError: string;
                 placeholder: string;
+                floatingLabel: string;
                 buttonTitle: string;
             };
             PasswordStatusIndicator: {
@@ -142,6 +146,9 @@ export declare const definition: {
                 decreaseLabel: string;
                 increaseLabel: string;
                 label: string;
+                errorMessage: string;
+                minQuantityMessage: string;
+                maxQuantityMessage: string;
             };
             Modal: {
                 Close: {
@@ -151,6 +158,7 @@ export declare const definition: {
             InputPassword: {
                 requiredFieldError: string;
                 placeholder: string;
+                floatingLabel: string;
                 buttonTitle: string;
             };
             PasswordStatusIndicator: {
@@ -275,6 +283,9 @@ export declare const getDefinitionByLanguage: (lang: Lang) => {
             decreaseLabel: string;
             increaseLabel: string;
             label: string;
+            errorMessage: string;
+            minQuantityMessage: string;
+            maxQuantityMessage: string;
         };
         Modal: {
             Close: {
@@ -284,6 +295,7 @@ export declare const getDefinitionByLanguage: (lang: Lang) => {
         InputPassword: {
             requiredFieldError: string;
             placeholder: string;
+            floatingLabel: string;
             buttonTitle: string;
         };
         PasswordStatusIndicator: {
