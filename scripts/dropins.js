@@ -39,7 +39,7 @@ const persistCartDataInSession = (data) => {
   }
 };
 
-const app = new Initializer({
+const initialize = new Initializer({
   init: () => {
     // on page load, check if user is authenticated
     const token = getUserTokenCookie();
@@ -58,7 +58,7 @@ const app = new Initializer({
 
 export default async function initializeDropins() {
   // Register Initializers (Global)
-  initializers.register(app, {});
+  initializers.register(initialize, {});
   initializers.register(authApi.initialize, {});
   initializers.register(cartApi.initialize, {});
 
