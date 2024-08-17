@@ -75,4 +75,5 @@ export default async function initializeDropins() {
 
   // Mount Drop-ins
   window.addEventListener('pageshow', mount);
+  document.addEventListener('prerenderingchange', mount);
 }
