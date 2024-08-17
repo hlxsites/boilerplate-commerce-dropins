@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { events } from '@dropins/tools/event-bus.js';
+import { getCartDataFromCache } from '@dropins/storefront-cart/api.js';
 import {
   buildBlock,
   decorateBlocks,
@@ -20,7 +21,7 @@ import {
   readBlockConfig,
 } from './aem.js';
 import { getProduct, getSkuFromUrl, trackHistory } from './commerce.js';
-import initializeDropins, { getCartDataFromCache } from './dropins.js';
+import initializeDropins from './dropins.js';
 import { loadFragment } from '../blocks/fragment/fragment.js';
 
 const LCP_BLOCKS = [
