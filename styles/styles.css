@@ -412,10 +412,6 @@ main .section.highlight {
   z-index: 2;
 }
 
-.dropin-input-date__icon {
-  z-index: 2;
-}
-
 /* Layout: Columns */
 body.columns main {
   display: flex;
