@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-.my-account-element {
-  overflow: hidden;
-}
-
 .admin-panel {
   display: flex;
   align-items: flex-start;
