@@ -7,7 +7,7 @@ export const assertCartSummaryProduct =
     totalPrice,
     productPosition
   ) =>
-    (elem = '.cart-cart') => {
+    (elem = '.commerce-cart-summary-wrapper') => {
       cy.get(`${elem} .dropin-cart-item__title`)
         .eq(productPosition)
         .should('contain', productName);
@@ -15,7 +15,7 @@ export const assertCartSummaryProduct =
         .eq(productPosition)
         .should('contain', productSku);
 
-      if (elem === '.cart-cart') {
+      if (elem === '.commerce-cart-summary-wrapper') {
         cy.get(`${elem} .dropin-incrementer__input`)
           .eq(productPosition)
           .should('have.value', productQty);
@@ -56,27 +56,27 @@ export const assertCartSummaryProductsOnCheckout = (
 };
 
 export const assertCartSummaryMisc = (itemCount) => {
-  cy.get('.checkout-cart-summary__title')
-    .should('contain', 'Your cart')
+  cy.get('.cart-summary-list__heading-text')
+    .should('contain', 'Your Cart')
     .and('contain', itemCount);
   cy.contains('Edit').should('have.attr', 'href', '/cart');
 };
 
 export const assertOrderSummaryMisc = (subtotal, shipping, total) => {
-  cy.get('.checkout-order-summary')
-    .find('.checkout-order-summary__title')
-    .contains('Order summary')
+  cy.get('.cart-order-summary__primary')
+    .find('.cart-order-summary__heading-text')
+    .contains('Order Summary')
     .should('be.visible');
-  cy.get('.checkout-order-summary')
-    .find('div[data-testid="order-summary-subtotal"]')
+  cy.get('.cart-order-summary__primary')
+    .find('.cart-order-summary__subTotal')
     .should('contain', 'Subtotal')
     .and('contain', subtotal);
-  cy.get('.checkout-order-summary')
-    .find('div[data-testid="order-summary-shipping"]')
+  cy.get('.cart-order-summary__primary')
+    .find('div[data-testid="estimate-shipping"]')
     .should('contain', 'Shipping')
     .and('contain', shipping);
-  cy.get('.checkout-order-summary')
-    .find('div[data-testid="order-summary-total-incl-tax"]')
+  cy.get('.cart-order-summary__primary')
+    .find('div[data-testid="total-content"]')
     .should('contain', 'Total')
     .and('contain', total);
 };
