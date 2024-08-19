@@ -76,10 +76,10 @@ async function setJsonLdProduct(product) {
       sku,
       '@id': new URL(
         `/products/${urlKey}/${sku.toLowerCase()}`,
-        window.location
+        window.location,
       ),
     },
-    'product'
+    'product',
   );
 }
 
@@ -123,9 +123,7 @@ function setMetaTags(product) {
   createMetaTag('og:description', product.shortDescription, 'property');
   createMetaTag('og:title', product.metaTitle, 'property');
   createMetaTag('og:url', window.location.href, 'property');
-  const mainImage = product?.images?.filter((image) =>
-    image.roles.includes('thumbnail')
-  )[0];
+  const mainImage = product?.images?.filter((image) => image.roles.includes('thumbnail'))[0];
   const metaImage = mainImage?.url || product?.images[0]?.url;
   createMetaTag('og:image', metaImage, 'property');
   createMetaTag('og:image:secure_url', metaImage, 'property');
@@ -228,7 +226,7 @@ export default async function decorate(block) {
       setMetaTags(product);
       document.title = product.name;
     },
-    { eager: true }
+    { eager: true },
   );
 
   // Alert Message Wrapper
