@@ -1,0 +1,95 @@
+/* https://cssguidelin.es/#bem-like-naming */
+
+.checkout__content {
+    display: grid;
+    align-items: start;
+    grid-template-columns: repeat(var(--grid-4-columns), 1fr);
+    column-gap: var(--grid-4-gutters);
+    row-gap: var(--spacing-big);
+}
+
+.checkout__heading {
+    display: grid;
+    grid-column: 1 / span 12;
+    justify-items: center;
+    color: var(--color-neutral-800);
+    font: var(--type-headline-1-font);
+    letter-spacing: var(--type-headline-1-letter-spacing);
+}
+
+.checkout__main {
+    display: grid;
+    grid-column: 1 / span 7;
+    row-gap: var(--spacing-xbig);
+}
+
+.checkout__aside {
+    display: grid;
+    grid-column: 9 / span 4;
+    gap: var(--spacing-xbig);
+}
+
+.commerce-one-page-checkout__place-order {
+    display: grid;
+    grid-column: 1 / span 12;
+    justify-items: center;
+}
+
+.checkout__banner {
+    margin-bottom: var(--spacing-xbig);
+}
+
+/* hide all dividers when the cart is empty */
+.checkout-empty-cart ~ .dropin-divider {
+    display: none;
+}
+
+/* hide all the consecutive dividers because of missing blocks  */
+.dropin-divider + .dropin-divider {
+    display: none;
+}
+
+.checkout__content .dropin-divider {
+    margin: 0;
+}
+
+.checkout__content .checkout-billing-form__visible {
+    display: block;
+}
+
+.checkout__content .checkout-billing-form__hidden {
+    display: none;
+}
+
+/* To add into the cart dropin **/
+.cart-order-summary__taxes.dropin-accordion .dropin-divider {
+    margin: var(--spacing-medium) auto;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    .checkout__content {
+        grid-template-columns: 1fr;
+        row-gap: var(--spacing-big);
+        column-gap: 0;
+    }
+
+    /* Integrate place order button into Order Summary - mobile */
+    .checkout__content > *:nth-last-child(1) {
+        margin-top: calc(var(--spacing-big) * -1);
+    }
+}
+
+/* Extra small devices (phones, 600px and down) */
+/* @media only screen and (max-width: 600px) { } */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (min-width: 600px) { } */
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) { } */
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) { } */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) { } */
