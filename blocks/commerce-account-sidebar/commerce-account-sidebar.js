@@ -2,21 +2,38 @@ import { loadFragment } from '../fragment/fragment.js';
 
 export default async function decorate(block) {
   const fragment = await loadFragment('/drafts/atw86530/test');
-  const x = fragment.querySelectorAll('.default-content-wrapper > ol > li');
+  const sidebarItemsConfig = fragment.querySelectorAll('.default-content-wrapper > ol > li');
 
-  const y = Array.from(x).map((sidebarLinkConfig) => {
-    const linkEl = document.createElement('a');
-    const linkParams = sidebarLinkConfig.querySelectorAll('ol > li');
+  const sidebarItems = Array.from(sidebarItemsConfig).map((item) => {
+    const itemParams = item.querySelectorAll('ol > li');
+    const itemConfig = {
+      itemTitle: item.childNodes[0].textContent.trim(),
+      itemSubtitle: itemParams[0].innerText,
+      itemLink: itemParams[1].innerText,
+      itemIcon: itemParams[2].innerText,
+    };
+    itemConfig.isItemActive = window.location.href.includes(itemConfig.itemLink);
 
-    linkEl.innerText = sidebarLinkConfig.childNodes[0].textContent.trim();
-    linkEl.href = linkParams[0].innerText;
+    const wrapperEl = document.createElement('a');
+    wrapperEl.classList.add('commerce-account-sidebar-container__wrapper');
 
-    return linkEl;
+    const titleEl = document.createElement('p');
+    titleEl.classList.add('commerce-account-sidebar-container__title');
+    titleEl.innerText = itemConfig.itemTitle;
+
+    const subtitleEl = document.createElement('p');
+    subtitleEl.classList.add('commerce-account-sidebar-container__subtitle');
+    subtitleEl.innerText = itemConfig.itemSubtitle;
+
+    wrapperEl.appendChild(titleEl);
+    wrapperEl.appendChild(subtitleEl);
+
+    return wrapperEl;
   });
 
   block.innerHTML = '';
 
-  y.forEach((el) => {
+  sidebarItems.forEach((el) => {
     block.appendChild(el);
   });
 }

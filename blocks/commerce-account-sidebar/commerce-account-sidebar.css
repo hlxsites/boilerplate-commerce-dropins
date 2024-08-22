@@ -1,6 +1,18 @@
-.commerce-account-sidebar-container a {
-    display: block;
-    padding: 20px;
-    border: 2px solid black;
-    margin: 20px 0;
+.commerce-account-sidebar-container {
+}
+
+.commerce-account-sidebar-container__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 1px solid black;
+    margin: 10px 0;
+}
+
+.commerce-account-sidebar-container__title {
+    margin: 0;
+}
+
+.commerce-account-sidebar-container__subtitle {
+    margin: 0;
 }
