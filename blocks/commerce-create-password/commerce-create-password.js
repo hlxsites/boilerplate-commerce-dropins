@@ -23,8 +23,10 @@ export default async function decorate(block) {
           const elem = document.createElement('div');
 
           authRenderer.render(SuccessNotification, {
-            headingText: `Welcome ${userName}!`,
-            messageText: 'Your password has been successfully updated.',
+            labels: {
+              headingText: `Welcome ${userName}!`,
+              messageText: 'Your password has been successfully updated.',
+            },
             slots: {
               SuccessNotificationActions: (innerCtx) => {
                 const primaryBtn = document.createElement('div');
