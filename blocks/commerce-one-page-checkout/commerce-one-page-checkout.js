@@ -37,6 +37,80 @@ import { render as authProvider } from '@dropins/storefront-auth/render.js';
 // import { getUserTokenCookie } from '../../scripts/dropins.js';
 import { createModal } from '../modal/modal.js';
 
+const root = document.createElement('div');
+
+root.classList.add('checkout__content');
+
+const heading = document.createElement('h1');
+const main = document.createElement('div');
+const aside = document.createElement('div');
+const placeOrder = document.createElement('div');
+
+heading.classList.add('checkout__heading');
+heading.textContent = 'One Page Checkout';
+main.classList.add('checkout__main');
+aside.classList.add('checkout__aside');
+placeOrder.classList.add('commerce-one-page-checkout__place-order');
+
+const login = document.createElement('div');
+const shippingForm = document.createElement('div');
+const billToShippingAddress = document.createElement('div');
+const billingForm = document.createElement('div');
+const shippingMethods = document.createElement('div');
+const paymentMethods = document.createElement('div');
+
+login.classList.add('commerce-one-page-checkout__login');
+shippingForm.classList.add('commerce-one-page-checkout__shipping-form');
+billToShippingAddress.classList.add(
+  'commerce-one-page-checkout__bill-to-shipping-address',
+);
+billingForm.classList.add('commerce-one-page-checkout__billing-form');
+shippingMethods.classList.add('commerce-one-page-checkout__shipping-methods');
+paymentMethods.classList.add('commerce-one-page-checkout__payment-methods');
+
+const orderSummary = document.createElement('div');
+const cartSummaryList = document.createElement('div');
+
+orderSummary.classList.add('commerce-one-page-checkout__order-summary');
+cartSummaryList.classList.add('cart-summary-list');
+
+function renderMobileLayout(block) {
+  root.appendChild(heading);
+  root.appendChild(cartSummaryList);
+  root.appendChild(login);
+  root.appendChild(shippingForm);
+  root.appendChild(billToShippingAddress);
+  root.appendChild(billingForm);
+  root.appendChild(shippingMethods);
+  root.appendChild(paymentMethods);
+  root.appendChild(orderSummary);
+  root.appendChild(placeOrder);
+
+  main.remove();
+  aside.remove();
+
+  block.appendChild(root);
+}
+
+function renderDesktopLayout(block) {
+  main.appendChild(login);
+  main.appendChild(shippingForm);
+  main.appendChild(billToShippingAddress);
+  main.appendChild(billingForm);
+  main.appendChild(shippingMethods);
+  main.appendChild(paymentMethods);
+
+  aside.appendChild(orderSummary);
+  aside.appendChild(cartSummaryList);
+
+  root.appendChild(heading);
+  root.appendChild(main);
+  root.appendChild(aside);
+  root.appendChild(placeOrder);
+
+  block.appendChild(root);
+}
+
 export default async function decorate(block) {
   let modal = null;
 
@@ -53,78 +127,6 @@ export default async function decorate(block) {
     },
     { eager: true },
   );
-
-  const root = document.createElement('div');
-  root.classList.add('checkout__content');
-
-  const main = document.createElement('div');
-  main.classList.add('checkout__main');
-
-  const aside = document.createElement('div');
-  aside.classList.add('checkout__aside');
-
-  // heading
-
-  const heading = document.createElement('h1');
-  heading.classList.add('checkout__heading');
-  heading.textContent = 'One Page Checkout';
-
-  root.appendChild(heading);
-
-  // main
-
-  const login = document.createElement('div');
-  login.classList.add('commerce-one-page-checkout__login');
-
-  const shippingForm = document.createElement('div');
-  shippingForm.classList.add('commerce-one-page-checkout__shipping-form');
-
-  const billToShippingAddress = document.createElement('div');
-  billToShippingAddress.classList.add(
-    'commerce-one-page-checkout__bill-to-shipping-address',
-  );
-
-  const billingForm = document.createElement('div');
-  billingForm.classList.add('commerce-one-page-checkout__billing-form');
-
-  const shippingMethods = document.createElement('div');
-  shippingMethods.classList.add(
-    'commerce-one-page-checkout__shipping-methods',
-  );
-
-  const paymentMethods = document.createElement('div');
-  paymentMethods.classList.add('commerce-one-page-checkout__payment-methods');
-
-  main.appendChild(login);
-  main.appendChild(shippingForm);
-  main.appendChild(billToShippingAddress);
-  main.appendChild(billingForm);
-  main.appendChild(shippingMethods);
-  main.appendChild(paymentMethods);
-
-  root.appendChild(main);
-
-  // aside
-
-  const orderSummary = document.createElement('div');
-  orderSummary.classList.add('commerce-one-page-checkout__order-summary');
-
-  const cartSummaryList = document.createElement('div');
-  cartSummaryList.classList.add('cart-summary-list');
-
-  aside.appendChild(orderSummary);
-  aside.appendChild(cartSummaryList);
-
-  root.appendChild(aside);
-
-  // root
-
-  const placeOrder = document.createElement('div');
-  placeOrder.classList.add('commerce-one-page-checkout__place-order');
-
-  root.appendChild(placeOrder);
-
-  block.appendChild(root);
 
   // render containers
 
@@ -150,7 +152,6 @@ export default async function decorate(block) {
   checkoutProvider.render(BillingForm)(billingForm);
   checkoutProvider.render(ShippingMethods)(shippingMethods);
   checkoutProvider.render(PaymentMethods)(paymentMethods);
-
   cartProvider.render(OrderSummary, {
     slots: {
       EstimateShipping: (esCtx) => {
@@ -162,146 +163,21 @@ export default async function decorate(block) {
       },
     },
   })(orderSummary);
-
   cartProvider.render(CartSummaryList)(cartSummaryList);
-
   checkoutProvider.render(PlaceOrder)(placeOrder);
 
-  // Display order confirmation
-  // events.on('checkout/order', (orderData) => {
-  //   const token = getUserTokenCookie();
-  //   const orderRef = token ? orderData.number : orderData.token;
-  //   const encodedOrderRef = encodeURIComponent(orderRef);
+  // handle responsive layout
 
-  //   window.history.pushState(
-  //     {},
-  //     '',
-  //     `/order-confirmation?orderRef=${encodedOrderRef}`,
-  //   );
+  function handleScreenChange(e) {
+    if (e.matches) {
+      renderMobileLayout(block);
+    } else {
+      renderDesktopLayout(block);
+    }
+  }
 
-  //   checkoutProvider.unmount(block);
+  const mediaQuery = matchMedia('(max-width: 768px)');
+  mediaQuery.addEventListener('change', handleScreenChange);
 
-  //   initializers.register(orderConfirmationApi.initialize, {});
-
-  //   const onSignUpClick = async ({
-  //     inputsDefaultValueSet,
-  //     addressesData,
-  //   }) => {
-  //     const signUpForm = document.createElement('div');
-
-  //     authProvider.render(SignUp, {
-  //       routeSignIn: () => '/customer/login',
-  //       routeRedirectOnEmailConfirmationClose: () => '/customer/account',
-  //       inputsDefaultValueSet,
-  //       addressesData,
-  //     })(signUpForm);
-
-  //     modal = await createModal([signUpForm]);
-  //     modal.showModal();
-  //   };
-
-  //   orderConfirmationProvider.render(OrderConfirmation, {
-  //     orderRef,
-  //     orderData,
-  //     onSignUpClick,
-  //     routeHome: () => '/',
-  //     routeSupport: () => '/support',
-  //   })(block);
-  // });
-
-  // return checkoutProvider.render(Checkout, {
-  //   onSignInClick: async () => onSignInClick(),
-  //   onSignOutClick: () => {
-  //     authApi.revokeCustomerToken();
-  //   },
-  //   onCheckoutDataUpdate: () => {
-  //     cartApi.refreshCart().catch(console.error);
-  //   },
-  //   routeHome: () => '/',
-  //   routeCart: () => '/cart',
-  //   slots: {
-  //     OrderSummary: (ctx) => {
-  //       const orderSummary = document.createElement('div');
-
-  //       cartProvider.render(OrderSummary, {
-  //         slots: {
-  //           EstimateShipping: (esCtx) => {
-  //             const estimateShippingForm = document.createElement('div');
-
-  //             checkoutProvider.render(EstimateShipping)(
-  //               estimateShippingForm,
-  //             );
-
-  //             esCtx.appendChild(estimateShippingForm);
-  //           },
-  //         },
-  //       })(orderSummary);
-
-  //       ctx.appendChild(orderSummary);
-  //     },
-  //     CartSummaryList: (checkoutCtx) => {
-  //       const cartSummaryList = document.createElement('div');
-  //       cartSummaryList.classList.add('cart-summary-list');
-
-  //       cartProvider.render(CartSummaryList, {
-  //         slots: {
-  //           Heading: (headingCtx) => {
-  //             const { dictionary } = checkoutCtx;
-  //             const { title, editLink } = dictionary.Checkout.Slots.CartSummaryList
-  //               .Heading;
-
-  //             const cartSummaryListHeading = document.createElement('div');
-  //             cartSummaryListHeading.classList.add(
-  //               'cart-summary-list__heading',
-  //             );
-
-  //             const cartSummaryListHeadingText = document.createElement('div');
-  //             cartSummaryListHeadingText.classList.add(
-  //               'cart-summary-list__heading-text',
-  //             );
-
-  //             cartSummaryListHeadingText.innerText = title.replace('{count}', headingCtx.count);
-  //             const editCartLink = document.createElement('a');
-  //             editCartLink.classList.add(
-  //               'cart-summary-list__edit',
-  //             );
-  //             editCartLink.href = '/cart';
-  //             editCartLink.rel = 'noreferrer';
-  //             editCartLink.innerText = editLink;
-
-  //             cartSummaryListHeading.appendChild(
-  //               cartSummaryListHeadingText,
-  //             );
-  //             cartSummaryListHeading.appendChild(editCartLink);
-  //             headingCtx.appendChild(cartSummaryListHeading);
-
-  //             headingCtx.onChange((nextHeadingCtx) => {
-  //               cartSummaryListHeadingText.innerText = title.replace(
-  //                 '{count}',
-  //                 nextHeadingCtx.count,
-  //               );
-  //             });
-  //           },
-  //         },
-  //       })(cartSummaryList);
-
-  //       checkoutCtx.appendChild(cartSummaryList);
-  //     },
-  //     PaymentMethods: async (context) => {
-  //       context.addPaymentMethodHandler('checkmo', {
-  //         render: (ctx, element) => {
-  //           if (element) {
-  //             // clear the element first
-  //             element.innerHTML = '';
-  //           }
-
-  //           // Optionally, create and render some custom content here.
-  //           // const $content = document.createElement('div');
-  //           // $content.innerText = 'Custom Check / Money order handler';
-  //           // ctx.appendHTMLElement($content);
-  //         },
-  //       });
-  //     },
-  //   },
-  // })(block);
+  handleScreenChange(mediaQuery);
 }
