@@ -16,6 +16,11 @@
     letter-spacing: var(--type-headline-1-letter-spacing);
 }
 
+.commerce-one-page-checkout__merged-cart-banner {
+    display: grid;
+    grid-column: 1 / span 12;
+}
+
 .checkout__main {
     display: grid;
     grid-column: 1 / span 7;
@@ -26,6 +31,10 @@
     display: grid;
     grid-column: 9 / span 4;
     gap: var(--spacing-xbig);
+}
+
+.checkout-empty-cart {
+    display: block;
 }
 
 .commerce-one-page-checkout__place-order {

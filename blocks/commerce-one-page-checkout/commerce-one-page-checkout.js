@@ -21,6 +21,8 @@ import ShippingMethods from '@dropins/storefront-checkout/containers/ShippingMet
 import PaymentMethods from '@dropins/storefront-checkout/containers/PaymentMethods.js';
 import PlaceOrder from '@dropins/storefront-checkout/containers/PlaceOrder.js';
 import EstimateShipping from '@dropins/storefront-checkout/containers/EstimateShipping.js';
+import EmptyCart from '@dropins/storefront-checkout/containers/EmptyCart.js';
+import { MergedCartBanner } from '@dropins/storefront-checkout/containers/MergedCartBanner.js';
 import { render as checkoutProvider } from '@dropins/storefront-checkout/render.js';
 
 // Order Confirmation Dropin Modules
@@ -45,12 +47,16 @@ const heading = document.createElement('h1');
 const main = document.createElement('div');
 const aside = document.createElement('div');
 const placeOrder = document.createElement('div');
+const emptyCart = document.createElement('div');
+const mergedCartBanner = document.createElement('div');
 
 heading.classList.add('checkout__heading');
 heading.textContent = 'One Page Checkout';
 main.classList.add('checkout__main');
 aside.classList.add('checkout__aside');
 placeOrder.classList.add('commerce-one-page-checkout__place-order');
+emptyCart.classList.add('commerce-one-page-checkout__empty-cart');
+mergedCartBanner.classList.add('commerce-one-page-checkout__merged-cart-banner');
 
 const login = document.createElement('div');
 const shippingForm = document.createElement('div');
@@ -76,6 +82,7 @@ cartSummaryList.classList.add('cart-summary-list');
 
 function renderMobileLayout(block) {
   root.appendChild(heading);
+  root.appendChild(mergedCartBanner);
   root.appendChild(cartSummaryList);
   root.appendChild(login);
   root.appendChild(shippingForm);
@@ -104,6 +111,7 @@ function renderDesktopLayout(block) {
   aside.appendChild(cartSummaryList);
 
   root.appendChild(heading);
+  root.appendChild(mergedCartBanner);
   root.appendChild(main);
   root.appendChild(aside);
   root.appendChild(placeOrder);
@@ -114,7 +122,6 @@ function renderDesktopLayout(block) {
 export default async function decorate(block) {
   let modal = null;
 
-  // initialize dropin
   initializers.register(checkoutApi.initialize, {});
 
   events.on(
@@ -130,6 +137,8 @@ export default async function decorate(block) {
 
   // render containers
 
+  checkoutProvider.render(EmptyCart)(emptyCart);
+  checkoutProvider.render(MergedCartBanner)(mergedCartBanner);
   checkoutProvider.render(LoginForm, {
     onSignInClick: async (initialEmailValue) => {
       const signInForm = document.createElement('div');
@@ -180,4 +189,31 @@ export default async function decorate(block) {
   mediaQuery.addEventListener('change', handleScreenChange);
 
   handleScreenChange(mediaQuery);
+
+  let currentCheckoutData;
+  events.on(
+    'checkout/data',
+    (nextCheckoutData) => {
+      if (currentCheckoutData !== undefined) {
+        // sign out
+        if (!nextCheckoutData) {
+          root.classList.add('checkout-empty-cart');
+          root.replaceChildren(emptyCart);
+          mediaQuery.removeEventListener('change', handleScreenChange);
+          return;
+        }
+
+        // empty state
+        if (nextCheckoutData.isEmpty) {
+          root.classList.add('checkout-empty-cart');
+          root.replaceChildren(emptyCart);
+          mediaQuery.removeEventListener('change', handleScreenChange);
+          return;
+        }
+      }
+
+      currentCheckoutData = nextCheckoutData;
+    },
+    { eager: true },
+  );
 }
