@@ -4,6 +4,7 @@
 // Dropin Tools
 import { events } from '@dropins/tools/event-bus.js';
 import { initializers } from '@dropins/tools/initializer.js';
+import { ProgressSpinner } from '@dropins/tools/components.js';
 
 // Cart Dropin Modules
 // import * as cartApi from '@dropins/storefront-cart/api.js';
@@ -49,6 +50,7 @@ const aside = document.createElement('div');
 const placeOrder = document.createElement('div');
 const emptyCart = document.createElement('div');
 const mergedCartBanner = document.createElement('div');
+const overlaySpinner = document.createElement('div');
 
 heading.classList.add('checkout__heading');
 heading.textContent = 'One Page Checkout';
@@ -57,6 +59,7 @@ aside.classList.add('checkout__aside');
 placeOrder.classList.add('commerce-one-page-checkout__place-order');
 emptyCart.classList.add('commerce-one-page-checkout__empty-cart');
 mergedCartBanner.classList.add('commerce-one-page-checkout__merged-cart-banner');
+overlaySpinner.classList.add('commerce-one-page-checkout__overlay-spinner');
 
 const login = document.createElement('div');
 const shippingForm = document.createElement('div');
@@ -92,6 +95,7 @@ function renderMobileLayout(block) {
   root.appendChild(paymentMethods);
   root.appendChild(orderSummary);
   root.appendChild(placeOrder);
+  root.appendChild(overlaySpinner);
 
   main.remove();
   aside.remove();
@@ -115,6 +119,7 @@ function renderDesktopLayout(block) {
   root.appendChild(main);
   root.appendChild(aside);
   root.appendChild(placeOrder);
+  root.appendChild(overlaySpinner);
 
   block.appendChild(root);
 }
@@ -131,12 +136,17 @@ export default async function decorate(block) {
         modal.removeModal();
         modal = null;
       }
+
+      if (isAuthenticated) {
+        overlaySpinner.classList.add('commerce-one-page-checkout__overlay-spinner--shown');
+      }
     },
     { eager: true },
   );
 
   // render containers
 
+  checkoutProvider.render(ProgressSpinner)(overlaySpinner);
   checkoutProvider.render(EmptyCart)(emptyCart);
   checkoutProvider.render(MergedCartBanner)(mergedCartBanner);
   checkoutProvider.render(LoginForm, {
@@ -144,7 +154,13 @@ export default async function decorate(block) {
       const signInForm = document.createElement('div');
 
       authProvider.render(AuthCombine, {
-        signInFormConfig: { renderSignUpLink: true, initialEmailValue },
+        signInFormConfig: {
+          renderSignUpLink: true,
+          initialEmailValue,
+          onSuccessCallback: () => {
+            overlaySpinner.classList.add('commerce-one-page-checkout__overlay-spinner--shown');
+          },
+        },
         signUpFormConfig: {},
         resetPasswordFormConfig: {},
       })(signInForm);
@@ -190,6 +206,8 @@ export default async function decorate(block) {
 
   handleScreenChange(mediaQuery);
 
+  // handle checkout data event
+
   let currentCheckoutData;
   events.on(
     'checkout/data',
@@ -213,6 +231,16 @@ export default async function decorate(block) {
       }
 
       currentCheckoutData = nextCheckoutData;
+    },
+    { eager: true },
+  );
+
+  events.on(
+    'checkout/customer',
+    (nextCustomerData) => {
+      if (nextCustomerData) {
+        overlaySpinner.classList.remove('commerce-one-page-checkout__overlay-spinner--shown');
+      }
     },
     { eager: true },
   );
