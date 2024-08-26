@@ -287,6 +287,11 @@ export default async function decorate(block) {
                       inlineAlert.remove();
                     },
                   })(alertWrapper);
+                  // Scroll the alertWrapper into view
+                  alertWrapper.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                  });
                 } finally {
                   state.set('adding', false);
                 }
