@@ -1,2 +1,2 @@
-export declare const removeCustomerAddress: (id: number) => Promise<boolean>;
+export declare const removeCustomerAddress: (addressId: number) => Promise<boolean>;
 //# sourceMappingURL=removeCustomerAddress.d.ts.map

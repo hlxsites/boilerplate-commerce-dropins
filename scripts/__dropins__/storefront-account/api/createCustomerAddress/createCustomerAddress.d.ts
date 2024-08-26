@@ -1,4 +1,4 @@
-import { AddressForm } from '../../types';
+import { CustomerAddressesModel } from '../../data/models';
 
-export declare const createCustomerAddress: (address: AddressForm) => Promise<string>;
+export declare const createCustomerAddress: (address: CustomerAddressesModel) => Promise<string>;
 //# sourceMappingURL=createCustomerAddress.d.ts.map

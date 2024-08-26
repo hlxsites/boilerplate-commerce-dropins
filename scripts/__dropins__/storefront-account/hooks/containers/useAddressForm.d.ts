@@ -3,8 +3,8 @@ import { FieldsProps, useAddressFormProps } from '../../types';
 import { VNode } from 'preact';
 import { HTMLAttributes } from 'preact/compat';
 
-export declare const getFieldWithOptions: (address: AttributesFormModel, regionOptions: []) => any;
-export declare const useAddressForm: ({ addressFormId, billingCheckBoxValue, shippingCheckBoxValue, showShippingCheckBox, showBillingCheckBox, countryRegionOptions, inputsDefaultValueSet, closeForm, onSuccess, onError, }: useAddressFormProps) => {
+export declare const getFieldWithOptions: (address: AttributesFormModel, regionOptions: any[]) => any;
+export declare const useAddressForm: ({ addressFormId, billingCheckBoxValue, shippingCheckBoxValue, showShippingCheckBox, showBillingCheckBox, countryRegionOptions, inputsDefaultValueSet, onCloseBtnClick, onSuccess, onError, }: useAddressFormProps) => {
     inLineAlert: {
         text: string;
         type: 'success' | 'warning' | 'error';

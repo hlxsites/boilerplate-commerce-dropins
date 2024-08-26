@@ -20,23 +20,25 @@ export declare enum FieldEnumList {
     EMPTY = ""
 }
 export interface AttributesFormItemsProps {
-    code: string;
-    name: string;
-    id: string;
-    defaultValue: string | boolean | number;
-    entity_type: string;
-    className: string;
-    fieldType: FieldEnumList;
-    required: boolean;
-    is_unique: boolean;
-    label: string;
-    orderNumber: number;
-    options: {
+    code?: string;
+    name?: string;
+    id?: string;
+    required?: boolean;
+    label?: string;
+    options?: {
         is_default: boolean;
         label: string;
         value: string;
     }[];
-    is_hidden?: boolean;
+    entityType?: string;
+    className?: string;
+    defaultValue?: string | boolean | number;
+    fieldType?: FieldEnumList;
+    multilineCount?: number;
+    isUnique?: boolean;
+    orderNumber: number;
+    isHidden?: boolean;
+    customUpperCode: string;
 }
 export interface AttributesFormModel extends AttributesFormItemsProps {
 }

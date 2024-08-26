@@ -3,9 +3,9 @@ import { Lang } from '@dropins/tools/types/elsie/src/i18n';
 
 type ConfigProps = {
     langDefinitions?: Lang;
-    authHeaderConfig: {
-        header: string;
-        tokenPrefix: string;
+    authHeaderConfig?: {
+        header?: string;
+        tokenPrefix?: string;
     };
 };
 export declare const initialize: Initializer<ConfigProps>;

@@ -1,7 +1,8 @@
 import { CustomerAddressesModel } from '../../data/models';
-import { useAddressesProps } from '../../types';
+import { KeysSortOrderProps, useAddressesProps } from '../../types';
 
 export declare const useAddresses: ({ minifiedView, routeAddressesPage, onSuccess, }: useAddressesProps) => {
+    keysSortOrder: [] | KeysSortOrderProps[];
     submitLoading: boolean;
     isModalRendered: boolean;
     isFormRendered: boolean;
@@ -9,10 +10,10 @@ export declare const useAddresses: ({ minifiedView, routeAddressesPage, onSucces
     addNewAddress: boolean;
     addressesList: CustomerAddressesModel[];
     addressId: string;
-    renderForm: () => void;
-    renderModal: () => void;
+    handleRenderForm: () => void;
+    handleRenderModal: () => void;
     removeAddress: () => Promise<void>;
-    closeForm: () => void;
+    onCloseBtnClick: () => void;
     setEditingAddressId: (id: string) => void;
     closeNewAddressForm: () => void;
     redirectToAddressesRoute: () => void;

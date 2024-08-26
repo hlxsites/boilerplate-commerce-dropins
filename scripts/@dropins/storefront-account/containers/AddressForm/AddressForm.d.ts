@@ -1,5 +1,5 @@
-import { FunctionComponent } from 'preact';
+import { Container } from '@dropins/tools/types/elsie/src/lib';
 import { AddressFormProps } from '../../types';
 
-export declare const AddressForm: FunctionComponent<AddressFormProps>;
+export declare const AddressForm: Container<AddressFormProps>;
 //# sourceMappingURL=AddressForm.d.ts.map

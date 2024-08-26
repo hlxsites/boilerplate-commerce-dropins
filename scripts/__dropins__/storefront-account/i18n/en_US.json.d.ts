@@ -1,7 +1,8 @@
 declare const _default: {
     "Account": {
         "EmptyList": {
-            "emptyListMessage": "No data"
+            "emptyListMessage": "No saved addresses",
+            "emptyListOrders": "No orders"
         },
         "ContainersTitle": {
             "settingsAddressTitle": "Addresses"
