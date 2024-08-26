@@ -2,14 +2,22 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { events } from '@dropins/tools/event-bus.js';
 import { initializers } from '@dropins/tools/initializer.js';
-import { InLineAlert, Icon, provider as UI } from '@dropins/tools/components.js';
+import {
+  InLineAlert,
+  Icon,
+  provider as UI,
+} from '@dropins/tools/components.js';
 import * as productApi from '@dropins/storefront-pdp/api.js';
 import { render as productRenderer } from '@dropins/storefront-pdp/render.js';
 import { addProductsToCart } from '@dropins/storefront-cart/api.js';
 import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js';
 
 // Libs
-import { getProduct, getSkuFromUrl, setJsonLd } from '../../scripts/commerce.js';
+import {
+  getProduct,
+  getSkuFromUrl,
+  setJsonLd,
+} from '../../scripts/commerce.js';
 import { getConfigValue } from '../../scripts/configs.js';
 import { fetchPlaceholders } from '../../scripts/aem.js';
 
@@ -29,32 +37,50 @@ async function errorGettingProduct(code = 404) {
 
 async function setJsonLdProduct(product) {
   const {
-    name, inStock, description, sku, urlKey, price, priceRange, images, attributes,
+    name,
+    inStock,
+    description,
+    sku,
+    urlKey,
+    price,
+    priceRange,
+    images,
+    attributes,
   } = product;
   const amount = priceRange?.minimum?.final?.amount || price?.final?.amount;
   const brand = attributes.find((attr) => attr.name === 'brand');
 
-  setJsonLd({
-    '@context': 'http://schema.org',
-    '@type': 'Product',
-    name,
-    description,
-    image: images[0]?.url,
-    offers: [{
-      '@type': 'http://schema.org/Offer',
-      price: amount?.value,
-      priceCurrency: amount?.currency,
-      availability: inStock ? 'http://schema.org/InStock' : 'http://schema.org/OutOfStock',
-    }],
-    productID: sku,
-    brand: {
-      '@type': 'Brand',
-      name: brand?.value,
+  setJsonLd(
+    {
+      '@context': 'http://schema.org',
+      '@type': 'Product',
+      name,
+      description,
+      image: images[0]?.url,
+      offers: [
+        {
+          '@type': 'http://schema.org/Offer',
+          price: amount?.value,
+          priceCurrency: amount?.currency,
+          availability: inStock
+            ? 'http://schema.org/InStock'
+            : 'http://schema.org/OutOfStock',
+        },
+      ],
+      productID: sku,
+      brand: {
+        '@type': 'Brand',
+        name: brand?.value,
+      },
+      url: new URL(`/products/${urlKey}/${sku.toLowerCase()}`, window.location),
+      sku,
+      '@id': new URL(
+        `/products/${urlKey}/${sku.toLowerCase()}`,
+        window.location,
+      ),
     },
-    url: new URL(`/products/${urlKey}/${sku.toLowerCase()}`, window.location),
-    sku,
-    '@id': new URL(`/products/${urlKey}/${sku.toLowerCase()}`, window.location),
-  }, 'product');
+    'product',
+  );
 }
 
 function createMetaTag(property, content, type) {
@@ -86,7 +112,8 @@ function setMetaTags(product) {
   }
 
   const price = product.priceRange
-    ? product.priceRange.minimum.final.amount : product.price.final.amount;
+    ? product.priceRange.minimum.final.amount
+    : product.price.final.amount;
 
   createMetaTag('title', product.metaTitle, 'name');
   createMetaTag('description', product.metaDescription, 'name');
@@ -96,7 +123,9 @@ function setMetaTags(product) {
   createMetaTag('og:description', product.shortDescription, 'property');
   createMetaTag('og:title', product.metaTitle, 'property');
   createMetaTag('og:url', window.location.href, 'property');
-  const mainImage = product?.images?.filter((image) => image.roles.includes('thumbnail'))[0];
+  const mainImage = product?.images?.filter((image) =>
+    image.roles.includes('thumbnail'),
+  )[0];
   const metaImage = mainImage?.url || product?.images[0]?.url;
   createMetaTag('og:image', metaImage, 'property');
   createMetaTag('og:image:secure_url', metaImage, 'property');
@@ -114,7 +143,9 @@ export default async function decorate(block) {
   }
 
   const [product, placeholders] = await Promise.all([
-    window.getProductPromise, fetchPlaceholders()]);
+    window.getProductPromise,
+    fetchPlaceholders(),
+  ]);
 
   if (!product) {
     await errorGettingProduct();
@@ -186,15 +217,19 @@ export default async function decorate(block) {
     'x-api-key': await getConfigValue('commerce-x-api-key'),
   });
 
-  events.on('eds/lcp', () => {
-    if (!product) {
-      return;
-    }
+  events.on(
+    'eds/lcp',
+    () => {
+      if (!product) {
+        return;
+      }
 
-    setJsonLdProduct(product);
-    setMetaTags(product);
-    document.title = product.name;
-  }, { eager: true });
+      setJsonLdProduct(product);
+      setMetaTags(product);
+      document.title = product.name;
+    },
+    { eager: true },
+  );
 
   // Alert Message Wrapper
   const alertWrapper = document.createElement('div');
@@ -246,6 +281,8 @@ export default async function decorate(block) {
                     heading: 'Error',
                     description: error.message,
                     icon: Icon({ source: 'Warning' }),
+                    'aria-live': 'assertive',
+                    role: 'alert',
                     onDismiss: () => {
                       inlineAlert.remove();
                     },
