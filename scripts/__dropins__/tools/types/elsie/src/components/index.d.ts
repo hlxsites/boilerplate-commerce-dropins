@@ -28,7 +28,6 @@ export * from './Accordion';
 export * from './InLineAlert';
 export * from './Modal';
 export * from './CartItem';
-export * from './PriceSummary';
 export * from './CartList';
 export * from './PriceRange';
 export * from './Breadcrumbs';

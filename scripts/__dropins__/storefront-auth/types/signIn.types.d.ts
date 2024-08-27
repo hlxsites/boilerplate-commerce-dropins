@@ -12,6 +12,7 @@ export interface SignInProps {
     slots?: {
         SuccessNotification?: SlotProps<DefaultSlotContext>;
     };
+    labels?: Record<string, string>;
     formSize?: 'default' | 'small';
     renderSignUpLink?: boolean;
     initialEmailValue?: string;

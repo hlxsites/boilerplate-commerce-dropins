@@ -6,8 +6,10 @@ export interface SuccessNotificationProps {
     };
     formSize?: 'default' | 'small';
     className?: string;
-    headingText?: string;
-    messageText?: string;
+    labels?: {
+        headingText: string;
+        messageText: string;
+    };
 }
 export interface SuccessNotificationFormProps extends SuccessNotificationProps {
 }

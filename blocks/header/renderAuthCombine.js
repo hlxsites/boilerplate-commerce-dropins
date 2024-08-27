@@ -20,8 +20,10 @@ const signInFormConfig = {
       const elem = document.createElement('div');
 
       authRenderer.render(SuccessNotification, {
-        headingText: `Welcome ${userName}!`,
-        messageText: 'You have successfully logged in.',
+        labels: {
+          headingText: `Welcome ${userName}!`,
+          messageText: 'You have successfully logged in.',
+        },
         slots: {
           SuccessNotificationActions: (innerCtx) => {
             const primaryBtn = document.createElement('div');
@@ -69,8 +71,10 @@ const signUpFormConfig = {
       const elem = document.createElement('div');
 
       authRenderer.render(SuccessNotification, {
-        headingText: 'Your account has been successfully created!',
-        messageText: 'You can login using sign-in page now.',
+        labels: {
+          headingText: 'Your account has been successfully created!',
+          messageText: 'You can login using sign-in page now.',
+        },
         slots: {
           SuccessNotificationActions: (innerCtx) => {
             const primaryBtn = document.createElement('div');
