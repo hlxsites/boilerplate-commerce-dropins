@@ -87,7 +87,7 @@ export declare const mockDefaultAddress: {
         regionId: number;
     };
     telephone: string;
-    id: number;
+    id: string;
     vatId: string;
     postcode: string;
     street: string;
@@ -107,12 +107,13 @@ export declare const mockResponseAddressWithText: {
         region_id: number;
     };
     telephone: string;
-    id: number;
+    id: string;
     vat_id: string;
     postcode: string;
     street: string[];
     default_shipping: boolean;
     default_billing: boolean;
+    custom_attributesV2: never[];
 };
 export declare const mockResponseAddressEmpty: {
     firstname: string;
@@ -132,6 +133,7 @@ export declare const mockResponseAddressEmpty: {
     street: string[];
     default_shipping: boolean;
     default_billing: boolean;
+    custom_attributesV2: never[];
 };
 export declare const mockDefaultAddressEmpty: {
     firstname: string;

@@ -11,7 +11,7 @@ export interface UserAddressesProps {
     country_code: string;
     region: RegionProps;
     telephone: string;
-    id: string;
+    id?: string;
     vat_id: string;
     postcode: string;
     street: string | string[] | [];
