@@ -1,2 +1,4 @@
-export declare const fetchAddressFormFields: () => Promise<import('../../data/models/address-form-fields').AddressFormField[] | undefined>;
+import { AddressFormField } from '../../data/models';
+
+export declare const fetchAddressFormFields: () => Promise<AddressFormField[]>;
 //# sourceMappingURL=fetchAddressFormFields.d.ts.map
