@@ -5,14 +5,23 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    border: 1px solid black;
-    margin: 10px 0;
+    border: 1px solid #d6d6d6;
+    border-radius: 2px;
+    margin: 0 0 10px;
+    padding: 20px;
+}
+
+.commerce-account-sidebar-container__wrapper--selected {
+    border: 1px solid #3d3d3d;
+    background-color: #f5f5f5;
 }
 
 .commerce-account-sidebar-container__title {
     margin: 0;
+    font: var(--type-headline-2-default-font);
 }
 
 .commerce-account-sidebar-container__subtitle {
     margin: 0;
+    font: var(--type-body-2-default-font);
 }

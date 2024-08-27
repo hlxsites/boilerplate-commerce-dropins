@@ -1,7 +1,7 @@
 import { loadFragment } from '../fragment/fragment.js';
 
 export default async function decorate(block) {
-  const fragment = await loadFragment('/drafts/atw86530/test');
+  const fragment = await loadFragment('/customer/sidebar-fragment');
   const sidebarItemsConfig = fragment.querySelectorAll('.default-content-wrapper > ol > li');
 
   const sidebarItems = Array.from(sidebarItemsConfig).map((item) => {
@@ -16,6 +16,11 @@ export default async function decorate(block) {
 
     const wrapperEl = document.createElement('a');
     wrapperEl.classList.add('commerce-account-sidebar-container__wrapper');
+    wrapperEl.href = itemConfig.itemLink;
+
+    if (window.location.href.includes(itemConfig.itemLink)) {
+      wrapperEl.classList.add('commerce-account-sidebar-container__wrapper--selected')
+    }
 
     const titleEl = document.createElement('p');
     titleEl.classList.add('commerce-account-sidebar-container__title');
