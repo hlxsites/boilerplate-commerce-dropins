@@ -3,7 +3,7 @@
 import { render as accountRenderer } from '@dropins/storefront-account/render.js';
 import { OrdersList } from '../../scripts/__dropins__/storefront-account/containers/OrdersList.js';
 import { getCookie } from '../../scripts/configs.js';
-import { readBlockConfig } from "../../scripts/aem.js";
+import { readBlockConfig } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
   const isAuthenticated = !!getCookie('auth_dropin_user_token');
