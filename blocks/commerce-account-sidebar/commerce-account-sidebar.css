@@ -1,4 +1,4 @@
-.commerce-account-sidebar-wrapper .commerce-account-sidebar .commerce-account-sidebar__item {
+.commerce-account-sidebar-wrapper .commerce-account-sidebar .commerce-account-sidebar-item {
     display: flex;
     align-items: center;
     padding: var(--spacing-medium);
@@ -8,45 +8,45 @@
     text-decoration: none;
 }
 
-.commerce-account-sidebar-wrapper .commerce-account-sidebar .commerce-account-sidebar__item--active {
+.commerce-account-sidebar-wrapper .commerce-account-sidebar .commerce-account-sidebar-item-active {
     border-color: var(--color-neutral-800);
     background-color: var(--color-neutral-200);
 }
 
-.commerce-account-sidebar__item-icon {
+.commerce-account-sidebar-item-icon {
     flex: 0 0 auto;
     margin-right: var(--spacing-small);
 }
 
-.commerce-account-sidebar__item-icon > div {
+.commerce-account-sidebar-item-icon > div {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.commerce-account-sidebar__item-content {
+.commerce-account-sidebar-item-content {
     flex: 1 1 auto;
 }
 
-.commerce-account-sidebar__item-title {
+.commerce-account-sidebar-item-title {
     font: var(--type-button-1-font);
     margin: 0 0 var(--spacing-xxsmall);
     border: none;
     text-decoration: none;
 }
 
-.commerce-account-sidebar__item-subtitle {
+.commerce-account-sidebar-item-subtitle {
     font: var(--type-button-2-font);
     margin: 0;
     text-decoration: none;
 }
 
-.commerce-account-sidebar__item-arrow {
+.commerce-account-sidebar-item-arrow {
     flex: 0 0 auto;
     margin-left: var(--spacing-small);
 }
 
-.commerce-account-sidebar__item-arrow > div {
+.commerce-account-sidebar-item-arrow > div {
     display: flex;
     align-items: center;
     justify-content: center;
