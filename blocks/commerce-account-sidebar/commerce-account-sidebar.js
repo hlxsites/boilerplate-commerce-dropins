@@ -1,44 +1,75 @@
 import { loadFragment } from '../fragment/fragment.js';
+import { Icon } from "@dropins/tools/components.js";
+import { render as accountRenderer } from '@dropins/storefront-account/render.js';
 
 export default async function decorate(block) {
   const fragment = await loadFragment('/customer/sidebar-fragment');
   const sidebarItemsConfig = fragment.querySelectorAll('.default-content-wrapper > ol > li');
-
   const sidebarItems = Array.from(sidebarItemsConfig).map((item) => {
-    const itemParams = item.querySelectorAll('ol > li');
+    const itemParams = Array.from(item.querySelectorAll('ol > li'));
     const itemConfig = {
-      itemTitle: item.childNodes[0].textContent.trim(),
-      itemSubtitle: itemParams[0].innerText,
-      itemLink: itemParams[1].innerText,
-      itemIcon: itemParams[2].innerText,
+      itemTitle: item.childNodes[0]?.textContent.trim() || 'Default Title',
+      itemSubtitle: itemParams[0]?.innerText || '',
+      itemLink: itemParams[1]?.innerText || '#',
+      itemIcon: itemParams[2]?.innerText || 'Placeholder',
     };
-    itemConfig.isItemActive = window.location.href.includes(itemConfig.itemLink);
 
-    const wrapperEl = document.createElement('a');
-    wrapperEl.classList.add('commerce-account-sidebar-container__wrapper');
-    wrapperEl.href = itemConfig.itemLink;
+    const menuItemEl = document.createElement('a');
+    menuItemEl.classList.add('commerce-account-sidebar__item');
+    menuItemEl.href = itemConfig.itemLink;
 
-    if (window.location.href.includes(itemConfig.itemLink)) {
-      wrapperEl.classList.add('commerce-account-sidebar-container__wrapper--selected')
+    const isItemActive = window.location.href.includes(itemConfig.itemLink);
+    if (isItemActive) {
+      menuItemEl.classList.add('commerce-account-sidebar__item--active');
     }
 
-    const titleEl = document.createElement('p');
-    titleEl.classList.add('commerce-account-sidebar-container__title');
-    titleEl.innerText = itemConfig.itemTitle;
+    const iconEl = createMenuItemIcon(itemConfig.itemIcon);
+    const contentEl = createMenuItemContent(itemConfig.itemTitle, itemConfig.itemSubtitle);
+    const arrowEl = createMenuItemArrow();
 
-    const subtitleEl = document.createElement('p');
-    subtitleEl.classList.add('commerce-account-sidebar-container__subtitle');
-    subtitleEl.innerText = itemConfig.itemSubtitle;
+    menuItemEl.appendChild(iconEl);
+    menuItemEl.appendChild(contentEl);
+    menuItemEl.appendChild(arrowEl);
 
-    wrapperEl.appendChild(titleEl);
-    wrapperEl.appendChild(subtitleEl);
-
-    return wrapperEl;
+    return menuItemEl;
   });
 
   block.innerHTML = '';
-
   sidebarItems.forEach((el) => {
     block.appendChild(el);
   });
+}
+
+function createMenuItemIcon(iconSource) {
+  const iconEl = document.createElement('div');
+  iconEl.classList.add('commerce-account-sidebar__item-icon');
+  accountRenderer.render(Icon, { source: iconSource, size: 32 })(iconEl);
+  return iconEl;
+}
+
+function createMenuItemContent(title, subtitle) {
+  const contentEl = document.createElement('div');
+  contentEl.classList.add('commerce-account-sidebar__item-content');
+
+  const titleEl = document.createElement('p');
+  titleEl.classList.add('commerce-account-sidebar__item-title');
+  titleEl.innerText = title;
+
+  const subtitleEl = document.createElement('p');
+  subtitleEl.classList.add('commerce-account-sidebar__item-subtitle');
+  subtitleEl.innerText = subtitle;
+
+  contentEl.appendChild(titleEl);
+  contentEl.appendChild(subtitleEl);
+  return contentEl;
+}
+
+function createMenuItemArrow() {
+  const arrowEl = document.createElement('div');
+  arrowEl.classList.add('commerce-account-sidebar__item-arrow');
+  accountRenderer.render(Icon, {
+    source: 'ChevronRight',
+    size: 32
+  })(arrowEl);
+  return arrowEl;
 }
