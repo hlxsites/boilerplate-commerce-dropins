@@ -1,6 +1,6 @@
-import { loadFragment } from '../fragment/fragment.js';
-import { Icon } from "@dropins/tools/components.js";
+import { Icon } from '@dropins/tools/components.js';
 import { render as accountRenderer } from '@dropins/storefront-account/render.js';
+import { loadFragment } from '../fragment/fragment.js';
 
 export default async function decorate(block) {
   const fragment = await loadFragment('/customer/sidebar-fragment');
@@ -69,7 +69,7 @@ function createMenuItemArrow() {
   arrowEl.classList.add('commerce-account-sidebar__item-arrow');
   accountRenderer.render(Icon, {
     source: 'ChevronRight',
-    size: 32
+    size: 32,
   })(arrowEl);
   return arrowEl;
 }

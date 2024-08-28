@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
-import { OrdersList } from "../../scripts/__dropins__/storefront-account/containers/OrdersList.js";
 import { render as accountRenderer } from '@dropins/storefront-account/render.js';
+import { OrdersList } from '../../scripts/__dropins__/storefront-account/containers/OrdersList.js';
 import { getCookie } from '../../scripts/configs.js';
 import { readBlockConfig } from "../../scripts/aem.js";
 
