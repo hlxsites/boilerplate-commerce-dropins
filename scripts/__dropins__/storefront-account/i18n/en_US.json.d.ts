@@ -1,44 +1,76 @@
 declare const _default: {
   "Account": {
     "EmptyList": {
-      "emptyListMessage": "No saved addresses",
-      "emptyListOrders": "No orders"
-    },
-    "ContainersTitle": {
-      "settingsAddressTitle": "Addresses",
-      "settingsOrderListTitle": "Your orders"
-    },
-    "FormText": {
-      "requiredFieldError": "This is a required field."
-    },
-    "OrdersList": {
-      "viewAllOrders": "View all orders"
-    },
-    "OrdersListCard": {
-      "orderNumber": "Order number:",
-      "itemsLength": "items"
-    },
-    "Addresses": {
-      "cardAction": "Edit",
-      "viewAllAddressesButton": "View all addresses",
-      "newAddressesFormTitle": "Add a new address",
-      "editAddressesFormTitle": "Edit address",
-      "addressesCard": {
-        "actionRemove": "Remove",
-        "actionEdit": "Edit",
-        "cardLabelShipping": "Shipping",
-        "cardLabelBilling": "Billing"
+      "minifiedView": {
+        "Addresses": {
+          "message": "No saved addresses"
+        },
+        "OrdersList": {
+          "message": "No orders"
+        }
+      },
+      "fullSizeView": {
+        "Addresses": {
+          "message": "No saved addresses"
+        },
+        "OrdersList": {
+          "message": "No orders"
+        }
       }
     },
-    "AddressActions": {
-      "viewAllAddressesButton": "View all addresses",
-      "addNewAddressButton": "Add new address"
+    "OrdersList": {
+      "minifiedView": {
+        "containerTitle": "Recent orders",
+        "viewAllOrdersButton": "View all orders",
+        "OrdersListCard": {
+          "orderNumber": "Order number:",
+          "itemsAmount": "items"
+        }
+      },
+      "fullSizeView": {
+        "containerTitle": "Your orders",
+        "OrdersListCard": {
+          "orderNumber": "Order number:",
+          "itemsAmount": "items"
+        }
+      }
     },
-    "AddressModal": {
-      "title": "Remove address",
-      "description": "Are you sure you would like to remove this address?",
-      "actionCancel": "Cancel",
-      "actionSave": "Remove"
+    "Addresses": {
+      "minifiedView": {
+        "containerTitle": "Addresses",
+        "editAddressFormTitle": "Edit address",
+        "viewAllAddressesButton": "View address list",
+        "addressCard": {
+          "actionRemove": "Remove",
+          "actionEdit": "Edit",
+          "cardLabelShipping": "Shipping",
+          "cardLabelBilling": "Billing"
+        },
+        "removeAddressModal": {
+          "title": "Remove address",
+          "description": "Are you sure you would like to remove this address?",
+          "actionCancel": "Cancel",
+          "actionConfirm": "Remove"
+        }
+      },
+      "fullSizeView": {
+        "containerTitle": "Addresses",
+        "editAddressFormTitle": "Edit address",
+        "newAddressFormTitle": "Add address",
+        "addNewAddressButton": "Create new",
+        "addressCard": {
+          "actionRemove": "Remove",
+          "actionEdit": "Edit",
+          "cardLabelShipping": "Shipping",
+          "cardLabelBilling": "Billing"
+        },
+        "removeAddressModal": {
+          "title": "Remove address",
+          "description": "Are you sure you would like to remove this address?",
+          "actionCancel": "Cancel",
+          "actionConfirm": "Remove"
+        }
+      }
     },
     "AddressForm": {
       "formText": {
@@ -47,6 +79,9 @@ declare const _default: {
         "defaultShippingLabel": "Set as default shipping address",
         "defaultBillingLabel": "Set as default billing address"
       }
+    },
+    "FormText": {
+      "requiredFieldError": "This is a required field."
     }
   }
 };

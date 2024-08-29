@@ -11,18 +11,22 @@ export interface OrdersListCardContext {
 }
 export interface OrdersListProps extends HTMLAttributes<HTMLDivElement> {
     minifiedView?: boolean;
+    withHeader?: boolean;
     withThumbnails?: boolean;
     slots?: {
         OrdersListAction?: SlotProps<OrdersListActionContext>;
         OrdersListCard?: SlotProps<OrdersListCardContext>;
     };
     routeOrdersList?: () => string;
+    routeOrderDetails?: () => string;
     withFilter?: boolean;
-    redirectButtonText?: string;
     ordersInMinifiedView?: 1 | 2 | 3;
     pageSize: number;
 }
+export interface OrdersListWrapperProps extends OrdersListProps {
+}
 export interface OrdersListCardProps extends HTMLAttributes<HTMLDivElement> {
+    minifiedView: boolean;
     item: OrderDetails;
     withThumbnails: boolean;
     slots?: {
@@ -30,11 +34,12 @@ export interface OrdersListCardProps extends HTMLAttributes<HTMLDivElement> {
     };
 }
 export interface OrdersListActionProps {
-    minifiedView?: boolean;
-    routeOrdersList?: () => string;
+    minifiedView: boolean;
+    orderId?: string;
+    orderToken?: string;
     onSelectId?: (id: string) => void;
-    selectedId?: string;
-    redirectButtonText?: string;
+    routeOrdersList?: () => string;
+    routeOrderDetails?: (orderId?: string, orderToken?: string) => string;
 }
 export interface useOrdersListProps {
     minifiedView?: boolean;

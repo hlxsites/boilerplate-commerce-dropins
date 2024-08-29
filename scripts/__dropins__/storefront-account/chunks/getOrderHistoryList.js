@@ -1,4 +1,4 @@
-import{c as o,f as l,h as u,a as m}from"./convertCase.js";import{t as i}from"./transform-customer-address.js";const _=e=>{const t=new Date(e),r=String(t.getDate()).padStart(2,"0"),n=String(t.getMonth()+1).padStart(2,"0"),a=t.getFullYear();return`${r}/${n}/${a}`},g=e=>{var a,c;if(!((c=(a=e.data)==null?void 0:a.customer)!=null&&c.orders))return null;const{items:t,page_info:r,total_count:n}=e.data.customer.orders;return{items:t.map(s=>{const d={...s,order_date:_(s.order_date),shipping_address:i(s.shipping_address),billing_address:i(s.billing_address)};return o(d,"camelCase",{})}),pageInfo:o(r,"camelCase",{}),totalCount:o(n,"camelCase",{})}},p=`
+import{c as n,f as l,h as u,a as m}from"./convertCase.js";import{t as c}from"./transform-customer-address.js";const _=(e,t="en-US",r={})=>{const s={...{day:"2-digit",month:"2-digit",year:"numeric"},...r},a=new Date(e);return isNaN(a.getTime())?"Invalid Date":new Intl.DateTimeFormat(t,s).format(a)},g=e=>{var s,a;if(!((a=(s=e.data)==null?void 0:s.customer)!=null&&a.orders))return null;const{items:t,page_info:r,total_count:i}=e.data.customer.orders;return{items:t.map(o=>{const d={...o,order_date:_(o.order_date),shipping_address:c(o.shipping_address),billing_address:c(o.billing_address)};return n(d,"camelCase",{})}),pageInfo:n(r,"camelCase",{}),totalCount:n(i,"camelCase",{})}},p=`
   query GET_CUSTOMER_ORDERS_LIST($pageSize: Int) {
   customer {
     orders(pageSize: $pageSize) {
@@ -9,6 +9,7 @@ import{c as o,f as l,h as u,a as m}from"./convertCase.js";import{t as i}from"./t
       }
       total_count
       items {
+        token
         email
         shipping_method
         shipping_address {
@@ -86,4 +87,4 @@ import{c as o,f as l,h as u,a as m}from"./convertCase.js";import{t as i}from"./t
     }
   }
 }
-`,f=async e=>await l(p,{method:"GET",cache:"no-cache",variables:{pageSize:e}}).then(t=>{var r;return(r=t.errors)!=null&&r.length?u(t.errors):g(t)}).catch(m);export{f as g};
+`,y=async e=>await l(p,{method:"GET",cache:"no-cache",variables:{pageSize:e}}).then(t=>{var r;return(r=t.errors)!=null&&r.length?u(t.errors):g(t)}).catch(m);export{y as g};

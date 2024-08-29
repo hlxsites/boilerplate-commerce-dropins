@@ -36,6 +36,7 @@ export interface TotalProps {
     discounts: DiscountProps[];
 }
 export interface OrderProps {
+    token: string;
     email: string;
     shipping_method: string;
     shipping_address: UserAddressesProps;

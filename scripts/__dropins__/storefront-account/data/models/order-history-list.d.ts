@@ -37,6 +37,7 @@ export type OrderTotals = {
     totalShipping: MoneyAmount;
 };
 export type OrderDetails = {
+    token: string;
     billingAddress: CustomerAddressesModel;
     carrier: string;
     email: string;

@@ -6,11 +6,11 @@ export interface DefaultCheckBox extends Omit<FieldsProps, 'options'> {
 }
 export interface AddressesProps {
     className?: string;
+    withHeader?: boolean;
     minifiedView: boolean;
+    withActionsInMinifiedView?: boolean;
+    withActionsInFullSizeView?: boolean;
     inputsDefaultValueSet?: AttributesFormModel;
-    newAddressesFormTitle?: string;
-    editAddressesFormTitle?: string;
-    viewAllAddressesText?: string;
     addressesFormTitle?: string;
     showShippingCheckBox?: boolean;
     showBillingCheckBox?: boolean;
@@ -30,6 +30,7 @@ export interface KeysSortOrderProps {
     label?: string | null;
 }
 export interface AddressCardProps {
+    minifiedView: boolean;
     addressData: CustomerAddressesModel | undefined;
     keysSortOrder?: KeysSortOrderProps[];
     loading?: boolean;
@@ -44,6 +45,7 @@ export interface AddressActionsProps extends HTMLAttributes<HTMLButtonElement> {
     routeAddressesPage: () => void;
 }
 export interface AddressModalProps {
+    minifiedView: boolean;
     addressData?: CustomerAddressesModel;
     keysSortOrder?: KeysSortOrderProps[];
     open: boolean;

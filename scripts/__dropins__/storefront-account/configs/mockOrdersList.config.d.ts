@@ -8,6 +8,7 @@ export declare const mockOrdersListResponse: {
             };
             total_count: number;
             items: {
+                token: string;
                 email: string;
                 shipping_method: string;
                 shipping_address: {
