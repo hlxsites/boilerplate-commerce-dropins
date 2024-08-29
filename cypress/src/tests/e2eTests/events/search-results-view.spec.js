@@ -12,7 +12,7 @@ it('is sent on search bar view/render', () => {
   cy.waitForResource('commerce-events-collector.js')
     .then(() => {
       cy.window().its('adobeDataLayer').then((adobeDataLayer) => {
-        const targetEventIndex = adobeDataLayer.findIndex(event => event?.event === 'search-results-view')
+        const targetEventIndex = adobeDataLayer.findIndex(event => event?.event === 'search-results-view');
         const pageContextIndex = adobeDataLayer.findIndex(event => !!event?.pageContext);
         const searchResultsContextIndex = adobeDataLayer.findIndex(event => !!event?.searchResultsContext);
         const storefrontInstanceContextIndex = adobeDataLayer.findIndex(event => !!event?.storefrontInstanceContext);
@@ -42,7 +42,7 @@ it('is sent on search results page on view/render', () => {
   // has loaded, and thus the initial contexts are ready for processing.
   cy.waitForResource('commerce-events-collector.js').then(() => {
     cy.window().its('adobeDataLayer').then((adobeDataLayer) => {
-      const targetEventIndex = adobeDataLayer.findIndex(event => event?.event === 'search-results-view')
+      const targetEventIndex = adobeDataLayer.findIndex(event => event?.event === 'search-results-view');
       const pageContextIndex = adobeDataLayer.findIndex(event => !!event?.pageContext);
       const searchResultsContextIndex = adobeDataLayer.findIndex(event => !!event?.searchResultsContext);
       const storefrontInstanceContextIndex = adobeDataLayer.findIndex(event => !!event?.storefrontInstanceContext);
