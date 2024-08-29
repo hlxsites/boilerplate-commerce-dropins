@@ -17,6 +17,8 @@ export default async function decorate(block) {
   } else {
     await accountRenderer.render(Addresses, {
       minifiedView: minifiedViewConfig === 'true',
+      withActionsInMinifiedView: false,
+      withActionsInFullSizeView: true,
       routeAddressesPage: () => '/customer/address',
     })(block);
   }
