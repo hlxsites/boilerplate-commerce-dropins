@@ -19,9 +19,7 @@ export default async function decorate(block) {
       minifiedView: minifiedViewConfig === 'true',
       withThumbnails: true,
       routeOrdersList: () => '/customer/orders',
-      routeOrderDetails: (orderId, orderToken) => {
-        return `/customer/orders/${orderId}`;
-      },
+      routeOrderDetails: (orderId) => `/customer/orders/${orderId}`,
       slots: {
         // OrdersListCard: (ctx) => {
         //   console.log('OrdersListCard', ctx);
