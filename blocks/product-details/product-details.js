@@ -245,28 +245,6 @@ export default async function decorate(block) {
   const pdpWrapper = document.createElement("div");
   block.appendChild(pdpWrapper);
 
-  const chatBotWrapper = document.createElement("div");
-  chatBotWrapper.classList.add("chat-bot__wrapper");
-
-  const iframe = document.createElement("iframe");
-  iframe.height = "100%";
-  iframe.width = "100%";
-  iframe.style.border = "none";
-
-  shopYourVisionProvider.render(ChatBot, {
-    handleDismiss: () => {
-      chatBotWrapper.classList.remove("chat-bot--open");
-      chatBotWrapper.classList.add("chat-bot--close");
-    },
-    slots: {
-      ChatBox: (ctx) => {
-        ctx.replaceWith(iframe);
-      },
-    },
-  })(chatBotWrapper);
-
-  block.appendChild(chatBotWrapper);
-
   // Render Containers
   try {
     return await productRenderer.render(ProductDetails, {
@@ -284,29 +262,33 @@ export default async function decorate(block) {
       slots: {
         // Using the Title slot to get the product data from context since there is no event for the product data
         Title: (ctx) => {
-          console.log("Title:", ctx);
+          document.addEventListener("chat-bot-ready", function ({detail}) {
+            const chatBotIframe = detail.iframe;
+            
+            //console.log("Title:", ctx);
 
-          iframe.src =
-            "https://1244026-931oliveguineafowl-stage.adobeio-static.net/index.html#/";
+            chatBotIframe.src =
+              "https://1244026-931oliveguineafowl-stage.adobeio-static.net/index.html#/";
 
-          window.addEventListener("message", (event) => {
-            if (
-              event.origin !==
-              "https://1244026-931oliveguineafowl-stage.adobeio-static.net"
-            )
-              return;
+            window.addEventListener("message", (event) => {
+              if (
+                event.origin !==
+                "https://1244026-931oliveguineafowl-stage.adobeio-static.net"
+              )
+                return;
 
-            console.log("Message received from iframe:", event.data);
+              console.log("Message received from iframe:", event.data);
 
-            event.source.postMessage(
-              {
-                type: "context",
-                payload: {
-                  ...ctx.data,
+              event.source.postMessage(
+                {
+                  type: "context",
+                  payload: {
+                    ...ctx.data,
+                  },
                 },
-              },
-              event.origin
-            );
+                event.origin
+              );
+            });
           });
         },
         Actions: (ctx) => {
@@ -347,12 +329,13 @@ export default async function decorate(block) {
 
           ctx.appendButton(() => {
             return {
-              text: 'Ask a Question',
-              icon: 'User',
-              variant: 'secondary',
+              text: "Ask a Question",
+              icon: "User",
+              variant: "secondary",
               onClick: () => {
-                chatBotWrapper.classList.remove('chat-bot--close');
-                chatBotWrapper.classList.add('chat-bot--open');
+                const chatBotWrapper = document.querySelector("#chat-bot");
+                chatBotWrapper.classList.remove("chat-bot--close");
+                chatBotWrapper.classList.add("chat-bot--open");
               },
             };
           });
