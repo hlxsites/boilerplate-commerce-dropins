@@ -22,6 +22,6 @@ export interface CartSummaryListProps extends HTMLAttributes<HTMLDivElement> {
     enableUpdateItemQuantity?: boolean;
     onItemsErrorsChange?: (errors: Map<string, string>) => void;
 }
-export type SwitchableAttributes = 'name' | 'image' | 'configurations' | 'warning' | 'alert';
+export type SwitchableAttributes = 'name' | 'image' | 'configurations' | 'warning' | 'alert' | 'sku' | 'price' | 'quantity' | 'total' | 'totalDiscount' | 'totalExcludingTax';
 export declare const CartSummaryList: Container<CartSummaryListProps, CartModel | null>;
 //# sourceMappingURL=CartSummaryList.d.ts.map
