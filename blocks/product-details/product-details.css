@@ -4,3 +4,30 @@
 .product-details__alert {
   margin-bottom: var(--spacing-small);
 }
+
+.chat-bot__wrapper {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
+  height: 50%;
+  background-color: white;
+  z-index: 999;
+  box-sizing: border-box;
+  display: grid;
+  overflow-y: scroll;
+  padding: 0;
+  border: solid 2px #ccc;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1); /* Added left box shadow */
+  transform: translateX(100%); /* Start off-screen */
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.chat-bot__wrapper.chat-bot--open {
+  transform: translateX(0); /* Slide in */
+}
+
+.chat-bot__wrapper.chat-bot--close {
+  transform: translateX(100%); /* Slide out */
+}

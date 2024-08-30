@@ -1,17 +1,29 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
-import { events } from '@dropins/tools/event-bus.js';
-import { initializers } from '@dropins/tools/initializer.js';
-import { InLineAlert, Icon, provider as UI } from '@dropins/tools/components.js';
-import * as productApi from '@dropins/storefront-pdp/api.js';
-import { render as productRenderer } from '@dropins/storefront-pdp/render.js';
-import { addProductsToCart } from '@dropins/storefront-cart/api.js';
-import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js';
+import { events } from "@dropins/tools/event-bus.js";
+import { initializers } from "@dropins/tools/initializer.js";
+import {
+  InLineAlert,
+  Icon,
+  provider as UI,
+} from "@dropins/tools/components.js";
+import * as productApi from "@dropins/storefront-pdp/api.js";
+import { render as productRenderer } from "@dropins/storefront-pdp/render.js";
+import { addProductsToCart } from "@dropins/storefront-cart/api.js";
+import ProductDetails from "@dropins/storefront-pdp/containers/ProductDetails.js";
+
+import * as shopYourVision from "@dropins/shop-your-vision/api.js";
+import { render as shopYourVisionProvider } from "@dropins/shop-your-vision/render.js";
+import ChatBot from "@dropins/shop-your-vision/containers/ChatBot.js";
 
 // Libs
-import { getProduct, getSkuFromUrl, setJsonLd } from '../../scripts/commerce.js';
-import { getConfigValue } from '../../scripts/configs.js';
-import { fetchPlaceholders } from '../../scripts/aem.js';
+import {
+  getProduct,
+  getSkuFromUrl,
+  setJsonLd,
+} from "../../scripts/commerce.js";
+import { getConfigValue } from "../../scripts/configs.js";
+import { fetchPlaceholders } from "../../scripts/aem.js";
 
 // Error Handling (404)
 async function errorGettingProduct(code = 404) {
@@ -22,39 +34,57 @@ async function errorGettingProduct(code = 404) {
     throw new Error(`Error getting ${code} page`);
   });
   const parser = new DOMParser();
-  const doc = parser.parseFromString(htmlText, 'text/html');
+  const doc = parser.parseFromString(htmlText, "text/html");
   document.body.innerHTML = doc.body.innerHTML;
   document.head.innerHTML = doc.head.innerHTML;
 }
 
 async function setJsonLdProduct(product) {
   const {
-    name, inStock, description, sku, urlKey, price, priceRange, images, attributes,
+    name,
+    inStock,
+    description,
+    sku,
+    urlKey,
+    price,
+    priceRange,
+    images,
+    attributes,
   } = product;
   const amount = priceRange?.minimum?.final?.amount || price?.final?.amount;
-  const brand = attributes.find((attr) => attr.name === 'brand');
+  const brand = attributes.find((attr) => attr.name === "brand");
 
-  setJsonLd({
-    '@context': 'http://schema.org',
-    '@type': 'Product',
-    name,
-    description,
-    image: images[0]?.url,
-    offers: [{
-      '@type': 'http://schema.org/Offer',
-      price: amount?.value,
-      priceCurrency: amount?.currency,
-      availability: inStock ? 'http://schema.org/InStock' : 'http://schema.org/OutOfStock',
-    }],
-    productID: sku,
-    brand: {
-      '@type': 'Brand',
-      name: brand?.value,
+  setJsonLd(
+    {
+      "@context": "http://schema.org",
+      "@type": "Product",
+      name,
+      description,
+      image: images[0]?.url,
+      offers: [
+        {
+          "@type": "http://schema.org/Offer",
+          price: amount?.value,
+          priceCurrency: amount?.currency,
+          availability: inStock
+            ? "http://schema.org/InStock"
+            : "http://schema.org/OutOfStock",
+        },
+      ],
+      productID: sku,
+      brand: {
+        "@type": "Brand",
+        name: brand?.value,
+      },
+      url: new URL(`/products/${urlKey}/${sku.toLowerCase()}`, window.location),
+      sku,
+      "@id": new URL(
+        `/products/${urlKey}/${sku.toLowerCase()}`,
+        window.location
+      ),
     },
-    url: new URL(`/products/${urlKey}/${sku.toLowerCase()}`, window.location),
-    sku,
-    '@id': new URL(`/products/${urlKey}/${sku.toLowerCase()}`, window.location),
-  }, 'product');
+    "product"
+  );
 }
 
 function createMetaTag(property, content, type) {
@@ -68,15 +98,15 @@ function createMetaTag(property, content, type) {
       return;
     }
     meta.setAttribute(type, property);
-    meta.setAttribute('content', content);
+    meta.setAttribute("content", content);
     return;
   }
   if (!content) {
     return;
   }
-  meta = document.createElement('meta');
+  meta = document.createElement("meta");
   meta.setAttribute(type, property);
-  meta.setAttribute('content', content);
+  meta.setAttribute("content", content);
   document.head.appendChild(meta);
 }
 
@@ -86,26 +116,29 @@ function setMetaTags(product) {
   }
 
   const price = product.priceRange
-    ? product.priceRange.minimum.final.amount : product.price.final.amount;
+    ? product.priceRange.minimum.final.amount
+    : product.price.final.amount;
 
-  createMetaTag('title', product.metaTitle, 'name');
-  createMetaTag('description', product.metaDescription, 'name');
-  createMetaTag('keywords', product.metaKeyword, 'name');
+  createMetaTag("title", product.metaTitle, "name");
+  createMetaTag("description", product.metaDescription, "name");
+  createMetaTag("keywords", product.metaKeyword, "name");
 
-  createMetaTag('og:type', 'og:product', 'property');
-  createMetaTag('og:description', product.shortDescription, 'property');
-  createMetaTag('og:title', product.metaTitle, 'property');
-  createMetaTag('og:url', window.location.href, 'property');
-  const mainImage = product?.images?.filter((image) => image.roles.includes('thumbnail'))[0];
+  createMetaTag("og:type", "og:product", "property");
+  createMetaTag("og:description", product.shortDescription, "property");
+  createMetaTag("og:title", product.metaTitle, "property");
+  createMetaTag("og:url", window.location.href, "property");
+  const mainImage = product?.images?.filter((image) =>
+    image.roles.includes("thumbnail")
+  )[0];
   const metaImage = mainImage?.url || product?.images[0]?.url;
-  createMetaTag('og:image', metaImage, 'property');
-  createMetaTag('og:image:secure_url', metaImage, 'property');
-  createMetaTag('og:product:price:amount', price.value, 'property');
-  createMetaTag('og:product:price:currency', price.currency, 'property');
+  createMetaTag("og:image", metaImage, "property");
+  createMetaTag("og:image:secure_url", metaImage, "property");
+  createMetaTag("og:product:price:amount", price.value, "property");
+  createMetaTag("og:product:price:currency", price.currency, "property");
 
-  createMetaTag('twitter:card', product.shortDescription, 'name');
-  createMetaTag('twitter:title', product.metaTitle, 'name');
-  createMetaTag('twitter:image', metaImage, 'name');
+  createMetaTag("twitter:card", product.shortDescription, "name");
+  createMetaTag("twitter:title", product.metaTitle, "name");
+  createMetaTag("twitter:image", metaImage, "name");
 }
 
 export default async function decorate(block) {
@@ -114,7 +147,9 @@ export default async function decorate(block) {
   }
 
   const [product, placeholders] = await Promise.all([
-    window.getProductPromise, fetchPlaceholders()]);
+    window.getProductPromise,
+    fetchPlaceholders(),
+  ]);
 
   if (!product) {
     await errorGettingProduct();
@@ -173,69 +208,122 @@ export default async function decorate(block) {
   });
 
   // Set Fetch Endpoint (Service)
-  productApi.setEndpoint(await getConfigValue('commerce-endpoint'));
+  productApi.setEndpoint(await getConfigValue("commerce-endpoint"));
 
   // Set Fetch Headers (Service)
   productApi.setFetchGraphQlHeaders({
-    'Content-Type': 'application/json',
-    'Magento-Environment-Id': await getConfigValue('commerce-environment-id'),
-    'Magento-Website-Code': await getConfigValue('commerce-website-code'),
-    'Magento-Store-View-Code': await getConfigValue('commerce-store-view-code'),
-    'Magento-Store-Code': await getConfigValue('commerce-store-code'),
-    'Magento-Customer-Group': await getConfigValue('commerce-customer-group'),
-    'x-api-key': await getConfigValue('commerce-x-api-key'),
+    "Content-Type": "application/json",
+    "Magento-Environment-Id": await getConfigValue("commerce-environment-id"),
+    "Magento-Website-Code": await getConfigValue("commerce-website-code"),
+    "Magento-Store-View-Code": await getConfigValue("commerce-store-view-code"),
+    "Magento-Store-Code": await getConfigValue("commerce-store-code"),
+    "Magento-Customer-Group": await getConfigValue("commerce-customer-group"),
+    "x-api-key": await getConfigValue("commerce-x-api-key"),
   });
 
-  events.on('eds/lcp', () => {
-    if (!product) {
-      return;
-    }
+  events.on(
+    "eds/lcp",
+    () => {
+      if (!product) {
+        return;
+      }
 
-    setJsonLdProduct(product);
-    setMetaTags(product);
-    document.title = product.name;
-  }, { eager: true });
+      setJsonLdProduct(product);
+      setMetaTags(product);
+      document.title = product.name;
+    },
+    { eager: true }
+  );
 
   // Alert Message Wrapper
-  const alertWrapper = document.createElement('div');
-  alertWrapper.classList.add('product-details__alert');
+  const alertWrapper = document.createElement("div");
+  alertWrapper.classList.add("product-details__alert");
   block.appendChild(alertWrapper);
   let inlineAlert;
 
   // PDP Wrapper
-  const pdpWrapper = document.createElement('div');
+  const pdpWrapper = document.createElement("div");
   block.appendChild(pdpWrapper);
+
+  const chatBotWrapper = document.createElement("div");
+  chatBotWrapper.classList.add("chat-bot__wrapper");
+
+  const iframe = document.createElement("iframe");
+  iframe.height = "100%";
+  iframe.width = "100%";
+  iframe.style.border = "none";
+
+  shopYourVisionProvider.render(ChatBot, {
+    handleDismiss: () => {
+      chatBotWrapper.classList.remove("chat-bot--open");
+      chatBotWrapper.classList.add("chat-bot--close");
+    },
+    slots: {
+      ChatBox: (ctx) => {
+        ctx.replaceWith(iframe);
+      },
+    },
+  })(chatBotWrapper);
+
+  block.appendChild(chatBotWrapper);
 
   // Render Containers
   try {
     return await productRenderer.render(ProductDetails, {
       sku: getSkuFromUrl(),
       carousel: {
-        controls: 'thumbnailsColumn',
+        controls: "thumbnailsColumn",
         arrowsOnMainImage: true,
         mobile: true,
         peak: {
           mobile: true,
           desktop: false,
         },
-        gap: 'small',
+        gap: "small",
       },
       slots: {
+        // Using the Title slot to get the product data from context since there is no event for the product data
+        Title: (ctx) => {
+          console.log("Title:", ctx);
+
+          iframe.src =
+            "https://1244026-931oliveguineafowl-stage.adobeio-static.net/index.html#/";
+
+          window.addEventListener("message", (event) => {
+            if (
+              event.origin !==
+              "https://1244026-931oliveguineafowl-stage.adobeio-static.net"
+            )
+              return;
+
+            console.log("Message received from iframe:", event.data);
+
+            event.source.postMessage(
+              {
+                type: "context",
+                payload: {
+                  ...ctx.data,
+                },
+              },
+              event.origin
+            );
+          });
+        },
         Actions: (ctx) => {
           // Add to Cart Button
           ctx.appendButton((next, state) => {
-            const adding = state.get('adding');
+            const adding = state.get("adding");
 
             return {
               text: adding
                 ? next.dictionary.Custom.AddingToCart?.label
                 : next.dictionary.PDP.Product.AddToCart?.label,
-              icon: 'Cart',
-              variant: 'primary',
+              icon: "Cart",
+              variant: "primary",
               disabled: adding || !next.data.inStock || !next.valid,
               onClick: async () => {
                 try {
-                  state.set('adding', true);
+                  state.set("adding", true);
 
                   await addProductsToCart([{ ...next.values }]);
                   // reset any previous alerts if successful
@@ -243,16 +331,28 @@ export default async function decorate(block) {
                 } catch (error) {
                   // add alert message
                   inlineAlert = await UI.render(InLineAlert, {
-                    heading: 'Error',
+                    heading: "Error",
                     description: error.message,
-                    icon: Icon({ source: 'Warning' }),
+                    icon: Icon({ source: "Warning" }),
                     onDismiss: () => {
                       inlineAlert.remove();
                     },
                   })(alertWrapper);
                 } finally {
-                  state.set('adding', false);
+                  state.set("adding", false);
                 }
+              },
+            };
+          });
+
+          ctx.appendButton(() => {
+            return {
+              text: 'Ask a Question',
+              icon: 'User',
+              variant: 'secondary',
+              onClick: () => {
+                chatBotWrapper.classList.remove('chat-bot--close');
+                chatBotWrapper.classList.add('chat-bot--open');
               },
             };
           });
