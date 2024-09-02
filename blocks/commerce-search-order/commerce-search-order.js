@@ -6,29 +6,28 @@ import { render as authRenderer } from '@dropins/storefront-auth/render.js';
 import { render as orderRenderer } from '@dropins/storefront-order/render.js';
 import * as orderApi from '@dropins/storefront-order/api.js';
 import * as authApi from '@dropins/storefront-auth/api.js';
-import { getCookie } from '../../scripts/configs.js';
-import { events } from "@dropins/tools/event-bus.js";
+import { events } from '@dropins/tools/event-bus.js';
 import { initializers } from '@dropins/tools/initializer.js';
+import { getCookie } from '../../scripts/configs.js';
 
 const checkIsOrderBelongsToCustomer = async (orderEmail) => {
   const customerData = await authApi.getCustomerData();
   return customerData.email === orderEmail;
-}
+};
 
 // TODO
 const renderOrderDetails = (orderData, block) => {
   const indentedOrderData = JSON.stringify(orderData, null, 4);
-  block.innerHTML = `<pre>${indentedOrderData}</pre>`
-}
+  block.innerHTML = `<pre>${indentedOrderData}</pre>`;
+};
 
 const setTokenInUrl = (token) => {
-  let currentUrl = new URL(window.location.href);
+  const currentUrl = new URL(window.location.href);
   currentUrl.searchParams.set('token', token);
   window.history.pushState({}, '', currentUrl);
-}
+};
 
-const renderSignIn = async (element, email, orderId) => {
-  return await authRenderer.render(SignIn, {
+const renderSignIn = async (element, email, orderId) => await authRenderer.render(SignIn, {
     initialEmailValue: email,
     renderSignUpLink: false,
     labels: {
@@ -38,11 +37,10 @@ const renderSignIn = async (element, email, orderId) => {
     routeForgotPassword: () => 'reset-password.html',
     routeRedirectOnSignIn: () => `/customer/orders?id=${orderId}`,
   })(element);
-};
 
 export default async function decorate(block) {
-  let currentUrl = new URL(window.location.href);
-  let orderToken = currentUrl.searchParams.get('token');
+  const currentUrl = new URL(window.location.href);
+  const orderToken = currentUrl.searchParams.get('token');
 
   events.on('order/data', async (orderData) => {
     const isAuthenticated = !!getCookie('auth_dropin_user_token');
@@ -63,13 +61,13 @@ export default async function decorate(block) {
 
   if (orderToken) {
     // If error occurs during initialisation (e.g.: incorrect token) - redirect to /orderstatus
-    events.on('order/error', (data) => {
+    events.on('order/error', () => {
       window.location.href = '/orderstatus';
     });
 
     // Initialize order data if token provided
     initializers.register(orderApi.initialize, {
-      orderToken
+      orderToken,
     });
   } else {
     await orderRenderer.render(OrderSearch, {
