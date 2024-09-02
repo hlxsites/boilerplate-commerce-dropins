@@ -27,7 +27,7 @@ const setTokenInUrl = (token) => {
   window.history.pushState({}, '', currentUrl);
 };
 
-const renderSignIn = async (element, email, orderId) => await authRenderer.render(SignIn, {
+const renderSignIn = async (element, email, orderId) => authRenderer.render(SignIn, {
   initialEmailValue: email,
   renderSignUpLink: false,
   labels: {
