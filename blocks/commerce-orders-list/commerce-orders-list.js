@@ -19,24 +19,29 @@ export default async function decorate(block) {
     window.location.href = '/customer/login';
   } else {
     const currentUrl = new URL(window.location.href);
-    const orderIdUrlParam = currentUrl.searchParams.get('id');
+    const orderNumberUrlParam = currentUrl.searchParams.get('orderNumber');
 
-    if (orderIdUrlParam) {
+    if (orderNumberUrlParam) {
       events.on('order/data', (orderData) => {
-        const indentedOrderData = JSON.stringify(orderData, null, 4);
-        block.innerHTML = `<pre>${indentedOrderData}</pre>`;
+        if (!orderData) {
+          window.location.href = '/customer/orders';
+        } else {
+          // TODO
+          const indentedOrderData = JSON.stringify(orderData, null, 4);
+          block.innerHTML = `<pre>${indentedOrderData}</pre>`;
+        }
       });
 
       // Initialize order data if token provided
       initializers.register(orderApi.initialize, {
-        orderIdUrlParam,
+        orderId: orderNumberUrlParam,
       });
     } else {
       await accountRenderer.render(OrdersList, {
         minifiedView: minifiedViewConfig === 'true',
         withThumbnails: true,
         routeOrdersList: () => '/customer/orders',
-        routeOrderDetails: (orderId) => `/customer/orders?id=${orderId}`,
+        routeOrderDetails: (orderNumber) => `/customer/orders?orderNumber=${orderNumber}`,
         slots: {
           // OrdersListCard: (ctx) => {
           //   console.log('OrdersListCard', ctx);

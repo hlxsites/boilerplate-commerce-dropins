@@ -11,8 +11,12 @@ import { initializers } from '@dropins/tools/initializer.js';
 import { getCookie } from '../../scripts/configs.js';
 
 const checkIsOrderBelongsToCustomer = async (orderEmail) => {
-  const customerData = await authApi.getCustomerData();
-  return customerData.email === orderEmail;
+  try {
+    const customerData = await authApi.getCustomerData();
+    return customerData.email === orderEmail;
+  } catch {
+    return false;
+  }
 };
 
 // TODO
@@ -27,7 +31,7 @@ const setTokenInUrl = (token) => {
   window.history.pushState({}, '', currentUrl);
 };
 
-const renderSignIn = async (element, email, orderId) => authRenderer.render(SignIn, {
+const renderSignIn = async (element, email, orderNumber) => authRenderer.render(SignIn, {
   initialEmailValue: email,
   renderSignUpLink: false,
   labels: {
@@ -35,7 +39,7 @@ const renderSignIn = async (element, email, orderId) => authRenderer.render(Sign
     primaryButtonText: 'View order',
   },
   routeForgotPassword: () => 'reset-password.html',
-  routeRedirectOnSignIn: () => `/customer/orders?id=${orderId}`,
+  routeRedirectOnSignIn: () => `/customer/orders?orderNumber=${orderNumber}`,
 })(element);
 
 export default async function decorate(block) {
@@ -46,9 +50,9 @@ export default async function decorate(block) {
     const isAuthenticated = !!getCookie('auth_dropin_user_token');
 
     if (isAuthenticated) {
-      const isOrderBelongsToCustomer = checkIsOrderBelongsToCustomer(orderData.email);
+      const isOrderBelongsToCustomer = await checkIsOrderBelongsToCustomer(orderData.email);
       if (isOrderBelongsToCustomer) {
-        window.location.href = `/customer/orders?id=${orderData.id}`;
+        window.location.href = `/customer/orders?orderNumber=${orderData.number}`;
       } else {
         setTokenInUrl(orderData.token);
         renderOrderDetails(orderData, block);
@@ -80,9 +84,9 @@ export default async function decorate(block) {
           const isOrderBelongsToCustomer = await checkIsOrderBelongsToCustomer(email);
 
           if (isOrderBelongsToCustomer) {
-            window.location.href = `/customer/orders?id=${number}`;
+            window.location.href = `/customer/orders?orderNumber=${number}`;
           } else {
-            renderSignIn(block, email, number);
+            await renderSignIn(block, email, number);
           }
         }
       },
