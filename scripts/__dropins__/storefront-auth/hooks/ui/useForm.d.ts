@@ -7,5 +7,6 @@ export declare const useForm: ({ fieldsConfig, submitCallback }: useFormProps) =
     handleChange: (event: Event) => void;
     handleBlur: (event: Event) => void;
     handleSubmit: (event: SubmitEvent) => void;
+    handleFocus: () => Promise<void>;
 };
 //# sourceMappingURL=useForm.d.ts.map
