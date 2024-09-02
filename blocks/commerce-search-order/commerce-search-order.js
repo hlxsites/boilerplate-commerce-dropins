@@ -28,15 +28,15 @@ const setTokenInUrl = (token) => {
 };
 
 const renderSignIn = async (element, email, orderId) => await authRenderer.render(SignIn, {
-    initialEmailValue: email,
-    renderSignUpLink: false,
-    labels: {
-      formTitleText: 'Enter your password to view order details',
-      primaryButtonText: 'View order',
-    },
-    routeForgotPassword: () => 'reset-password.html',
-    routeRedirectOnSignIn: () => `/customer/orders?id=${orderId}`,
-  })(element);
+  initialEmailValue: email,
+  renderSignUpLink: false,
+  labels: {
+    formTitleText: 'Enter your password to view order details',
+    primaryButtonText: 'View order',
+  },
+  routeForgotPassword: () => 'reset-password.html',
+  routeRedirectOnSignIn: () => `/customer/orders?id=${orderId}`,
+})(element);
 
 export default async function decorate(block) {
   const currentUrl = new URL(window.location.href);

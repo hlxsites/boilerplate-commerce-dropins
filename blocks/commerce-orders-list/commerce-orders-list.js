@@ -29,7 +29,7 @@ export default async function decorate(block) {
 
       // Initialize order data if token provided
       initializers.register(orderApi.initialize, {
-        orderId,
+        orderIdUrlParam,
       });
     } else {
       await accountRenderer.render(OrdersList, {
