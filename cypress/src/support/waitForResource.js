@@ -1,7 +1,8 @@
 /**
  * Adds command "cy.waitForResource(name)" that checks performance entries
- * for resource that ends with the given name.
- * This command only applies to the tests in this spec file
+ * for resource that ends with the given name. Note that performance entries
+ * will exist for requests in flight, or not yet fully resolved/loaded.
+ * This command only applies to the tests in this spec file.
  *
  * @see https://developers.google.com/web/tools/chrome-devtools/network/understanding-resource-timing
  */
