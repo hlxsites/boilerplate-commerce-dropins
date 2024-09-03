@@ -19,18 +19,6 @@ const checkIsOrderBelongsToCustomer = async (orderEmail) => {
   }
 };
 
-// TODO
-const renderOrderDetails = (orderData, block) => {
-  const indentedOrderData = JSON.stringify(orderData, null, 4);
-  block.innerHTML = `<pre>${indentedOrderData}</pre>`;
-};
-
-const setTokenInUrl = (token) => {
-  const currentUrl = new URL(window.location.href);
-  currentUrl.searchParams.set('token', token);
-  window.history.pushState({}, '', currentUrl);
-};
-
 const renderSignIn = async (element, email, orderNumber) => authRenderer.render(SignIn, {
   initialEmailValue: email,
   renderSignUpLink: false,
@@ -39,7 +27,7 @@ const renderSignIn = async (element, email, orderNumber) => authRenderer.render(
     primaryButtonText: 'View order',
   },
   routeForgotPassword: () => 'reset-password.html',
-  routeRedirectOnSignIn: () => `/customer/orders?orderNumber=${orderNumber}`,
+  routeRedirectOnSignIn: () => `/customer/order?orderNumber=${orderNumber}`,
 })(element);
 
 export default async function decorate(block) {
@@ -51,15 +39,16 @@ export default async function decorate(block) {
 
     if (isAuthenticated) {
       const isOrderBelongsToCustomer = await checkIsOrderBelongsToCustomer(orderData.email);
+
       if (isOrderBelongsToCustomer) {
-        window.location.href = `/customer/orders?orderNumber=${orderData.number}`;
+        window.location.href = `/customer/order?orderNumber=${orderData.number}`;
       } else {
-        setTokenInUrl(orderData.token);
-        renderOrderDetails(orderData, block);
+        window.location.href = `/orderstatus/order?orderToken=${orderData.token}`;
       }
     } else {
-      setTokenInUrl(orderData.token);
-      renderOrderDetails(orderData, block);
+      console.log(orderData);
+
+      window.location.href = `/orderstatus/order?orderToken=${orderData.token}`;
     }
   });
 
@@ -84,10 +73,13 @@ export default async function decorate(block) {
           const isOrderBelongsToCustomer = await checkIsOrderBelongsToCustomer(email);
 
           if (isOrderBelongsToCustomer) {
-            window.location.href = `/customer/orders?orderNumber=${number}`;
+            window.location.href = `/customer/order?orderNumber=${number}`;
           } else {
             await renderSignIn(block, email, number);
           }
+
+          // Hide error message
+          return false;
         }
       },
     })(block);

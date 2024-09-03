@@ -4,7 +4,6 @@ import { OrderDetails } from '../data/models';
 
 export interface OrdersListActionContext {
     orderHistoryListItem: OrderDetails;
-    handleSelectId: (id: string) => void;
 }
 export interface OrdersListCardContext {
     orderHistoryListItem: OrderDetails;
@@ -35,11 +34,10 @@ export interface OrdersListCardProps extends HTMLAttributes<HTMLDivElement> {
 }
 export interface OrdersListActionProps {
     minifiedView: boolean;
-    orderId?: string;
+    orderNumber?: string;
     orderToken?: string;
-    onSelectId?: (id: string) => void;
     routeOrdersList?: () => string;
-    routeOrderDetails?: (orderId?: string, orderToken?: string) => string;
+    routeOrderDetails?: (orderNumber?: string, orderToken?: string) => string;
 }
 export interface useOrdersListProps {
     minifiedView?: boolean;

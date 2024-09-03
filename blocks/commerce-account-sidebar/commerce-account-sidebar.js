@@ -18,7 +18,11 @@ export default async function decorate(block) {
     menuItemEl.classList.add('commerce-account-sidebar-item');
     menuItemEl.href = itemConfig.itemLink;
 
-    const isItemActive = window.location.href.includes(itemConfig.itemLink);
+    const isItemActive = (
+      itemConfig.itemLink === '/customer/orders'
+        ? window.location.href.includes('/customer/order')
+        : window.location.href.includes(itemConfig.itemLink)
+    );
     if (isItemActive) {
       menuItemEl.classList.add('commerce-account-sidebar-item-active');
     }

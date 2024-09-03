@@ -1,4 +1,4 @@
-export type QueryType = 'orderData' | 'orderSummary' | 'orderStatus' | 'orderCustomerInformation';
+export type QueryType = 'orderData';
 export interface UserAddressesProps {
     city?: string;
     company?: string;
@@ -16,17 +16,23 @@ export interface UserAddressesProps {
     telephone?: string;
     vat_id?: string;
 }
-interface SmallImageProps {
+interface ThumbnailImageProps {
     url?: string;
+    label?: string;
 }
-interface ProductProps {
-    small_image?: SmallImageProps;
-}
-export interface OrderItemProps {
-    status?: string;
-    product_name?: string;
-    id?: string;
-    product?: ProductProps;
+export interface ProductProps {
+    thumbnail?: ThumbnailImageProps;
+    image: ThumbnailImageProps;
+    canonical_url: string;
+    uid: string;
+    name: string;
+    __typename: string;
+    sku: string;
+    price_range: {
+        maximum_price: {
+            regular_price: MoneyProps;
+        };
+    };
 }
 export interface MoneyProps {
     value?: number;
@@ -89,7 +95,14 @@ export interface GiftWrappingProps {
         };
     };
 }
-interface OrderItemInterface {
+export interface giftCardProps {
+    sender_name: string;
+    sender_email: string;
+    recipient_email: string;
+    recipient_name: string;
+}
+export interface OrderItemProps {
+    __typename: string;
     discounts: DiscountProps[];
     eligible_for_return: boolean;
     entered_options: {
@@ -116,8 +129,9 @@ interface OrderItemInterface {
         value: string;
     }[];
     status: string;
+    gift_card?: giftCardProps;
 }
-export interface paymentMethodsProps {
+export interface PaymentMethodsProps {
     name: string;
     type: string;
     additional_data: {
@@ -125,7 +139,31 @@ export interface paymentMethodsProps {
         value: string;
     }[];
 }
+export interface ShipmentsProps {
+    id: string;
+    number: string;
+    tracking: {
+        carrier: string;
+        number: string;
+        title: string;
+    }[];
+    comments: {
+        message: string;
+        timestamp: string;
+    }[];
+    items: {
+        id: string;
+        product_sku: string;
+        product_name: string;
+    };
+}
+export declare enum AvailableActionsProps {
+    CANCEL = "CANCEL",
+    RETURN = "RETURN",
+    REORDER = "REORDER"
+}
 export interface OrderProps {
+    available_actions: AvailableActionsProps;
     shipping_method: string;
     status: string;
     token: string;
@@ -139,29 +177,17 @@ export interface OrderProps {
     applied_coupons: {
         code: string;
     }[];
-    shipments: {
-        id: string;
-        number: string;
-        tracking: {
-            carrier: string;
-            number: string;
-            title: string;
-        }[];
-        comments: {
-            message: string;
-            timestamp: string;
-        }[];
-    }[];
     returns: {
         pageSize: number;
         currentPage: number;
     };
-    items_eligible_for_return: OrderItemInterface[];
+    shipments: ShipmentsProps[];
+    items_eligible_for_return: OrderItemProps[];
+    items: OrderItemProps[];
     gift_wrapping: GiftWrappingProps;
     gift_message: GiftMessageProps;
-    payment_methods: paymentMethodsProps[];
+    payment_methods: PaymentMethodsProps[];
     invoices: InvoiceProps[];
-    items: OrderItemProps[];
     shipping_address: UserAddressesProps;
     billing_address: UserAddressesProps;
     total?: TotalProps;

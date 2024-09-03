@@ -1,38 +1,106 @@
-import { DiscountProps, GiftMessageProps, GiftWrappingProps, MoneyProps, OrderItemProps, paymentMethodsProps, QueryType, TotalProps, UserAddressesProps } from '../../types';
+import { AvailableActionsProps, MoneyProps, QueryType } from '../../types';
 
-export interface OrderData {
-    giftWrapping: GiftWrappingProps;
-    giftMessage: GiftMessageProps;
-    defaultShipping: UserAddressesProps;
-    defaultBulling: UserAddressesProps;
-    paymentMethods: paymentMethodsProps[];
-    giftReceiptIncluded: boolean;
-    orderDate: string;
-    shippingMethod: string;
-    items: OrderItemProps[];
-    total: {
-        discount: DiscountProps[];
-        subtotal: MoneyProps;
-        totalTax: MoneyProps;
-        totalShipping: MoneyProps;
-        grandTotal: MoneyProps;
-    };
-}
-export interface OrderSummary {
-    orderSummary: TotalProps;
-}
-export interface OrderStatus {
-    carrier: string;
+export type OrderAddressModel = {
+    city: string;
+    company: string;
+    country: string;
+    firstName: string;
+    middleName: string;
+    lastName: string;
+    postCode: string;
+    region: string;
+    regionId: string;
+    street: string[];
+    telephone: string;
+    customAttributes: {
+        code: string;
+        value: string;
+    }[];
+} | null;
+export type OrderItemProductModel = {
+    canonicalUrl?: string;
     id: string;
-    items: any;
+    image?: string;
+    imageAlt?: string;
+    name: string;
+    productType: string;
+    sku: string;
+    thumbnail: {
+        url: string;
+        label: string;
+    };
+};
+export type OrderItemModel = {
+    type: string;
+    discounted: boolean;
+    id: string;
+    regularPrice: MoneyProps;
+    price: MoneyProps;
+    product: OrderItemProductModel;
+    selectedOptions?: Array<{
+        label: string;
+        value: any;
+    }>;
+    totalQuantity: number;
+    thumbnail: {
+        label: string;
+        url: string;
+    };
+    giftCard?: {
+        senderName: string;
+        senderEmail: string;
+        recipientEmail: string;
+        recipientName: string;
+    };
+};
+export type ShipmentItemsModel = {
+    id: string;
+    productSku: string;
+    productName: string;
+    orderItem: OrderItemModel;
+};
+export type ShipmentsTracingModel = {
+    carrier: string;
     number: string;
-    orderDate: string;
-    paymentMethods: any;
-    shippingMethod: string;
-}
-export interface OrderCustomerInformation {
-    defaultShipping: UserAddressesProps;
-    defaultBulling: UserAddressesProps;
-}
-export type TransformedData<T extends QueryType> = T extends 'orderData' ? OrderData : T extends 'orderSummary' ? OrderSummary : T extends 'orderStatus' ? OrderStatus : T extends 'orderCustomerInformation' ? OrderCustomerInformation : null;
+    title: string;
+};
+export type ShipmentsModel = {
+    id: string;
+    number: string;
+    tracking: ShipmentsTracingModel[];
+    comments: {
+        message: string;
+        timestamp: string;
+    }[];
+    items: ShipmentItemsModel[];
+};
+export type OrderDataModel = {
+    number: string;
+    email: string;
+    token?: string;
+    status: string;
+    isVirtual: boolean;
+    totalQuantity: number;
+    coupons: {
+        code: string;
+    }[];
+    payments: {
+        code: string;
+        name: string;
+    }[];
+    shipping?: {
+        code: string;
+        amount: number;
+        currency: string;
+    };
+    shipments: ShipmentsModel[];
+    items: OrderItemModel[];
+    grandTotal: MoneyProps;
+    subtotal: MoneyProps;
+    totalTax: MoneyProps;
+    shippingAddress: OrderAddressModel;
+    billingAddress: OrderAddressModel;
+    availableActions: AvailableActionsProps;
+};
+export type TransformedData<T extends QueryType> = T extends 'orderData' ? OrderDataModel : null;
 //# sourceMappingURL=order-details.d.ts.map

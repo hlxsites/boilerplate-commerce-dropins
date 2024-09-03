@@ -17,7 +17,7 @@ export interface OrderSearchProps {
     onError?: (errorInformation: errorInformationProps) => void;
 }
 export interface useOrderSearchProps {
-    onError?: (errorInformation: errorInformationProps) => void;
+    onError?: (errorInformation: errorInformationProps) => boolean | Promise<boolean> | undefined;
 }
 export interface OrderSearchFormProps extends Omit<OrderSearchProps, 'className' | 'onError'> {
     onSubmit?: (event: SubmitEvent, isValid: boolean) => Promise<void | null | undefined>;

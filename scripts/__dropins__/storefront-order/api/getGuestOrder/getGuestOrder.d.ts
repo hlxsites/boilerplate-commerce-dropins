@@ -1,8 +1,8 @@
-import { GuestOrderModelResponse } from '../../data/models';
+import { OrderDataModel } from '../../data/models';
 
 export declare const getGuestOrder: (form: {
     number: string;
     email: string;
     postcode: string;
-}) => Promise<GuestOrderModelResponse>;
+}) => Promise<OrderDataModel | null>;
 //# sourceMappingURL=getGuestOrder.d.ts.map

@@ -5,7 +5,5 @@ export declare const useOrdersList: ({ ordersInMinifiedView, minifiedView, pageS
     loading: boolean;
     orderHistoryListItems: OrderDetails[];
     pageInfo: {};
-    selectedId: string;
-    handleSelectId: (id: string) => void;
 };
 //# sourceMappingURL=useOrdersList.d.ts.map

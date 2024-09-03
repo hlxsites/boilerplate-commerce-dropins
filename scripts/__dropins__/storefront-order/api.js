@@ -1,13 +1,52 @@
-import{Initializer as O}from"@dropins/tools/lib.js";import{events as y}from"@dropins/tools/event-bus.js";import{O as c,a as h,A as l,f as p,h as g,b as _,t as D}from"./chunks/getGuestOrder.js";import{g as x,e as F,r as L,s as Q,c as q,d as z}from"./chunks/getGuestOrder.js";import"@dropins/tools/fetch-graphql.js";const b=`
+import{Initializer as p}from"@dropins/tools/lib.js";import{events as i}from"@dropins/tools/event-bus.js";import{O as d,a as n,A as o,f as m,h as c,t as u,b as _,c as h}from"./chunks/getGuestOrder.js";import{g as B,i as $,r as v,s as N,d as S,e as A}from"./chunks/getGuestOrder.js";import"@dropins/tools/fetch-graphql.js";const O=`
 query ORDER_BY_NUMBER($orderNumber: String!) {
   customer {
     orders(
     filter: {number: {eq: $orderNumber}},
     ) {
       items {
+        available_actions
+        status
+        number
+        id
+        order_date
+        carrier
         shipping_method
+        is_virtual
+        applied_coupons {
+          code
+        }
+        shipments {
+        id
+        tracking {
+          title
+          number
+        }
+        comments {
+          message
+          timestamp
+        }
+        items {
+          id
+          product_sku
+          product_name
+          order_item {
+            ...OrderItems
+            ... on GiftCardOrderItem {
+              gift_card {
+                recipient_name
+                recipient_email
+                sender_name
+                sender_email
+                message
+              }
+            }
+          }
+         }
+      }
         payment_methods {
           name
+          type
         }
         shipping_address {
         ...AddressesList
@@ -15,12 +54,18 @@ query ORDER_BY_NUMBER($orderNumber: String!) {
         billing_address {
         ...AddressesList
         }
-        number
-        id
-        order_date
-        carrier
         items {
           ...OrderItems
+          ... on GiftCardOrderItem {
+            __typename
+            gift_card {
+              recipient_name
+              recipient_email
+              sender_name
+              sender_email
+              message
+            }
+          }
         }
         total {
         ...OrderSummary
@@ -29,36 +74,88 @@ query ORDER_BY_NUMBER($orderNumber: String!) {
     }
   }
 }
-${c}
-${h}
-${l}
-`,E=r=>{const{shipping_address:e,billing_address:t,payment_methods:s,gift_receipt_included:d,order_date:n,shipping_method:o,total:a,gift_wrapping:i,gift_message:u,items:m}=r;return{defaultShipping:e,defaultBulling:t,paymentMethods:s,giftReceiptIncluded:d,orderDate:n,shippingMethod:o,giftWrapping:i,giftMessage:u,items:m,total:{discount:a==null?void 0:a.discounts,subtotal:a==null?void 0:a.subtotal,totalTax:a==null?void 0:a.total_tax,totalShipping:a==null?void 0:a.total_shipping,grandTotal:a==null?void 0:a.grand_total}}},R=r=>r.total,S=r=>({carrier:r==null?void 0:r.carrier,id:r==null?void 0:r.id,items:r==null?void 0:r.items,number:r==null?void 0:r.number,orderDate:r==null?void 0:r.order_date,paymentMethods:r==null?void 0:r.payment_methods,shippingMethod:r==null?void 0:r.shipping_method}),T=r=>({defaultShipping:r==null?void 0:r.shipping_address,defaultBulling:r==null?void 0:r.billing_address}),k=(r,e)=>{var s,d,n,o,a,i,u;if(!((o=(n=(d=(s=e==null?void 0:e.data)==null?void 0:s.customer)==null?void 0:d.orders)==null?void 0:n.items)!=null&&o.length))return null;const t=(u=(i=(a=e==null?void 0:e.data)==null?void 0:a.customer)==null?void 0:i.orders)==null?void 0:u.items[0];switch(r){case"orderData":return E(t);case"orderSummary":return R(t);case"orderStatus":return S(t);case"orderCustomerInformation":return T(t);default:return null}},B=async(r,e)=>await p(b,{method:"GET",cache:"force-cache",variables:{orderNumber:r}}).then(t=>{var s;return(s=t.errors)!=null&&s.length?g(t.errors):k(e||"orderData",t)}).catch(_),I=`
+${d}
+${n}
+${o}
+`,g=async(e,r)=>await m(O,{method:"GET",cache:"force-cache",variables:{orderNumber:e}}).then(t=>{var a;return(a=t.errors)!=null&&a.length?c(t.errors):u(r??"orderData",t)}).catch(_),y=`
 query ORDER_BY_TOKEN($token: String!) {
-    guestOrderByToken( input: {token: $token} ) {
-        shipping_method
-        payment_methods {
-          name
-        }
-        shipping_address {
-        ...AddressesList
-        }
-        billing_address {
-        ...AddressesList
-        }
+  guestOrderByToken(input: { token: $token }) {
+    email
+    id
+    number
+    order_date
+    status
+    token
+    carrier
+    shipping_method
+    printed_card_included
+    gift_receipt_included
+    available_actions
+    is_virtual
+    payment_methods {
+      name
+      type
+    }
+    applied_coupons {
+      code
+    }
+    shipments {
+      id
+      tracking {
+        title
         number
+      }
+      comments {
+        message
+        timestamp
+      }
+      items {
         id
-        order_date
-        carrier
-        token
-        items {
+        product_sku
+        product_name
+        order_item {
           ...OrderItems
+          ... on GiftCardOrderItem {
+            gift_card {
+              recipient_name
+              recipient_email
+              sender_name
+              sender_email
+              message
+            }
+          }
         }
-        total {
-        ...OrderSummary
+      }
+    }
+    payment_methods {
+      name
+      type
+    }
+    shipping_address {
+      ...AddressesList
+    }
+    billing_address {
+      ...AddressesList
+    }
+    items {
+      ...OrderItems
+      ... on GiftCardOrderItem {
+        __typename
+        gift_card {
+          recipient_name
+          recipient_email
+          sender_name
+          sender_email
+          message
+        }
+      }
+    }
+    total {
+      ...OrderSummary
     }
   }
 }
-${c}
-${h}
-${l}
-`,M=async r=>await p(I,{method:"GET",cache:"no-cache",variables:{token:r}}).then(e=>{var t;return(t=e.errors)!=null&&t.length?g(e.errors):D(e)}).catch(_),$=async r=>{let e=null;const t=(r==null?void 0:r.orderId)||"",s=(r==null?void 0:r.orderToken)||"";if(!t&&!s){console.error("Order Token or ID not received.");return}if(t&&s){console.error("Error: You cannot pass both id and token together. You should pass only one identifier.");return}t&&(e=await B(t,"orderData")),s&&(e=await M(s)),y.emit("order/data",e)},f=new O({init:async r=>{const e={};f.config.setConfig({...e,...r}),$(r).catch(console.error)},listeners:()=>[]}),Y=f.config;export{Y as config,p as fetchGraphQl,x as getConfig,F as getGuestOrder,B as getOrderDetailsById,M as guestOrderByToken,f as initialize,L as removeFetchGraphQlHeader,Q as setEndpoint,q as setFetchGraphQlHeader,z as setFetchGraphQlHeaders};
+${d}
+${n}
+${o}
+`,f=async e=>await m(y,{method:"GET",cache:"no-cache",variables:{token:e}}).then(r=>{var t;return(t=r.errors)!=null&&t.length?c(r.errors):h(r)}).catch(_),E=async e=>{let r=null;const t=(e==null?void 0:e.orderId)||"",a=(e==null?void 0:e.orderToken)||"",s=(e==null?void 0:e.preloadedData)||null;if(s){i.emit("order/data",s);return}if(!t&&!a){console.error("Order Token or ID not received.");return}if(t&&a){console.error("Error: You cannot pass both id and token together. You should pass only one identifier.");return}t&&(r=await g(t,"orderData")),a&&(r=await f(a)),i.emit("order/data",r)},l=new p({init:async e=>{const r={};l.config.setConfig({...r,...e}),E(e).catch(console.error)},listeners:()=>[]}),I=l.config;export{I as config,m as fetchGraphQl,B as getConfig,$ as getGuestOrder,g as getOrderDetailsById,f as guestOrderByToken,l as initialize,v as removeFetchGraphQlHeader,N as setEndpoint,S as setFetchGraphQlHeader,A as setFetchGraphQlHeaders};
