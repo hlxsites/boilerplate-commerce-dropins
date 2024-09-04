@@ -27,41 +27,54 @@ const renderSignIn = async (element, email, orderNumber) => authRenderer.render(
     primaryButtonText: 'View order',
   },
   routeForgotPassword: () => 'reset-password.html',
-  routeRedirectOnSignIn: () => `/customer/order?orderNumber=${orderNumber}`,
+  routeRedirectOnSignIn: () => `/customer/order?orderRef=${orderNumber}`,
 })(element);
 
 export default async function decorate(block) {
+  const isAuthenticated = !!getCookie('auth_dropin_user_token');
+
   const currentUrl = new URL(window.location.href);
-  const orderToken = currentUrl.searchParams.get('token');
+  const orderRef = currentUrl.searchParams.get('orderRef');
+  const orderToken = orderRef && orderRef.length > 20 ? orderRef : null;
+  const orderNumber = orderRef && orderRef.length < 20 ? orderRef : null;
 
   events.on('order/data', async (orderData) => {
-    const isAuthenticated = !!getCookie('auth_dropin_user_token');
+    const isAuthenticatedOnDataEvent = !!getCookie('auth_dropin_user_token');
 
-    if (isAuthenticated) {
+    if (isAuthenticatedOnDataEvent) {
       const isOrderBelongsToCustomer = await checkIsOrderBelongsToCustomer(orderData.email);
 
       if (isOrderBelongsToCustomer) {
-        window.location.href = `/customer/order?orderNumber=${orderData.number}`;
+        window.location.href = `/customer/order?orderRef=${orderData.number}`;
       } else {
-        window.location.href = `/orderstatus/order?orderToken=${orderData.token}`;
+        window.location.href = `/order-status?orderRef=${orderData.token}`;
       }
     } else {
-      console.log(orderData);
-
-      window.location.href = `/orderstatus/order?orderToken=${orderData.token}`;
+      window.location.href = `/order-status?orderRef=${orderData.token}`;
     }
   });
 
   if (orderToken) {
-    // If error occurs during initialisation (e.g.: incorrect token) - redirect to /orderstatus
     events.on('order/error', () => {
-      window.location.href = '/orderstatus';
+      const isAuthenticatedOnErrorEvent = !!getCookie('auth_dropin_user_token');
+
+      if (isAuthenticatedOnErrorEvent) {
+        window.location.href = '/customer/orders';
+      } else {
+        window.location.href = '/order-status/search';
+      }
     });
 
     // Initialize order data if token provided
     initializers.register(orderApi.initialize, {
       orderToken,
     });
+  } else if (orderNumber) {
+    if (isAuthenticated) {
+      window.location.href = `/customer/order?orderRef=${orderNumber}`;
+    } else {
+      await renderSignIn(block, '', orderNumber);
+    }
   } else {
     await orderRenderer.render(OrderSearch, {
       onError: async (errorInformation) => {
@@ -73,7 +86,7 @@ export default async function decorate(block) {
           const isOrderBelongsToCustomer = await checkIsOrderBelongsToCustomer(email);
 
           if (isOrderBelongsToCustomer) {
-            window.location.href = `/customer/order?orderNumber=${number}`;
+            window.location.href = `/customer/order?orderRef=${number}`;
           } else {
             await renderSignIn(block, email, number);
           }
