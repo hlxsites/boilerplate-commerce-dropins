@@ -20,7 +20,7 @@ export declare class RecaptchaModule {
     _recaptchaScriptUrl: string;
     _configStorageKey: string;
     _logger: boolean;
-    _updateBadge(badgeId: string, config: ReCaptchaV3Model): Promise<void | null>;
+    _updateBadgePosition(badgeId: string, config: ReCaptchaV3Model): Promise<void | null>;
     _addRecaptchaScript(): Promise<void>;
     _fetchStoreConfig(): Promise<ReCaptchaV3Response | undefined>;
     _loadConfig(): Promise<ReCaptchaV3Model | null>;
