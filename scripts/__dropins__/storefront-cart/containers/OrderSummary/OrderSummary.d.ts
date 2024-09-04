@@ -1,6 +1,6 @@
-import { HTMLAttributes } from 'preact/compat';
-import { Container, SlotProps } from '@dropins/tools/types/elsie/src/lib';
 import { CartModel } from '../../data/models';
+import { Container, SlotProps } from '@dropins/tools/types/elsie/src/lib';
+import { HTMLAttributes } from 'preact/compat';
 
 interface CheckoutRouteContext {
     cartId: string;
