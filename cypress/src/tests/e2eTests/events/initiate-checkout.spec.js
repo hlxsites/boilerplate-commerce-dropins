@@ -1,3 +1,4 @@
+import { products } from '../../../fixtures';
 /**
  * https://github.com/adobe/commerce-events/blob/main/examples/events/initiate-checkout.md
  *
@@ -5,7 +6,7 @@
  */
 it("is sent on mini cart Checkout button click", () => {
   cy.visit(
-    "/products/frankie-sweatshirt/MH04?optionsUIDs=Y29uZmlndXJhYmxlLzE4Ni8xNzk%3D%2CY29uZmlndXJhYmxlLzkzLzY5"
+    products.configurable.urlPathWithOptions
   );
   cy.waitForResource("commerce-events-collector.js").then(() => {
     cy.window()
@@ -53,7 +54,7 @@ it("is sent on mini cart Checkout button click", () => {
 it("is sent on cart page Checkout button click", () => {
   // add item to cart
   cy.visit(
-    "/products/frankie-sweatshirt/MH04?optionsUIDs=Y29uZmlndXJhYmxlLzE4Ni8xNzk%3D%2CY29uZmlndXJhYmxlLzkzLzY5"
+    products.configurable.urlPathWithOptions
   );
   // add to cart
   cy.get("span:contains('Add to Cart')").should("be.visible").click();
