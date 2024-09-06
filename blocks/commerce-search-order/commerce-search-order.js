@@ -23,11 +23,11 @@ const renderSignIn = async (element, email, orderNumber) => authRenderer.render(
   initialEmailValue: email,
   renderSignUpLink: false,
   labels: {
-    formTitleText: 'Enter your password to view order details',
+    formTitleText: email ? 'Enter your password to view order details' : 'Sign in to view order details',
     primaryButtonText: 'View order',
   },
   routeForgotPassword: () => 'reset-password.html',
-  routeRedirectOnSignIn: () => `/customer/order?orderRef=${orderNumber}`,
+  routeRedirectOnSignIn: () => `/customer/order-details?orderRef=${orderNumber}`,
 })(element);
 
 export default async function decorate(block) {
@@ -45,33 +45,24 @@ export default async function decorate(block) {
       const isOrderBelongsToCustomer = await checkIsOrderBelongsToCustomer(orderData.email);
 
       if (isOrderBelongsToCustomer) {
-        window.location.href = `/customer/order?orderRef=${orderData.number}`;
-      } else {
-        window.location.href = `/order-status?orderRef=${orderData.token}`;
+        window.location.href = `/customer/order-details?orderRef=${orderData.number}`;
+      } else  {
+        if (!orderToken) {
+          window.location.href = `/order-details?orderRef=${orderData.token}`;
+        }
       }
     } else {
-      window.location.href = `/order-status?orderRef=${orderData.token}`;
+      if (!orderToken) {
+        window.location.href = `/order-details?orderRef=${orderData.token}`;
+      }
     }
   });
 
   if (orderToken) {
-    events.on('order/error', () => {
-      const isAuthenticatedOnErrorEvent = !!getCookie('auth_dropin_user_token');
-
-      if (isAuthenticatedOnErrorEvent) {
-        window.location.href = '/customer/orders';
-      } else {
-        window.location.href = '/order-status/search';
-      }
-    });
-
-    // Initialize order data if token provided
-    initializers.register(orderApi.initialize, {
-      orderToken,
-    });
+    window.location.href = `/order-details?orderRef=${orderToken}`;
   } else if (orderNumber) {
     if (isAuthenticated) {
-      window.location.href = `/customer/order?orderRef=${orderNumber}`;
+      window.location.href = `/customer/order-details?orderRef=${orderNumber}`;
     } else {
       await renderSignIn(block, '', orderNumber);
     }
@@ -86,8 +77,9 @@ export default async function decorate(block) {
           const isOrderBelongsToCustomer = await checkIsOrderBelongsToCustomer(email);
 
           if (isOrderBelongsToCustomer) {
-            window.location.href = `/customer/order?orderRef=${number}`;
+            window.location.href = `/customer/order-details?orderRef=${number}`;
           } else {
+            // TODO add url param without reload orderRef - number
             await renderSignIn(block, email, number);
           }
 
