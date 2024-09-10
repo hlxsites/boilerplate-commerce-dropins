@@ -1,4 +1,4 @@
-import { Icon } from '@dropins/tools/components.js';
+import { Icon, provider as uiProvider } from '@dropins/tools/components.js';
 import { render as accountRenderer } from '@dropins/storefront-account/render.js';
 import { loadFragment } from '../fragment/fragment.js';
 
@@ -71,7 +71,7 @@ function createMenuItemContent(title, subtitle) {
 function createMenuItemArrow() {
   const arrowEl = document.createElement('div');
   arrowEl.classList.add('commerce-account-sidebar-item-arrow');
-  accountRenderer.render(Icon, {
+  uiProvider.render(Icon, {
     source: 'ChevronRight',
     size: 32,
   })(arrowEl);
