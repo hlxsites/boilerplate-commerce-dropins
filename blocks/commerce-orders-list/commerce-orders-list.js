@@ -4,7 +4,7 @@ import { render as accountRenderer } from '@dropins/storefront-account/render.js
 import { events } from '@dropins/tools/event-bus.js';
 import { initializers } from '@dropins/tools/initializer.js';
 import * as orderApi from '@dropins/storefront-order/api.js';
-import { OrdersList } from '../../scripts/__dropins__/storefront-account/containers/OrdersList.js';
+import { OrdersList } from '@dropins/storefront-account/containers/OrdersList.js';
 import { getCookie } from '../../scripts/configs.js';
 import { readBlockConfig } from '../../scripts/aem.js';
 
@@ -34,7 +34,7 @@ export default async function decorate(block) {
 
       // Initialize order data if token provided
       initializers.register(orderApi.initialize, {
-        orderId: orderNumberUrlParam,
+        oderNumber: orderNumberUrlParam,
       });
     } else {
       await accountRenderer.render(OrdersList, {

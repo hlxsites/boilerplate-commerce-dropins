@@ -1,7 +1,7 @@
-import{c as n,f as l,h as u,a as m}from"./convertCase.js";import{t as c}from"./transform-customer-address.js";const _=(e,t="en-US",r={})=>{const s={...{day:"2-digit",month:"2-digit",year:"numeric"},...r},a=new Date(e);return isNaN(a.getTime())?"Invalid Date":new Intl.DateTimeFormat(t,s).format(a)},g=e=>{var s,a;if(!((a=(s=e.data)==null?void 0:s.customer)!=null&&a.orders))return null;const{items:t,page_info:r,total_count:i}=e.data.customer.orders;return{items:t.map(o=>{const d={...o,order_date:_(o.order_date),shipping_address:c(o.shipping_address),billing_address:c(o.billing_address)};return n(d,"camelCase",{})}),pageInfo:n(r,"camelCase",{}),totalCount:n(i,"camelCase",{})}},p=`
-  query GET_CUSTOMER_ORDERS_LIST($pageSize: Int) {
+import{c as i,f as l,h as u,a as m}from"./convertCase.js";import{t as c}from"./transform-customer-address.js";const _=(a,t="en-US",o={})=>{const e={...{day:"2-digit",month:"2-digit",year:"numeric"},...o},s=new Date(a);return isNaN(s.getTime())?"Invalid Date":new Intl.DateTimeFormat(t,e).format(s)},p=a=>{var e,s;if(!((s=(e=a.data)==null?void 0:e.customer)!=null&&s.orders))return null;const{items:t,page_info:o,total_count:r}=a.data.customer.orders;return{items:t.map(n=>{const d={...n,order_date:_(n.order_date),shipping_address:c(n.shipping_address),billing_address:c(n.billing_address)};return i(d,"camelCase",{})}),pageInfo:i(o,"camelCase",{}),totalCount:i(r,"camelCase",{})}},g=`
+  query GET_CUSTOMER_ORDERS_LIST($pageSize: Int, $filter: CustomerOrdersFilterInput) {
   customer {
-    orders(pageSize: $pageSize) {
+    orders(pageSize: $pageSize, filter: $filter) {
       page_info {
         page_size
         total_pages
@@ -87,4 +87,4 @@ import{c as n,f as l,h as u,a as m}from"./convertCase.js";import{t as c}from"./t
     }
   }
 }
-`,y=async e=>await l(p,{method:"GET",cache:"no-cache",variables:{pageSize:e}}).then(t=>{var r;return(r=t.errors)!=null&&r.length?u(t.errors):g(t)}).catch(m);export{y as g};
+`,y=async(a,t)=>{const o=t?{order_date:JSON.parse(t)}:{};return await l(g,{method:"GET",cache:"no-cache",variables:{pageSize:100,filter:o}}).then(r=>{var e;return(e=r.errors)!=null&&e.length?u(r.errors):p(r)}).catch(m)};export{y as g};

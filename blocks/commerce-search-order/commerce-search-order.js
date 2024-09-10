@@ -4,10 +4,8 @@ import { SignIn } from '@dropins/storefront-auth/containers/SignIn.js';
 import { OrderSearch } from '@dropins/storefront-order/containers/OrderSearch.js';
 import { render as authRenderer } from '@dropins/storefront-auth/render.js';
 import { render as orderRenderer } from '@dropins/storefront-order/render.js';
-import * as orderApi from '@dropins/storefront-order/api.js';
 import * as authApi from '@dropins/storefront-auth/api.js';
 import { events } from '@dropins/tools/event-bus.js';
-import { initializers } from '@dropins/tools/initializer.js';
 import { getCookie } from '../../scripts/configs.js';
 
 const checkIsOrderBelongsToCustomer = async (orderEmail) => {
@@ -46,15 +44,11 @@ export default async function decorate(block) {
 
       if (isOrderBelongsToCustomer) {
         window.location.href = `/customer/order-details?orderRef=${orderData.number}`;
-      } else  {
-        if (!orderToken) {
-          window.location.href = `/order-details?orderRef=${orderData.token}`;
-        }
-      }
-    } else {
-      if (!orderToken) {
+      } else if (!orderToken) {
         window.location.href = `/order-details?orderRef=${orderData.token}`;
       }
+    } else if (!orderToken) {
+      window.location.href = `/order-details?orderRef=${orderData.token}`;
     }
   });
 
@@ -86,6 +80,8 @@ export default async function decorate(block) {
           // Hide error message
           return false;
         }
+
+        return true;
       },
     })(block);
   }

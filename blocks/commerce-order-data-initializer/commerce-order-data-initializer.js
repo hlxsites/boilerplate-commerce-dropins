@@ -1,9 +1,9 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
-import { getCookie } from '../../scripts/configs.js';
 import { initializers } from '@dropins/tools/initializer.js';
 import * as orderApi from '@dropins/storefront-order/api.js';
 import { events } from '@dropins/tools/event-bus.js';
+import { getCookie } from '../../scripts/configs.js';
 import { readBlockConfig } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
@@ -19,15 +19,15 @@ export default async function decorate(block) {
   const orderNumber = orderRef && orderRef.length < 20 ? orderRef : null;
 
   if (!allowGuestAccess && !isAuthenticated) {
-      if (orderToken) {
-        window.location.href = `/order-details?orderRef=${orderToken}`;
-      } else if (orderNumber) {
-        window.location.href = `/order-status?orderRef=${orderNumber}`;
-      } else {
-        window.location.href =  `/order-status`;
-      }
+    if (orderToken) {
+      window.location.href = `/order-details?orderRef=${orderToken}`;
+    } else if (orderNumber) {
+      window.location.href = `/order-status?orderRef=${orderNumber}`;
+    } else {
+      window.location.href = '/order-status';
+    }
 
-      return;
+    return;
   }
 
   events.on('order/error', () => {
@@ -41,7 +41,7 @@ export default async function decorate(block) {
   });
 
   events.on('order/data', (orderData) => {
-    if(!orderData) {
+    if (!orderData) {
       const isAuthenticatedOnDataEvent = !!getCookie('auth_dropin_user_token');
 
       if (isAuthenticatedOnDataEvent) {
@@ -50,7 +50,7 @@ export default async function decorate(block) {
         window.location.href = '/order-status';
       }
     }
-  })
+  });
 
   if (orderNumber && !isAuthenticated) {
     window.location.href = `/order-status?orderRef=${orderNumber}`;
@@ -59,7 +59,7 @@ export default async function decorate(block) {
       window.location.href = `/customer/order-details?orderRef=${orderNumber}`;
     } else {
       initializers.register(orderApi.initialize, {
-        orderId: orderNumber,
+        orderNumber,
       });
     }
   }

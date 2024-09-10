@@ -29,9 +29,15 @@ declare const _default: {
       },
       "fullSizeView": {
         "containerTitle": "Your orders",
+        "titleSelectOrder": "Date order placed",
         "OrdersListCard": {
           "orderNumber": "Order number:",
           "itemsAmount": "items"
+        },
+        "OrdersListSelectDate":{
+          "pastSixMonths": "Past 6 months",
+          "currentYear": "Current year",
+          "viewAll": "View all"
         }
       }
     },
