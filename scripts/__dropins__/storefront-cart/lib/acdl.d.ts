@@ -16,6 +16,7 @@ export declare const events: {
     ADD_TO_CART: string;
     REMOVE_FROM_CART: string;
     SHOPPING_CART_VIEW: string;
+    INITIATE_CHECKOUT: string;
 };
 export declare function getAdobeDataLayer(): any;
 export declare function publishOpenCartEvent(cart: CartModel, addedItems: Item[], locale: string): void;
@@ -23,4 +24,5 @@ export declare function publishShoppingCartViewEvent(cart: CartModel, locale: st
 export declare function publishCartUpdateEvents(cart: CartModel, updatedItems: {
     uid: string;
 }[], locale: string): void;
+export declare function publishInitiateCheckoutEvent(cart: CartModel, locale?: string): void;
 //# sourceMappingURL=acdl.d.ts.map

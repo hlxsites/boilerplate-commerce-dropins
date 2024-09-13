@@ -1,4 +1,5 @@
-.commerce-login-container {
+main .commerce-login-container {
     max-width: 700px;
-    margin: auto;
+    margin: 40px auto;
+    width: 100%;
 }

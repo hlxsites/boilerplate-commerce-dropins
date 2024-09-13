@@ -8,31 +8,22 @@ import {
   decorateIcons,
   decorateSections,
   decorateTemplateAndTheme,
-  loadBlocks,
-  loadCSS,
   loadFooter,
   loadHeader,
-  sampleRUM,
-  waitForLCP,
   getMetadata,
   loadScript,
   toCamelCase,
   toClassName,
   readBlockConfig,
+  waitForFirstImage,
+  loadSection,
+  loadSections,
+  loadCSS,
+  sampleRUM,
 } from './aem.js';
 import { getProduct, getSkuFromUrl, trackHistory } from './commerce.js';
 import initializeDropins from './dropins.js';
 import { loadFragment } from '../blocks/fragment/fragment.js';
-
-const LCP_BLOCKS = [
-  'product-list-page',
-  'product-list-page-custom',
-  'product-details',
-  'commerce-cart',
-  'commerce-checkout',
-  'commerce-account',
-  'commerce-login',
-]; // add your LCP blocks to the list
 
 const AUDIENCES = {
   mobile: () => window.innerWidth < 600,
@@ -288,6 +279,9 @@ async function loadEager(doc) {
       minXOffset: 0,
       minYOffset: 0,
     },
+    shoppingCartContext: {
+      totalQuantity: 0,
+    },
   });
   if (pageType !== 'Product') {
     window.adobeDataLayer.push((dl) => {
@@ -305,12 +299,12 @@ async function loadEager(doc) {
 
     // Load LCP blocks
     document.body.classList.add('appear');
-
-    // Wait for LCP
-    await waitForLCP(LCP_BLOCKS);
+    await loadSection(main.querySelector('.section'), waitForFirstImage);
   }
 
   events.emit('eds/lcp', true);
+
+  sampleRUM.enhance();
 
   try {
     /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
@@ -330,7 +324,7 @@ async function loadLazy(doc) {
   autolinkModals(doc);
 
   const main = doc.querySelector('main');
-  await loadBlocks(main);
+  await loadSections(main);
 
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
@@ -350,10 +344,6 @@ async function loadLazy(doc) {
 
   trackHistory();
 
-  sampleRUM('lazy');
-  sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
-  sampleRUM.observe(main.querySelectorAll('picture > img'));
-
   // Implement experimentation preview pill
   if ((getMetadata('experiment')
     || Object.keys(getAllMetadata('campaign')).length
@@ -362,6 +352,8 @@ async function loadLazy(doc) {
     const { loadLazy: runLazy } = await import('../plugins/experimentation/src/index.js');
     await runLazy(document, { audiences: AUDIENCES }, pluginContext);
   }
+  loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
+  loadFonts();
 }
 
 /**
